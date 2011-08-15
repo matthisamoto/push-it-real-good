@@ -2,8 +2,21 @@ body {
 	text-align:center;
 	font-family:  Helvetica, Arial, sans-serif;
 	color:#111; }
+a:link, a:visited, a:hover {
+	color:#961A37;
+	text-decoration:none; }
+a:hover {	
+	border-bottom: dotted thin #961A37; }
+	
+.no-underline:hover {
+	border:none; }
 
-
+/*  Home Page  */
+.push-it {
+	margin:0 auto;
+	width:1000px;
+	margin-top:80px; }
+	
 /*  Search Page  */
 .search {
 	width:1000px;
@@ -11,9 +24,10 @@ body {
 	text-align:left;
 	padding:20px 0; }
 .track {
-	font-size:200%;
 	padding: 20px 0;
 	border-bottom: dotted thin #111; }
+.track p{
+	font-size:200%; }
 .track-title {
 	text-transform: uppercase;
 	font-family: "Helvetica", Arial, sans-serif;

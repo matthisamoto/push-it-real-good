@@ -3,10 +3,10 @@
   <div class="tracks">
     <% @tracks.each do |track| %>
 	<div class="track">
-	  <p><span class="track-title"><%= track.title %></span><span class="track-artist"> from <%= track.user.username %></span></p>
+	  <p><span class="track-title"><%= track.title %></span><span class="track-artist"> from <a href="<%= track.user.permalink_url %>" target="_blank"><%= track.user.username %></a></span></p>
 	  <a href="<%= track.permalink_url %>" class="sc-player" ><%= track.title %></a>
 	  <a href="<%= track.permalink_url %>" class="link-out" target="_blank">See Track on SoundCloud</a>
-	  <code><pre><%= track %></pre></code>
+	  <!-- <%= track %> -->
 	</div>
     <% end %>
   </div>

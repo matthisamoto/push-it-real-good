@@ -1,6 +1,16 @@
-<div class="tracks">
-
-		<a href="<%= @track.permalink_url %>" class="sc-player" ><%= @track.title %></a>
-
+<div class="push-it">
+  <a href="<%= @track.permalink_url %>" class="play no-underline" ><img src="images/button.png" alt="Button" class ="button" /></a>
+  <!-- <%= @track.to_a %> -->
+  <script type="text/javascript">
+	var clip = document.createElement('audio');
+	clip.src = "<%= @track.stream_url %>";
+	clip.load();
+	clip.autobuffer = true;
+	clip.preload = 'auto';
+    $('.push-it').append(clip);
+    $('.play').click( function(e) {
+	  e.preventDefault();
+	  clip.play();
+    });
+  </script>
 </div>
-
