@@ -1,0 +1,24 @@
+body {
+	text-align:center;
+	font-family:  Helvetica, Arial, sans-serif;
+	color:#111; }
+
+
+/*  Search Page  */
+.search {
+	width:1000px;
+	margin: 0 auto;
+	text-align:left;
+	padding:20px 0; }
+.track {
+	font-size:200%;
+	padding: 20px 0;
+	border-bottom: dotted thin #111; }
+.track-title {
+	text-transform: uppercase;
+	font-family: "Helvetica", Arial, sans-serif;
+	font-weight: bold; }
+.track-artist {
+	font-style: italic;
+	font-size:80%;
+	font-family: "Georgia", "Times New Roman", Times, serif; }

@@ -1,0 +1,20 @@
+<div class="search">
+  <h1 class="header">Keyword Search: <%= @keyword %></h1>
+  <div class="tracks">
+    <% @tracks.each do |track| %>
+	<div class="track">
+	  <p><span class="track-title"><%= track.title %></span><span class="track-artist"> from <%= track.user.username %></span></p>
+	  <a href="<%= track.permalink_url %>" class="sc-player" ><%= track.title %></a>
+	  <a href="<%= track.permalink_url %>" class="link-out" target="_blank">See Track on SoundCloud</a>
+	  <code><pre><%= track %></pre></code>
+	</div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+$.scPlayer.defaults.onDomReady = function(){
+  $('a.sc-player').scPlayer();
+};
+</script>
+

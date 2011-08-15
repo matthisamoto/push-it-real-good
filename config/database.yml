@@ -1,0 +1,21 @@
+development:
+  adapter: mysql2
+  reconnect: false
+  database: push_it_real_good_development
+  username: root
+  password: d3pl0y
+  socket: /tmp/mysql.sock
+test:
+  adapter: mysql2
+  reconnect: false
+  database: push_it_real_good_test
+  username: root
+  password: d3pl0y
+  socket: /tmp/mysql.sock
+production:
+  adapter: mysql2
+  reconnect: false
+  database: push_it_real_good_production
+  username: root
+  password: d3pl0y
+  socket: /var/run/mysqld/mysqld.sock
