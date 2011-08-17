@@ -31,6 +31,7 @@ GEM
       activesupport (= 3.1.0.rc2)
     activesupport (3.1.0.rc2)
       multi_json (~> 1.0)
+    addressable (2.2.6)
     ansi (1.3.0)
     arel (2.1.4)
     bcrypt-ruby (2.1.4)
@@ -43,6 +44,10 @@ GEM
     erubis (2.7.0)
     execjs (1.2.4)
       multi_json (~> 1.0)
+    faraday (0.7.4)
+      addressable (~> 2.2.6)
+      multipart-post (~> 1.1.0)
+      rack (>= 1.1.0, < 2)
     hashie (1.1.0)
     hike (1.2.0)
     httmultiparty (0.3.2)
@@ -62,6 +67,7 @@ GEM
     multi_json (1.0.3)
     multipart-post (1.1.3)
     mysql2 (0.3.6)
+    oauth (0.4.5)
     polyglot (0.3.2)
     rack (1.3.2)
     rack-cache (1.0.2)
@@ -93,6 +99,7 @@ GEM
       railties (~> 3.1.0.rc1)
       sass (>= 3.1.4)
       sprockets (>= 2.0.0.beta.9)
+    simple_oauth (0.1.5)
     soundcloud (0.2.5)
       hashie
       httmultiparty (~> 0.3.0)
@@ -112,6 +119,11 @@ GEM
     uglifier (1.0.0)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    youtube_it (2.0.0)
+      builder
+      faraday (>= 0.7.3)
+      oauth (>= 0.4.4)
+      simple_oauth (>= 0.1.5)
 
 PLATFORMS
   ruby
@@ -126,3 +138,4 @@ DEPENDENCIES
   sprockets (= 2.0.0.beta.12)
   turn
   uglifier
+  youtube_it
