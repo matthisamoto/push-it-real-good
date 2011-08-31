@@ -1,15 +1,16 @@
-<<<<<<< HEAD
 <div class="push-it">
-  <a href="#" id="play" class="play no-underline"><img src="images/button.png" alt="Button" class ="button" /></a>
-
-  <!--<audio style="width:100%; height:15px" src="http://media.soundcloud.com/stream/4JFklbxkjGrz?url=http%3A//api.soundcloud.com/tracks/12156669" controls preload="auto"></audio>-->
-	
-  <!--<%= @track.to_a %>-->
-
-  <script type="text/javascript">
-
-  </script>
+<a href="<%= @track.permalink_url %>" class="play no-underline" ><img src="images/button.png" alt="Button" class ="button" /></a>
+<!-- <%= @track.to_a %> -->
+<script type="text/javascript">
+var clip = document.createElement('audio');
+clip.src = "<%= @track.stream_url %>";
+clip.load();
+clip.autobuffer = true;
+clip.preload = 'auto';
+$('.push-it').append(clip);
+$('.play').click( function(e) {
+	e.preventDefault();
+	clip.play();
+	});
+	</script>
 </div>
-=======
-
->>>>>>> parent of dd94455... added audio (broken)
