@@ -1,10 +1,30 @@
 body {
 	text-align:center;
 	font-family:  Helvetica, Arial, sans-serif;
-	color:#111; }
-	
+	color:#111;
+}
+.nav_bar {
+	display:block;
+	padding:5px;
+	background-color:#eee;
+}
+.session_status {
+	float: right;
+}
 .push-it {
 	margin-top:50px;
+}
+
+/* Registration Page */
+
+.registration {
+	padding:20px 0;
+}
+.registration h2 {
+	padding:10px 0;
+}
+.registration p {
+	margin-bottom:10px;
 }
 
 

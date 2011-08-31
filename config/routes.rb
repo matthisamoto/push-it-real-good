@@ -1,6 +1,10 @@
 PushItRealGood::Application.routes.draw do
-  resources :test
+  
+  
+  
+  #resources :test
   root :to => 'test#show'
-  match 'search(/:terms(.:format))' => 'test#search'
-  match ':controller(/:action(/:terms(.:format)))'
+  devise_for :users
+  # match 'search(/:terms(.:format))' => 'test#search'
+  # match ':controller(/:action(/:terms(.:format)))'
 end

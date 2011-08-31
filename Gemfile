@@ -2,16 +2,14 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0.rc2'
 
-gem 'sprockets', '= 2.0.0.beta.12'
+gem 'sprockets', '= 2.0.0.beta.10'
 
-
+gem 'devise'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-
-gem 'youtube_it'
 
 gem 'soundcloud'
 
