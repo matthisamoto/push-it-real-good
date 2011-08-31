@@ -14,16 +14,15 @@ set :branch, 'master'
 set :user, 'matt'
 
 set :use_sudo, false
-set :deploy_to, "/home/matt/sites/#{application}"
+set :deploy_to, "/home/matt/sites/pushitrealgood"
 set :deploy_via, :copy
-set :copy_remote_dir, "/home/matt/sites/#{application}/tmp"
+set :copy_remote_dir, "/home/matt/sites/pushitrealgood/tmp"
 set :copy_exclude, [".git"]
 
 role :web, 'pushitrealgood.com'                          # Your HTTP server, Apache/etc
 role :app, 'pushitrealgood.com'                          # This may be the same as your `Web` server
 role :db,  'pushitrealgood.com', :primary => true # This is where Rails migrations will run
 
-set :deploy_to, '/home/matt/sites/#{application}'
 
 namespace :deploy do
   task :start do ; end
