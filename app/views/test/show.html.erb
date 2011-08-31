@@ -1,16 +1,17 @@
 <div class="push-it">
-<a href="<%= @track.permalink_url %>" class="play no-underline" ><img src="images/button.png" alt="Button" class ="button" /></a>
-<!-- <%= @track.to_a %> -->
+  <a href="<%= @track.permalink_url %>" class="play no-underline" ><img src="images/button.png" alt="Button" class ="button" /></a>
+  <!-- <%= @track.to_a %> -->
+</div>
+
 <script type="text/javascript">
-var clip = document.createElement('audio');
-clip.src = "<%= @track.stream_url %>";
-clip.load();
-clip.autobuffer = true;
-clip.preload = 'auto';
-$('.push-it').append(clip);
-$('.play').click( function(e) {
+  var clip = document.createElement('audio');
+  clip.src = "<%= @track.stream_url %>?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
+  clip.load();
+  clip.autobuffer = true;
+  clip.preload = 'auto';
+  $('.push-it').append(clip);
+  $('.play').click( function(e) {
 	e.preventDefault();
 	clip.play();
-	});
-	</script>
-</div>
+  });
+</script>
