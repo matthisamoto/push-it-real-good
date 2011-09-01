@@ -1,5 +1,0 @@
-if [[ -s "/home/matt/.rvm/environments/ruby-1.9.2-p180@global" ]] ; then
-  . "/home/matt/.rvm/environments/ruby-1.9.2-p180@global"
-else
-  rvm --create use  "ruby-1.9.2-p180@global"
-fi
