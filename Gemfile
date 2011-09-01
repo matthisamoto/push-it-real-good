@@ -1,10 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc2'
+gem 'rails', '3.1.0'
 
-gem 'rack', '1.3.0'
-
-gem 'sprockets', '= 2.0.0.beta.10'
+gem 'sprockets', '= 2.0.0'
 
 gem 'devise'
 
@@ -16,7 +14,7 @@ gem 'mysql2'
 gem 'soundcloud'
 
 # Asset template engines
-gem 'sass-rails', "~> 3.1.0.rc"
+gem 'sass-rails', "3.1.0"
 gem 'coffee-script'
 gem 'uglifier'
 
