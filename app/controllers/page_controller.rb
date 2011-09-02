@@ -4,15 +4,25 @@ class PageController < ApplicationController
     @page = Page.find(:first, :conditions => { "title_url" => params[:page] } )
   end
   
+  def show
+    @page = Page.find(:first, :conditions => { "title_url" => params[:id] } )
+  end
+  
+  def user
+    user = User.find(:first, :conditions => { "username" => params[:user] })
+    @pages = Page.where(:user_id => user.id)
+  end
+  
   def new
     @page = Page.new
   end
   
   def create
-    @page = Page.new(params[:page], :user_id => current_user.id)
+    @page = Page.new(params[:page])
+    @page.user_id = current_user.id
     if @page.save
       flash[:notice] = "Successfully Created Page \"#{@page.title_url}\""
-      redirect_to("/#{@page.title_url}")
+      redirect_to("/page/#{@page.title_url}")
     else
       render('new')
     end

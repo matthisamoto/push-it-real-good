@@ -3,11 +3,11 @@ PushItRealGood::Application.routes.draw do
   #resources :test
   root :to => 'test#show'
   
-  resources :page
+  
   
   match 'user/:user' => 'page#user'
   
-  match ':page' => 'page#index'
+  resources :page
   
   devise_for :users
   
