@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(:version => 20110902145910) do
   end
 
   create_table "pages", :force => true do |t|
+    t.string   "sound_url"
+    t.string   "button_url"
+    t.string   "title_url"
+    t.text     "tagline"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

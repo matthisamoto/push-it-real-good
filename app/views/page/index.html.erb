@@ -1,0 +1,21 @@
+<%= params[:page] %>
+
+<%= @page.tagline %>
+
+<div class="push-it">
+  <a href="#" class="play no-underline" ><img src="images/<%= @page.button_url %>" alt="Button" class ="button" /></a>
+  <!-- <%= @track.to_a %> -->
+</div>
+
+<script type="text/javascript">
+  var clip = document.createElement('audio');
+  clip.src = "<%= @page.sound_url %>?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
+  clip.load();
+  clip.autobuffer = true;
+  clip.preload = 'auto';
+  $('.push-it').append(clip);
+  $('.play').click( function(e) {
+	e.preventDefault();
+	clip.play();
+  });
+</script>
