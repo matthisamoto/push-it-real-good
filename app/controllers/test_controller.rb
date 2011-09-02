@@ -10,5 +10,5 @@ class TestController < ApplicationController
     @tracks = @client.get('/tracks', :limit => "10", :q => params[:terms])
     @keyword = params[:terms]
   end
-    
+
 end
