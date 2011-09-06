@@ -1,16 +1,5 @@
-<div class="nav_bar clearfix">
-  <div class="session_status">
-    <% if user_signed_in? %>
-      Logged in as <%= current_user.username %>. Go to my <%= link_to "profile", "/user/#{current_user.username}" %> | Not you?
-      <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
-    <% else %>
-      <%= link_to "Login", new_user_session_path %> or <%= link_to "Register", new_user_registration_path %>
-    <% end %>
-  </div>
-</div>
-
 <%= link_to "Create New Page", new_page_path %>
 <h1> My Pages </h1>
 <% @pages.each do |page| %>
-<p><%=  link_to "Go To #{page.title_url}", "/page/#{page.title_url}" %></p>
+<p>Go To <%=  link_to "#{page.title_url}", "/page/#{page.title_url}" %></p>
 <% end %>

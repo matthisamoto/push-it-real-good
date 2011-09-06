@@ -6,15 +6,18 @@ class PageController < ApplicationController
   
   def show
     @page = Page.find(:first, :conditions => { "title_url" => params[:id] } )
+    render :layout => 'page'
   end
   
   def user
     user = User.find(:first, :conditions => { "username" => params[:user] })
     @pages = Page.where(:user_id => user.id)
+    render :layout => 'application'
   end
   
   def new
     @page = Page.new
+    render :layout => 'application'
   end
   
   def create
@@ -34,6 +37,14 @@ class PageController < ApplicationController
   
   def destroy
 
+  end
+  
+  def about
+    render :layout => 'application'
+  end
+  
+  def legal 
+    render :layout => 'application'
   end
   
 end
