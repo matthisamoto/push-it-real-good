@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110902145910) do
+ActiveRecord::Schema.define(:version => 20110906191215) do
+
+  create_table "buttons", :force => true do |t|
+    t.string   "style_id"
+    t.string   "style_name"
+    t.string   "color"
+    t.string   "filename"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "features", :force => true do |t|
     t.datetime "created_at"
@@ -24,6 +33,12 @@ ActiveRecord::Schema.define(:version => 20110902145910) do
     t.string   "title_url"
     t.text     "tagline"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "styles", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

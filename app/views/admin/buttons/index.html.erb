@@ -1,0 +1,11 @@
+<div class="create-new-button"><%= link_to('New Button', {:action => 'new'}) %></div>
+
+<div class="all-buttons clearfix">
+<% @buttons.each do |button| %>
+	<div class="button-preview">
+	  <p><%= button.style_name %> - <%= button.color %></p>
+	  <p><%= link_to("Delete", { :controller => 'buttons', :action => "destroy", :id => button.id }, :class => 'action delete', :method => "delete") %></p>
+	  <p><%= image_tag("/images/#{button.filename}.png") %></p>
+	</div>
+<% end %>
+</div>

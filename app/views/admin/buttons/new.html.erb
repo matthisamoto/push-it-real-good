@@ -1,0 +1,22 @@
+<%= form_for(:button, :url => {:action => 'create'}) do |f| %>
+  
+  <div class="form-section"><%= f.label "Choose Style" %><br />
+	<span class="choose-style"> <%= select("button", "style_name", @options , {:prompt => 'Choose a Style'})%></span>
+  </div>
+
+  <div class="form-section"><%= f.label "Set Color" %><br />
+  <%= f.text_field :color %></div>
+
+  <div class="form-section"><%= f.submit "Add Button" %></div>
+
+<% end %>
+
+<%= link_to("Cancel", "/admin/buttons", :class => 'form-section') %>
+
+<script type="text/javascript">
+	$("select").change( function () {
+		if($("select option:selected").attr("value") == "new" ) {
+			$('.choose-style').empty().append("<input id=\"button_style_name\" name=\"button[style_name]\" size=\"30\" type=\"text\" />")
+		}
+	} )
+</script>

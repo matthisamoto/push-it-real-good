@@ -1,0 +1,14 @@
+<%= form_for(:button, :url => {:action => 'create'}) do |f| %>
+  
+  <div><%= f.label "Choose Style" %><br />
+  <%= select("button", "style_name", Style.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Choose a Style'})%></div>
+
+  <div><%= f.label "Set Color" %><br />
+  <%= f.text_field :color %></div>
+
+  <div><%= f.label "" %><br />
+  <%= f.text_field :tagline %></div>
+
+  <div><%= f.submit "Add Button" %></div>
+
+<% end %>

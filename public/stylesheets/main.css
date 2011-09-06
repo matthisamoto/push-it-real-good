@@ -6,13 +6,30 @@ body {
 	text-align:center;
 	font-family:  Helvetica, Arial, sans-serif;
 	color:#111; }
-h1 { font-family: 'Bowlby One', sans-serif; }
-.content { padding-bottom: 10.4em; }
+h1 { 
+	font-family: 'Bowlby One', sans-serif;
+	text-transform: uppercase; 
+	font-weight:100;
+	letter-spacing:.1em;
+	font-size:180%; }
+td{
+	padding:5px 10px;
+}
+.content { 
+	width: 960px;
+	padding: 20px 20px 10.4em 20px;
+	margin: 0 auto;
+	text-align: left; }
 
 .nav_bar {
 	display:block;
 	padding:5px;
-	background-color:#eee; }
+	background-color:#333;
+	color:#ccc; }
+.nav_bar a:link, .nav_bar a:visited, .nav_bar a:hover {
+	color:#fff;
+	text-decoration:underline;
+}
 .session_status { float: right; }
 .push-it { margin-top:50px; }
 
@@ -65,3 +82,19 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	font-style: italic;
 	font-size:80%;
 	font-family: "Georgia", "Times New Roman", Times, serif; }
+	
+/* Admin Styles */
+.create-new-button {
+	padding: 10px;
+}
+.button-preview {
+	background-color:#eee;
+	padding:10px;
+	margin:10px;
+	border-radius:5px;
+	display:block;
+	float:left;
+}
+.form-section {
+	margin:10px;
+}

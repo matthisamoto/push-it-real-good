@@ -1,5 +1,16 @@
-<%= link_to "Create New Page", new_page_path %>
-<h1> My Pages </h1>
-<% @pages.each do |page| %>
-<p>Go To <%=  link_to "#{page.title_url}", "/page/#{page.title_url}" %></p>
+<% if @user == current_user %>
+
+	<%= link_to "Create New Page", new_page_path %>
+	<h1> My Pages </h1>
+	<% @pages.each do |page| %>
+	<p>Go To <%=  link_to "#{page.title_url}", "/page/#{page.title_url}" %></p>
+	<% end %>
+
+<% else %>
+
+	<h1> <%= @user.username %>'s Pages </h1>
+	<% @pages.each do |page| %>
+	<p>Go To <%=  link_to "#{page.title_url}", "/page/#{page.title_url}" %></p>
+	<% end %>
+
 <% end %>

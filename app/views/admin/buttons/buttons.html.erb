@@ -1,0 +1,11 @@
+<table cellpadding="5" cellspacing="5">
+
+<% @buttons.each do |button| %>
+	<tr>
+		<td><%= button.id %></td>
+		<td><%= button.style_id %> - <%= button.color %></td>
+		<td><%= link_to("Delete", {:action => 'delete', :id => button.id}, :class => 'action delete') %></td>
+	</tr>
+<% end %>
+
+</table>

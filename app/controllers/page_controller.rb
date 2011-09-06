@@ -1,18 +1,19 @@
 class PageController < ApplicationController
   
-  def index
-    @page = Page.find(:first, :conditions => { "title_url" => params[:page] } )
-  end
-  
   def show
     @page = Page.find(:first, :conditions => { "title_url" => params[:id] } )
     render :layout => 'page'
   end
   
   def user
-    user = User.find(:first, :conditions => { "username" => params[:user] })
-    @pages = Page.where(:user_id => user.id)
-    render :layout => 'application'
+    @user = User.find(:first, :conditions => { "username" => params[:user] })
+    if @user
+      @pages = Page.where(:user_id => @user.id)
+      render :layout => 'application'
+    else
+      render :text => "No Such User, '#{params[:user]}'"
+    end
+    
   end
   
   def new
