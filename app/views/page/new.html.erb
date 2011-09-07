@@ -1,7 +1,10 @@
 <%= form_for(:page, :url => {:action => 'create'}) do |f| %>
   
-  <div class="form-division"><%= f.label "Choose Sound" %><br />
-  <%= f.text_field :sound_url %>
+  <div class="form-division"><%= f.label "Search SoundCloud For Tracks" %><br />
+  <input id="search" name="search_term" size="30" type="text" />
+  <%= link_to("Search", "#", :class => 'search-button') %>
+  <div class="track-name"></div>
+  <div class="id-container"></div>
   </div>
 
   <div class="form-division"><%= f.label "Choose Button Style" %><br />
@@ -20,39 +23,116 @@
 <% end %>
 
 <script type="text/javascript">
+// Create search results container
 
+var count = 0;
+var container = $('<div>', { class: 'search-container' });
+
+// Set up CSRF token to work with AJAX
 var csrf_token = $('meta[name=csrf-token]').attr('content');
-
-function retrieve_colors() {
-  
-  $.post('/retrieve_colors', { style: $("select#button_style_name option:selected").attr("value") }, function(data) {
-	
-    $('.choose-color').empty().append(data);
-
-	preview_image();
-	
-	$("select#page_button_url").change( function () {
-	  preview_image();
-	});
-	
-  });
-}
-function preview_image() {
-	$('.image-preview').empty().append("<image src=\"/images/" + $("select#page_button_url option:selected").attr("value") + ".png\" />");
-}
-
 $("body").bind("ajaxSend", function(elm, xhr, s){
    if (s.type == "POST") {
       xhr.setRequestHeader('X-CSRF-Token', csrf_token);
    }
 });
 
-retrieve_colors();
+// Search Functions
+// var sound = document.createElement('audio');
 
+function add_container() {
+	var clone = container.clone();
+	$('body').prepend(clone);
+}
+
+function create_audio(parent, url) {
+  $('audio').each( function(e) {
+	$(this).remove()
+  });
+  var clip = document.createElement('audio');
+  clip.src = "http://api.soundcloud.com/tracks/" + url + "/stream?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
+  clip.load();
+  clip.autobuffer = true;
+  clip.preload = 'auto';
+  parent.append(clip);
+  clip.play();
+}
+
+function search_soundcloud() {
+  var search_term = $('input#search').val();
+  $.get('http://m.soundcloud.com/_api/tracks/', { q: search_term, limit: 10, client_id: "72325d0b84c6a7f4bbef4dd86c0a5309", format: 'json' }, function(data) {	
+    
+    add_container();
+    var html = "";
+    
+	html += '<div class="search">' + "\n";
+	html += '<h1 class="header">Keyword Search: ' + search_term + '</h1>' + "\n";
+	html += '<div class="tracks">' + "\n";
+	$.each(data, function(i, e) {
+	  html += '<div class="track" id="' + e['id'] + '">' + "\n";
+	  html += '<p><span class="track-title">' + e['title'] + '</span><span class="track-artist"> from ' + e['user']['username'] + '</span></p>' + "\n";
+	  html += '<a href="#" class="play"><img src="/images/play.png" alt="Preview" title="Preview" /></a>' + "\n";
+	  html += '<a href="' + e['permalink_url'] + '" class="link-out" target="_blank">See Track on SoundCloud</a>' + "\n";
+      html += '<a href="#" class="select-track">Use This Track</a>' + "\n";
+	  html += '</div>' + "\n";
+	});
+	html += '</div>' + "\n";
+	html += '</div>' + "\n";
+    $('.search-container').empty().append(html);
+	$('.play').click( function (e){
+	  e.preventDefault();
+	  create_audio($(this).parent(), $(this).parent().attr('id'));
+	})
+	
+	$('.select-track').click( function (e) {
+	  e.preventDefault();
+	  var html = '<input type="hidden" name="page[sound_url]" class="url" value="http://api.soundcloud.com/tracks/' + $(this).parent().attr('id') + '/stream" />';
+	  $('.id-container').empty().append(html);
+	  $('.track-name').empty().append("Added track: " + $(this).parent().find('span.track-title').text())
+	  $('.search-container').remove();
+	});
+	
+  }, "json");
+
+  /*
+  
+  $.post('/search', { term: search_term }, function(data) {
+	add_container();
+    $('.search-container').empty().append(data);
+  });
+  */
+}
+
+
+
+
+
+// Button Functions
+function retrieve_colors() {
+  $.post('/retrieve_colors', { style: $("select#button_style_name option:selected").attr("value") }, function(data) {	
+    $('.choose-color').empty().append(data);
+	preview_image();
+	$("select#page_button_url").change( function () {
+	  preview_image();
+	});
+  });
+}
+function preview_image() {
+	$('.image-preview').empty().append("<image src=\"/images/" + $("select#page_button_url option:selected").attr("value") + ".png\" />");
+}
+
+// OnLoad Actions
+retrieve_colors();
 $("select#button_style_name").change( retrieve_colors );
 
 $("input[type=submit]").click( function () {
 	$('select#button_style_name').attr('disabled','true')
 });
+
+$('.search-button').click( function (e) {
+	e.preventDefault();
+	search_soundcloud();
+});
+
+// add_container();
 
 </script>

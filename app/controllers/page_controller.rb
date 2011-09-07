@@ -22,10 +22,7 @@ class PageController < ApplicationController
     render :layout => 'application'
   end
   
-  def get_buttons
-    @options = Button.find(:all, :conditions => { :style_name => params[:style] } ).collect {|p| [ p.color, p.filename ]}
-    render :partial => 'color_select'
-  end
+  
   
   def create
     @page = Page.new(params[:page])

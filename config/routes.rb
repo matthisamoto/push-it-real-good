@@ -11,8 +11,8 @@ PushItRealGood::Application.routes.draw do
   match 'wtf' => 'page#about'
   match 'legal' => 'page#legal'
   
-  match 'search(/:terms(.:format))' => 'test#search'
-  match 'retrieve_colors' => 'page#get_buttons'
+  match 'search' => 'utility#search'
+  match 'retrieve_colors' => 'utility#get_buttons'
   
   namespace :admin do
     resources :buttons
