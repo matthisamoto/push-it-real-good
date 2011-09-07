@@ -1,0 +1,16 @@
+/* Admin Styles */
+
+.create-new-button {
+	padding: 10px;
+}
+.button-preview {
+	background-color: #eee;
+	padding: 10px;
+	margin: 5px;
+	border-radius: 5px;
+	display: block;
+	float: left;
+}
+.form-section {
+	margin:15px;
+}

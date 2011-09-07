@@ -1,5 +1,7 @@
 class Admin::ButtonsController < ApplicationController
-    
+  
+  layout "admin"
+  
   def index 
     @styles = Style.find(:all)
     @buttons = Button.find(:all)

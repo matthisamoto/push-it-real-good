@@ -57,6 +57,15 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	text-transform:uppercase;
 	color:#eee; }
 
+
+/* Create Page */
+.form-division {
+	display:block;
+	border-bottom: 1px #333 solid;
+	background-color:#eee;
+	min-height:50px;
+	padding:20px;
+}
 /* Registration Page */
 
 .registration { padding:20px 0; }
@@ -83,18 +92,4 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	font-size:80%;
 	font-family: "Georgia", "Times New Roman", Times, serif; }
 	
-/* Admin Styles */
-.create-new-button {
-	padding: 10px;
-}
-.button-preview {
-	background-color:#eee;
-	padding:10px;
-	margin:10px;
-	border-radius:5px;
-	display:block;
-	float:left;
-}
-.form-section {
-	margin:10px;
-}
+
