@@ -37,8 +37,6 @@ $("body").bind("ajaxSend", function(elm, xhr, s){
 });
 
 // Search Functions
-// var sound = document.createElement('audio');
-
 function add_container() {
 	var clone = container.clone();
 	$('body').prepend(clone);
@@ -58,21 +56,31 @@ function create_audio(parent, url) {
 }
 
 function search_soundcloud() {
+	
   var search_term = $('input#search').val();
-  $.get('http://m.soundcloud.com/_api/tracks/', { q: search_term, limit: 10, client_id: "72325d0b84c6a7f4bbef4dd86c0a5309", format: 'json' }, function(data) {	
+  $.get('http://m.soundcloud.com/_api/tracks/', { q: search_term, limit: 10, client_id: "72325d0b84c6a7f4bbef4dd86c0a5309", filter: "streamable", format: 'json' }, function(data) {	
     
     add_container();
     var html = "";
     
 	html += '<div class="search">' + "\n";
+	html += '<a href="#" class="close-results">X - Close</a>' + "\n";
 	html += '<h1 class="header">Keyword Search: ' + search_term + '</h1>' + "\n";
 	html += '<div class="tracks">' + "\n";
 	$.each(data, function(i, e) {
 	  html += '<div class="track" id="' + e['id'] + '">' + "\n";
 	  html += '<p><span class="track-title">' + e['title'] + '</span><span class="track-artist"> from ' + e['user']['username'] + '</span></p>' + "\n";
-	  html += '<a href="#" class="play"><img src="/images/play.png" alt="Preview" title="Preview" /></a>' + "\n";
+	  if(e['streamable'] == true){
+		html += '<a href="#" class="play"><img src="/images/play.png" alt="Preview" title="Preview" /></a>' + "\n";
+	  } else {
+		html += '<img src="/images/not-available.png" alt="Not Available" title="Not Available" />' + "\n";
+	  }
 	  html += '<a href="' + e['permalink_url'] + '" class="link-out" target="_blank">See Track on SoundCloud</a>' + "\n";
-      html += '<a href="#" class="select-track">Use This Track</a>' + "\n";
+	  if(e['streamable'] == true){
+        html += '<a href="#" class="select-track">Use This Track</a>' + "\n";
+	  } else {
+	    html += '<span>This track is not streamable. <a href="#" class="tooltip" onClick="javascript:function(e){e.preventDefault();}">Why?<span>Right now, SoundCloud\'s API does not allow a combination request of search terms and filtering streamable content. If this ever changes, you will not see non-streamable tracks in this list anymore. For now, though, these tracks will appear in our results. We\'re sorry.</span></a></span>';
+	  } 
 	  html += '</div>' + "\n";
 	});
 	html += '</div>' + "\n";
@@ -82,8 +90,12 @@ function search_soundcloud() {
 	  e.preventDefault();
 	  create_audio($(this).parent(), $(this).parent().attr('id'));
 	})
+	$('.close-results').click( function(e) {
+	  e.preventDefault();
+	  $('.search-container').remove();
 	
-	$('.select-track').click( function (e) {
+	});
+	$('.select-track').click( function(e) {
 	  e.preventDefault();
 	  var html = '<input type="hidden" name="page[sound_url]" class="url" value="http://api.soundcloud.com/tracks/' + $(this).parent().attr('id') + '/stream" />';
 	  $('.id-container').empty().append(html);
@@ -93,18 +105,7 @@ function search_soundcloud() {
 	
   }, "json");
 
-  /*
-  
-  $.post('/search', { term: search_term }, function(data) {
-	add_container();
-    $('.search-container').empty().append(data);
-  });
-  */
 }
-
-
-
-
 
 // Button Functions
 function retrieve_colors() {
@@ -132,7 +133,5 @@ $('.search-button').click( function (e) {
 	e.preventDefault();
 	search_soundcloud();
 });
-
-// add_container();
 
 </script>
