@@ -17,12 +17,14 @@ class PageController < ApplicationController
   end
   
   def new
-    @page = Page.new
-    @options = Style.all.collect {|p| [ p.name, p.name ] }
-    render :layout => 'application'
+    if user_signed_in?
+      @page = Page.new
+      @options = Style.all.collect {|p| [ p.name, p.name ] }
+      render :layout => 'application'
+    else
+      redirect_to('/users/sign_in')
+    end
   end
-  
-  
   
   def create
     @page = Page.new(params[:page])
