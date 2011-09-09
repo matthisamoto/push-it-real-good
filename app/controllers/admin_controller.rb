@@ -1,5 +1,7 @@
 class AdminController < ApplicationController
   
+  before_filter :authenticate_user!, :admin?
+  
   def index
     
   end
@@ -30,6 +32,14 @@ class AdminController < ApplicationController
     redirect_to("/admin/buttons")
   end
   
-  
+  private
+    def admin?
+      if user_signed_in?
+        if !current_user.admin?
+          flash[:notice] = 'You do not have access to this section.'
+          redirect_to('/users/sign_in')
+        end
+      end
+    end
   
 end
