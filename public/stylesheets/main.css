@@ -58,6 +58,39 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	color:#eee; }
 
 
+/* User Page */
+
+.whose-pages {
+	display:inline;
+}
+.new-page {
+	float:right;
+}
+.new-page a:link, .new-page a:visited, .new-page a:hover {
+	padding:0 10px;
+	height:2.5em;
+	display:block;
+	line-height:2.5em;
+	border-radius:5px;
+	background-color:#f14306;
+	color:#fff;
+	text-decoration:none;
+}
+.page {
+	padding:10px 0;
+	border-bottom: dashed 1px #333;
+	line-height:1.6em;
+}
+.user-page-url {
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:120%;
+}
+.user-page-tagline {
+	font-style:italic;
+	color:#999;
+}
+
 /* Create Page */
 .form-division {
 	display:block;

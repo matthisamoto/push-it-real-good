@@ -1,16 +1,26 @@
 <% if @user == current_user %>
-
-	<%= link_to "Create New Page", new_page_path %>
-	<h1> My Pages </h1>
-	<% @pages.each do |page| %>
-	<p>Go To <%=  link_to "#{page.title_url}", "/page/#{page.title_url}" %></p>
-	<% end %>
-
+  <% title =  'My Pages' %>
 <% else %>
+  <% title = "#{@user.username}'s Pages" %>
+<% end %>
 
-	<h1> <%= @user.username %>'s Pages </h1>
-	<% @pages.each do |page| %>
-	<p>Go To <%=  link_to "#{page.title_url}", "/page/#{page.title_url}" %></p>
-	<% end %>
+<div class="user-bar clearfix">
+  <h1 class="whose-pages"><%= title %></h1>
+  <% if @user == current_user %>
+  <p class="new-page"><%= link_to "Create New Page", new_page_path %></p>
+  <% end %>
+</div>
 
+<% @pages.each do |page| %>
+<div class="page">
+  <p class="user-page-url"><%= page.title_url %></p> <p class="user-page-tagline"><%= page.tagline %></p>
+  <p></p>
+  <p>
+    <%= link_to "Visit", "/page/#{page.title_url}" %>
+    <% if @user == current_user %>
+    | <%= link_to "Edit", "#" %>
+    | <%= link_to "Delete", "#" %>
+    <% end %>
+  </p>
+</div>
 <% end %>
