@@ -7,6 +7,7 @@
          url('/fonts/code_bold-webfont.svg#CodeBoldRegular') format('svg');
     font-weight: normal;
     font-style: normal; }
+
 html, body, .wrapper { height:100%; }
 body > .wrapper {
 	height:auto;
@@ -19,17 +20,14 @@ h1 {
 	font-family: 'CodeBoldRegular', sans-serif;
 	text-transform: uppercase; 
 	font-weight:normal;
-	letter-spacing:.1em;
+	letter-spacing:.07em;
 	font-size:200%; }
-td{
-	padding:5px 10px;
-}
+td { padding:5px 10px; }
 .content { 
 	width: 960px;
 	padding: 20px 20px 10.4em 20px;
 	margin: 0 auto;
 	text-align: left; }
-
 .nav_bar {
 	display:block;
 	padding:5px;
@@ -41,8 +39,6 @@ td{
 }
 .home-btn { float:left; }
 .session_status { float: right; }
-
-
 footer {
 	clear:both;
 	background-color:#333;
@@ -126,6 +122,8 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	text-transform:uppercase;
 	font-weight:bold;
 	font-size:120%;
+	font-family:"CodeBoldRegular", sans-serif;
+	letter-spacing:0.07em;
 }
 .user-page-tagline {
 	font-style:italic;
@@ -219,9 +217,10 @@ input[type=text] {
 	border: 1px solid #090;
 	display:none; }
 .track {
+	width:97%;
 	font-size:120%;
 	padding: 20px 0;
-	border-bottom: dotted thin #111; }
+	border-bottom: dashed thin #111; }
 .track-title {
 	text-transform: uppercase;
 	font-family: "Helvetica", Arial, sans-serif;
@@ -256,7 +255,9 @@ select {
 	width:100%%;
 	display:block; }
 .choose-color { margin-top:10px; }
+
 /* Naming */
+
 input[type=submit] {
 	margin-top:10px;
 	padding:10px 10px;
@@ -274,10 +275,18 @@ input[type=submit] {
 .registration p { margin-bottom:10px; }
 
 /* Button Page Template */ 
+
 .button-page h1{
+	font-size:300%;
 	margin-top:30px; }
+.button-page .content {
+	width:720px;
+	padding:0;
+	text-align:center;
+}
 
 /* Utilities */
+
 a.tooltip {
 	border-bottom: 1px dashed #c0c0c0;
 	text-decoration: none;
@@ -297,7 +306,5 @@ a.tooltip:hover span {
  	padding: 5px; margin: 10px; z-index: 100;
  	background: #f0f0f0; border: 2px dashed #b0b0b0;
 	opacity: 0.9; }
-	
-
 .left { float:left; }
 .right { float:right; }
