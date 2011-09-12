@@ -138,7 +138,7 @@ function preview_image() {
 	$('.image-preview').empty().append("<image src=\"/images/" + $("select#page_button_url option:selected").attr("value") + ".png\" />");
 }
 
-function moveScreen(direction, elem) {
+function moveScreen(direction) {
 	var distance = 0;
 	if(direction == "forward") {
 	  distance = -960;	
@@ -146,20 +146,33 @@ function moveScreen(direction, elem) {
 	  distance = 960;
 	}
 	var position = $('.create-new').position().left;
-	console.log(position + " " + distance)
-	$('.create-new').animate({ left: position + distance + "px" }, 500, function() {
-	  console.log("completed")
-	});
+	$('.create-new').animate({ left: position + distance + "px" }, 500, function() { } );
 }
-
-
 
 // OnLoad Actions
 retrieve_colors();
 $("select#button_style_name").change( retrieve_colors );
+//$('select#button_style_name').attr('disabled','true')
 
-$("input[type=submit]").click( function () {
-	$('select#button_style_name').attr('disabled','true')
+$("input[type=submit]").click( function (e) {
+	if( $(".id-container input.url").val()){
+	  if( $("#page_title_url").val()){
+		if( $("#page_tagline").val()) {
+		  
+		} else {
+		    e.preventDefault();
+			alert("Please provide a tagline for your page");
+		}
+	  } else {
+	    e.preventDefault();
+		alert("Please provide a name for your page");
+	  }
+	} else {
+		e.preventDefault();
+		alert("Please choose a track for your page.");
+		$('.create-new').animate({ left: "0px" }, 500, function() { } );
+	}
+	
 });
 
 $('.search-button').click( function (e) {
@@ -172,22 +185,16 @@ $('#search').keypress(function(e) {
 		search_soundcloud();
 	}
 });
-
-$('.next').each( function() {	
-  var elem = $(this);
+$('.next').each( function() {
   $(this).click( function(e) {
 	e.preventDefault();
-	console.log("forward")
-    moveScreen("forward",elem);
+    moveScreen("forward");
   });
 });
-
 $('.prev').each( function() {
-  var elem = $(this)
   $(this).click( function(e) {
 	e.preventDefault();
-	console.log("back")
-    moveScreen("backward",elem);
+    moveScreen("backward");
   });
 });
 

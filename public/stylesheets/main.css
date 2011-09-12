@@ -59,6 +59,7 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	color:#eee; }
 
 /* Home Page */
+
 .push-it { 
 	display:block;
 	text-align:center;
@@ -88,6 +89,7 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	background:url(/images/arrow.png) no-repeat center transparent; }
 
 /* User Page */
+
 .user-bar { margin-bottom:20px; }
 .whose-pages {
 	display:inline;
@@ -272,6 +274,11 @@ input[type=submit] {
 .registration h2 { padding:10px 0; }
 .registration p { margin-bottom:10px; }
 
+/* Button Page Template */ 
+.button-page h1{
+	margin-top:30px;
+}
+
 /* Utilities */
 a.tooltip {
 	border-bottom: 1px dashed #c0c0c0;
@@ -288,7 +295,7 @@ a.tooltip span {
 a.tooltip:hover span {
 	display: block;
 	width:200px; font-size:70%;
- 	position: absolute; top: -10px; right:-230px;
+ 	position: absolute; top: 15px; left:-185px;
  	padding: 5px; margin: 10px; z-index: 100;
  	background: #f0f0f0; border: 2px dashed #b0b0b0;
 	opacity: 0.9; }
