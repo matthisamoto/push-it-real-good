@@ -175,8 +175,11 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 }
 .search-results {
 	float:left;
+}
+.search {
+	margin-top:10px;
 	width:620px;
-	height:360px;
+	height:320px;
 	overflow:auto;
 	display:block;
 	background-color:#ccc;
