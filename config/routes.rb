@@ -1,6 +1,6 @@
 PushItRealGood::Application.routes.draw do
 
-  root :to => 'test#show'
+  root :to => 'index#index'
     
   match 'user/:user' => 'page#user'
     

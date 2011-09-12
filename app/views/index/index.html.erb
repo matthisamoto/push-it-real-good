@@ -1,0 +1,26 @@
+<div class="push-it">
+  <a href="#" class="play no-underline" ><img src="images/push-it-logo.png" alt="Button" class ="button" /></a>
+</div>
+
+<div class="three-steps clearfix">
+  <div class="step-container clearfix">
+    <div class="step"></div>
+    <div class="arrow"></div>
+    <div class="step"></div>
+    <div class="arrow"></div>
+    <div class="step"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var clip = document.createElement('audio');
+  clip.src = "http://api.soundcloud.com/tracks/12156669/stream?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
+  clip.load();
+  clip.autobuffer = true;
+  clip.preload = 'auto';
+  $('.push-it').append(clip);
+  $('.play').click( function(e) {
+	e.preventDefault();
+	clip.play();
+  });
+</script>

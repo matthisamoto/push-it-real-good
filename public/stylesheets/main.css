@@ -30,8 +30,9 @@ td{
 	color:#fff;
 	text-decoration:underline;
 }
+.home-btn { float:left; }
 .session_status { float: right; }
-.push-it { margin-top:50px; }
+
 
 footer {
 	clear:both;
@@ -57,11 +58,40 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	text-transform:uppercase;
 	color:#eee; }
 
+/* Home Page */
+.push-it { 
+	display:block;
+	text-align:center;
+	margin-top:50px; }
+.three-steps {
+	margin-top:50px;
+	display:block;
+	text-align:center; }
+.step-container {
+	margin:0 auto;
+	width:850px;
+	display:block; }
+.step-container * {	float: left; }
+.step {
+	display:block;
+	width:160px;
+	height:160px;
+	padding:15px;
+	margin: 0 15px;
+	background-color:#333;
+	border-radius:5px;
+	border: 5px solid #F14306; }
+.arrow {
+	display:block;
+	width:80px;
+	height:200px;
+	background:url(/images/arrow.png) no-repeat center transparent; }
 
 /* User Page */
-
+.user-bar { margin-bottom:20px; }
 .whose-pages {
 	display:inline;
+	color:#f14306;
 }
 .new-page {
 	float:right;
@@ -78,7 +108,7 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 }
 .page {
 	padding:10px 0;
-	border-bottom: dashed 1px #333;
+	border-top: dashed 1px #333;
 	line-height:1.6em;
 }
 .user-page-url {
