@@ -83,18 +83,18 @@ function search_soundcloud() {
 	html += '<div class="search">' + "\n";
 	html += '<div class="tracks">' + "\n";
 	$.each(data, function(i, e) {
-	  html += '<div class="track" id="' + e['id'] + '">' + "\n";
-	  html += '<p><span class="track-title">' + e['title'] + '</span><span class="track-artist"> from <a href="' + e['user']['permalink_url'] + '" target="_blank" class="track_author">' + e['user']['username'] + '</a></span></p>' + "\n";
+	  html += '<div class="track clearfix" id="' + e['id'] + '">' + "\n";
+	  html += '<p class="track-header"><span class="track-title">' + e['title'] + '</span><span class="track-artist"> from <a href="' + e['user']['permalink_url'] + '" target="_blank" class="track_author">' + e['user']['username'] + '</a></span></p>' + "\n";
 	  if(e['streamable'] == true){
-		html += '<a href="#" class="play"><img src="/images/play.png" alt="Preview" title="Preview" /></a>' + "\n";
+		html += '<a href="#" class="play left"><img src="/images/play.png" alt="Preview" title="Preview" /></a>' + "\n";
 	  } else {
-		html += '<img src="/images/not-available.png" alt="Not Available" title="Not Available" />' + "\n";
+		html += '<img src="/images/not-available.png" alt="Not Available" title="Not Available" class="left" />' + "\n";
 	  }
-	  html += '<a href="' + e['permalink_url'] + '" class="link-out" target="_blank">See Track on SoundCloud</a>' + "\n";
+	  html += '<a href="' + e['permalink_url'] + '" class="link-out button left" title="See Track on SoundCloud" alt="See Track on SoundCloud" target="_blank">SoundCloud Page</a>' + "\n";
 	  if(e['streamable'] == true){
-        html += '<a href="#" class="select-track">Use This Track</a>' + "\n";
+        html += '<a href="#" class="button select-track left" alt="Use This Track In Your Page" title="Use This Track In Your Page">Use This</a>' + "\n";
 	  } else {
-	    html += '<span>This track is not streamable. <a href="#" class="tooltip" onClick="javascript:function(e){e.preventDefault();}">Why?<span>Right now, SoundCloud\'s API does not allow a combination request of search terms and filtering streamable content. If this ever changes, you will not see non-streamable tracks in this list anymore. For now, though, these tracks will appear in our results. We\'re sorry.</span></a></span>';
+	    html += '<span class="left">This track is not streamable. <a href="#" class="tooltip" onClick="javascript:function(e){e.preventDefault();}">Why?<span>Right now, SoundCloud\'s API does not allow a combination request of search terms and filtering streamable content. If this ever changes, you will not see non-streamable tracks in this list anymore. For now, though, these tracks will appear in our results. We\'re sorry.</span></a></span>';
 	  } 
 	  html += '</div>' + "\n";
 	});
