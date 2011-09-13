@@ -2,6 +2,7 @@ class PageController < ApplicationController
   
   def show
     @page = Page.find(:first, :conditions => { "title_url" => params[:id] } )
+    @user = User.find(:first, :conditions => { :id => @page.user_id })
     render :layout => 'page'
   end
   
@@ -29,6 +30,17 @@ class PageController < ApplicationController
     @page = Page.new(params[:page])
     @page.user_id = current_user.id
     if @page.save
+      flash[:notice] = "Successfully Created Page \"#{@page.title_url}\""
+      redirect_to "/page/#{@page.title_url}"
+    else
+      render('new')
+    end
+  end
+  
+  def edit
+    @page = Page.new(params[:page])
+    @page.user_id = current_user.id
+    if @page.update
       flash[:notice] = "Successfully Created Page \"#{@page.title_url}\""
       redirect_to "/page/#{@page.title_url}"
     else

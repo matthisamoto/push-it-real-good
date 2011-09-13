@@ -12,7 +12,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 </head>
 <body class="button-page">
-<%= render "layouts/menubar" unless !user_signed_in? %>
+<%= render "page/info" unless !user_signed_in? %>
 <div class="content">
 <%= yield %>
 </div>

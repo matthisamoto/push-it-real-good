@@ -94,6 +94,7 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	background:url(/images/arrow.png) no-repeat center transparent; }
 
 /* User Page */
+
 form.button_to, form.button_to div{
 	display:inline;
 }
@@ -286,7 +287,21 @@ input[type=submit] {
 	padding:0;
 	text-align:center;
 }
-
+.info_bar {
+	display:block;
+	height:50px;
+	width:250px;
+	overflow:hidden;
+	background-color:#333;
+	color:#ccc; }
+.info_bar a:link, .info_bar a:visited, .info_bar a:hover {
+	color:#fff;
+	text-decoration:underline;
+	line-height:50px;
+}
+p.creator {
+	margin-right:20px;
+}
 /* Utilities */
 
 .notice {
