@@ -94,7 +94,9 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	background:url(/images/arrow.png) no-repeat center transparent; }
 
 /* User Page */
-
+form.button_to, form.button_to div{
+	display:inline;
+}
 .user-bar { margin-bottom:20px; }
 .whose-pages {
 	display:inline;
@@ -287,6 +289,28 @@ input[type=submit] {
 
 /* Utilities */
 
+.notice {
+	padding:10px 0;
+	display:block;
+	background-color:rgba(240,200,60,0.30);
+	border: 1px solid #a68100;
+	color:#a68100;
+	text-align:center;
+	margin-bottom:10px;
+}
+
+.warning {
+	padding:10px 0;
+	display:block;
+	background-color:rgba(255,0,0,0.30);
+	border: 1px solid #990000;
+	color:#990000;
+	text-align:center;
+	margin-bottom:10px;
+}
+.inline {
+	display:inline;
+}
 a.tooltip {
 	border-bottom: 1px dashed #c0c0c0;
 	text-decoration: none;

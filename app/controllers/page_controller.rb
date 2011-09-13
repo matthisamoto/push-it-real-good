@@ -13,7 +13,6 @@ class PageController < ApplicationController
     else
       render :text => "No Such User, '#{params[:user]}'"
     end
-    
   end
   
   def new
@@ -31,7 +30,7 @@ class PageController < ApplicationController
     @page.user_id = current_user.id
     if @page.save
       flash[:notice] = "Successfully Created Page \"#{@page.title_url}\""
-      redirect_to("/page/#{@page.title_url}")
+      redirect_to "/page/#{@page.title_url}"
     else
       render('new')
     end
@@ -42,7 +41,10 @@ class PageController < ApplicationController
   end
   
   def destroy
-
+    @page = Page.find(params[:id]).destroy
+    flash[:notice] = "Successfully Deleted Page."
+    user = "/user/#{current_user.username}"
+    redirect_to user
   end
   
   def about
