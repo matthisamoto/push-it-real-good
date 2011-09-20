@@ -1,0 +1,18 @@
+<div class="push-it">
+  <a href="#" class="play no-underline" ><img src="<%= @track.artwork_url %>" alt="Button" class ="push-button" /></a>
+</div>
+
+<h1 class="vince-header"><%= @track.title %> <img src="<%= @track.artwork_url %>"/></h1>
+
+<script type="text/javascript">
+  var clip = document.createElement('audio');
+  clip.src = "http://api.soundcloud.com/tracks/<%= @track.id %>/stream?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
+  clip.load();
+  clip.autobuffer = true;
+  clip.preload = 'auto';
+  $('.push-it').append(clip);
+  $('.play').click( function(e) {
+	e.preventDefault();
+	clip.play();
+  });
+</script>

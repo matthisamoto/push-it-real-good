@@ -14,6 +14,8 @@ PushItRealGood::Application.routes.draw do
   match 'search' => 'utility#search'
   match 'retrieve_colors' => 'utility#get_buttons'
   
+  match 'goodbyevincent' => 'vince#index'
+  
   namespace :admin do
     resources :buttons
   end

@@ -191,6 +191,7 @@ $('.next').each( function() {
   $(this).click( function(e) {
 	e.preventDefault();
     moveScreen("forward");
+    $('.search-results').empty();
   });
 });
 $('.prev').each( function() {

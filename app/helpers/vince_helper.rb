@@ -1,0 +1,2 @@
+module VinceHelper
+end

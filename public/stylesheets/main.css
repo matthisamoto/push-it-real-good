@@ -306,6 +306,10 @@ input[type=submit] {
 	line-height:50px; }
 p.creator { margin-right:20px; }
 
+/* Vince */
+
+.vince-header { display:block; text-align:center; margin-top:50px; }
+.vince-header img { margin-left: 20px; vertical-align: middle;border-radius:8px; }
 /* Utilities */
 
 a:link, a:visited, a:hover {
