@@ -1,2 +1,16 @@
-<img src="images/push.png" alt="Push It Real Good" class="logo-button" />
+<img src="images/push.png" alt="Push It Real Good" class="logo-button play" style="cursor:pointer;"/>
 <h1>Coming Soon.</h1>
+
+
+<script type="text/javascript">
+  var clip = document.createElement('audio');
+  clip.src = "http://api.soundcloud.com/tracks/12156669/stream?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
+  clip.load();
+  clip.autobuffer = true;
+  clip.preload = 'auto';
+  $('.push-it').append(clip);
+  $('.play').click( function(e) {
+	e.preventDefault();
+	clip.play();
+  });
+</script>
