@@ -1,7 +1,8 @@
 PushItRealGood::Application.routes.draw do
 
-  root :to => 'index#index'
-    
+  # root :to => 'index#index'
+  root :to => 'index#comingsoon'
+  
   match 'user/:user' => 'page#user'
     
   resources :page

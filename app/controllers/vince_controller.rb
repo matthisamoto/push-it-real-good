@@ -1,6 +1,7 @@
 class VinceController < ApplicationController
   
   before_filter :auth_soundcloud;
+  layout 'empty'
   
   def index 
     # @user = @client.get('/users', :username => 'Ben Eckerson' )
