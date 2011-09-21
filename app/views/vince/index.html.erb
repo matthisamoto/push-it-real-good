@@ -1,8 +1,16 @@
-<div class="push-it">
-  <a href="#" class="play no-underline" ><img src="/images/vince.jpg" alt="Button" class ="push-button" /></a>
+<div class="vince-container">
+  <div class="vince-head"><a href="#" class="play no-underline" ><img src="/images/vince/head.png" alt="Button" class ="push-button" /></a></div>
+  <div class="vince-background"></div>
+  <div class="vince-from">
+	<img src="<%= @track.artwork_url %>"/>
+	<p class="vince-header"><%= @track.title %></p>
+  	<div class="vince-deliver"></div>
+  </div>
+  <div class="vince-brought"></div>
+  
+</div>
 </div>
 
-<h1 class="vince-header"><%= @track.title %> <img src="<%= @track.artwork_url %>"/></h1>
 
 <script type="text/javascript">
   var clip = document.createElement('audio');
@@ -15,4 +23,9 @@
 	e.preventDefault();
 	clip.play();
   });
+
+  $('.vince-brought').click( function() { window.location = 'http://pushitrealgood.com'; });
+  $('.vince-deliver').click( function() { window.location.reload(); });
+
+
 </script>
