@@ -1,3 +1,4 @@
+<div class="warning">Well, that's because we threw it together in one day – and because you are using Internet Explorer or Firefox (or an Android device, those are iffy). In Chrome and Safari it works awesome though. Sorry. X</div>
 <div class="vince-container">
   <div class="vince-head"><a href="#" class="play no-underline" ><img src="/images/vince/head.png" alt="Button" class ="push-button" /></a></div>
   <div class="vince-background"></div>
@@ -8,35 +9,16 @@
     <div class="vince-all"><a href="http://soundcloud.com/beneckerson/sets/goodbye-vincent" target="_blank">See Them All</a></div>
   </div>
   <div class="vince-brought"></div>
-  
+  <div class="vince-cta"><a href="#">NOT WORKING?</a></div>
 </div>
 </div>
-
-
 <script type="text/javascript">
-
   document.title = "GOODBYE VINCENT!";
-  
-/*
-  var count = 0;
-  var direction = 1;
-
-  function bobble () {
-	
-	if( direction == 1 ) { direction = -1 } else { direction = 1 }
-	
-	if( count < 20 ){
-	  var time = 200 * (Math.floor(Math.random() * (0.3 - 0.1 + 1) + 0.1));
-	  var horizontal = $('.vince-head').position().left + ((7 * direction) * (Math.floor(Math.random() * (0.3 - 0.1 + 1) + 0.1)));
-	  var vertical = $('.vince-head').position().top + ((3 * direction) * (Math.floor(Math.random() * (0.3 - 0.1 + 1) + 0.1)));
-	  $('.vince-head').animate({ left: horizontal, top: vertical }, time, bobble )
-	  count++;
-	} else {
-      $('.vince-head').animate({ left: '373px', top: '91px' }, 100 )
-	  count = 0;
-	}
-  }
-  */
+  $('.warning').hide();
+  $('.vince-cta').click( function(e){ e.preventDefault(); $('.warning').toggle(); });
+  $('.warning').click( function(e){ $(this).toggle(); })
+  $('.vince-brought').click( function() { window.location = 'http://pushitrealgood.com'; });
+  $('.vince-deliver').click( function() { window.location.reload(); });
   var clip = document.createElement('audio');
   clip.src = "http://api.soundcloud.com/tracks/<%= @track.id %>/stream?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
   clip.load();
@@ -46,13 +28,7 @@
   $('.play').click( function(e) {
 	e.preventDefault();
 	clip.play();
-	// bobble();
 	$('.vince-head img').attr('src','/images/vince/head.gif');
 	var timeout = window.setTimeout( function () { $('.vince-head img').attr('src','/images/vince/head.png'); }, 5000);
-	
   });
-
-  $('.vince-brought').click( function() { window.location = 'http://pushitrealgood.com'; });
-  $('.vince-deliver').click( function() { window.location.reload(); });
-
 </script>

@@ -90,12 +90,19 @@ function search_soundcloud() {
 	  } else {
 		html += '<img src="/images/not-available.png" alt="Not Available" title="Not Available" class="left" />' + "\n";
 	  }
+	  var duration = Math.floor(parseInt(e['duration'])/1000);
+	  var min = Math.floor(duration / 60);
+	  var sec = duration - ( min * 60 );
+	  if(sec < 10) sec = "0" + sec;
+	  html += '<p class="duration left">' + min + ':' + sec + '</p>' + "\n";
+	  
 	  html += '<a href="' + e['permalink_url'] + '" class="link-out button left" title="See Track on SoundCloud" alt="See Track on SoundCloud" target="_blank">SoundCloud Page</a>' + "\n";
 	  if(e['streamable'] == true){
         html += '<a href="#" class="button select-track left" alt="Use This Track In Your Page" title="Use This Track In Your Page">Use This</a>' + "\n";
 	  } else {
-	    html += '<span class="left">This track is not streamable. <a href="#" class="tooltip" onClick="javascript:function(e){e.preventDefault();}">Why?<span>Right now, SoundCloud\'s API does not allow a combination request of search terms and filtering streamable content. If this ever changes, you will not see non-streamable tracks in this list anymore. For now, though, these tracks will appear in our results. We\'re sorry.</span></a></span>';
+	    html += '<span class="left no-stream">This track is not streamable. <a href="#" class="tooltip" onClick="javascript:function(e){e.preventDefault();}">Why?<span>Right now, SoundCloud\'s API does not allow a combination request of search terms and filtering streamable content. If this ever changes, you will not see non-streamable tracks in this list anymore. For now, though, these tracks will appear in our results. We\'re sorry.</span></a></span>';
 	  } 
+	  if(e['genre']) html += '<p class="genre left">Genre: ' + e['genre'] + '</p>' + "\n";
 	  html += '</div>' + "\n";
 	});
 	html += '</div>' + "\n";

@@ -241,6 +241,10 @@ input[type=text] {
 .track img {
 	width:35px;
 	height: 35px; }
+.track img.left { margin-left: 10px; }
+.track .duration { line-height:35px; margin: 0 10px; }
+.track .genre { line-height: 35px; margin: 0 10px; }
+.track .no-stream { line-height: 35px; margin: 0 10px; }
 .close-results{ margin-right: 10px; }
 .select-track:link, .select-track:visited,.select-track:hover { background-color: #f14306; }
 
@@ -375,6 +379,17 @@ p.creator { margin-right:20px; }
 	position: absolute;
 	top: 203px;
 	left: 22px;
+}
+.vince-cta {
+	position:absolute;
+	top: 750px;
+	width: 100%;
+	text-align:center;
+	display:block;
+}
+.vince-cta a{
+	margin:0 auto;
+	cursor:pointer;
 }
 /* Utilities */
 
