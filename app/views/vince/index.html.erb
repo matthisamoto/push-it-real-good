@@ -13,6 +13,7 @@
 
 
 <script type="text/javascript">
+
   var clip = document.createElement('audio');
   clip.src = "http://api.soundcloud.com/tracks/<%= @track.id %>/stream?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
   clip.load();
@@ -28,8 +29,5 @@
 
   $('.vince-brought').click( function() { window.location = 'http://pushitrealgood.com'; });
   $('.vince-deliver').click( function() { window.location.reload(); });
-
-  
-
 
 </script>
