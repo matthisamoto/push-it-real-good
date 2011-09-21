@@ -13,7 +13,26 @@
 
 
 <script type="text/javascript">
+  /*
+  var count = 0;
+  var direction = 1;
 
+  function bobble () {
+	
+	if( direction == 1 ) { direction = -1 } else { direction = 1 }
+	
+	if( count < 20 ){
+	  var time = 200 * (Math.floor(Math.random() * (0.3 - 0.1 + 1) + 0.1));
+	  var horizontal = $('.vince-head').position().left + ((7 * direction) * (Math.floor(Math.random() * (0.3 - 0.1 + 1) + 0.1)));
+	  var vertical = $('.vince-head').position().top + ((3 * direction) * (Math.floor(Math.random() * (0.3 - 0.1 + 1) + 0.1)));
+	  $('.vince-head').animate({ left: horizontal, top: vertical }, time, bobble )
+	  count++;
+	} else {
+      $('.vince-head').animate({ left: '373px', top: '91px' }, 100 )
+	  count = 0;
+	}
+  }
+  */
   var clip = document.createElement('audio');
   clip.src = "http://api.soundcloud.com/tracks/<%= @track.id %>/stream?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
   clip.load();
@@ -23,8 +42,10 @@
   $('.play').click( function(e) {
 	e.preventDefault();
 	clip.play();
+	// bobble();
 	$('.vince-head img').attr('src','/images/vince/head.gif');
 	var timeout = window.setTimeout( function () { $('.vince-head img').attr('src','/images/vince/head.png'); }, 5000);
+	
   });
 
   $('.vince-brought').click( function() { window.location = 'http://pushitrealgood.com'; });
