@@ -3,6 +3,7 @@ PushItRealGood::Application.routes.draw do
   # root :to => 'index#index'
   root :to => 'index#comingsoon'
   
+  match 'temp' => 'index#index'
   match 'user/:user' => 'page#user'
     
   resources :page
