@@ -14,9 +14,10 @@ body > .wrapper {
 	min-height:100%; }
 body {
 	text-align:center;
-	font-family:  Helvetica, Arial, sans-serif;
+	font-family: "League Gothic", Helvetica, Arial, sans-serif;
 	color:#111;
-	background:url(/images/background.jpg) center transparent no-repeat; }
+	background:url(/images/background.jpg) center top transparent no-repeat; }
+a:link, a:visited, a:hover { font-family: "League Gothic", Helvetica, Arial, sans-serif; }
 h1 { 
 	font-family: 'League Gothic', sans-serif;
 	text-transform: uppercase; 
@@ -31,18 +32,24 @@ td { padding:5px 10px; }
 	text-align: left; }
 .nav_bar {
 	display:block;
-	padding:5px;
-	background-color:#333;
+	padding-top:12px;
+	margin: 0 auto;
+	width:960px;
 	color:#ccc; }
 .nav_bar a:link, .nav_bar a:visited, .nav_bar a:hover {
-	color:#fff;
-	text-decoration:underline;
+	color:#cb4200;
+	background-color:#282625;
+	padding:5px 10px;
+	margin:0 4px;
+	text-transform:uppercase;
+	text-decoration:none;
+	font-size: 140%;
 }
-.home-btn { float:left; }
+.facebook-button, .google-button, .twitter-button { float:left; }
 .session_status { float: right; }
 footer {
 	clear:both;
-	background-color:#333;
+	background-color:#282625;
 	border-top: solid .4em #f14306;
 	position: relative;
 	z-index:10;
@@ -56,7 +63,8 @@ nav {
 	margin-top: 20px; }
 nav ul li {
 	display:inline;
-	color:#eee; }
+	color:#eee;
+	font-size: 160%; }
 nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	padding:10px 15px;
 	margin:0 20px;
@@ -117,7 +125,7 @@ form.button_to, form.button_to div{
 }
 .page {
 	padding:10px 0;
-	border-top: dashed 1px #333;
+	border-top: dashed 1px #282625;
 	line-height:1.6em;
 }
 .user-page-url {
@@ -164,7 +172,7 @@ form.button_to, form.button_to div{
 	line-height:2.5em;
 	display: block;
 	border-radius:5px;
-	background-color:#333;
+	background-color:#282625;
 	color:#fff;
 	text-decoration:none;
 }
@@ -277,7 +285,7 @@ input[type=submit] {
 	height:2.5em;
 	border-radius:5px;
 	border:none;
-	background-color:#333;
+	background-color:#282625;
 	color:#fff;
 	text-decoration:none; }
 
@@ -301,7 +309,7 @@ input[type=submit] {
 	height:50px;
 	width:250px;
 	overflow:hidden;
-	background-color:#333;
+	background-color:#282625;
 	color:#ccc; }
 .info_bar a:link, .info_bar a:visited, .info_bar a:hover {
 	color:#fff;

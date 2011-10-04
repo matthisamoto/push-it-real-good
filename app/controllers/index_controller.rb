@@ -1,7 +1,7 @@
 class IndexController < ApplicationController
-    
-  def comingsoon
   
+  def index
+    @count = Page.count
   end
-  
+    
 end
