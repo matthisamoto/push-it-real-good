@@ -68,30 +68,28 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 
 .push-it { 
 	display:block;
-	text-align:center;
-	margin-top:50px; }
+	text-align:center; }
 .three-steps {
-	margin-top:50px;
+	margin-top:30px;
 	display:block;
 	text-align:center; }
 .step-container {
 	margin:0 auto;
-	width:850px;
+	width:688px;
 	display:block; }
 .step-container * {	float: left; }
 .step {
 	display:block;
-	width:160px;
-	height:160px;
-	padding:15px;
-	margin: 0 15px;
-	background-color:#333;
-	border-radius:5px;
-	border: 5px solid #F14306; }
+	width:146px;
+	height:145px;
+	margin: 0 15px; }
+.sound_step { background:url(/images/sound_block.png) no-repeat transparent; }
+.button_step { background:url(/images/button_block.png) no-repeat transparent; }
+.share_step { background:url(/images/share_block.png) no-repeat transparent; }
 .arrow {
 	display:block;
 	width:80px;
-	height:200px;
+	height:145px;
 	background:url(/images/arrow.png) no-repeat center transparent; }
 
 /* User Page */
