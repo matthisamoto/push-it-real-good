@@ -16,7 +16,8 @@ body {
 	text-align:center;
 	font-family: "League Gothic", Helvetica, Arial, sans-serif;
 	color:#111;
-	background:url(/images/background.jpg) center top transparent no-repeat; }
+	background:url(/images/background.jpg) center top transparent no-repeat; 
+	letter-spacing: 0.15em; }
 a:link, a:visited, a:hover { font-family: "League Gothic", Helvetica, Arial, sans-serif; }
 h1 { 
 	font-family: 'League Gothic', sans-serif;
@@ -37,7 +38,7 @@ td { padding:5px 10px; }
 	width:960px;
 	color:#ccc; }
 .nav_bar a:link, .nav_bar a:visited, .nav_bar a:hover {
-	color:#cb4200;
+	color:#f15306;
 	background-color:#282625;
 	padding:5px 10px;
 	margin:0 4px;
@@ -50,7 +51,7 @@ td { padding:5px 10px; }
 footer {
 	clear:both;
 	background-color:#282625;
-	border-top: solid .4em #f14306;
+	border-top: solid .4em #f15306;
 	position: relative;
 	z-index:10;
 	display:block;
@@ -99,12 +100,43 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	width:80px;
 	height:145px;
 	background:url(/images/arrow.png) no-repeat center transparent; }
-
+.create-bar {
+	display:block;
+	width:688px;
+	margin: 0 auto;
+	margin-top:80px; }
+.create-bar div {
+	color:#f15306;
+	text-align:center;
+	font-size:160%;
+	text-transform:uppercase;
+	line-height:1.4em; }
+.count-pages {
+	margin-left:55px;
+	float:left; }
+.count-pages span.count { font-size:200%; }
+.create-link { 
+	text-decoration:none;
+	font-size:250%;
+	margin:0 auto;
+	border-radius:5px;
+	text-align:center;
+	display:block;
+	width:146px;
+	background-color:#282625;
+	padding: 5px 0px; }
+.powered-by {
+	float:right;
+	margin-right: 55px;
+ 	margin-top: -15px;}
+.soundcloud-logo {
+	background: url(/images/soundcloud-logo.png) no-repeat transparent;
+	width:80px;
+	height:50px;
+	display:block;}
 /* User Page */
 
-form.button_to, form.button_to div{
-	display:inline;
-}
+form.button_to, form.button_to div{ display:inline; }
 .user-bar { margin-bottom:20px; }
 .whose-pages {
 	display:inline;
