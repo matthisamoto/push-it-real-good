@@ -1,0 +1,82 @@
+/* Vince */
+.vince-container { 
+	width: 992px; height: 746px; 
+	position: relative;
+	margin: 0 auto;
+}
+.vince-background {
+	background: url(/images/vince/background.png);
+	position: absolute;
+	width: 736px;
+	height: 619px;
+	left: 45px;
+}
+.vince-head {
+	height: 207px;
+	width: 175px;
+	position:absolute;
+	left: 373px;
+	top: 91px;
+	z-index: 100;
+}
+.vince-header { display:block; text-align:center; margin-top:50px; }
+.vince-header img { margin-left: 20px; vertical-align: middle;border-radius:8px; }
+.vince-from {
+	background: url(/images/vince/from.png);
+	height: 203px;
+	width:301px;
+	display:block;
+	position:absolute;
+	left: 574px;
+	top:495px;
+}
+.vince-from img {
+	position:absolute;
+	left: 25px;
+	top: 24px;
+	height: 100px;
+	width: 99px;
+}
+.vince-from p {
+	position:absolute;
+	left: 145px;
+	top: 40px;
+	font-size: 150%;
+	width: 120px;
+	text-align:center;
+}
+.vince-brought {
+	height:105px;
+	width: 168px;
+	position:absolute;
+	left: 133px;
+	top: 556px;
+	background:url(/images/vince/brought-to-you.png);
+	cursor:pointer;
+}
+.vince-deliver {
+	position: absolute;
+	top: 163px;
+	left: 12px;
+	height: 34px;
+	width: 244px;
+	background: url(/images/vince/deliver.png);
+	cursor:pointer;
+}
+.vince-all {
+	position: absolute;
+	top: 203px;
+	left: 22px;
+}
+.vince-cta {
+	position:absolute;
+	top: 750px;
+	width: 100%;
+	text-align:center;
+	display:block;
+}
+.vince-cta a{
+	margin:0 auto;
+	cursor:pointer;
+	padding-bottom:30px;
+}

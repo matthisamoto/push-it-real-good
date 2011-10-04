@@ -1,32 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=950" />
   <title>Push It Real Good -- Create your own one-button-site.</title>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="<%= root_path %>stylesheets/base.css" type="text/css" />
   <link rel="stylesheet" href="<%= root_path %>stylesheets/main.css" type="text/css" />
+  <link rel="stylesheet" href="<%= root_path %>stylesheets/vince.css" type="text/css" />
   <%= javascript_include_tag "application" %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+  
 </head>
 <body>
-
-<div class="wrapper">
-  <%= render "layouts/menubar" %>
-  <div class="content">
-    <%= yield %>
-  </div> <!-- content -->
-</div> <!-- wrapper -->
-
-<footer>
-  <nav>
-    <ul>
-      <li><%= link_to "What is PIRG?", "/wtf" %></li>
-      <li><%= link_to "Legal Terms", "/legal" %></li>
-      <li><%= link_to "Contact Us", "mailto:pusha@pushitrealgood.com" %></li>
-      <li>&#169; 2011 PUSHITREALGOOD</li>
-    </ul>
-  </nav>
-</footer>
-
+<%= yield %>
 </body>
 </html>
