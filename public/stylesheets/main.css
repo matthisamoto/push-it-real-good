@@ -237,6 +237,9 @@ form.button_to, form.button_to div{ display:inline; }
 	line-height:50px;
 	height:50px;
 	margin-right:10px; }
+.user-links a {
+	float:right;
+}
 .user-page-url {
 	float:left;
 	text-transform:uppercase;
@@ -253,6 +256,12 @@ form.button_to, form.button_to div{ display:inline; }
 	text-transform:uppercase;
 	margin-left:10px;
 }
+.visit-btn { display:block; width:50px; height:50px; background:url(/images/visit-btn.png) no-repeat 0 14px; margin-left:-1px; }
+.visit-btn:hover { background-position: -50px 14px; }
+.edit-btn { display:block; width:36px; height:50px; background:url(/images/edit-btn.png) no-repeat 0 14px; }
+.edit-btn:hover { background-position: -36px 14px; }
+.delete-btn { display:block; width:49px; height:50px; background:url(/images/delete-btn.png) no-repeat 0 14px; }
+.delete-btn:hover { background-position: -49px 14px; }
 
 /* Create Page */
 

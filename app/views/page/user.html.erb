@@ -27,10 +27,10 @@
     <div class="user-page-url"><%= page.title_url %></div> <div class="user-page-tagline"><%= page.tagline %></div>
   </div>
   <div class="user-links">
-    <%= link_to "Visit", "/page/#{page.title_url}", :method => :get %>
+    <%= link_to "", "/page/#{page.title_url}", :method => :get, :class => "visit-btn" %>
     <% if @user == current_user %>
-      <%= link_to "Edit", "#", :class => "inline"  %>
-      <%= link_to "Delete", page, :method => :delete, :class => "inline", :confirm => "Are you sure you want to delete this page?" %>
+      <%= link_to "", "#", :class => "edit-btn"  %>
+      <%= link_to "", page, :method => :delete, :class => "delete-btn", :confirm => "Are you sure you want to delete this page?" %>
     <% end %>
   </div>
 </div>
