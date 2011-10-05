@@ -24,7 +24,7 @@
 <div class="page clearfix">
   <div class="button-image"><%= image_tag "/images/#{page.button_url}.png", :height => 50, :width => 50 %></div>
   <div class="page-info">
-    <div class="user-page-url"><%= page.title_url %></div> <div class="user-page-tagline"><%= page.tagline %></div>
+    <div class="user-page-url"><%= link_to page.title_url, "/page/#{page.title_url}" %></div> <div class="user-page-tagline"><%= page.tagline %></div>
   </div>
   <div class="user-links">
     <%= link_to "", "/page/#{page.title_url}", :method => :get, :class => "visit-btn" %>

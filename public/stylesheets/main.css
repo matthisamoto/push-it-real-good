@@ -244,10 +244,14 @@ form.button_to, form.button_to div{ display:inline; }
 	float:left;
 	text-transform:uppercase;
 	font-weight:normal;
-	font-size:200%;
+	font-size:120%;
 	font-family:"League Gothic", sans-serif;
 	letter-spacing:0.07em;
+	height:50px;
 }
+.user-page-url a:link, 
+.user-page-url a:visited { color:#282625; text-decoration:none;}
+.user-page-url a:hover { color:#f15306; }
 .user-page-tagline {
 	float:left;
 	font-size:140%;
