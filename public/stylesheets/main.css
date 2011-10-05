@@ -18,7 +18,10 @@ body {
 	color:#111;
 	background:url(/images/background.jpg) center top transparent no-repeat; 
 	letter-spacing: 0.15em; }
-a:link, a:visited, a:hover { font-family: "League Gothic", Helvetica, Arial, sans-serif; }
+a:link, a:visited, a:hover { 
+	text-transform: uppercase;
+	font-size:160%;
+	font-family: "League Gothic", Helvetica, Arial, sans-serif; }
 h1 { 
 	font-family: 'League Gothic', sans-serif;
 	text-transform: uppercase; 
@@ -27,25 +30,30 @@ h1 {
 	font-size:300%; }
 td { padding:5px 10px; }
 .content { 
+	position: relative;
 	width: 960px;
 	padding: 20px 20px 10.4em 20px;
 	margin: 0 auto;
-	text-align: left; }
+	text-align: center; }
 .nav_bar {
 	display:block;
 	padding-top:12px;
 	margin: 0 auto;
 	width:960px;
-	color:#ccc; }
+	color:#282625;
+	font-size: 140%;
+	text-transform:uppercase; }
 .nav_bar a:link, .nav_bar a:visited, .nav_bar a:hover {
 	color:#f15306;
 	background-color:#282625;
 	padding:5px 10px;
 	margin:0 4px;
-	text-transform:uppercase;
 	text-decoration:none;
-	font-size: 140%;
-}
+	font-size: 100%; }
+.nav_bar a:hover {
+	color:#282625;
+	background-color:#f15306; }
+.nav_bar .username { color:#f15306; }
 .facebook-button, .google-button, .twitter-button { float:left; }
 .session_status { float: right; }
 footer {
@@ -71,7 +79,9 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	margin:0 20px;
 	text-decoration:none;
 	text-transform:uppercase;
-	color:#eee; }
+	color:#eee;
+	font-size:100% }
+nav ul li a:hover { color:#f14306; }
 
 /* Home Page */
 
@@ -103,7 +113,7 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 .create-bar {
 	display:block;
 	width:688px;
-	margin: 0 auto;
+	margin: 80px auto 60px auto;
 	margin-top:80px; }
 .create-bar div {
 	color:#f15306;
@@ -115,7 +125,7 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	margin-left:46px;
 	float:left; }
 .count-pages span.count { font-size:200%; }
-.create-link { 
+a.create-link { 
 	text-decoration:none;
 	font-size:250%;
 	margin:0 auto;
@@ -125,6 +135,9 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	width:146px;
 	background-color:#282625;
 	padding: 5px 0px; }
+a.create-link:hover	{
+	color:#282625;
+	background-color:#f15306; }
 .powered-by {
 	float:right;
 	margin-right: 40px;
@@ -133,32 +146,89 @@ nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	background: url(/images/soundcloud-logo.png) no-repeat transparent;
 	width:80px;
 	height:50px;
-	display:block;}
+	display:block; }
+.small-logo {
+	position:absolute;
+	left:100px;
+	display:block;
+	width:160px;
+	height:160px;
+	background:url(/images/push-it-logo-small.png) transparent no-repeat;
+	z-index:100;
+}
 /* User Page */
 
 form.button_to, form.button_to div{ display:inline; }
-.user-bar { margin-bottom:20px; }
+.user-info {
+	display:block;
+	width:800px;
+	position:relative;
+	z-index:20;
+	margin: 0 auto;
+	text-align: center; }
+.user-bar { 
+	margin:0 auto; 
+	margin-bottom:20px; 
+	margin-top:60px; 
+	width:642px; 
+	text-align:right; }
+.user-bar p { display:inline; }
+.user-bar-border { 
+	background:url(/images/user-bar.png) transparent no-repeat; 
+	width: 642px; height:2px;
+	margin:0 auto; margin-bottom:20px; }
+.page-amt, .date-joined {
+	font-size:385%;
+}
+.num-pages, .join-date { float:right; }
+.num-pages div { float:left; }
+.join-date div { float:right; }
+.pages-made, .member-since {
+	font-size:175%;
+	line-height:20px;
+	text-transform:uppercase;
+}
+.pages-made { text-align: left; margin: 9px 30px 0 5px; }
+.member-since { text-align: right; margin: 9px 5px 0 0; }
 .whose-pages {
 	display:inline;
-	color:#f14306;
-}
+	font-size:385%;
+	letter-spacing:0.02em;
+	color:#f14306; }
 .new-page {
-	float:right;
+	float:left;
+	margin-left:70px;
 }
 .new-page a:link, .new-page a:visited, .new-page a:hover {
-	padding:0 10px;
-	height:2.5em;
+	width:90px;
+	height:37px;
 	display:block;
 	line-height:2.5em;
-	border-radius:5px;
-	background-color:#f14306;
+	background:url(/images/new-page.png) transparent no-repeat 0 10px;
 	color:#fff;
 	text-decoration:none;
-}
-.page {
 	padding:10px 0;
-	border-top: dashed 1px #282625;
-	line-height:1.6em;
+}
+.new-page a:hover {
+	background-position:-90px 10px;
+}
+.pages { text-align:center; }
+.page {
+	margin:0 auto;
+	display:block;
+	width:642px;
+	height:50px;
+	background-color:rgba( 255, 255, 255, .8);
+	margin-bottom:1px;
+	line-height:2em;
+	text-align:left; }
+.page img, .page p { display:inline; }
+.page .button-image {
+	margin-right:20px;
+	float:left;
+}
+.page .page-info {
+	float:left;
 }
 .user-page-url {
 	text-transform:uppercase;
@@ -168,8 +238,10 @@ form.button_to, form.button_to div{ display:inline; }
 	letter-spacing:0.07em;
 }
 .user-page-tagline {
+	font-size:140%;
 	font-style:italic;
-	color:#999;
+	color:#666;
+	text-transform:uppercase;
 }
 
 /* Create Page */

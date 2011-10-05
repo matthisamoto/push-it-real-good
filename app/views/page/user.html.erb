@@ -1,30 +1,39 @@
+<%= link_to "", root_path, :class => "small-logo" %>
+<div class="user-info">
 <% if @user == current_user %>
-  <% title =  'My Pages' %>
+  <% title =  "Welcome Back, #{current_user.username}!" %>
 <% else %>
-  <% title = "#{@user.username}'s Pages" %>
+  <% title = "This is #{@user.username}." %>
 <% end %>
 
 <div class="user-bar clearfix">
   <h1 class="whose-pages"><%= title %></h1>
+  <div class="user-bar-border"></div>
   <% if @user == current_user %>
-  <p class="new-page"><%= link_to "Create New Page", new_page_path %></p>
+  <p class="new-page"><%= link_to "", new_page_path %></p>
+  
   <% end %>
+  <div class="join-date"><div class="date-joined"><%= @user.created_at.strftime("%m/%d/%Y") %></div><div class="member-since">Member<br/>Since</div> </div>
+  <div class="num-pages"><div class="page-amt"><%= @pages.count %></div> <div class="pages-made">Pages<br/>Made</div></div>
 </div>
-
 <% if flash[:warning] or flash[:notice] %>
   <p class="notice"><%= flash[:notice] %></p>
 <% end %>
-
+<div class="pages">
 <% @pages.each do |page| %>
-<div class="page">
-  <p class="user-page-url"><%= page.title_url %></p> <p class="user-page-tagline"><%= page.tagline %></p>
-  <p></p>
-  <p>
-    <%= link_to "Visit", "/page/#{page.title_url}", :method => :get %>
-    <% if @user == current_user %>
-      <%= link_to "Edit", "#", :class => "inline"  %>
-      <%= link_to "Delete", page, :method => :delete, :class => "inline", :confirm => "Are you sure you want to delete this page?" %>
-    <% end %>
-  </p>
+<div class="page clearfix">
+  <div class="button-image"><%= image_tag "/images/#{page.button_url}.png", :height => 50, :width => 50 %></div>
+  <div class="page-info">
+    <div class="user-page-url"><%= page.title_url %></p> <p class="user-page-tagline"><%= page.tagline %></div>
+    <div>
+      <%= link_to "Visit", "/page/#{page.title_url}", :method => :get %>
+      <% if @user == current_user %>
+        <%= link_to "Edit", "#", :class => "inline"  %>
+        <%= link_to "Delete", page, :method => :delete, :class => "inline", :confirm => "Are you sure you want to delete this page?" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 <% end %>
+</div>
+</div>
