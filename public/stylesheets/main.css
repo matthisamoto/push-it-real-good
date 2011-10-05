@@ -212,7 +212,7 @@ form.button_to, form.button_to div{ display:inline; }
 .new-page a:hover {
 	background-position:-90px 10px;
 }
-.pages { text-align:center; }
+.pages { text-align:center; margin-bottom: 30px; }
 .page {
 	margin:0 auto;
 	display:block;
