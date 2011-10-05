@@ -224,13 +224,21 @@ form.button_to, form.button_to div{ display:inline; }
 	text-align:left; }
 .page img, .page p { display:inline; }
 .page .button-image {
+	height:50px;
 	margin-right:20px;
 	float:left;
 }
 .page .page-info {
 	float:left;
+	line-height:50px;
 }
+.user-links { 
+	float:right; 
+	line-height:50px;
+	height:50px;
+	margin-right:10px; }
 .user-page-url {
+	float:left;
 	text-transform:uppercase;
 	font-weight:normal;
 	font-size:200%;
@@ -238,10 +246,12 @@ form.button_to, form.button_to div{ display:inline; }
 	letter-spacing:0.07em;
 }
 .user-page-tagline {
+	float:left;
 	font-size:140%;
 	font-style:italic;
 	color:#666;
 	text-transform:uppercase;
+	margin-left:10px;
 }
 
 /* Create Page */

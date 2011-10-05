@@ -24,14 +24,14 @@
 <div class="page clearfix">
   <div class="button-image"><%= image_tag "/images/#{page.button_url}.png", :height => 50, :width => 50 %></div>
   <div class="page-info">
-    <div class="user-page-url"><%= page.title_url %></p> <p class="user-page-tagline"><%= page.tagline %></div>
-    <div>
-      <%= link_to "Visit", "/page/#{page.title_url}", :method => :get %>
-      <% if @user == current_user %>
-        <%= link_to "Edit", "#", :class => "inline"  %>
-        <%= link_to "Delete", page, :method => :delete, :class => "inline", :confirm => "Are you sure you want to delete this page?" %>
-      <% end %>
-    </div>
+    <div class="user-page-url"><%= page.title_url %></div> <div class="user-page-tagline"><%= page.tagline %></div>
+  </div>
+  <div class="user-links">
+    <%= link_to "Visit", "/page/#{page.title_url}", :method => :get %>
+    <% if @user == current_user %>
+      <%= link_to "Edit", "#", :class => "inline"  %>
+      <%= link_to "Delete", page, :method => :delete, :class => "inline", :confirm => "Are you sure you want to delete this page?" %>
+    <% end %>
   </div>
 </div>
 <% end %>
