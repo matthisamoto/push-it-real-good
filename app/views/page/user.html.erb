@@ -16,10 +16,11 @@
   <div class="join-date"><div class="date-joined"><%= @user.created_at.strftime("%m/%d/%Y") %></div><div class="member-since">Member<br/>Since</div> </div>
   <div class="num-pages"><div class="page-amt"><%= @pages.count %></div> <div class="pages-made">Pages<br/>Made</div></div>
 </div>
-<% if flash[:warning] or flash[:notice] %>
-  <p class="notice"><%= flash[:notice] %></p>
-<% end %>
+
 <div class="pages">
+<% if flash[:warning] or flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %> <%= image_tag "/images/kill-notice.png" %></p>
+<% end %>
 <% @pages.each do |page| %>
 <div class="page clearfix">
   <div class="button-image"><%= image_tag "/images/#{page.button_url}.png", :height => 50, :width => 50 %></div>
@@ -37,3 +38,5 @@
 <% end %>
 </div>
 </div>
+
+<script type="text/javascript" src="/js/user-profile.js"></script>

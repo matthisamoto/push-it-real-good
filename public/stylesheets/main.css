@@ -213,7 +213,7 @@ form.button_to, form.button_to div{ display:inline; }
 .new-page a:hover {
 	background-position:-90px 10px;
 }
-.pages { text-align:center; margin-bottom: 30px; }
+.pages { margin:0 auto; width: 642px; text-align:center; margin-bottom: 30px; }
 .page {
 	margin:0 auto;
 	display:block;
@@ -320,7 +320,6 @@ form.button_to, form.button_to div{ display:inline; }
 }
 .form-division {
 	display:block;
-	height:400px;
 	width: 642px;
 	float:left;
 }
@@ -474,35 +473,46 @@ input[type=submit] {
 p.creator { margin-right:20px; }
 
 /* Legal Page */
+
 .legal { 
 	font-family: Helvetica, Arial, sans-serif; 
 	width: 602px; 
 	margin: 4em auto;
 	padding: 20px;
 	background-color: rgba( 255, 255, 255, .5 );
-	text-align: left; }
+	text-align: left;
+	font-size:100%; }
 .legal a:link, .legal a:visited, .legal a.hover { font-size:100%; font-family: Helvetica, Arial, sans-serif; text-transform: none; }
-.legal { font-size:100%; }
 .legal p { display:block; margin-bottom: 1em; }
 .legal p.address { margin:0; }
 .legal h3 { display:inline; }
 .terms-of-use { color:#282625; }
 
+/* About Us */
+
+.about-us {
+	font-family: Helvetica, Arial, sans-serif; 
+	width: 602px; 
+	margin: 4em auto;
+	padding: 20px;
+	background-color: rgba( 255, 255, 255, .5 );
+	text-align: left; }
+.about-us a:link, .about-us a:visited, .about-us a.hover { font-size:100%; font-family: Helvetica, Arial, sans-serif; text-transform: none; }
+
 /* Utilities */
 
-a:link, a:visited, a:hover {
-	color:#f14306;
-}
+a:link, a:visited, a:hover { color:#f14306; }
 .notice {
 	padding:10px 0;
 	display:block;
-	background-color:rgba(240,200,60,0.30);
-	border: 1px solid #a68100;
-	color:#a68100;
+	background-color:rgba(241,67,6,0.30);
+	border: 1px solid #f14306;
+	color:#282625;
 	text-align:center;
-	margin-bottom:10px;
-}
-
+	text-transform: uppercase;
+	font-size: 160%;
+	margin-bottom:10px; }
+.notice img { margin-left:10px; cursor:pointer; }
 .warning {
 	padding:10px 0;
 	display:block;
@@ -510,23 +520,15 @@ a:link, a:visited, a:hover {
 	border: 1px solid #990000;
 	color:#990000;
 	text-align:center;
-	margin-bottom:10px;
-}
-.inline {
-	display:inline;
-}
+	margin-bottom:10px; }
+.inline { display:inline; }
 a.tooltip {
 	border-bottom: 1px dashed #c0c0c0;
 	text-decoration: none;
 	text-align:left;
 	cursor:help; }
-
-a.tooltip:hover {
-	position: relative; }
-
-a.tooltip span {
-	display: none; }
-
+a.tooltip:hover { position: relative; }
+a.tooltip span { display: none; }
 a.tooltip:hover span {
 	display: block;
 	width:200px; font-size:70%;
