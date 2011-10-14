@@ -1,39 +1,50 @@
 <%= link_to "", root_path, :class => "small-logo" %>
 
+<div class="step-tracker clearfix">
+	<div class="step-one">1</div>
+	<div class="spacer spacer-1"></div>
+	<div class="step-two">2</div>
+	<div class="spacer spacer-2"></div>
+	<div class="step-three">3</div>
+</div>
+
 <%= form_for(:page, :url => {:action => 'create'}) do |f| %>
   <div class="create-new-mask">
-    <div class="create-new">	
+    <div class="create-new">
+	
       <div class="form-division search-tracks">
 	    <div class="search-terms">
-          <p><%= f.label "Search SoundCloud For Tracks" %></p>
-          <p><input id="search" name="search_term" size="30" type="text" /> <%= link_to("Search", "#", :class => 'search-button button') %></p>
-		  <div class="clearfix"></div>
+          <input id="search" name="search_term" size="30" type="text" value="Search SoundCloud for Tracks"/> <%= link_to("Search", "#", :class => 'button search-button ') %>
           <div class="track-name"></div><div class="id-container"></div>
-		  <p class="next-btn clearfix"><%= link_to 'Continue >>', '#', :class => 'next button' %></p>
         </div>
 		<div class="search-results"></div>
+		<div class="continue-from-search">
+		  <div class="next-btn clearfix"><%= link_to 'Continue', '#', :class => 'next button' %></div>
+		</div>
       </div>
+
       <div class="form-division choose-button">
 	    <div class="choose-buttons">
-		  <p class="back-btn clearfix"><%= link_to '<< Back', '#', :class => 'prev button' %></p>
+		  <p class="back-btn clearfix"><%= link_to 'Go Back', '#', :class => 'prev button' %></p>
 		  <div class="clearfix"></div>
 		  <div class="button-style">
 		  <p><%= f.label "Choose Button Style" %></p>
 	      <p><span class="choose-style"> <%= select("button", "style_name", @options )%></span></p>
 		  </div>
 	      <div class="choose-color"></div>
-		  <p class="next-btn clearfix"><%= link_to 'Continue >>', '#', :class => 'next button' %></p>
+		  <p class="next-btn clearfix"><%= link_to 'Continue', '#', :class => 'next button' %></p>
 	    </div>
 	    <div class="image-preview">Image Preview will appear here.</div>
       </div>
+
       <div class="form-division name-page">
-        <p class="back-btn clearfix"><%= link_to '<< Back', '#', :class => 'prev button' %></p>
+        <p class="back-btn clearfix"><%= link_to 'Go Back', '#', :class => 'prev button' %></p>
 		<div class="clearfix"></div>
         <p><%= f.label "Name your page" %></p>
         <p><%= f.text_field :title_url %></p>
         <p><%= f.label "Choose a tagline" %></p>
         <p><%= f.text_field :tagline %></p>
-        <p><%= f.submit "Create My Page" %></p>
+        <p><%= f.submit "Create My Page", :class => "button" %></p>
       </div>
     </div>
   </div>

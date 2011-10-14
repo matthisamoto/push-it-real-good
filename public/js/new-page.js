@@ -1,6 +1,6 @@
 var count = 0;
 var container = $('<div>', { class: 'search-container' });
-
+var current_page = 1;
 // Set up CSRF token to work with AJAX
 var csrf_token = $('meta[name=csrf-token]').attr('content');
 $("body").bind("ajaxSend", function(elm, xhr, s){
@@ -55,15 +55,12 @@ function togglePlayButton(btn, parent, url) {
 	}
 }
 function search_soundcloud() {
-	
+  $('.close-results').remove();
   var search_term = $('input#search').val();
   $.get('http://m.soundcloud.com/_api/tracks/', { q: search_term, limit: 10, client_id: "72325d0b84c6a7f4bbef4dd86c0a5309", filter: "streamable", format: 'json' }, function(data) {	
     
     //add_container();
     var html = "";
-	html += '<p class="header left">Keyword Search: ' + search_term + '</p>' + "\n";
-	html += '<p class="right"><a href="#" class="close-results button">Clear Results</a></p>' + "\n";
-	html += '<div class="clearfix"></div>' + "\n";
 	html += '<div class="search">' + "\n";
 	html += '<div class="tracks">' + "\n";
 	$.each(data, function(i, e) {
@@ -92,6 +89,7 @@ function search_soundcloud() {
 	html += '</div>' + "\n";
 	html += '</div>' + "\n";
     $('.search-results').empty().scrollTop(0).append(html);
+	$('.continue-from-search').append('<a href="#" class="close-results button">Clear Results</a>');
 	$('.play').click( function (e){
 	  e.preventDefault();
 	  //create_audio($(this).parent(), $(this).parent().attr('id'));
@@ -100,7 +98,7 @@ function search_soundcloud() {
 	$('.close-results').click( function(e) {
 	  e.preventDefault();
 	  $('.search-results').empty();
-	
+	  $(this).remove();
 	});
 	$('.select-track').click( function(e) {
 	  e.preventDefault();
@@ -133,12 +131,35 @@ function preview_image() {
 function moveScreen(direction) {
 	var distance = 0;
 	if(direction == "forward") {
-	  distance = -960;	
+	  current_page++;
+	  track_progress();
+	  distance = -642;	
 	} else {
-	  distance = 960;
+	  current_page--
+	  track_progress();
+	  distance = 642;
 	}
 	var position = $('.create-new').position().left;
 	$('.create-new').animate({ left: position + distance + "px" }, 500, function() { } );
+}
+function track_progress() {
+	switch(current_page) {
+		case 1:
+		  $('.step-one').addClass('step-active');
+		  if($('.step-two').hasClass('step-active')) $('.step-two').removeClass('step-active');
+		  if($('.spacer-1').hasClass('spacer-active')) $('.spacer-1').removeClass('spacer-active');
+		  break;
+		case 2:
+		  $('.step-two').addClass('step-active');
+		  if($('.step-three').hasClass('step-active')) $('.step-three').removeClass('step-active');
+		  if($('.spacer-2').hasClass('spacer-active')) $('.spacer-2').removeClass('spacer-active');
+		  $('.spacer-1').addClass('spacer-active');
+		  break;
+		case 3:
+		  $('.step-three').addClass('step-active');
+		  $('.spacer-2').addClass('spacer-active');
+		  break;
+	}
 }
 // OnLoad Actions
 retrieve_colors();
@@ -163,6 +184,7 @@ $("input[type=submit]").click( function (e) {
 	}
 	
 });
+
 $('.search-button').click( function (e) {
 	e.preventDefault();
 	search_soundcloud();
@@ -173,11 +195,17 @@ $('#search').keypress(function(e) {
 		search_soundcloud();
 	}
 });
+$('#search').click( function(e) {
+	if($(this).val() == "Search SoundCloud for Tracks") {
+		$(this).val("");
+	}
+})
 $('.next').each( function() {
   $(this).click( function(e) {
 	e.preventDefault();
     moveScreen("forward");
     $('.search-results').empty();
+    $('.close-results').remove();
   });
 });
 $('.prev').each( function() {
@@ -186,3 +214,5 @@ $('.prev').each( function() {
     moveScreen("backward");
   });
 });
+
+track_progress();

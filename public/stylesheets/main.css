@@ -156,6 +156,7 @@ a.create-link:hover	{
 	background:url(/images/push-it-logo-small.png) transparent no-repeat;
 	z-index:100;
 }
+
 /* User Page */
 
 form.button_to, form.button_to div{ display:inline; }
@@ -267,13 +268,48 @@ form.button_to, form.button_to div{ display:inline; }
 .delete-btn { display:block; width:49px; height:50px; background:url(/images/delete-btn.png) no-repeat 0 14px; }
 .delete-btn:hover { background-position: -49px 14px; }
 
-/* Create Page */
+/* Create New Page */
 
 .create-new-mask {
+	margin:0 auto;
 	overflow: hidden;
-	width: 960px;
+	width: 642px;
 	display: block;
 	position: relative;
+}
+.step-tracker {
+	width:264px;
+	margin:60px auto;
+	text-align:center;
+}
+.step-tracker div {
+	display:block;
+	float:left;
+}
+.step-one, .step-two, .step-three {
+	display:block;
+	float:left;
+	width:40px;
+	height:40px;
+	font-size:200%;
+	border-radius:5px;
+	background-color:#f15306;
+	line-height:40px;
+}
+.spacer {
+	width:52px;
+	height:40px;
+	background:url(/images/spacer.png) transparent no-repeat -52px 19px;
+	margin: 0 10px;
+	line-height:40px;
+	margin:0 10px;
+}
+.step-active {
+	background-color:#282625;
+	color: #f15306;
+}
+.spacer-active {
+	background-position: 0px 19px;
 }
 .create-new {
 	position: relative;
@@ -284,27 +320,24 @@ form.button_to, form.button_to div{ display:inline; }
 }
 .form-division {
 	display:block;
-	background-color:#eee;
-	height:360px;
-	width: 920px;
+	height:400px;
+	width: 642px;
 	float:left;
-	padding:20px;
 }
 .next-btn, .back-btn {
 	float:left;
 }
 .button:link,.button:visited, .button:hover {
 	padding:0 10px;
-	height:2.5em;
-	line-height:2.5em;
+	height:1.8em;
+	line-height:1.8em;
 	display: block;
-	border-radius:5px;
 	background-color:#282625;
-	color:#fff;
+	color:#f14306;
 	text-decoration:none;
 }
 .next-btn {
-	margin-top:10px;
+	
 }
 .back-btn {
 	margin-bottom:10px;
@@ -312,43 +345,38 @@ form.button_to, form.button_to div{ display:inline; }
 
 /* Search */
 
-.search-terms { 
-	width: 280px;
+.search-terms {
 	padding:0;
-	margin:0 20px 0 0;
+	margin:0;
 	display:block;
-	float:left;
-}
+	margin-bottom:20px; }
 .search-results {
-	float:left;
+	min-height:280px;
 }
 .search-results .header {
 	line-height:32px;
 }
 .search {
-	margin-top:10px;
 	width:620px;
-	height:320px;
+	height:280px;
 	overflow:auto;
 	display:block;
-	background-color:#ccc;
-}
-.search-button {
-	float:left;
+	text-align:left;
+	margin:0 auto; }
+.search-terms .search-button {
+	display:inline;
+	width:auto;
+	vertical-align: middle;
+	padding:3px 20px;
 }
 input#search {
-	float:left;
 }
 input[type=text] {
 	width: 200px;
 	height:26px;
+	padding:5px 10px;
 	margin-right:10px;
 }
-.search {
-	display:block;
-	background-color:#eee;
-	text-align:left;
-	overflow: auto; }
 .search img { vertical-align:middle; }
 .track-name {
 	margin-top:10px;
@@ -379,8 +407,9 @@ input[type=text] {
 .track .duration { line-height:35px; margin: 0 10px; }
 .track .genre { line-height: 35px; margin: 0 10px; }
 .track .no-stream { line-height: 35px; margin: 0 10px; }
-.close-results{ margin-right: 10px; }
-.select-track:link, .select-track:visited,.select-track:hover { background-color: #f14306; }
+.continue-from-search { margin-top: 20px;}
+.continue-from-search .close-results{ float:right;}
+.select-track:link, .select-track:visited,.select-track:hover { background-color: #f14306; color:#fff;}
 
 /* Button */
 
@@ -443,6 +472,21 @@ input[type=submit] {
 	text-decoration:underline;
 	line-height:50px; }
 p.creator { margin-right:20px; }
+
+/* Legal Page */
+.legal { 
+	font-family: Helvetica, Arial, sans-serif; 
+	width: 602px; 
+	margin: 4em auto;
+	padding: 20px;
+	background-color: rgba( 255, 255, 255, .5 );
+	text-align: left; }
+.legal a:link, .legal a:visited, .legal a.hover { font-size:100%; font-family: Helvetica, Arial, sans-serif; text-transform: none; }
+.legal { font-size:100%; }
+.legal p { display:block; margin-bottom: 1em; }
+.legal p.address { margin:0; }
+.legal h3 { display:inline; }
+.terms-of-use { color:#282625; }
 
 /* Utilities */
 
