@@ -3,6 +3,8 @@ var container = $('<div>', { class: 'search-container' });
 var current_page = 1;
 // Set up CSRF token to work with AJAX
 var csrf_token = $('meta[name=csrf-token]').attr('content');
+var search_scroll;
+
 $("body").bind("ajaxSend", function(elm, xhr, s){
    if (s.type == "POST") {
       xhr.setRequestHeader('X-CSRF-Token', csrf_token);
@@ -61,8 +63,8 @@ function search_soundcloud() {
     
     //add_container();
     var html = "";
-	html += '<div class="search">' + "\n";
-	html += '<div class="tracks">' + "\n";
+	html += '<div class="search scroll-pane">' + "\n";
+	//html += '<div class="tracks">' + "\n";
 	$.each(data, function(i, e) {
 	  html += '<div class="track clearfix" id="' + e['id'] + '">' + "\n";
 	  html += '<p class="track-header"><span class="track-title">' + e['title'] + '</span><span class="track-artist"> from <a href="' + e['user']['permalink_url'] + '" target="_blank" class="track_author">' + e['user']['username'] + '</a></span></p>' + "\n";
@@ -86,7 +88,7 @@ function search_soundcloud() {
 	  if(e['genre']) html += '<p class="genre left">Genre: ' + e['genre'] + '</p>' + "\n";
 	  html += '</div>' + "\n";
 	});
-	html += '</div>' + "\n";
+	//html += '</div>' + "\n";
 	html += '</div>' + "\n";
     $('.search-results').empty().scrollTop(0).append(html);
 	$('.continue-from-search').append('<a href="#" class="close-results button">Clear Results</a>');
@@ -108,12 +110,17 @@ function search_soundcloud() {
 	  html += '<input type="hidden" name="page[track_author]" class="url" value="' + $(this).parent().find('span.track-artist').text().split('from ')[1] + '" />';
 	  html += '<input type="hidden" name="page[track_author_url]" class="url" value="' + $(this).parent().find('.link-out').attr('href') + '" />';
 	  $('.id-container').empty().append(html);
-	  $('.track-name').empty().css("display","block").append("Added track: " + $(this).parent().find('span.track-title').text())
-	  // $('.search').remove();
+	  $('.track-name').empty().css("display","block").append("Added track: " + $(this).parent().find('span.track-title').text());
+	  
+	  
 	});
+	
+	search_scroll = $('.scroll-pane').jScrollPane({ verticalDragMaxHeight: 25, verticalDragMinHeight: 25 }).data('jsp');
+	  console.log("Should have initiated scrollPane");
 	
   }, "json");
 
+  
 }
 // Button Functions
 function retrieve_colors() {
@@ -214,5 +221,8 @@ $('.prev').each( function() {
     moveScreen("backward");
   });
 });
+
+
+
 
 track_progress();
