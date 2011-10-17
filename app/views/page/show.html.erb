@@ -1,9 +1,27 @@
-<h1><%= @page.tagline %></h1>
+<div class="page-social clearfix">
+	<div class="facebook-social">
+	  <div id="fb-root"></div>	  
+	  <div class="fb-like" data-href="http://pushitrealgood.com" data-send="false" data-layout="button_count" data-width="90" data-show-faces="true" data-font="arial"></div>
+	</div>
+	<div class="twitter-social">
+	  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://pushitrealgood.com" data-text="Choose a sound. Choose a button. Share anytime. Push It Real Good." data-count="horizontal">Tweet</a>
+	</div>
+	<div class="google-social">
+	  <div class="g-plusone" data-size="medium" data-href="http://pushitrealgood.com"></div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<h1 class="clearfix"><%= @page.tagline %></h1>
 
 <div class="push-it">
   <a href="#" class="play no-underline" ><img src="/images/<%= @page.button_url %>.png" alt="Button" class ="push-button" /></a>
 </div>
 
+<%= link_to "", root_path, :class => "small-logo" %>
+<script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));</script>
+<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+<script type="text/javascript">(function(){var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;	      po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>
 <script type="text/javascript">
   var clip = document.createElement('audio');
   clip.src = "<%= @page.sound_url %>?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
@@ -16,3 +34,4 @@
 	clip.play();
   });
 </script>
+

@@ -8,80 +8,55 @@
     font-weight: normal;
     font-style: normal; }
 
-html, body, .wrapper { height:100%; }
+html, body, .wrapper { height: 100%; }
 body > .wrapper {
-	height:auto;
-	min-height:100%; }
+	height: auto;
+	min-height: 100%; }
 body {
-	text-align:center;
+	text-align: center;
 	font-family: "League Gothic", Helvetica, Arial, sans-serif;
-	color:#111;
-	background:url(/images/background.jpg) center top transparent no-repeat; 
+	color: #111;
+	background: url(/images/background.jpg) center top transparent no-repeat; 
 	letter-spacing: 0.15em; }
-a:link, a:visited, a:hover { 
+a:link, a:visited, a:hover {
 	text-transform: uppercase;
-	font-size:160%;
+	font-size: 160%;
 	font-family: "League Gothic", Helvetica, Arial, sans-serif; }
-h1 { 
+h1 {
 	font-family: 'League Gothic', sans-serif;
 	text-transform: uppercase; 
-	font-weight:normal;
-	letter-spacing:.07em;
-	font-size:300%; }
-td { padding:5px 10px; }
-.content { 
+	font-weight: normal;
+	letter-spacing: .07em;
+	font-size: 300%; }
+td { padding: 5px 10px; }
+.content {
 	position: relative;
 	width: 960px;
-	padding: 20px 20px 10.4em 20px;
+	padding: 20px 20px 12.4em 20px;
 	margin: 0 auto;
 	text-align: center; }
 .nav_bar {
 	display:block;
-	padding-top:12px;
+	line-height: 40px;
 	margin: 0 auto;
 	width:960px;
+	height:2em;
 	color:#282625;
 	font-size: 140%;
 	text-transform:uppercase; }
 .nav_bar a:link, .nav_bar a:visited, .nav_bar a:hover {
-	color:#f15306;
-	background-color:#282625;
-	padding:5px 10px;
-	margin:0 4px;
-	text-decoration:none;
+	color: #f15306;
+	background-color: #282625;
+	padding: 5px 10px;
+	margin: 0 4px;
+	text-decoration: none;
 	font-size: 100%; }
 .nav_bar a:hover {
-	color:#282625;
-	background-color:#f15306; }
-.nav_bar .username { color:#f15306; }
-.facebook-button, .google-button, .twitter-button { float:left; }
+	color: #282625;
+	background-color: #f15306; }
+.nav_bar .username { color: #f15306; }
+.facebook-button, .google-button, .twitter-button { float: left; }
 .session_status { float: right; }
-footer {
-	clear:both;
-	background-color:#282625;
-	border-top: solid .4em #f15306;
-	position: relative;
-	z-index:10;
-	display:block;
-	width: 100%;
-	height:10em;
-	margin-top:-10.4em;
-	text-align:center; }
-nav {
-	margin: 0 auto;
-	margin-top: 20px; }
-nav ul li {
-	display:inline;
-	color:#eee;
-	font-size: 160%; }
-nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
-	padding:10px 15px;
-	margin:0 20px;
-	text-decoration:none;
-	text-transform:uppercase;
-	color:#eee;
-	font-size:100% }
-nav ul li a:hover { color:#f14306; }
 
 /* Home Page */
 
@@ -126,13 +101,13 @@ nav ul li a:hover { color:#f14306; }
 	float:left; }
 .count-pages span.count { font-size:200%; }
 a.create-link { 
-	text-decoration:none;
-	font-size:250%;
+	text-decoration: none;
+	font-size: 250%;
 	margin:0 auto;
-	border-radius:5px;
-	text-align:center;
-	display:block;
-	width:146px;
+	border-radius: 5px;
+	text-align: center;
+	display: block;
+	width: 146px;
 	background-color:#282625;
 	padding: 5px 0px; }
 a.create-link:hover	{
@@ -153,7 +128,7 @@ a.create-link:hover	{
 	display:block;
 	width:160px;
 	height:160px;
-	background:url(/images/push-it-logo-small.png) transparent no-repeat;
+	background: url(/images/push-it-logo-small.png) transparent no-repeat;
 	z-index:100;
 }
 
@@ -227,20 +202,17 @@ form.button_to, form.button_to div{ display:inline; }
 .page .button-image {
 	height:50px;
 	margin-right:20px;
-	float:left;
-}
+	float:left; }
 .page .page-info {
 	float:left;
-	line-height:50px;
-}
+	line-height:50px; }
 .user-links { 
 	float:right; 
 	line-height:50px;
 	height:50px;
 	margin-right:10px; }
 .user-links a {
-	float:right;
-}
+	float:right; }
 .user-page-url {
 	float:left;
 	text-transform:uppercase;
@@ -248,10 +220,9 @@ form.button_to, form.button_to div{ display:inline; }
 	font-size:120%;
 	font-family:"League Gothic", sans-serif;
 	letter-spacing:0.07em;
-	height:50px;
-}
+	height:50px; }
 .user-page-url a:link, 
-.user-page-url a:visited { color:#282625; text-decoration:none;}
+.user-page-url a:visited { color:#282625; text-decoration:none; }
 .user-page-url a:hover { color:#f15306; }
 .user-page-tagline {
 	float:left;
@@ -432,6 +403,7 @@ select {
 	display:block; }
 .choose-color { margin-top:10px; }
 
+
 /* Naming */
 
 input[type=submit] {
@@ -450,6 +422,63 @@ input[type=submit] {
 .registration h2 { padding:10px 0; }
 .registration p { margin-bottom:10px; }
 
+
+/* Footer */
+
+footer {
+	clear:both;
+	background-color:#282625;
+	border-top: solid .4em #f15306;
+	position: relative;
+	z-index:10;
+	display:block;
+	width: 100%;
+	height:12em;
+	margin-top:-12.4em;
+	text-align:center; }
+nav {
+	margin: 0 auto;
+	margin-top: 20px;
+	display:block;
+	width: 800px; }
+nav ul li {
+	display:inline;
+	color:#eee;
+	font-size: 160%; 
+	width:200px; }
+nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
+	text-decoration:none;
+	text-transform:uppercase;
+	color:#eee;
+	font-size:100% }
+nav ul li a:hover { color:#f14306; }
+.footer-count-pages {
+	display:inline;
+	width:150px;  
+	color:#f14306; }
+.footer-count-pages div{ display:block; width:150px; }
+.footer-count-pages span.footer-count { font-size:190%; }
+.footer-powered-by {
+	display:inline; }
+.footer-powered-by a:link,	
+.footer-powered-by a:visited {	 
+	color:#f14306; }
+.footer-soundcloud-logo {
+	display:block;
+	background: url(/images/soundcloud-logo.png) no-repeat transparent center;
+	width:80px;
+	height:50px;
+	margin:0 auto; }
+footer .inner {
+	display:block;
+	text-transform: uppercase;
+	width: 160px;
+	height: 100px;
+	float:left;
+	vertical-align: text-middle;
+	text-align:center; }
+footer .single-line-link { line-height:75px; }
+
 /* Button Page Template */ 
 
 .button-page h1{
@@ -457,7 +486,6 @@ input[type=submit] {
 	margin-top:30px; }
 .button-page .content {
 	width:720px;
-	padding:0;
 	text-align:center; }
 .info_bar {
 	display:block;
@@ -471,6 +499,26 @@ input[type=submit] {
 	text-decoration:underline;
 	line-height:50px; }
 p.creator { margin-right:20px; }
+.button-page .small-logo {
+	position: relative;
+	left:auto;
+	margin: 0 auto;
+	margin-top: 150px;
+	width: 100px;
+	height: 100px;
+	background: url(/images/push-it-logo-smaller.png) }
+.page-social { margin: 0 auto; margin-bottom: 60px; width:290px;}
+.facebook-social, .twitter-social, .google-social { float:left; }
+.page-session-status {
+	margin:20px 0;
+	text-transform: uppercase;
+	font-size:130%;
+ 	line-height: 1.4em; }
+.page-session-status a:link, 
+.page-session-status a:visited, 
+.page-session-status a:hover {
+	font-size:100%;
+}
 
 /* Legal Page */
 
@@ -499,8 +547,9 @@ p.creator { margin-right:20px; }
 	text-align: left; }
 .about-us a:link, .about-us a:visited, .about-us a.hover { font-size:100%; font-family: Helvetica, Arial, sans-serif; text-transform: none; }
 
-/* Utilities */
 
+/* Utilities */
+.copyright { color:#fff; font-size: 120%; }
 a:link, a:visited, a:hover { color:#f14306; }
 .notice {
 	padding:10px 0;

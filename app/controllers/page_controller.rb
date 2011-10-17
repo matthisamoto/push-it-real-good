@@ -3,6 +3,7 @@ class PageController < ApplicationController
   def show
     @page = Page.find(:first, :conditions => { "title_url" => params[:id] } )
     @user = User.find(:first, :conditions => { :id => @page.user_id })
+    @count = Page.count
     render :layout => 'page'
   end
   

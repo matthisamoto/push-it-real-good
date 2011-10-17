@@ -9,10 +9,25 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 </head>
 <body class="button-page">
-<%= render "page/info" unless !user_signed_in? %>
-<div class="content">
-<%= yield %>
-</div>
+  <div class="wrapper">
+    <div class="content">
+      <%= yield %>
 
+	  <div class="page-session-status">
+	    <% if user_signed_in? %>
+	      Logged in as <span class="username"><%= current_user.username %></span>.<br/>Go to my <%= link_to "profile", "/user/#{current_user.username}" %><br/>
+			Not you? <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
+	    <% else %>
+	      <%= link_to "Login", new_user_session_path %><br/>
+			<%= link_to "Sign Up", new_user_registration_path %>
+	    <% end %>
+	  </div>
+	<div class=clearfix></div>
+    </div>
+  </div>
+  
+  
+
+  <%= render "layouts/footer" %>
 </body>
 </html>
