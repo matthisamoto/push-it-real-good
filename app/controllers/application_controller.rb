@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery
   
+  def get_count
+    @count = Page.count
+  end
+  
   private
      
      def auth_soundcloud
@@ -15,8 +19,6 @@ class ApplicationController < ActionController::Base
       def after_sign_up_path_for(resource)
         "/user/#{current_user.username}" # <- Path you want to redirect the user to after signup
       end
-
-
 
   layout :layout_by_resource
 

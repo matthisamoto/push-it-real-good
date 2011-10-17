@@ -36,14 +36,14 @@ td { padding: 5px 10px; }
 	margin: 0 auto;
 	text-align: center; }
 .nav_bar {
-	display:block;
+	display: block;
 	line-height: 40px;
 	margin: 0 auto;
-	width:960px;
-	height:2em;
-	color:#282625;
+	width: 960px;
+	height: 2em;
+	color: #282625;
 	font-size: 140%;
-	text-transform:uppercase; }
+	text-transform: uppercase; }
 .nav_bar a:link, .nav_bar a:visited, .nav_bar a:hover {
 	color: #f15306;
 	background-color: #282625;
@@ -64,27 +64,27 @@ td { padding: 5px 10px; }
 	display:block;
 	text-align:center; }
 .three-steps {
-	margin-top:30px;
-	display:block;
-	text-align:center; }
+	margin-top: 30px;
+	display: block;
+	text-align: center; }
 .step-container {
 	margin:0 auto;
-	width:688px;
-	display:block; }
+	width: 688px;
+	display: block; }
 .step-container * {	float: left; }
 .step {
-	display:block;
-	width:146px;
-	height:145px;
+	display: block;
+	width: 146px;
+	height: 145px;
 	margin: 0 15px; }
-.sound_step { background:url(/images/sound_block.png) no-repeat transparent; }
-.button_step { background:url(/images/button_block.png) no-repeat transparent; }
-.share_step { background:url(/images/share_block.png) no-repeat transparent; }
+.sound_step { background: url(/images/sound_block.png) no-repeat transparent; }
+.button_step { background: url(/images/button_block.png) no-repeat transparent; }
+.share_step { background: url(/images/share_block.png) no-repeat transparent; }
 .arrow {
-	display:block;
-	width:80px;
-	height:145px;
-	background:url(/images/arrow.png) no-repeat center transparent; }
+	display: block;
+	width: 80px;
+	height: 145px;
+	background: url(/images/arrow.png) no-repeat center transparent; }
 .create-bar {
 	display:block;
 	width:688px;

@@ -1,7 +1,8 @@
 class IndexController < ApplicationController
   
+  before_filter :get_count
+  
   def index
-    @count = Page.count
   end
     
 end
