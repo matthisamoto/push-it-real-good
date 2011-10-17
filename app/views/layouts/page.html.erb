@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="<%= root_path %>stylesheets/main.css" type="text/css" />
   <%= javascript_include_tag "application" %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
-  <meta property="og:url" content="http://pushitrealgood.com/page/<%= @page.title_url %>"/>
+  <meta property="og:url" content="<%= root_path %>/page/<%= @page.title_url %>"/>
   <meta property="og:title" content="'<%= @page.title_url.upcase %> - <%= @page.tagline.upcase %>' on Push It Real Good"/>
-  <meta property="og:image" content="http://ia.media-imdb.com/rock.jpg"/>
+  <meta property="og:image" content="<%= root_path %>/images/push-it-logo-small.png"/>
   <meta property="og:description" content="I just saw this site; make your own on pushitrealgood.com!"/>
 </head>
 <body class="button-page">
