@@ -1,13 +1,13 @@
 <div class="page-social clearfix">
 	<div class="facebook-social">
 	  <div id="fb-root"></div>	  
-	  <div class="fb-like" data-href="http://pushitrealgood.com" data-send="false" data-layout="button_count" data-width="90" data-show-faces="true" data-font="arial"></div>
+	  <div class="fb-like" data-href="http://pushitrealgood.com/page/<%= @page.title_url %>" data-send="false" data-layout="button_count" data-width="90" data-show-faces="true" data-font="arial"></div>
 	</div>
 	<div class="twitter-social">
-	  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://pushitrealgood.com" data-text="Choose a sound. Choose a button. Share anytime. Push It Real Good." data-count="horizontal">Tweet</a>
+	  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://pushitrealgood.com/page/<%= @page.title_url %>" data-text="I just saw this on pushitrealgood.com!" data-count="horizontal">Tweet</a>
 	</div>
 	<div class="google-social">
-	  <div class="g-plusone" data-size="medium" data-href="http://pushitrealgood.com"></div>
+	  <div class="g-plusone" data-size="medium" data-href="http://pushitrealgood.com/page/<%= @page.title_url %>"></div>
 	</div>
 	<div class="clearfix"></div>
 </div>

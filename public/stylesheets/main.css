@@ -62,7 +62,8 @@ td { padding: 5px 10px; }
 
 .push-it { 
 	display:block;
-	text-align:center; }
+	text-align:center;
+	margin-top: 20px; }
 .three-steps {
 	margin-top: 30px;
 	display: block;
