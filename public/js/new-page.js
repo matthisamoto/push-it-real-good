@@ -1,3 +1,4 @@
+$(document).ready(function() {
 var count = 0;
 var container = $('<div>', { class: 'search-container' });
 var current_page = 1;
@@ -168,6 +169,31 @@ function track_progress() {
 		  break;
 	}
 }
+// Naming Functions
+/*
+$('#page_title_url').each(function(){
+  var length = $(this).val().length;
+  var total = 16;
+  $(this).parent().find('.title-counter').html( total - length );
+  $(this).keyup(function(){
+    var new_length = $(this).val().length;
+    $(this).parent().find('.title-counter').html( total - new_length);
+  });
+});
+$('#page_tagline').each(function(){
+  var length = $(this).val().length;
+  var total = 150;
+  $(this).parent().find('.tagline-counter').html( total - length );
+  $(this).keyup(function(){
+    var new_length = $(this).val().length;
+	$(this).parent().find('.tagline-counter').html( total - new_length);
+  });
+});
+*/
+
+var titleValid = new LiveValidation("page_title_url");
+titleValid.add( Validate.Format, { pattern: /^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9]*$/ });
+
 // OnLoad Actions
 retrieve_colors();
 $("select#button_style_name").change( retrieve_colors );
@@ -222,7 +248,6 @@ $('.prev').each( function() {
   });
 });
 
-
-
-
 track_progress();
+
+});

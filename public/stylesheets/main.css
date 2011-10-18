@@ -305,13 +305,11 @@ form.button_to, form.button_to div{ display:inline; }
 	display: block;
 	background-color:#282625;
 	color:#f14306;
-	text-decoration:none;
-}
+	text-decoration:none; }
 .next-btn {
 	
 }
 .back-btn {
-	margin-bottom:10px;
 }
 
 /* Search */
@@ -406,16 +404,30 @@ select {
 
 
 /* Naming */
-
+.naming {
+	margin: 30px 0;
+	width: 602px;
+	padding:  20px;
+	background-color: rgba( 255, 255, 255, 0.5);
+	text-align: left;
+}
 input[type=submit] {
-	margin-top:10px;
-	padding:10px 10px;
-	height:2.5em;
-	border-radius:5px;
-	border:none;
-	background-color:#282625;
-	color:#fff;
+	font-family: "League Gothic";
+	font-size:160%;
+	text-transform: uppercase;
+	margin-top: 10px;
+	padding: 0px 10px;
+	line-height: 1.8em;
+	height: 1.8em;
+	border: none;
+	background-color: #282625;
+	color: #f14306;
 	text-decoration:none; }
+.inputs {
+	margin-bottom:20px;
+	font-size:160%;
+	text-transform: uppercase;
+}
 
 /* Registration Page */
 
@@ -550,6 +562,8 @@ p.creator { margin-right:20px; }
 
 
 /* Utilities */
+.LV_valid { color: #090; }
+.LV_invalid { color: #c00; }
 .copyright { color:#fff; font-size: 120%; }
 a:link, a:visited, a:hover { color:#f14306; }
 .notice {

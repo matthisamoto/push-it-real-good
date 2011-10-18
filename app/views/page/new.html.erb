@@ -19,32 +19,32 @@
         </div>
 		<div class="search-results"></div>
 		<div class="continue-from-search">
-		  <div class="next-btn clearfix"><%= link_to 'Continue', '#', :class => 'next button' %></div>
+		  <div class="next-btn clearfix"><a href="#" class="next button">Continue <img alt="Right-arrow" src="/images/right-arrow.png" /></a></div>
 		</div>
       </div>
 
       <div class="form-division choose-button">
 	    <div class="choose-buttons">
-		  <p class="back-btn clearfix"><%= link_to 'Go Back', '#', :class => 'prev button' %></p>
 		  <div class="clearfix"></div>
 		  <div class="button-style">
 		  <p><%= f.label "Choose Button Style" %></p>
 	      <p><span class="choose-style"> <%= select("button", "style_name", @options )%></span></p>
 		  </div>
 	      <div class="choose-color"></div>
-		  <p class="next-btn clearfix"><%= link_to 'Continue', '#', :class => 'next button' %></p>
+		  <p class="back-btn clearfix"><a href="#" class="prev button"><img alt="Left-arrow" src="/images/left-arrow.png" />Go Back</a></p>
+		  <p class="next-btn clearfix"><a href="#" class="next button">Continue <img alt="Right-arrow" src="/images/right-arrow.png" /></a></p>
 	    </div>
 	    <div class="image-preview">Image Preview will appear here.</div>
       </div>
 
       <div class="form-division name-page">
-        <p class="back-btn clearfix"><%= link_to 'Go Back', '#', :class => 'prev button' %></p>
 		<div class="clearfix"></div>
-        <p><%= f.label "Name your page" %></p>
-        <p><%= f.text_field :title_url %></p>
-        <p><%= f.label "Choose a tagline" %></p>
-        <p><%= f.text_field :tagline %></p>
+		<div class="naming">
+        <p class="inputs"><%= f.label :title_url, "http://pushitrealgood.com/page/" %> <%= f.text_field :title_url, :maxlength => 16 %> <span class="title-counter"></span></p>
+        <p class="inputs"><%= f.label :tagline, "Tagline for your page: " %> <%= f.text_field :tagline, :maxlength => 150 %> <span class="tagline-counter"></span></p>
+		</div>
         <p><%= f.submit "Create My Page", :class => "button" %></p>
+		<p class="back-btn clearfix"><a href="#" class="prev button"><img alt="Left-arrow" src="/images/left-arrow.png" />Go Back</a></p>
       </div>
     </div>
   </div>
@@ -52,4 +52,5 @@
 
 <script type="text/javascript" src="/js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="/js/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" src="/js/livevalidation_standalone.compressed.js"></script>
 <script type="text/javascript" src="/js/new-page.js"></script>
