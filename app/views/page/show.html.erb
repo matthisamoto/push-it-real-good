@@ -1,3 +1,11 @@
+
+
+<h1 class="clearfix"><%= @page.tagline %></h1>
+
+<div class="push-it">
+  <a href="#" class="play no-underline" ><img src="/images/<%= @page.button_url %>.png" alt="Button" class ="push-button" /></a>
+</div>
+
 <div class="page-social clearfix">
 	<div class="facebook-social">
 	  <div id="fb-root"></div>	  
@@ -12,13 +20,8 @@
 	<div class="clearfix"></div>
 </div>
 
-<h1 class="clearfix"><%= @page.tagline %></h1>
+<%= render "info" %>
 
-<div class="push-it">
-  <a href="#" class="play no-underline" ><img src="/images/<%= @page.button_url %>.png" alt="Button" class ="push-button" /></a>
-</div>
-
-<%= link_to "", root_path, :class => "small-logo" %>
 <script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));</script>
 <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 <script type="text/javascript">(function(){var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;	      po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>

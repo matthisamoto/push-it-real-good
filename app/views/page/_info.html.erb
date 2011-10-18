@@ -1,18 +1,7 @@
-  <div class="info_bar clearfix">
-	<div class="home-btn"><%= link_to image_tag("/images/push-it-text-only.png"), "#" %></div>
-    <div class="session_status">
-	  <p class="creator">created by <%= link_to @user.username, "/user/#{@user.username}" %> | track: <%= link_to @page.track_name, @page.track_url, :target => "_blank" %> by <%= link_to @page.track_author, @page.track_author_url, :target => "_blank" %></p>
+	<div class="info-bar">
+      <div class="creation-status">
+	    <p class="creator">created by <%= link_to @user.username, "/user/#{@user.username}" %> |
+		track: <%= link_to @page.track_name, @page.track_author_url, :target => "_blank" %> |
+		track author: <%= link_to @page.track_author, @page.track_url, :target => "_blank" %></p>
+      </div>
     </div>
-  </div>
-
-<script type="text/javascript">
-$('.home-btn a').click( function(e) {
-  e.preventDefault();
-  var mover = $('.info_bar');
-  if(mover.width() == 250) {
-	mover.animate( { width: "100%" }, 500, function() {});
-  } else {
-	mover.animate( { width: "250px" }, 500, function() {});
-  }
-});
-</script>

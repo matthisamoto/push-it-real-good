@@ -453,12 +453,12 @@ nav {
 	margin: 0 auto;
 	margin-top: 20px;
 	display:block;
-	width: 800px; }
+	width: 1120px; }
 nav ul li {
 	display:inline;
 	color:#eee;
 	font-size: 160%; 
-	width:200px; }
+	width:160px; }
 nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	text-decoration:none;
 	text-transform:uppercase;
@@ -474,14 +474,21 @@ nav ul li a:hover { color:#f14306; }
 .footer-powered-by {
 	display:inline; }
 .footer-powered-by a:link,	
-.footer-powered-by a:visited {	 
-	color:#f14306; }
+.footer-powered-by a:visited { color:#f14306; }
 .footer-soundcloud-logo {
-	display:block;
+	display: block;
 	background: url(/images/soundcloud-logo.png) no-repeat transparent center;
-	width:80px;
-	height:50px;
-	margin:0 auto; }
+	width: 80px;
+	height: 50px;
+	margin: 0 auto; }
+.footer-mckinney .inner a:hover { color: #fff; }
+.footer-mckinney-logo {
+	display: block;
+	background: url(/images/mckinney-logo.png) no-repeat transparent center;
+	width: 80px;
+	height: 50px;
+	margin: 0 auto; }
+	
 footer .inner {
 	display:block;
 	text-transform: uppercase;
@@ -495,42 +502,56 @@ footer .single-line-link { line-height:75px; }
 /* Button Page Template */ 
 
 .button-page h1{
-	font-size:300%;
-	margin-top:30px; }
+	font-size: 300%;
+	margin-top: 30px; }
 .button-page .content {
-	width:720px;
-	text-align:center; }
-.info_bar {
-	display:block;
-	height:50px;
-	width:250px;
-	overflow:hidden;
-	background-color:#282625;
-	color:#ccc; }
-.info_bar a:link, .info_bar a:visited, .info_bar a:hover {
-	color:#fff;
-	text-decoration:underline;
-	line-height:50px; }
+	width: 800px;
+	text-align: center;
+	position: relative; }
+.info-bar {
+	display: block;
+	width: 800px;
+	overflow: hidden;
+	color: #ccc;
+	text-align: center;
+	font-size: 160%;
+	overflow: hidden;
+	margin-bottom:20px; }
+.holder { 
+	width: 800px;
+	bottom: 0;
+	position: relative; }
+.info-bar a:link, .info-bar a:visited, .info-bar a:hover {
+	color: #f14306;
+	text-decoration: underline;
+	font-size: 100%; }
+.home-btn {
+	width: 100px;
+	float: left; }
+.creation-status {
+	margin: 0 auto;
+	text-transform: uppercase;
+	color: #282625; }
 p.creator { margin-right:20px; }
 .button-page .small-logo {
 	position: relative;
-	left:auto;
+	left: auto;
 	margin: 0 auto;
 	margin-top: 150px;
 	width: 100px;
 	height: 100px;
 	background: url(/images/push-it-logo-smaller.png) }
-.page-social { margin: 0 auto; margin-bottom: 60px; width:290px;}
+.page-social { margin: 0 auto; margin-bottom: 30px; width:290px; margin-top: 120px;}
 .facebook-social, .twitter-social, .google-social { float:left; }
 .page-session-status {
-	margin:20px 0;
+	margin: 20px 0;
 	text-transform: uppercase;
-	font-size:130%;
+	font-size: 130%;
  	line-height: 1.4em; }
 .page-session-status a:link, 
 .page-session-status a:visited, 
 .page-session-status a:hover {
-	font-size:100%;
+	font-size: 100%;
 }
 
 /* Legal Page */
@@ -559,7 +580,7 @@ p.creator { margin-right:20px; }
 	background-color: rgba( 255, 255, 255, .5 );
 	text-align: left; }
 .about-us a:link, .about-us a:visited, .about-us a.hover { font-size:100%; font-family: Helvetica, Arial, sans-serif; text-transform: none; }
-
+.about-us p { margin-bottom: 1em;}
 
 /* Utilities */
 .LV_valid { color: #090; }
