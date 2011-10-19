@@ -23,7 +23,7 @@
 <% end %>
 <% @pages.each do |page| %>
 <div class="page clearfix">
-  <div class="button-image"><%= image_tag "/images/#{page.button_url}.png", :height => 50, :width => 50 %></div>
+  <div class="button-image"><%= image_tag "/images/#{page.button_url}.png", :height => 40, :width => 80 %></div>
   <div class="page-info">
     <div class="user-page-url"><%= link_to page.title_url, "/page/#{page.title_url}" %></div> <div class="user-page-tagline"><%= page.tagline %></div>
   </div>

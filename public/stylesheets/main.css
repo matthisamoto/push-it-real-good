@@ -201,7 +201,11 @@ form.button_to, form.button_to div{ display:inline; }
 	text-align:left; }
 .page img, .page p { display:inline; }
 .page .button-image {
-	height:50px;
+	margin-top:5px;
+	margin-left:5px;
+	height:40px;
+	width:40px;
+	overflow:hidden;
 	margin-right:20px;
 	float:left; }
 .page .page-info {
