@@ -126,25 +126,21 @@ function initSearchFunctionality(which) {
     $('.track-name').empty().css("display","block").append("Added track: " + $(this).parent().find('span.track-title').text());
   });
   if(which == "initial") {
-	$('.continue-from-search').append('<a href="#" class="close-results button">Clear Results</a>');
+	$('.search-button').after('<a href="#" class="close-results button">Clear Results</a>');
 	$('.close-results').click( function(e) {
 	  e.preventDefault();
 	  $('.search-results').empty();
 	  $(this).remove();
 	});
     search_scroll = $('.scroll-pane').jScrollPane({ verticalDragMaxHeight: 25, verticalDragMinHeight: 25 }).data('jsp');
-	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom)
-					{
-						if(isAtBottom){ console.log("bottom"); moreResults(); $(this).unbind("jsp-scroll-y") }
-					}
-				)
+	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
+      if(isAtBottom){ console.log("bottom"); moreResults(); $(this).unbind("jsp-scroll-y") }
+	});
   } else {
 	search_scroll.reinitialise();
-	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom)
-					{
-						if(isAtBottom){ console.log("bottom"); moreResults(); $(this).unbind("jsp-scroll-y") }
-					}
-				)
+	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
+      if(isAtBottom){ console.log("bottom"); moreResults(); $(this).unbind("jsp-scroll-y") }
+	});
   }
 }
 

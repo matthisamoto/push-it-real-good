@@ -13,9 +13,11 @@
     <div class="create-new">
 	
       <div class="form-division search-tracks">
-	    <div class="search-terms">
-          <input id="search" name="search_term" size="30" type="text" value="Search SoundCloud for Tracks"/> <%= link_to("Search", "#", :class => 'button search-button ') %>
-          <div class="track-name"></div><div class="id-container"></div>
+	    <div class="search-terms clearfix">
+		<div class="centered">
+          <input id="search" name="search_term" size="30" type="text" value="Search SoundCloud for Tracks"/> <%= link_to image_tag("/images/search-icon.png"), "#", :class => 'search-button' %>
+		</div>
+          <div class="track-name clearfix"></div><div class="id-container"></div>
         </div>
 		<div class="search-results"></div>
 		<div class="continue-from-search">
