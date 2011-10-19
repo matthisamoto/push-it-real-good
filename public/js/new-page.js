@@ -156,7 +156,9 @@ function retrieve_colors() {
   });
 }
 function preview_image() {
-	$('.image-preview').empty().append("<image src=\"/images/" + $("select#page_button_url option:selected").attr("value") + ".png\" />");
+	$('.image-preview').empty().append("<image src=\"/images/" + $("select#page_button_url option:selected").attr("value") + ".png\" height= \"150\" width=\"300\" />");
+	$('.image-preview img').mousedown( function(e){ $('.image-preview img').css('margin-left', '-150px'); })
+	$('.image-preview img').mouseup( function(e){ $('.image-preview img').css('margin-left', '0'); })
 }
 function moveScreen(direction) {
 	var distance = 0;
