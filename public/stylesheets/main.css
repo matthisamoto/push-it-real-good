@@ -324,14 +324,14 @@ form.button_to, form.button_to div{ display:inline; }
 	display:block;
 	margin-bottom:20px; }
 .search-results {
-	min-height:280px;
+	min-height:350px;
 }
 .search-results .header {
 	line-height:32px;
 }
 .search {
 	width:620px;
-	height:280px;
+	height:350px;
 	overflow:auto;
 	display:block;
 	text-align:left;
