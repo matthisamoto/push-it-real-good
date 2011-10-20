@@ -37,10 +37,9 @@ td { padding: 5px 10px; }
 	text-align: center; }
 .nav_bar {
 	display: block;
-	line-height: 40px;
 	margin: 0 auto;
 	width: 960px;
-	height: 2em;
+	padding:5px 0;
 	color: #282625;
 	font-size: 140%;
 	text-transform: uppercase; }
@@ -55,7 +54,9 @@ td { padding: 5px 10px; }
 	color: #282625;
 	background-color: #f15306; }
 .nav_bar .username { color: #f15306; }
-.facebook-button, .google-button, .twitter-button { float: left; }
+.nav_bar .social-buttons { width: 300px; display:block; float:left; }
+.facebook-button, .google-button, .twitter-button { float:left; }
+.google-button, .twitter-button { padding-top: 3px; }
 .session_status { float: right; }
 
 /* Home Page */
