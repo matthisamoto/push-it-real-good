@@ -1,0 +1,69 @@
+  <div class="nav_bar clearfix">
+	<div class="social-buttons">
+	  <div class="facebook-button">
+	    <div id="fb-root"></div>	  
+	    <div class="fb-like" data-href="http://pushitrealgood.com" data-send="false" data-layout="button_count" data-width="90" data-show-faces="true" data-font="arial"></div>
+	  </div>
+	  <div class="twitter-button">
+	    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://pushitrealgood.com" data-text="Choose a sound. Choose a button. Share anytime. Push It Real Good." data-count="horizontal">Tweet</a>
+	  </div>
+	  <div class="google-button">
+	    <div class="g-plusone" data-size="medium" data-href="http://pushitrealgood.com"></div>
+	  </div>
+	</div>
+	<div class="session_status">
+      <% if user_signed_in? %>
+        Logged in as <span class="username"><%= current_user.username %></span>. Go to my <%= link_to "profile", "/user/#{current_user.username}" %> 
+		Not you? <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
+      <% else %>
+		<div><%= label_tag :username, "Username" %><br />
+	    <%= text_field_tag :username %></div>
+
+	    <div><%= label_tag :password, "Password" %><br />
+	    <%= password_field_tag :password %></div>
+        <%= link_to "Login", new_user_session_path, :class => "login-button" %>
+		<%= link_to "Sign Up", new_user_registration_path, :class => "sign-up-button" %>
+	  <% end %>
+    </div>
+  </div>
+<script type="text/javascript">
+
+// Set up CSRF token to work with AJAX
+var csrf_token = $('meta[name=csrf-token]').attr('content');
+
+$("body").bind("ajaxSend", function(elm, xhr, s){
+   if (s.type == "POST") {
+      xhr.setRequestHeader('X-CSRF-Token', csrf_token);
+   }
+});
+
+function login() {
+  var email = $('#username').val();
+  var password = $('#password').val();
+  var data = {remote: true, commit: "Sign in", utf8: "✓",headers: {'Content-Type': 'application/json'},
+              user: {remember_me: 1, password: password, email: email}};
+  $.post('/users/sign_in.json', data, function(resp) {
+    if(resp.success) {
+      // process success case
+	  console.log("sign in success");
+    } else {
+      // let the user know they failed authentication
+	  console.log("sign in failure");
+    }
+  });
+  return false;
+}
+
+$('.login-button').click( function(e) {
+	e.preventDefault();
+	login();
+})
+</script>
+
+
+
+
+
+  <script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));</script>
+  <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+  <script type="text/javascript">(function(){var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;	      po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>

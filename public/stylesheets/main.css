@@ -366,12 +366,7 @@ form.button_to, form.button_to div{ display:inline; }
 input#search {
 	float:left;
 }
-input[type=text] {
-	width: 200px;
-	height:26px;
-	padding:5px 10px;
-	margin-right:10px;
-}
+
 .search img { vertical-align:middle; }
 .track-name {
 	margin-top:10px;

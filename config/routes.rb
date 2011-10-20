@@ -8,7 +8,7 @@ PushItRealGood::Application.routes.draw do
     
   resources :page
   
-  devise_for :users
+  devise_for :users#, :controllers => {:sessions => 'sessions'}
   
   match 'wtf' => 'page#about'
   match 'legal' => 'page#legal'

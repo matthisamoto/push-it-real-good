@@ -19,23 +19,27 @@ class PageController < ApplicationController
   end
   
   def new
-    if user_signed_in?
+    #if user_signed_in?
       @page = Page.new
       @options = Style.all.collect {|p| [ p.name, p.name ] }
       render :layout => 'application'
-    else
-      redirect_to('/users/sign_in')
-    end
+    #else
+     # redirect_to('/users/sign_in')
+    #end
   end
   
   def create
-    @page = Page.new(params[:page])
-    @page.user_id = current_user.id
-    if @page.save
-      flash[:notice] = "Successfully Created Page \"#{@page.title_url}\""
-      redirect_to "/page/#{@page.title_url}"
+    if user_signed_in?
+      @page = Page.new(params[:page])
+      @page.user_id = current_user.id
+      if @page.save
+        flash[:notice] = "Successfully Created Page \"#{@page.title_url}\""
+        redirect_to "/page/#{@page.title_url}"
+      else
+        render('new')
+      end
     else
-      render('new')
+      redirect_to('/users/sign_in')
     end
   end
   
