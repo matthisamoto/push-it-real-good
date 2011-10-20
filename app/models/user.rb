@@ -14,5 +14,10 @@ class User < ActiveRecord::Base
   def admin?
     self.role == "admin"
   end
+  
+  def self.find_for_database_authentication(conditions={})
+    self.where("username = ?", conditions[:email]).limit(1).first ||
+    self.where("email = ?", conditions[:email]).limit(1).first
+  end
     
 end

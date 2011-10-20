@@ -11,8 +11,9 @@
 <%= form_for(:page, :url => {:action => 'create'}) do |f| %>
   <div class="create-new-mask">
     <div class="create-new">
-	
+
       <div class="form-division search-tracks">
+	    <h1 class="header">Choose your sound.</h1>
 	    <div class="search-terms clearfix">
 		<div class="centered">
           <input id="search" name="search_term" size="30" type="text" value="Search SoundCloud for Tracks"/> <%= link_to image_tag("/images/search-icon.png"), "#", :class => 'search-button' %>
@@ -24,6 +25,7 @@
       </div>
 
       <div class="form-division choose-button">
+	    <h1 class="header">Choose your button.</h1>
 	    <div class="image-preview">Image Preview will appear here.</div>
 	    <div class="choose-buttons">
 		  <div class="clearfix"></div>
@@ -39,6 +41,7 @@
       </div>
 
       <div class="form-division name-page">
+	    <h1 class="header">Name it.</h1>
 		<div class="clearfix"></div>
 		<div class="naming">
         <p class="inputs"><%= f.label :title_url, "http://pushitrealgood.com/page/" %> <%= f.text_field :title_url, :maxlength => 16 %> <span class="title-counter"></span></p>

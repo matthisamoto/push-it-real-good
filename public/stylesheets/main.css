@@ -325,7 +325,7 @@ form.button_to, form.button_to div{ display:inline; }
 	bottom: 20px;
 	left: 20px;
 }
-
+.header { margin-bottom: 20px; }
 /* Search */
 
 .search-terms {
@@ -341,14 +341,14 @@ form.button_to, form.button_to div{ display:inline; }
 	padding-left:140px;
 }
 .search-results {
-	min-height: 350px;
+	height: 310px;
 }
 .search-results .header {
 	line-height: 32px;
 }
 .search {
 	width:620px;
-	height:350px;
+	height:310px;
 	overflow:auto;
 	display:block;
 	text-align:left;
@@ -454,10 +454,14 @@ input#page_tagline { width: 285px; }
 
 /* Registration Page */
 
-.registration { padding:20px 0; }
-.registration h2 { padding:10px 0; }
+.registration { text-transform: uppercase; }
+.registration .go-home { padding-top: 20px; }
+.registration input[type=text],
+.registration input[type=email],
+.registration input[type=password] { font-size: 160%; margin-bottom: 20px; }
+.registration label { font-size:160%; }
+.registration h2 { padding:10px 0; font-size:250%; }
 .registration p { margin-bottom:10px; }
-
 
 /* Footer */
 
@@ -608,6 +612,7 @@ p.creator { margin-right:20px; }
 .about-us p { margin-bottom: 1em;}
 
 /* Utilities */
+
 .LV_valid { color: #090; }
 .LV_invalid { color: #c00; }
 .copyright { color:#fff; font-size: 120%; }
