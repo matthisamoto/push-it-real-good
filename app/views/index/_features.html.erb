@@ -1,12 +1,20 @@
 <div class="lower-content clearfix">
 	
-  <div class="top-ten">
+  <div class="top-ten clearfix">
 	<h1>Top Ten Pushes</h1>
     <% @top_ten.each do |top_item| %>
 	<div class="top-item">
 	  <div class="button-image"><%= image_tag "/images/#{top_item.button_url}.png", :height => 40, :width => 80 %></div>
 	  <div class="page-info">
-	    <div class="user-page-url"><%= link_to top_item.title_url, "/page/#{top_item.title_url}" %></div> <div class="user-page-tagline"><%= top_item.tagline %></div>
+	    <div class="user-page-url"><%= link_to top_item.title_url, "/page/#{top_item.title_url}" %></div> <div class="user-page-tagline">
+		<% if top_item.pushes == 1 
+		  	verbiage = "Push"
+		   else
+			verbiage = "Pushes"
+		   end %>
+	    <%= "#{top_item.pushes} #{verbiage}" %>
+	 	
+	    </div>
 	  </div>
 	  <div class="user-links">
 	    <%= link_to "", "/page/#{top_item.title_url}", :class => "visit-btn" %>
@@ -15,8 +23,50 @@
     <% end %>
   </div>
 
-  <div class="featured-button">
-    		
-  </div>
+  <div class="featured-button clearfix">
 	
+	<h1 class="featured-headline">Button of the Day</h1>
+	
+    <div class="push-it" id="push-it">
+	  <a href="#" class="play no-underline" ><img src="/images/<%= @feature.button_url %>.png" alt="Button" class ="push-button" /></a>
+	</div>
+	
+	<h1 class="featured-title"><%= link_to @feature.title_url, "/page/#{@feature.title_url}" %></h1>
+	
+  </div>
+
+<script type="text/javascript">
+
+function prepNonFlash() {
+  var clip = document.createElement('audio');
+  clip.src = "<%= @feature.sound_url %>?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
+  clip.load();
+  clip.autobuffer = true;
+  clip.preload = 'auto';
+  $('.push-it').append(clip);
+  $('.play').click( function(e) {
+	e.preventDefault();
+	clip.play();
+  });
+}
+
+function prepFlash () {
+  var swfVersionStr = "10.0.0";
+  var xiSwfUrlStr = "playerProductInstall.swf";
+  var flashvars = {};
+  flashvars.streamURL = "<%= @feature.sound_url %>?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
+  flashvars.imageURL = "/images/<%= @feature.button_url %>.png";
+  flashvars.pageID = "<%= @feature.title_url %>"
+  var params = {};
+  params.quality = "best";
+  params.wmode = "transparent";
+  var attributes = {};
+  swfobject.embedSWF("/swf/soundPlayer.swf", "push-it","250", "250", swfVersionStr, xiSwfUrlStr, flashvars, params, attributes);
+  document.getElementById("push-it").focus();
+}
+
+prepFlash();
+
+</script>
+
 </div>
