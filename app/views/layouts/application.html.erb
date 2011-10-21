@@ -20,7 +20,9 @@
   <div class="content">
     <%= yield %>
   </div> <!-- content -->
-<%= render "index/features" %>
+<%= if @feature 
+	render "index/features"
+	end %>
 <%= render "layouts/footer" %>
 </div> <!-- wrapper -->
 

@@ -37,18 +37,18 @@ class PageController < ApplicationController
   end
   
   def create
-    if user_signed_in?
+    # if user_signed_in?
       @page = Page.new(params[:page])
-      @page.user_id = current_user.id
+      # @page.user_id = current_user.id
       if @page.save
         flash[:notice] = "Successfully Created Page \"#{@page.title_url}\""
         redirect_to "/page/#{@page.title_url}"
       else
         render('new')
       end
-    else
-      redirect_to('/users/sign_in')
-    end
+   # else
+   #  redirect_to('/users/sign_in')
+   # end
   end
   
   def edit

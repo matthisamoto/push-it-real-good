@@ -208,7 +208,7 @@ form.button_to, form.button_to div{ display:inline; }
 	display:block;
 	width: 960px;
 	margin: 0 auto;
-	padding-bottom: 30px; }
+	padding-bottom: 60px; }
 .lower-content h1 {
 	color: #fff;
 	text-align: left;
@@ -278,6 +278,11 @@ form.button_to, form.button_to div{ display:inline; }
 .featured-title, .featured-headline { display:inline; margin: 0 auto; }
 .featured-title a:link,
 .featured-title a:visited { font-size: 100%; }
+.featured-author { 
+	color:#fff;
+	font-size:160%;
+	font-style:italic; }
+.featured-author .author { text-transform: uppercase; font-style:normal; margin-left: 5px; }
 
 /* Create New Page */
 
@@ -546,8 +551,8 @@ nav ul li a:hover { color:#f14306; }
 .footer-mckinney *,
 .footer-powered-by * {
 	zoom: 1;
-	filter: alpha(opacity=70);
-	opacity: 0.7; }
+	filter: alpha(opacity=60);
+	opacity: 0.6; }
 .footer-mckinney:hover *,
 .footer-powered-by:hover * {
 	zoom: 1;
@@ -654,7 +659,7 @@ p.creator { margin-right:20px; }
 
 .LV_valid { color: #090; }
 .LV_invalid { color: #c00; }
-.copyright { color:#fff;  }
+footer .copyright { color:#fff; width: 220px; text-align:left;}
 a:link, a:visited, a:hover { color:#f14306; }
 .notice {
 	padding:10px 0;
