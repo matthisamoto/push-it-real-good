@@ -3,7 +3,7 @@ class IndexController < ApplicationController
   before_filter :get_count
   
   def index
-    @top_ten = Page.order("pages.pushes DESC", :conditions => { :limit => 10 } )
+    @top_ten = Page.find(:all, :limit => 10, :order => "pages.pushes DESC" )
     @feature = Page.find(:all).sample
   end
     
