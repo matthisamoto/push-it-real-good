@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110913194347) do
+ActiveRecord::Schema.define(:version => 20111021160609) do
 
   create_table "buttons", :force => true do |t|
     t.string   "style_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20110913194347) do
     t.string   "track_url"
     t.string   "track_author"
     t.string   "track_author_url"
+    t.integer  "pushes",           :default => 0
   end
 
   create_table "styles", :force => true do |t|

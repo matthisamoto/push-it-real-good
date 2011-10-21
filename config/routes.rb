@@ -4,9 +4,11 @@ PushItRealGood::Application.routes.draw do
   root :to => 'comingsoon#comingsoon'
   
   match 'temp' => 'index#index'
-  match 'user/:user' => 'page#user'
+  # match 'user/:user' => 'page#user'
     
   resources :page
+  
+  match 'page/tally' => 'page#tally'
   
   devise_for :users#, :controllers => {:sessions => 'sessions'}
   

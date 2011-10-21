@@ -18,6 +18,14 @@ class PageController < ApplicationController
     end
   end
   
+  def tally
+    page = Page.find(:first, :conditions => { "title_url" => params[:id] } )
+    unless page.increment!(:pushes)
+      render :text => "Failed to tally push."
+    end
+    render :text => "Success."
+  end
+  
   def new
     #if user_signed_in?
       @page = Page.new

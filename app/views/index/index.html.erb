@@ -1,8 +1,10 @@
+<div class="upper-content clearfix">
+	
 <div class="push-it">
-  <a href="#" class="play no-underline" ><img src="images/push-it-logo.png" alt="Button" class="logo-button" /></a>
+  <img src="images/push-it-logo.png" alt="Button" class="logo-button" />
 </div>
 
-<div class="three-steps clearfix">
+<div class="three-steps">
   <div class="step-container clearfix">
     <div class="step sound_step"></div>
     <div class="arrow"></div>
@@ -10,23 +12,13 @@
     <div class="arrow"></div>
     <div class="step share_step"></div>
   </div>
-</div>
-
 <div class="create-bar clearfix">
   <!-- <div class="count-pages"><span class="count"><%= @count %></span><br/>pages made</div> -->
   <!-- <div class="powered-by">powered by <br/><span class="soundcloud-logo"></span></div> -->
   <%= link_to "CREATE", new_page_path, :class => "create-link" %>
 </div>
+</div>
 
-<script type="text/javascript">
-  var clip = document.createElement('audio');
-  clip.src = "http://api.soundcloud.com/tracks/12156669/stream?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
-  clip.load();
-  clip.autobuffer = true;
-  clip.preload = 'auto';
-  $('.push-it').append(clip);
-  $('.play').click( function(e) {
-	e.preventDefault();
-	clip.play();
-  });
-</script>
+
+
+</div>
