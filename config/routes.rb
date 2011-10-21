@@ -10,9 +10,9 @@ PushItRealGood::Application.routes.draw do
   
   match 'page/tally' => 'page#tally'
   
-  devise_for :users#, :controllers => {:sessions => 'sessions'}
+  # devise_for :users#, :controllers => {:sessions => 'sessions'}
   
-  match 'wtf' => 'page#about'
+  match 'about' => 'page#about'
   match 'legal' => 'page#legal'
   
   match 'search' => 'utility#search'

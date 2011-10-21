@@ -44,14 +44,16 @@
 	    <h1 class="header">Name it.</h1>
 		<div class="clearfix"></div>
 		<div class="naming">
-        <p class="inputs"><%= f.label :title_url, "http://pushitrealgood.com/page/" %> <%= f.text_field :title_url, :maxlength => 16 %> <span class="title-counter"></span></p>
-        <p class="inputs"><%= f.label :tagline, "Tagline for your page: " %> <%= f.text_field :tagline, :maxlength => 150 %> <span class="tagline-counter"></span></p>
+          <p class="inputs"><%= f.label :title_url, "http://pushitrealgood.com/page/" %> <%= f.text_field :title_url, :maxlength => 16 %> <span class="title-counter"></span></p>
+          <p class="inputs"><%= f.label :tagline, "Tagline for your page: " %> <%= f.text_field :tagline, :maxlength => 150 %> <span class="tagline-counter"></span></p>
+		  <p class="inputs"><%= f.label :signature, "Tell Us Who You Are: " %> <%= f.text_field :signature, :maxlength => 24 %> <span class="tagline-counter"></span></p>
 		</div>
         <p><%= f.submit "Create My Page", :class => "button" %></p>
 		<p class="back-btn clearfix"><a href="#" class="prev button"><img alt="Left-arrow" src="/images/left-arrow.png" />Go Back</a></p>
       </div>
     </div>
   </div>
+
 <% end %>
 
 <script type="text/javascript" src="/js/jquery.mousewheel.js"></script>
