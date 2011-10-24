@@ -86,28 +86,47 @@ function moreResults() {
 function parseResults(data) {
   var html = "";
   $.each(data, function(i, e) {
+	
     var duration = Math.floor(parseInt(e['duration'])/1000);
 	var min = Math.floor(duration / 60);
 	var sec = duration - ( min * 60 );
+	if(sec < 10) sec = "0" + sec;
 	
     html += '<div class="track clearfix" id="' + e['id'] + '">' + "\n";
-    html += '<p class="track-header"><span class="track-title">' + e['title'] + '</span><span class="track-artist"> from <a href="' + e['user']['permalink_url'] + '" target="_blank" class="track_author">' + e['user']['username'] + '</a></span></p>' + "\n";
-    if(e['streamable'] == true){
-   	  html += '<a href="#" class="play left"><img src="/images/play.png" alt="Preview" title="Preview" class="play-img"/><img src="/images/pause.png" alt="Preview" title="Preview" class="pause-img hidden" /></a>' + "\n";
-    } else {
-	  html += '<img src="/images/not-available.png" alt="Not Available" title="Not Available" class="left" />' + "\n";
-	}	
-	if(sec < 10) sec = "0" + sec;
-	html += '<p class="duration left">' + min + ':' + sec + '</p>' + "\n"; 
-	html += '<a href="' + e['permalink_url'] + '" class="link-out button left" title="See Track on SoundCloud" alt="See Track on SoundCloud" target="_blank">SoundCloud Page</a>' + "\n";
-	if(e['streamable'] == true){
-      html += '<a href="#" class="button select-track left" alt="Use This Track In Your Page" title="Use This Track In Your Page">Use This</a>' + "\n";
-	} else {
-	  html += '<span class="left no-stream">This track is not streamable. <a href="#" class="tooltip" onClick="javascript:function(e){e.preventDefault();}">Why?<span>Right now, SoundCloud\'s API does not allow a combination request of search terms and filtering streamable content. If this ever changes, you will not see non-streamable tracks in this list anymore. For now, though, these tracks will appear in our results. We\'re sorry.</span></a></span>';
-	} 
-	if(e['genre']) html += '<p class="genre left">Genre: ' + e['genre'] + '</p>' + "\n";
+    
+    html += '<p class="track-header"><span class="track-title"><a href="' + e['permalink_url'] + '" target="_blank">' + e['title'] + '</a></span></p>' + "\n";
+	
+	var preview_line = "";
+    
+    if(e['streamable'] == true)
+    {
+   	  preview_line += '<a href="#" class="play left"><img src="/images/play.png" alt="Preview" title="Preview" class="play-img"/><img src="/images/pause.png" alt="Preview" title="Preview" class="pause-img hidden" /></a>' + "\n";
+    } else 
+    {
+	  preview_line += '<img src="/images/not-available.png" alt="Not Available" title="Not Available" class="left" />' + "\n";
+	}
+	
+	preview_line += '<p class="duration left">' + min + ':' + sec + '</p>' + "\n";
+	
+	preview_line += '<p class="from left"><span class="from-script">from</span> <a href="' + e['user']['permalink_url'] + '" target="_blank" class="track_author">' + e['user']['username'] + '</a></p>';
+	
+	if(e['streamable'] == true)
+	{
+      preview_line += '<p class="left"><a href="#" class="button select-track left" alt="Use This Track In Your Page" title="Use This Track In Your Page">Use This</a></p>' + "\n";
+	} else 
+	{
+	  preview_line += '<span class="left no-stream">This track is not streamable. <a href="#" class="tooltip" onClick="javascript:function(e){e.preventDefault();}">Why?<span>Right now, SoundCloud\'s API does not allow a combination request of search terms and filtering streamable content. If this ever changes, you will not see non-streamable tracks in this list anymore. For now, though, these tracks will appear in our results. We\'re sorry.</span></a></span>';
+	}
+	
+	html += "<div class=\"preview-line clearfix\">" + preview_line + "</div>\n";
+	
+	if(e['genre']) html += '<p class="genre clearfix"> Genre: ' + e['genre'] + "</p>" + "\n";
+	
 	html += '</div>' + "\n";
-  });	
+	
+  });
+
+  console.log( html )	
   return html;	
 }
 function initSearchFunctionality(which) {
@@ -117,13 +136,14 @@ function initSearchFunctionality(which) {
   })
   $('.select-track').click( function(e) {
     e.preventDefault();
-    var html = '<input type="hidden" name="page[sound_url]" class="url" value="http://api.soundcloud.com/tracks/' + $(this).parent().attr('id') + '/stream" />';
-    html += '<input type="hidden" name="page[track_name]" class="url" value="' + $(this).parent().find('span.track-title').text() + '" />';
-    html += '<input type="hidden" name="page[track_url]" class="url" value="' + $(this).parent().find('span.track-artist a').attr('href') + '" />';
-    html += '<input type="hidden" name="page[track_author]" class="url" value="' + $(this).parent().find('span.track-artist').text().split('from ')[1] + '" />';
-    html += '<input type="hidden" name="page[track_author_url]" class="url" value="' + $(this).parent().find('.link-out').attr('href') + '" />';
+    var html = '<input type="hidden" name="page[sound_url]" class="url" value="http://api.soundcloud.com/tracks/' + $(this).parent().parent().parent().attr('id') + '/stream" />';
+    html += '<input type="hidden" name="page[track_name]" class="url" value="' + $(this).parent().parent().parent().find('span.track-title').text() + '" />';
+    html += '<input type="hidden" name="page[track_url]" class="url" value="' + $(this).parent().parent().find('span.track-artist a').attr('href') + '" />';
+    html += '<input type="hidden" name="page[track_author]" class="url" value="' + $(this).parent().parent().find('.track_author').text() + '" />';
+    html += '<input type="hidden" name="page[track_author_url]" class="url" value="' + $(this).parent().parent().find('.track_author').attr('href') + '" />';
     $('.id-container').empty().append(html);
-    $('.track-name').empty().css("display","block").append("Added track: " + $(this).parent().find('span.track-title').text());
+    $('.track-name').empty().css("background-color","rgba(0, 255, 0, 0.30)").css("border","1px solid #090").append("Added track: " + $(this).parent().parent().parent().find('span.track-title').text()).click( function(){ $('.track-name').empty().css("background-color","transparent").css("border","1px solid transparent"); $('.id-container').empty(); });
+   
   });
   if(which == "initial") {
 	$('.search-button').after('<a href="#" class="close-results button">Clear Results</a>');
@@ -156,19 +176,19 @@ function retrieve_colors() {
   });
 }
 function preview_image() {
-	$('.image-preview').empty().append("<image src=\"/images/" + $("select#page_button_url option:selected").attr("value") + ".png\" height= \"150\" width=\"300\" />");
-	$('.image-preview img').mousedown( function(e){ $('.image-preview img').css('margin-left', '-150px'); })
-	$('.image-preview img').mouseup( function(e){ $('.image-preview img').css('margin-left', '0'); })
+	$('.image-preview span.button-preview').empty().append("<image src=\"/images/" + $("select#page_button_url option:selected").attr("value") + ".png\" height= \"150\" width=\"300\" />");
+	$('.image-preview span.button-preview img').mousedown( function(e){ $('.image-preview img').css('margin-left', '-150px'); })
+	$('.image-preview span.button-preview img').mouseup( function(e){ $('.image-preview img').css('margin-left', '0'); })
 }
 function moveScreen(direction) {
 	var distance = 0;
 	if(direction == "forward") {
 	  current_page++;
-	  track_progress();
+	  // track_progress();
 	  distance = -642;	
 	} else {
 	  current_page--
-	  track_progress();
+	  // track_progress();
 	  distance = 642;
 	}
 	var position = $('.create-new').position().left;
@@ -198,6 +218,12 @@ function track_progress() {
 
 var titleValid = new LiveValidation("page_title_url");
 titleValid.add( Validate.Format, { pattern: /^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9]*$/ });
+
+$("#page_tagline").keyup( function() {
+	console.log("sonethig")
+	$('.title-preview').empty().text($(this).val())
+	if($('.title-preview').text() == "") $('.title-preview').append('My Tagline')
+})
 
 // OnLoad Actions
 
@@ -254,6 +280,6 @@ $('.prev').each( function() {
   });
 });
 
-track_progress();
+// track_progress();
 
 });

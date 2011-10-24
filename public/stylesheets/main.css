@@ -12,8 +12,7 @@ html, body, .wrapper { height: 100%; }
 body > .wrapper {
 	height: auto;
 	min-height: 100%;
-	width: 100%;
-}
+	width: 100%; }
 body {
 	text-align: center;
 	font-family: "League Gothic", Helvetica, Arial, sans-serif;
@@ -69,9 +68,8 @@ td { padding: 5px 10px; }
 	text-align: left;
 	margin: 0 auto;
 	padding-top: 60px;
-	padding-bottom: 30px;
-}
-.lower-content.push-it { 
+	padding-bottom: 30px; }
+.push-it-home { 
 	display:block;
 	text-align:center;
 	padding-top: 20px;
@@ -81,8 +79,7 @@ td { padding: 5px 10px; }
 	width: 250px;
 	height: 250px;
 	overflow: hidden;
-	margin: 0 auto;
-}
+	margin: 0 auto; }
 .three-steps {
 	margin-top: 30px;
 	display: block;
@@ -149,8 +146,7 @@ a.create-link:hover	{
 	height:160px;
 	float:left;
 	background: url(/images/push-it-logo-small.png) transparent no-repeat;
-	z-index:100;
-}
+	z-index:100; }
 
 /* User Page */
 
@@ -295,10 +291,11 @@ form.button_to, form.button_to div{ display:inline; }
 
 .create-new-mask {
 	margin:0 auto;
+	margin-bottom: 20px;
 	overflow: hidden;
 	width: 642px;
-	height: 515px;
-	background-color: rgba(255,255,255,0.5);
+	height: 600px;
+	/* background-color: rgba(255,255,255,0.5); */
 	display: block;
 	position: relative; }
 .step-tracker {
@@ -338,7 +335,7 @@ form.button_to, form.button_to div{ display:inline; }
 .form-division {
 	display:block;
 	width: 602px;
-	height: 475px;
+	height: 560px;
 	padding: 20px;
 	float:left;
 	position:relative;
@@ -367,7 +364,9 @@ form.button_to, form.button_to div{ display:inline; }
 .header { margin-bottom: 20px; }
 
 /* Search */
+
 input#search {
+	width: 200px;
 	height: 33px;
 	padding:0 5px;
 	margin-right:10px;
@@ -413,10 +412,13 @@ input#search {
 .search img { vertical-align:middle; }
 .track-name {
 	margin-top:10px;
-	background-color: rgba(0, 255, 0, 0.30);
+	background-color: transparent;
 	padding:10px;
-	border: 1px solid #090;
-	display:none; }
+	border: 1px solid transparent;
+	display: block; 
+	height: 25px;
+	font-size: 160%;
+	text-transform: uppercase;}
 .track {
 	width:97%;
 	padding: 10px 0;
@@ -425,20 +427,25 @@ input#search {
 	margin-left:10px; }
 .track-header { margin-bottom:10px; }
 .track-title {
-	font-size:120%;
+	font-size:200%;
 	text-transform: uppercase;
-	font-family: "Helvetica", Arial, sans-serif;
-	font-weight: bold; }
-.track-artist {
-	font-style: italic;
-	font-family: "Georgia", "Times New Roman", Times, serif; }
-.track-artist a{ margin:0; }
+	font-family: "League Gothic", Arial, sans-serif;
+	font-weight: normal; }
+.track-title a:link,
+.track-title a:visited {
+	color: #282625;
+	font-size:100%;
+}
 .track img {
 	width:35px;
 	height: 35px; }
 .track img.left { margin-left: 10px; }
-.track .duration { line-height:35px; margin: 0 10px; }
-.track .genre { line-height: 35px; margin: 0 10px; }
+.track .from { line-height: 35px; text-transform: uppercase; font-size: 160%; }
+.track .from a:link,
+.track .from a:visited { font-size: 100%; margin:0; }
+.track .from-script { font-family: "Georgia", "Times New Roman", serif; text-transform: none; font-style: italic; font-size: 80%;}
+.track .duration { line-height:35px; margin: 0 10px; font-size: 160%; }
+.track .genre { line-height: 35px; margin: 0 10px; display:block; font-size: 120%; text-transform: uppercase;}
 .track .no-stream { line-height: 35px; margin: 0 10px; }
 .continue-from-search { margin-top: 20px;}
 .close-results{ float:left;}
@@ -446,21 +453,31 @@ input#search {
 
 /* Button */
 
-.choose-buttons{
-	width:280px;
+.choose-buttons {
+	width:602px;
 	padding:0;
-	margin:0 auto;
+	margin: 0 auto;
 	display:block;
 	text-transform: uppercase; }
-.choose-buttons label {	font-size: 160%; }
+.choose-button label {	font-size: 160%; text-transform: uppercase; }
+.title-preview {
+	height: 30px;
+	font-size: 160%;
+	line-height: inherit;
+}
+.button-style{ 
+	float:right;
+	width: 280px;  }
 .image-preview {
 	width:150px;
-	height:150px;
-	line-height:150px;
+	height:180px;
 	overflow:hidden;
 	text-align:center;
-	margin: 20px auto; }
+	margin: 20px 40px;
+	float:left; }
 .image-preview img { cursor:pointer;}
+.button-preview { 
+line-height:150px; }
 select {
 	width:100%%;
 	display:block; }
@@ -472,7 +489,9 @@ select {
 	text-align: left;
 	width: 490px;
 	margin: 0 auto;
-	margin-top: 100px; }
+	margin-top: 30px; }
+.naming input[type=text] {
+	padding: 5px; }
 input[type=submit] {
 	font-family: "League Gothic";
 	font-size:160%;
@@ -488,7 +507,6 @@ input[type=submit] {
 input#page_tagline { width: 285px; }
 .inputs {
 	margin-bottom:20px;
-	font-size:160%;
 	text-transform: uppercase;
 }
 
