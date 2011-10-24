@@ -40,16 +40,17 @@ td { padding: 5px 10px; }
 .nav_bar {
 	display: block;
 	margin: 0 auto;
-	width: 960px;
+	width: 100%;
 	padding:5px 0;
 	color: #282625;
+	background-color: #ccc;
 	font-size: 140%;
 	text-transform: uppercase; }
 .nav_bar a:link, .nav_bar a:visited, .nav_bar a:hover {
 	color: #f15306;
 	background-color: #282625;
 	padding: 5px 10px;
-	margin: 0 4px;
+	margin: 0;
 	text-decoration: none;
 	font-size: 100%; }
 .nav_bar a:hover {

@@ -20,6 +20,8 @@ PushItRealGood::Application.routes.draw do
   
   match 'goodbyevincent' => 'vince#index'
   
+  match 'admin' => 'admin#index'
+  
   namespace :admin do
     resources :buttons
   end

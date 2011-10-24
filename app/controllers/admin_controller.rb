@@ -3,7 +3,7 @@ class AdminController < ApplicationController
   before_filter :authenticate_user!, :admin?
   
   def index
-    
+    redirect_to '/users/sign_in'
   end
   
   def buttons 
