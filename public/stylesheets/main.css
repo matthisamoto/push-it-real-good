@@ -18,7 +18,7 @@ body {
 	text-align: center;
 	font-family: "League Gothic", Helvetica, Arial, sans-serif;
 	color: #111;
-	background: url(/images/texture.png) repeat transparent;
+	background: url(/images/texture.jpg) repeat transparent;
 	letter-spacing: 0.15em; }
 a:link, a:visited, a:hover {
 	text-transform: uppercase;
@@ -71,11 +71,18 @@ td { padding: 5px 10px; }
 	padding-top: 60px;
 	padding-bottom: 30px;
 }
-.push-it { 
+.lower-content.push-it { 
 	display:block;
 	text-align:center;
 	padding-top: 20px;
 	float:left; }
+.push-it a.play {
+	display: block;
+	width: 250px;
+	height: 250px;
+	overflow: hidden;
+	margin: 0 auto;
+}
 .three-steps {
 	margin-top: 30px;
 	display: block;
@@ -275,9 +282,9 @@ form.button_to, form.button_to div{ display:inline; }
 	width: 300px;
 	float: right; }
 .featured-button #push-it { margin-top: 10px; margin-bottom: 10px; }
-.featured-title, .featured-headline { display:inline; margin: 0 auto; }
+.lower-content .featured-title,  .lower-content .featured-headline { display:block; margin: 0 auto; text-align:center; }
 .featured-title a:link,
-.featured-title a:visited { font-size: 100%; }
+.featured-title a:visited { font-size: 100%; text-align: center; margin: 0 auto; }
 .featured-author { 
 	color:#fff;
 	font-size:160%;
@@ -589,7 +596,7 @@ footer .single-line-link { line-height:75px; float:left; }
 	font-size: 160%;
 	overflow: hidden;
 	margin-bottom:20px; }
-#push-it {
+#push-it, .push-it {
 	margin-top: 40px; }
 .holder { 
 	width: 800px;

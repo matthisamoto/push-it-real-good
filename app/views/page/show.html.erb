@@ -39,6 +39,14 @@ function prepNonFlash() {
 	clip.play();
 	tally();
   });
+  $('.play').mousedown( function(e) {
+	e.preventDefault();
+	$(this).find('img').css("margin-left","-250px");
+  });
+  $('.play').mouseup( function(e) {
+	e.preventDefault();
+	$(this).find('img').css("margin-left","0");
+  });
 }
 
 function prepFlash () {
@@ -61,13 +69,12 @@ function tally() {
 	$('.count-pushes').empty().append(count + " Pushes");
 }
 
-if( $(body).hasClass( "iphone" ) || $(body).hasClass("android"))
+if( $("body").hasClass( "iphone" ) || $("body").hasClass("android"))
 {
 	prepNonFlash();
 } else {
 	prepFlash();
 }
-
 
 </script>
 

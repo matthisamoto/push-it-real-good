@@ -25,13 +25,13 @@
 
   <div class="featured-button clearfix">
 	
-	<h1 class="featured-headline">Button of the Day</h1>
+	<h1 class="featured-headline clearfix">Button of the Day</h1>
 	
     <div class="push-it" id="push-it">
 	  <a href="#" class="play no-underline" ><img src="/images/<%= @feature.button_url %>.png" alt="Button" class ="push-button" /></a>
 	</div>
 	
-	<h1 class="featured-title"><%= link_to @feature.title_url, "/page/#{@feature.title_url}" %></h1>
+	<h1 class="featured-title clearfix"><%= link_to @feature.title_url, "/page/#{@feature.title_url}" %></h1>
 	<p class="featured-author">by <span class="author"><%= @feature.signature %></span></p>
 	
   </div>
@@ -48,6 +48,14 @@ function prepNonFlash() {
   $('.play').click( function(e) {
 	e.preventDefault();
 	clip.play();
+  });
+  $('.play').mousedown( function(e) {
+	e.preventDefault();
+	$(this).find('img').css("margin-left","-250px");
+  });
+  $('.play').mouseup( function(e) {
+	e.preventDefault();
+	$(this).find('img').css("margin-left","0");
   });
 }
 
