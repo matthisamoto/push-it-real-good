@@ -484,6 +484,7 @@ select {
 label.RED   	{ background-color: #cc0000; }
 label.BLUE  	{ background-color: #335dc7; }
 label.GREEN  	{ background-color: #008400; }
+label.AQUA		{ background-color: #2dbbd5; }
 label.YELLOW 	{ background-color: #ecd300; }
 label.PURPLE 	{ background-color: #563198; }
 label.PINK 		{ background-color: #e028d5; }
