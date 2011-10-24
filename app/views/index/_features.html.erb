@@ -65,13 +65,12 @@ function prepFlash () {
   swfobject.embedSWF("/swf/soundPlayer.swf", "push-it","250", "250", swfVersionStr, xiSwfUrlStr, flashvars, params, attributes);
   document.getElementById("push-it").focus();
 }
-if( $(body).hasClass( "iphone || android " ))
-{
-	prepNonFlash();
-} else {
-	prepFlash();
-}
 
+if( $("body").hasClass( "iphone" ) || $("body").hasClass( "android" ) ) {
+  prepNonFlash();
+} else {
+  prepFlash();
+}
 
 </script>
 

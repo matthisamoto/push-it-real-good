@@ -61,7 +61,7 @@ function tally() {
 	$('.count-pushes').empty().append(count + " Pushes");
 }
 
-if( $(body).hasClass( "iphone || android " ))
+if( $(body).hasClass( "iphone" ) || $(body).hasClass("android"))
 {
 	prepNonFlash();
 } else {
