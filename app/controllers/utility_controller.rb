@@ -3,7 +3,7 @@ class UtilityController < ApplicationController
   before_filter :auth_soundcloud
   
   def get_buttons
-    @options = Button.find(:all, :conditions => { :style_name => params[:style] } ).collect {|p| [ p.color, p.filename ]}
+    @options = Button.find(:all, :conditions => { :style_name => params[:style] } ).collect {|p| [ p.color.upcase, p.filename.downcase ]}
     render :partial => 'color_select'
   end
   

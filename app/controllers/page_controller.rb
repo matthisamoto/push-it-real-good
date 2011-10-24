@@ -29,7 +29,7 @@ class PageController < ApplicationController
   def new
     #if user_signed_in?
       @page = Page.new
-      @options = Style.all.collect {|p| [ p.name, p.name ] }
+      @options = Style.all.collect {|p| [ p.name.upcase, p.name.upcase ] }
       render :layout => 'application'
     #else
      # redirect_to('/users/sign_in')

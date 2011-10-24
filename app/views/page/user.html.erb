@@ -11,7 +11,7 @@
   <div class="user-bar-border"></div>
   <% if @user == current_user %>
   <p class="new-page"><%= link_to "", new_page_path %></p>
-  
+  <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
   <% end %>
   <div class="join-date"><div class="date-joined"><%= @user.created_at.strftime("%m/%d/%Y") %></div><div class="member-since">Member<br/>Since</div> </div>
   <div class="num-pages"><div class="page-amt"><%= @pages.count %></div> <div class="pages-made">Pages<br/>Made</div></div>

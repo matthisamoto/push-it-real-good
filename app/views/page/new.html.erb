@@ -1,43 +1,53 @@
-<%= link_to "", root_path, :class => "small-logo" %>
+<div class="user-info"> 
+	<%= link_to "", root_path, :class => "small-logo" %>
+<div class="user-bar clearfix">
+  <h1 class="whose-pages terms-of-use">CREATE YOUR OWN BUTTON</h1>
+  <div class="user-bar-border"></div>
+</div>
+</div>
+
+
 <%= form_for(:page, :url => {:action => 'create'}) do |f| %>
 
   <div class="create-new-mask">
-    <div class="create-new">
-
-      <div class="form-division search-tracks">
-	    <h1 class="header">Choose your sound.</h1>
-	    <div class="search-terms clearfix">
-		  <div class="centered">
-            <input id="search" name="search_term" size="30" type="text" value="Search SoundCloud for Tracks"/> <%= link_to image_tag("/images/search-icon.png"), "#", :class => 'search-button' %>
-		  </div>
-          <div class="track-name clearfix"></div><div class="id-container"></div>
-        </div>
-		<div class="search-results"></div>
-		<div class="next-btn clearfix"><a href="#" class="next button">Continue <img alt="Right-arrow" src="/images/right-arrow.png" /></a></div>
+    <h1 class="header sound-header">Choose your sound.</h1>
+    <div class="form-division search-tracks">
+	<div class="division-inner">
+	  <div class="search-terms clearfix">
+	    <div class="centered">
+          <input id="search" name="search_term" size="30" type="text" value="Search SoundCloud for Tracks"/> <%= link_to image_tag("/images/search-icon.png"), "#", :class => 'search-button' %>
+		</div>
       </div>
 
-      <div class="form-division choose-button">
-	    <h1 class="header">Choose your button.</h1>
-	    
-	    <div class="choose-buttons clearfix">
-		  <div class="image-preview">
-			<h1 class="title-preview">My Tagline</h1>
-			<span class="button-preview">Image Preview will appear here.</span>
-		  </div>
-		  <div class="button-style">
-		    <p><%= f.label "Choose Button Style" %></p>
-	        <p><span class="choose-style"> <%= select("button", "style_name", @options )%></span></p>
-		  </div>
+	  <div class="search-results"></div>
+		
+	  <div class="track-name clearfix"></div><div class="id-container"></div>
+	  </div>
+    </div>
+    <h1 class="header button-header">Choose your button.</h1>
+    <div class="form-division choose-button">
+	  <div class="division-inner">
+      <div class="choose-buttons clearfix">
+        <div class="image-preview">
+	      <h1 class="title-preview">My Tagline</h1>
+		  <span class="button-preview">Image Preview will appear here.</span>
 		</div>
-		<div class="choose-color clearfix"></div>
-		<div class="naming">
-          <p class="inputs"><%= f.label :title_url, "http://pushitrealgood.com/page/" %> <%= f.text_field :title_url, :maxlength => 16 %> <span class="title-counter"></span></p>
-          <p class="inputs"><%= f.label :tagline, "Tagline for your page: " %> <%= f.text_field :tagline, :maxlength => 150 %> <span class="tagline-counter"></span></p>
-		  <p class="inputs"><%= f.label :signature, "Tell Us Who You Are: " %> <%= f.text_field :signature, :maxlength => 24 %> <span class="tagline-counter"></span></p>
+		
+		<div class="button-style">
+		  <p class="button-style-label"><%= f.label "Choose Button Style:" %></p>
+	      <p><%= select_tag "button_style_name", options_for_select(@options, @options[0]), :size => @options.count %></p>
 		</div>
-        <p><%= f.submit "Create My Page", :class => "button" %></p>
-		<p class="back-btn clearfix"><a href="#" class="prev button"><img alt="Left-arrow" src="/images/left-arrow.png" />Go Back</a></p>
-	    
+      </div>
+		
+	  <div class="choose-color clearfix"></div>
+		
+	  <div class="naming">
+        <p class="inputs"><%= f.label :title_url, "http://pushitrealgood.com/page/" %> <%= f.text_field :title_url, :maxlength => 16 %> <span class="title-counter"></span></p>
+        <p class="inputs"><%= f.label :tagline, "Tagline for your page: " %> <%= f.text_field :tagline, :maxlength => 150 %> <span class="tagline-counter"></span></p>
+	    <p class="inputs"><%= f.label :signature, "Tell Us Who You Are: " %> <%= f.text_field :signature, :maxlength => 24 %> <span class="tagline-counter"></span></p>
+      </div>
+		
+      <p><%= f.submit "Create My Page", :class => "button" %></p>
       </div>
     </div>
   </div>
@@ -47,4 +57,5 @@
 <script type="text/javascript" src="/js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="/js/jquery.jscrollpane.min.js"></script>
 <script type="text/javascript" src="/js/livevalidation_standalone.compressed.js"></script>
+<script type="text/javascript" src="/js/jquery.selectBox.min.js"></script>
 <script type="text/javascript" src="/js/new-page.js"></script>

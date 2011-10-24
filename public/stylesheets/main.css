@@ -290,58 +290,25 @@ form.button_to, form.button_to div{ display:inline; }
 /* Create New Page */
 
 .create-new-mask {
-	margin:0 auto;
-	margin-bottom: 20px;
-	overflow: hidden;
+	margin: 10px auto 20px auto;
 	width: 642px;
-	height: 600px;
-	/* background-color: rgba(255,255,255,0.5); */
 	display: block;
 	position: relative; }
-.step-tracker {
-	width:264px;
-	margin: 0 auto;
-	padding-top: 60px;
-	text-align:center; }
-.step-tracker div {
-	display:block;
-	float:left; }
-.step-one, .step-two, .step-three {
-	display:block;
-	float:left;
-	width:40px;
-	height:40px;
-	font-size:200%;
-	border-radius:5px;
-	background-color:#f15306;
-	line-height:40px; }
-.spacer {
-	width: 52px;
-	height: 40px;
-	background: url(/images/spacer.png) transparent no-repeat -52px 19px;
-	margin: 0 10px;
-	line-height: 40px;
-	margin: 0 10px; }
-.step-active {
-	background-color:#282625;
-	color: #f15306; }
-.spacer-active { background-position: 0px 19px; }
 .create-new {
 	position: relative;
 	left: 0;
-	width: 2880px;
+	width:642px;
 	padding: 0;
 	margin: 0; }
 .form-division {
 	display:block;
-	width: 602px;
-	height: 560px;
-	padding: 20px;
-	float:left;
+	width: 642px;
 	position:relative;
-}
-.next-btn, .back-btn {
-	
+	overflow: hidden; }
+.division-inner {
+	width: 602px;
+	display: block;
+	padding: 20px;
 }
 .button:link,.button:visited, .button:hover {
 	padding:0 10px;
@@ -354,14 +321,17 @@ form.button_to, form.button_to div{ display:inline; }
 .next-btn {
 	position: absolute;
 	bottom: 20px;
-	right: 20px;
-}
+	right: 20px; }
 .back-btn {
 	position: absolute;
 	bottom: 20px;
-	left: 20px;
-}
-.header { margin-bottom: 20px; }
+	left: 20px; }
+.header {
+	background-color: rgba(40, 38, 37, 0.8); 
+	color: #fff;
+	padding: 5px 0;
+	font-size: 200%;
+	cursor: pointer; }
 
 /* Search */
 
@@ -405,9 +375,7 @@ input#search {
 	float: left;
 	background-color: #282625; }
 .search-terms .search-button img { vertical-align: middle; }
-input#search {
-	float:left;
-}
+input#search { float:left; }
 
 .search img { vertical-align:middle; }
 .track-name {
@@ -418,7 +386,8 @@ input#search {
 	display: block; 
 	height: 25px;
 	font-size: 160%;
-	text-transform: uppercase;}
+	text-transform: uppercase;
+	cursor: none; }
 .track {
 	width:97%;
 	padding: 10px 0;
@@ -464,24 +433,61 @@ input#search {
 	height: 30px;
 	font-size: 160%;
 	line-height: inherit;
-}
+	margin-bottom: 10px; }
+.span.choose-style { width: 260px;
+	overflow:hidden;}
 .button-style{ 
 	float:right;
-	width: 280px;  }
-.image-preview {
-	width:150px;
-	height:180px;
-	overflow:hidden;
-	text-align:center;
-	margin: 20px 40px;
-	float:left; }
-.image-preview img { cursor:pointer;}
-.button-preview { 
-line-height:150px; }
+	width: 260px;
+	overflow: hidden;
+	margin: 20px 40px;  }
+.button-style-label { margin-bottom: 10px; }
 select {
-	width:100%%;
+	width:100%;
 	display:block; }
-.choose-color { margin-top:10px; }
+.image-preview {
+	width: 150px;
+	height: 190px;
+	overflow: hidden;
+	text-align: center;
+	margin: 20px 40px;
+	float: left; }
+.image-preview img { cursor:pointer; }
+.button-preview { line-height:150px; }
+.choose-color {
+	margin: 10px auto;
+	display: block;
+	text-align: center;
+	position: relative; }
+.colors {
+	display: block;
+	position: relative;
+	text-align: center;
+	margin-top: 10px; }
+.color-option {
+	width: 60px;
+	margin: 0 5px;
+	display:inline-block; }
+.color-label .color-label-wrapper {
+	display: block;
+	padding: 10px;
+	width: 40px;
+	height: 40px;
+	background-color:  rgba( 0,0,0, 0.5);
+	border-radius: 7px;
+	margin-bottom: 5px; }
+.color-label .color-label-wrapper label {
+	display: block;
+	width: 40px;
+	height: 40px; }
+label.RED   	{ background-color: #cc0000; }
+label.BLUE  	{ background-color: #335dc7; }
+label.GREEN  	{ background-color: #008400; }
+label.YELLOW 	{ background-color: #ecd300; }
+label.PURPLE 	{ background-color: #563198; }
+label.PINK 		{ background-color: #e028d5; }
+label.GRAY 		{ background-color: #282625; }
+label.ORANGE 	{ background-color: #ea4d00; }
 
 /* Naming */
 
@@ -681,7 +687,9 @@ p.creator { margin-right:20px; }
 .about-us p { margin-bottom: 1em;}
 
 /* Utilities */
-
+input:focus, select:focus, .jspContainer:focus, .scroll-pane:focus {
+    outline-width: 0;
+}
 .LV_valid { color: #090; }
 .LV_invalid { color: #c00; }
 footer .copyright { color:#fff; width: 220px; text-align:left;}

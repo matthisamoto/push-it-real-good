@@ -1,2 +1,13 @@
-<p><label for="page_ChooseColor">Choose Button Color</label></p>
-<p><span class="choose-color"> <%= select("page", "button_url", @options)%></span></p>
+<div class="choose-color clearfix">
+  <p><label for="page_ChooseColor">Colors</label></p>
+  <div class="colors clearfix">
+	<% @options.each_with_index do |option, index| %>
+	<% checked = true %>
+	<% checked = false unless index == 0 %>
+	<div class="color-option">
+	  <span class="color-label"><span class="color-label-wrapper"><%= label_tag  "button_color_#{option[0]}", "", :class => option[0] %></span></span>
+	  <div class="color-radio-buton"><%= radio_button_tag  :button_color, option[0], checked %></div>
+	</div>
+	<% end %>
+  </div>
+</div>

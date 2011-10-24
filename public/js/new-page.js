@@ -130,10 +130,12 @@ function parseResults(data) {
   return html;	
 }
 function initSearchFunctionality(which) {
+	
   $('.play').click( function (e){
     e.preventDefault();
     togglePlayButton($(this), $(this).parent(), $(this).parent().attr('id'))
   })
+
   $('.select-track').click( function(e) {
     e.preventDefault();
     var html = '<input type="hidden" name="page[sound_url]" class="url" value="http://api.soundcloud.com/tracks/' + $(this).parent().parent().parent().attr('id') + '/stream" />';
@@ -143,8 +145,9 @@ function initSearchFunctionality(which) {
     html += '<input type="hidden" name="page[track_author_url]" class="url" value="' + $(this).parent().parent().find('.track_author').attr('href') + '" />';
     $('.id-container').empty().append(html);
     $('.track-name').empty().css("background-color","rgba(0, 255, 0, 0.30)").css("border","1px solid #090").append("Added track: " + $(this).parent().parent().parent().find('span.track-title').text()).click( function(){ $('.track-name').empty().css("background-color","transparent").css("border","1px solid transparent"); $('.id-container').empty(); });
-   
+    toggleSections();
   });
+
   if(which == "initial") {
 	$('.search-button').after('<a href="#" class="close-results button">Clear Results</a>');
 	$('.close-results').click( function(e) {
@@ -170,13 +173,13 @@ function retrieve_colors() {
   $.post('/retrieve_colors', { style: $("select#button_style_name option:selected").attr("value") }, function(data) {	
     $('.choose-color').empty().append(data);
 	preview_image();
-	$("select#page_button_url").change( function () {
+	$("input[type=radio]").change( function () {
 	  preview_image();
 	});
   });
 }
 function preview_image() {
-	$('.image-preview span.button-preview').empty().append("<image src=\"/images/" + $("select#page_button_url option:selected").attr("value") + ".png\" height= \"150\" width=\"300\" />");
+	$('.image-preview span.button-preview').empty().append("<image src=\"/images/" + $('#button_style_name option:selected').val().toLowerCase() + "_" +  $("input[name=button_color]:checked").attr("value").toLowerCase() + ".png\" height= \"150\" width=\"300\" />");
 	$('.image-preview span.button-preview img').mousedown( function(e){ $('.image-preview img').css('margin-left', '-150px'); })
 	$('.image-preview span.button-preview img').mouseup( function(e){ $('.image-preview img').css('margin-left', '0'); })
 }
@@ -220,24 +223,19 @@ var titleValid = new LiveValidation("page_title_url");
 titleValid.add( Validate.Format, { pattern: /^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9]*$/ });
 
 $("#page_tagline").keyup( function() {
-	console.log("sonethig")
 	$('.title-preview').empty().text($(this).val())
 	if($('.title-preview').text() == "") $('.title-preview').append('My Tagline')
 })
 
 // OnLoad Actions
-
+$('select#button_style_name').selectBox();
 retrieve_colors();
 $("select#button_style_name").change( retrieve_colors );
+
 $("input[type=submit]").click( function (e) {
 	if( $(".id-container input.url").val()){
 	  if( $("#page_title_url").val()){
-		if( $("#page_tagline").val()) {
-		  
-		} else {
-		    e.preventDefault();
-			alert("Please provide a tagline for your page");
-		}
+		
 	  } else {
 	    e.preventDefault();
 		alert("Please provide a name for your page");
@@ -278,6 +276,34 @@ $('.prev').each( function() {
 	e.preventDefault();
     moveScreen("backward");
   });
+});
+
+// Hiding and unHiding the stations
+
+function toggleSections() {
+  if( $('.search-tracks').height() > 0 ) {
+	$('.search-tracks').animate({ height: "0" }, 500);
+	$('.choose-button').animate({ height: button_height }, 500);
+	$('.button-header').css('background-color',"rgba( 241, 67, 6, 0.8 )");
+	$('.sound-header').css('background-color',"rgba( 40, 38, 37, 0.8 )");
+  } else { 
+    $('.search-tracks').animate({ height: search_height }, 500);
+	$('.choose-button').animate({ height: "0" }, 500);
+	$('.button-header').css('background-color',"rgba( 40, 38, 37, 0.8 )");
+	$('.sound-header').css('background-color',"rgba( 241, 67, 6, 0.8 )");
+  }
+}
+var button_height = 630;
+var search_height = 455;
+
+$('.choose-button').animate({ height: "0" }, 500);
+
+
+$('.button-header').click( function(e) {
+  toggleSections();
+});
+$('.sound-header').css('background-color',"rgba( 241, 67, 6, 0.8 )").click( function(e) {
+  toggleSections();
 });
 
 // track_progress();
