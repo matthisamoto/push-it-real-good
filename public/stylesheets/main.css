@@ -116,14 +116,14 @@ td { padding: 5px 10px; }
 .count-pages span.count { font-size:200%; }
 a.create-link { 
 	text-decoration: none;
-	font-size: 250%;
+	font-size: 450%;
 	margin:0 auto;
 	border-radius: 5px;
 	text-align: center;
 	display: block;
 	width: 146px;
 	background-color:#282625;
-	padding: 5px 0px; }
+	padding: 5px 30px; }
 a.create-link:hover	{
 	color:#282625;
 	background-color:#f15306; }

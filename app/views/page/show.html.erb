@@ -37,6 +37,7 @@ function prepNonFlash() {
   $('.play').click( function(e) {
 	e.preventDefault();
 	clip.play();
+	tally();
   });
 }
 
@@ -60,7 +61,13 @@ function tally() {
 	$('.count-pushes').empty().append(count + " Pushes");
 }
 
-prepFlash();
+if( $(body).hasClass( "iphone || android " ))
+{
+	prepNonFlash();
+} else {
+	prepFlash();
+}
+
 
 </script>
 

@@ -10,7 +10,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
   
 </head>
-<body>
+<body class="<%= (iphone?) ? 'iphone' : '' %> <%= (android?) ? 'android' : '' %> <%= (ie?) ? 'ie' : '' %>">
 <%= yield %>
 </body>
 </html>
