@@ -139,8 +139,8 @@ function initSearchFunctionality(which) {
   $('.select-track').click( function(e) {
     e.preventDefault();
     var html = '<input type="hidden" name="page[sound_url]" class="url" value="http://api.soundcloud.com/tracks/' + $(this).parent().parent().parent().attr('id') + '/stream" />';
-    html += '<input type="hidden" name="page[track_name]" class="url" value="' + $(this).parent().parent().parent().find('span.track-title').text() + '" />';
-    html += '<input type="hidden" name="page[track_url]" class="url" value="' + $(this).parent().parent().find('span.track-artist a').attr('href') + '" />';
+    html += '<input type="hidden" name="page[track_name]" class="url" value="' + $(this).parent().parent().parent().find('.track-header .track-title a').text() + '" />';
+    html += '<input type="hidden" name="page[track_url]" class="url" value="' + $(this).parent().parent().parent().find('.track-header .track-title a').attr('href') + '" />';
     html += '<input type="hidden" name="page[track_author]" class="url" value="' + $(this).parent().parent().find('.track_author').text() + '" />';
     html += '<input type="hidden" name="page[track_author_url]" class="url" value="' + $(this).parent().parent().find('.track_author').attr('href') + '" />';
     $('.id-container').empty().append(html);
@@ -182,6 +182,8 @@ function preview_image() {
 	$('.image-preview span.button-preview').empty().append("<image src=\"/images/" + $('#button_style_name option:selected').val().toLowerCase() + "_" +  $("input[name=button_color]:checked").attr("value").toLowerCase() + ".png\" height= \"150\" width=\"300\" />");
 	$('.image-preview span.button-preview img').mousedown( function(e){ $('.image-preview img').css('margin-left', '-150px'); })
 	$('.image-preview span.button-preview img').mouseup( function(e){ $('.image-preview img').css('margin-left', '0'); })
+	$('.button-url').empty().append('<input type="hidden" name="page[button_url]" class="url" value="' + $('#button_style_name option:selected').val().toLowerCase() + "_" +  $("input[name=button_color]:checked").attr("value").toLowerCase() + '" />');
+	
 }
 function moveScreen(direction) {
 	var distance = 0;
