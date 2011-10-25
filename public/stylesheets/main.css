@@ -333,6 +333,15 @@ form.button_to, form.button_to div{ display:inline; }
 	padding: 5px 0;
 	font-size: 200%;
 	cursor: pointer; }
+.upload-coming-soon {
+	text-transform: uppercase;
+	font-size: 160%;
+	line-height: 30px;
+	margin-top: 30px;
+}
+.plus, .coming-soon-notice {
+	color:#f14306;
+}
 
 /* Search */
 
@@ -495,7 +504,7 @@ label.ORANGE 	{ background-color: #ea4d00; }
 
 .naming { 
 	text-align: left;
-	width: 490px;
+	width: 480px;
 	margin: 0 auto;
 	margin-top: 30px; }
 .naming input[type=text] {
@@ -512,12 +521,16 @@ input[type=submit] {
 	background-color: #282625;
 	color: #f14306;
 	text-decoration:none; }
-input#page_tagline { width: 285px; }
+#page_title_url { width: 200px; }
+#page_tagline { width: 285px; }
+#page_signature { width: 300px;}
 .inputs {
 	margin-bottom:20px;
 	text-transform: uppercase;
+	line-height: 30px;
 }
-
+.inputs * { float: left; }
+.inputs input { margin-left: 10px; }
 /* Registration Page */
 
 /*

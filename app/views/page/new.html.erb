@@ -18,7 +18,13 @@
 		</div>
       </div>
 
-	  <div class="search-results"></div>
+	  <div class="search-results">
+	  	<div class="upload-coming-soon">
+	      <p>&mdash; OR &mdash;</p>
+		  <p>Upload your own sound <span class="plus">+</span></p>
+		  <p class="coming-soon-notice">COMING SOON!</p>
+	    </div>
+	  </div>
 		
 	  <div class="track-name clearfix"></div><div class="id-container"></div>
 	  </div>
@@ -41,9 +47,9 @@
 	  <div class="choose-color clearfix"></div>
 		
 	  <div class="naming">
-        <p class="inputs"><%= f.label :title_url, "http://pushitrealgood.com/page/" %> <%= f.text_field :title_url, :maxlength => 16 %> <span class="title-counter"></span></p>
-        <p class="inputs"><%= f.label :tagline, "Tagline for your page: " %> <%= f.text_field :tagline, :maxlength => 150 %> <span class="tagline-counter"></span></p>
-	    <p class="inputs"><%= f.label :signature, "Tell Us Who You Are: " %> <%= f.text_field :signature, :maxlength => 24 %> <span class="tagline-counter"></span></p>
+        <p class="inputs clearfix"><%= f.label :title_url, "http://pushitrealgood.com/page/" %> <%= f.text_field :title_url, :maxlength => 16 %> <span class="title-counter"></span></p>
+        <p class="inputs clearfix"><%= f.label :tagline, "Tagline for your page: " %> <%= f.text_field :tagline, :maxlength => 150 %> <span class="tagline-counter"></span></p>
+	    <p class="inputs clearfix"><%= f.label :signature, "Tell Us Who You Are: " %> <%= f.text_field :signature, :maxlength => 24 %> <span class="tagline-counter"></span></p>
       </div>
 	
 	  <div class="button-url"></div>
