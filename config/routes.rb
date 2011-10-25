@@ -1,9 +1,9 @@
 PushItRealGood::Application.routes.draw do
 
-  # root :to => 'index#index'
-  root :to => 'comingsoon#comingsoon'
+  root :to => 'index#index'
+  # root :to => 'comingsoon#comingsoon'
   
-  match 'temp' => 'index#index'
+  # match 'temp' => 'index#index'
   match 'user/:user' => 'page#user'
     
   resources :page
@@ -12,6 +12,7 @@ PushItRealGood::Application.routes.draw do
   
   devise_for :users #, :controllers => {:sessions => 'sessions'}
   
+  match 'gallery' => 'page#list'
   match 'about' => 'page#about'
   match 'legal' => 'page#legal'
   

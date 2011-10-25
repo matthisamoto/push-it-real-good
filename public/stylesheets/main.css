@@ -151,7 +151,7 @@ a.create-link:hover	{
 	background: url(/images/push-it-logo-small.png) transparent no-repeat;
 	z-index:100; }
 
-/* User Page */
+/* Gallery Page */
 
 form.button_to, form.button_to div{ display:inline; }
 .user-info {
@@ -188,7 +188,7 @@ form.button_to, form.button_to div{ display:inline; }
 	display:inline;
 	font-size:385%;
 	letter-spacing:0.02em;
-	color:#f14306; }
+	color:#282625; }
 .new-page {
 	float:left;
 	margin-left:70px;
@@ -206,7 +206,9 @@ form.button_to, form.button_to div{ display:inline; }
 .new-page a:hover {
 	background-position:-90px 10px;
 }
-
+.pages {
+	margin-bottom: 30px;
+}
 /* Featured Items */
 
 .lower-content {
@@ -218,9 +220,9 @@ form.button_to, form.button_to div{ display:inline; }
 .lower-content h1 {
 	color: #fff;
 	text-align: center;
-	margin-bottom: 5px;
-}
-.top-ten {  width: 450px; text-align:center; margin-bottom: 30px; float: left;}
+	margin-bottom: 5px; }
+.top-ten {  width: 450px; text-align:center; margin-bottom: 30px; float: left; }
+.top-ten .gallery-link { margin-top: 15px; }
 .top-item {
 	margin:0 auto;
 	display:block;
@@ -249,8 +251,7 @@ form.button_to, form.button_to div{ display:inline; }
 	line-height:50px;
 	height:50px;
 	margin-right:10px; }
-.user-links a {
-	float:right; }
+.user-links a { float:right; }
 .user-page-url {
 	float:left;
 	text-transform:uppercase;
@@ -577,18 +578,17 @@ footer {
 nav {
 	margin: 0 auto;
 	margin-top: 20px;
-	display:block;
 	width: 960px; }
+nav ul { margin: 0 auto; display:inline; }
 nav ul li {
 	display:inline;
 	color:#eee;
-	font-size: 160%; 
-	width:160px; }
+	font-size: 160%; }
 nav ul li a:link, nav ul li a:visited, nav ul li a:hover {
 	text-decoration:none;
 	text-transform:uppercase;
 	color:#eee;
-	font-size:100% }
+	font-size:100%; }
 nav ul li a:hover { color:#f14306; }
 .footer-count-pages {
 	display:inline;
@@ -596,8 +596,7 @@ nav ul li a:hover { color:#f14306; }
 	color:#f14306; }
 .footer-count-pages div{ display:block; width:150px; }
 .footer-count-pages span.footer-count { font-size:190%; }
-.footer-powered-by {
-	display:inline; }
+.footer-powered-by { display:inline; }
 .footer-powered-by a:link,	
 .footer-powered-by a:visited { color:#f14306; }
 .footer-soundcloud-logo {
@@ -607,7 +606,7 @@ nav ul li a:hover { color:#f14306; }
 	height: 26px;
 	margin: 0 auto; }
 .footer-powered-by a, .footer-mckinney a { line-height: 26px; }
-.footer-mckinney .inner a:hover { color: #fff; }
+.footer-mckinney a:hover { color: #fff; }
 .footer-mckinney-logo {
 	display: inline-block;
 	background: url(/images/mckinney-logo-small.png) no-repeat transparent center;
@@ -628,15 +627,15 @@ nav ul li a:hover { color:#f14306; }
 	opacity: 1;
 }
 footer .inner {
-	display:block;
+	display:inline-block;
 	text-transform: uppercase;
-	width: 160px;
-	float:right;
 	vertical-align: text-middle;
-	text-align:center; }
-footer .single-line-link { line-height:30px; float:left; }
-footer .right { float: right; }
-
+	text-align:center;
+	line-height: 30px; 
+	margin: 0 20px; }
+footer .copyright { color:#fff;  text-align:left;}
+footer .first { margin-left: 0; }
+footer .last { margin-right: 0; }
 /* Button Page Template */ 
 
 .button-page h1{
@@ -729,7 +728,6 @@ input:focus, select:focus, .jspContainer:focus, .scroll-pane:focus {
 }
 .LV_valid { color: #090; }
 .LV_invalid { color: #c00; }
-footer .copyright { color:#fff; width: 220px; text-align:left;}
 a:link, a:visited, a:hover { color:#f14306; }
 .notice {
 	padding:10px 0;
