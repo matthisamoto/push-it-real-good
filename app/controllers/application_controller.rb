@@ -6,15 +6,6 @@ class ApplicationController < ActionController::Base
     @count = Page.count
   end
   
-  def admin?
-    if user_signed_in?
-      if !current_user.admin?
-        flash[:notice] = 'You do not have access to this section.'
-        redirect_to('/users/sign_in')
-      end
-    end
-  end
-  
   private
      
      def auth_soundcloud
@@ -28,8 +19,6 @@ class ApplicationController < ActionController::Base
       def after_sign_up_path_for(resource)
         root_path # <- Path you want to redirect the user to after signup
       end
-      
-      
 
   layout :layout_by_resource
 
@@ -43,5 +32,4 @@ class ApplicationController < ActionController::Base
     end
   end
   
-     
 end

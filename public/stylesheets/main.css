@@ -88,7 +88,9 @@ td { padding: 5px 10px; }
 	float: right; }
 .step-container {
 	margin:0 auto;
-	width: 688px;
+	margin-top: 100px;
+	width: 400px;
+	font-size: 300%;
 	display: block; }
 .step-container * {	float: left; }
 .step {
@@ -106,7 +108,7 @@ td { padding: 5px 10px; }
 	background: url(/images/arrow.png) no-repeat center transparent; }
 .create-bar {
 	display:block;
-	width:688px;
+	width:400px;
 	margin: 80px auto 60px auto;
 	margin-top:80px; }
 .create-bar div {
@@ -215,7 +217,7 @@ form.button_to, form.button_to div{ display:inline; }
 	padding-bottom: 60px; }
 .lower-content h1 {
 	color: #fff;
-	text-align: left;
+	text-align: center;
 	margin-bottom: 5px;
 }
 .top-ten {  width: 450px; text-align:center; margin-bottom: 30px; float: left;}
@@ -229,6 +231,7 @@ form.button_to, form.button_to div{ display:inline; }
 	margin-bottom:5px;
 	line-height:2em;
 	text-align:left; }
+.top-item:hover { background-color:rgba( 255, 255, 255, .8); }
 .top-item img, .page p { display:inline; }
 .top-item .button-image {
 	margin-top:5px;
@@ -276,17 +279,32 @@ form.button_to, form.button_to div{ display:inline; }
 
 .featured-button {
 	display: block;
-	width: 300px;
+	width: 360px;
 	float: right; }
+.random-button {
+	width: 360px;
+	border-radius: 8px;
+	background-color:rgba( 255, 255, 255, .6); 
+	padding-bottom:20px; }
+.random-button:hover { background-color:rgba( 255, 255, 255, .8); }
 .featured-button #push-it { margin-top: 10px; margin-bottom: 10px; }
 .lower-content .featured-title,  .lower-content .featured-headline { display:block; margin: 0 auto; text-align:center; }
+.lower-content .featured-headline { margin-bottom: 5px; }
 .featured-title a:link,
 .featured-title a:visited { font-size: 100%; text-align: center; margin: 0 auto; }
 .featured-author { 
-	color:#fff;
-	font-size:160%;
-	font-style:italic; }
-.featured-author .author { text-transform: uppercase; font-style:normal; margin-left: 5px; }
+	color:#282625;
+	font-size:140%;
+	font-style:italic; 
+	font-weight:bold;
+	font-family: "Georgia", 'Times New Roman', Times, serif; }
+.featured-author .author { 
+	text-transform: uppercase; 
+	font-style:normal; 
+	font-weight:normal;
+	font-family: "League Gothic", Arial, sans-serif;
+	margin-left: 5px;
+	font-size: 160% }
 
 /* Create New Page */
 
@@ -413,8 +431,7 @@ input#search { float:left; }
 .track-title a:link,
 .track-title a:visited {
 	color: #282625;
-	font-size:100%;
-}
+	font-size:100%; }
 .track img {
 	width:35px;
 	height: 35px; }
@@ -522,8 +539,8 @@ input[type=submit] {
 	color: #f14306;
 	text-decoration:none; }
 #page_title_url { width: 200px; }
-#page_tagline { width: 285px; }
-#page_signature { width: 300px;}
+#page_tagline { width: 303px; }
+#page_signature { width: 383px;}
 .inputs {
 	margin-bottom:20px;
 	text-transform: uppercase;
@@ -531,10 +548,12 @@ input[type=submit] {
 }
 .inputs * { float: left; }
 .inputs input { margin-left: 10px; }
+
+
 /* Registration Page */
 
-/*
-.registration { text-transform: uppercase; }
+
+.registration { text-transform: uppercase; background: url(/images/background.png) center no-repeat #fff; }
 .registration .go-home { padding-top: 20px; }
 .registration input[type=text],
 .registration input[type=email],
@@ -542,7 +561,7 @@ input[type=submit] {
 .registration label { font-size:160%; }
 .registration h2 { padding:10px 0; font-size:250%; }
 .registration p { margin-bottom:10px; }
-*/
+
 
 /* Footer */
 
@@ -582,18 +601,21 @@ nav ul li a:hover { color:#f14306; }
 .footer-powered-by a:link,	
 .footer-powered-by a:visited { color:#f14306; }
 .footer-soundcloud-logo {
-	display: block;
-	background: url(/images/soundcloud-logo.png) no-repeat transparent center;
-	width: 80px;
-	height: 50px;
+	display: inline-block;
+	background: url(/images/soundcloud-logo-small.png) no-repeat transparent center;
+	width: 42px;
+	height: 26px;
 	margin: 0 auto; }
+.footer-powered-by a, .footer-mckinney a { line-height: 26px; }
 .footer-mckinney .inner a:hover { color: #fff; }
 .footer-mckinney-logo {
-	display: block;
-	background: url(/images/mckinney-logo.png) no-repeat transparent center;
-	width: 80px;
-	height: 50px;
-	margin: 0 auto; }	
+	display: inline-block;
+	background: url(/images/mckinney-logo-small.png) no-repeat transparent center;
+	width: 26px;
+	height: 26px;
+	margin: 0 auto; }
+.footer-mckinney a img, .footer-powered-by a img {
+	vertical-align: text-bottom; }
 .footer-mckinney *,
 .footer-powered-by * {
 	zoom: 1;
@@ -609,11 +631,11 @@ footer .inner {
 	display:block;
 	text-transform: uppercase;
 	width: 160px;
-	height: 100px;
 	float:right;
 	vertical-align: text-middle;
 	text-align:center; }
-footer .single-line-link { line-height:75px; float:left; }
+footer .single-line-link { line-height:30px; float:left; }
+footer .right { float: right; }
 
 /* Button Page Template */ 
 

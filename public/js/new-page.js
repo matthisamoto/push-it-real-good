@@ -231,7 +231,7 @@ titleValid.add( Validate.Format, { pattern: /^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9]
 
 $("#page_tagline").keyup( function() {
 	$('.title-preview').empty().text($(this).val())
-	if($('.title-preview').text() == "") $('.title-preview').append('My Tagline')
+	if($('.title-preview').text() == "") $('.title-preview').append('My Title')
 })
 
 // OnLoad Actions

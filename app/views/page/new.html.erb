@@ -9,7 +9,7 @@
 <%= form_for(:page, :url => {:action => 'create'}) do |f| %>
 
   <div class="create-new-mask">
-    <h1 class="header sound-header">Choose your sound.</h1>
+    <h1 class="header sound-header">Select your sound.</h1>
     <div class="form-division search-tracks">
 	<div class="division-inner">
 	  <div class="search-terms clearfix">
@@ -29,12 +29,12 @@
 	  <div class="track-name clearfix"></div><div class="id-container"></div>
 	  </div>
     </div>
-    <h1 class="header button-header">Choose your button.</h1>
+    <h1 class="header button-header">Build your button.</h1>
     <div class="form-division choose-button">
 	  <div class="division-inner">
       <div class="choose-buttons clearfix">
         <div class="image-preview">
-	      <h1 class="title-preview">My Tagline</h1>
+	      <h1 class="title-preview">My Title</h1>
 		  <span class="button-preview">Image Preview will appear here.</span>
 		</div>
 		
@@ -48,8 +48,8 @@
 		
 	  <div class="naming">
         <p class="inputs clearfix"><%= f.label :title_url, "http://pushitrealgood.com/page/" %> <%= f.text_field :title_url, :maxlength => 16 %> <span class="title-counter"></span></p>
-        <p class="inputs clearfix"><%= f.label :tagline, "Tagline for your page: " %> <%= f.text_field :tagline, :maxlength => 150 %> <span class="tagline-counter"></span></p>
-	    <p class="inputs clearfix"><%= f.label :signature, "Tell Us Who You Are: " %> <%= f.text_field :signature, :maxlength => 24 %> <span class="tagline-counter"></span></p>
+        <p class="inputs clearfix"><%= f.label :tagline, "Title for your page: " %> <%= f.text_field :tagline, :maxlength => 150 %> <span class="tagline-counter"></span></p>
+	    <p class="inputs clearfix"><%= f.label :signature, "Creator: " %> <%= f.text_field :signature, :maxlength => 24 %> <span class="tagline-counter"></span></p>
       </div>
 	
 	  <div class="button-url"></div>

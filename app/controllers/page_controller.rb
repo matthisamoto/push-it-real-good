@@ -2,6 +2,11 @@ class PageController < ApplicationController
   
   before_filter :get_count
   
+  def list 
+    @pages = @top_ten = Page.find(:all, :limit => 25, :order => "pages.created_on DESC" )
+    
+  end
+  
   def show
     @page = Page.find(:first, :conditions => { "title_url" => params[:id] } )
     @user = User.find(:first, :conditions => { :id => @page.user_id })
