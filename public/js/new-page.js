@@ -1,12 +1,19 @@
-$(document).ready(function() {
+var current_preview_string;
 var count = 0;
-var container = $('<div>', { class: 'search-container' });
 var current_page = 1;
-// Set up CSRF token to work with AJAX
-var csrf_token = $('meta[name=csrf-token]').attr('content');
 var search_scroll;
 var results_count = 0;
-var current_preview;
+
+function killpreloader() {
+  console.log("Should Kill Preloader");
+  $(current_preview_string).css('width', '0');
+}
+
+$(document).ready(function() {
+
+var container = $('<div>', { class: 'search-container' });
+// Set up CSRF token to work with AJAX
+var csrf_token = $('meta[name=csrf-token]').attr('content');
 
 $("body").bind("ajaxSend", function(elm, xhr, s){
    if (s.type == "POST") {
@@ -33,8 +40,6 @@ function create_audio(parent, url) {
   parent.append(clip);
   clip.play();
 }
-
-
 function prepNonFlash() {
   var clip = document.createElement('audio');
   clip.src = "<%= @feature.sound_url %>?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
@@ -55,8 +60,8 @@ function prepNonFlash() {
 	$(this).find('img').css("margin-left","0");
   });
 }
-
 function prepFlash (id, url) {
+  if($(current_preview_string)) killFlash();
   var swfVersionStr = "10.0.0";
   var xiSwfUrlStr = "playerProductInstall.swf";
   var flashvars = {};
@@ -66,12 +71,14 @@ function prepFlash (id, url) {
   params.quality = "best";
   params.wmode = "transparent";
   var attributes = {};
-  current_preview = $("#flashcontent_" + id);
+  current_preview_string = "object#flashcontent_" + id;
   swfobject.embedSWF("/swf/preview.swf", "flashcontent_" + id ,"35", "35", swfVersionStr, xiSwfUrlStr, flashvars, params, attributes);
   // document.getElementById().focus();
 }
 
-
+function killFlash() {
+  $(current_preview_string).remove();
+}
 function togglePlayButton(btn, parent) {
 	
 	var id = parent.parent().attr('id');
@@ -109,13 +116,6 @@ function togglePlayButton(btn, parent) {
 	  btn.find('.play-img').addClass('hidden');
 	}
 }
-
-function killpreloader() {
-  console.log("Should Kill Preloader");
-  current_preview.css('visibility', 'hidden');
-}
-
-
 function search_soundcloud() {
   results_count = 0;
   $('.close-results').remove();
