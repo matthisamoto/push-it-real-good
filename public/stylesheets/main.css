@@ -47,7 +47,7 @@ td { padding: 5px 10px; }
 	font-size: 140%;
 	text-transform: uppercase; }
 .nav_bar a:link, .nav_bar a:visited, .nav_bar a:hover {
-	color: #f15306;
+	color: #f14306;
 	background-color: #282625;
 	padding: 5px 10px;
 	margin: 0;
@@ -55,7 +55,7 @@ td { padding: 5px 10px; }
 	font-size: 100%; }
 .nav_bar a:hover {
 	color: #282625;
-	background-color: #f15306; }
+	background-color: #f14306; }
 .nav_bar .username { color: #f15306; }
 .nav_bar .social-buttons { width: 300px; display:block; float:left; }
 .facebook-button, .google-button, .twitter-button { float:left; }
@@ -68,8 +68,7 @@ td { padding: 5px 10px; }
 	width: 960px;
 	text-align: left;
 	margin: 0 auto;
-	padding-top: 60px;
-	padding-bottom: 30px; }
+	padding: 60px 0; }
 .push-it-home { 
 	display:block;
 	text-align:center;
@@ -92,7 +91,6 @@ td { padding: 5px 10px; }
 	width: 400px;
 	font-size: 300%;
 	display: block; }
-.step-container * {	float: left; }
 .step {
 	display: block;
 	width: 146px;
@@ -112,7 +110,7 @@ td { padding: 5px 10px; }
 	margin: 80px auto 60px auto;
 	margin-top:80px; }
 .create-bar div {
-	color:#f15306;
+	color:#f14306;
 	text-align:center;
 	font-size:160%;
 	text-transform:uppercase;
@@ -127,13 +125,12 @@ a.create-link {
 	margin:0 auto;
 	border-radius: 5px;
 	text-align: center;
-	display: block;
-	width: 146px;
+	display: block; 
 	background-color:#282625;
 	padding: 5px 30px; }
 a.create-link:hover	{
 	color:#282625;
-	background-color:#f15306; }
+	background-color:#f14306; }
 .powered-by {
 	float:right;
 	margin-right: 40px;
@@ -203,12 +200,9 @@ form.button_to, form.button_to div{ display:inline; }
 	text-decoration:none;
 	padding:10px 0;
 }
-.new-page a:hover {
-	background-position:-90px 10px;
-}
-.pages {
-	margin-bottom: 30px;
-}
+.new-page a:hover {	background-position:-90px 10px; }
+.pages { margin-bottom: 30px; }
+
 /* Featured Items */
 
 .lower-content {
@@ -323,6 +317,7 @@ form.button_to, form.button_to div{ display:inline; }
 .form-division {
 	display:block;
 	width: 642px;
+	height: 630px;
 	position:relative;
 	overflow: hidden; }
 .division-inner {
@@ -348,6 +343,7 @@ form.button_to, form.button_to div{ display:inline; }
 	left: 20px; }
 .header {
 	background-color: rgba(40, 38, 37, 0.8); 
+	border-radius: 8px;
 	color: #fff;
 	padding: 5px 0;
 	font-size: 200%;
@@ -356,12 +352,24 @@ form.button_to, form.button_to div{ display:inline; }
 	text-transform: uppercase;
 	font-size: 160%;
 	line-height: 30px;
-	margin-top: 30px;
+	padding-top: 30px; }
+.plus, .coming-soon-notice { color:#f14306; }
+.create-new-button {
+	border-radius: 8px;
+	display: block;
+	width: 500px;
+	margin: 0 auto;
+	padding: 5px 0;
+	border: none;
+	background-color: rgba(40, 38, 37, 0.8); 
+	color: #fff;
+	text-decoration:none;
+	text-transform: uppercase;
+	font-family: "League Gothic", Arial, sans-serif;
+	font-size: 200%; }
+.create-new-button:hover {
+	background-color: rgba( 241, 67, 6, 0.8 );
 }
-.plus, .coming-soon-notice {
-	color:#f14306;
-}
-
 /* Search */
 
 input#search {
@@ -383,14 +391,14 @@ input#search {
 	padding-left:140px;
 }
 .search-results {
-	height: 310px;
+	height: 485px;
 }
 .search-results .header {
 	line-height: 32px;
 }
 .search {
 	width:620px;
-	height:310px;
+	height:485px;
 	overflow:auto;
 	display:block;
 	text-align:left;
@@ -527,6 +535,7 @@ label.ORANGE 	{ background-color: #ea4d00; }
 	margin-top: 30px; }
 .naming input[type=text] {
 	padding: 5px; }
+	/*
 input[type=submit] {
 	font-family: "League Gothic";
 	font-size:160%;
@@ -535,10 +544,8 @@ input[type=submit] {
 	padding: 0px 10px;
 	line-height: 1.8em;
 	height: 1.8em;
-	border: none;
-	background-color: #282625;
-	color: #f14306;
-	text-decoration:none; }
+	border: none; }
+	*/
 #page_title_url { width: 200px; }
 #page_tagline { width: 303px; }
 #page_signature { width: 383px;}
@@ -723,9 +730,8 @@ p.creator { margin-right:20px; }
 .about-us p { margin-bottom: 1em;}
 
 /* Utilities */
-input:focus, select:focus, .jspContainer:focus, .scroll-pane:focus {
-    outline-width: 0;
-}
+
+input:focus, select:focus, .jspContainer:focus, .scroll-pane:focus { outline-width: 0; }
 .LV_valid { color: #090; }
 .LV_invalid { color: #c00; }
 a:link, a:visited, a:hover { color:#f14306; }

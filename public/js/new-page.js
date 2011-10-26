@@ -6,6 +6,7 @@ var current_page = 1;
 var csrf_token = $('meta[name=csrf-token]').attr('content');
 var search_scroll;
 var results_count = 0;
+var current_preview;
 
 $("body").bind("ajaxSend", function(elm, xhr, s){
    if (s.type == "POST") {
@@ -32,7 +33,49 @@ function create_audio(parent, url) {
   parent.append(clip);
   clip.play();
 }
-function togglePlayButton(btn, parent, url) {
+
+
+function prepNonFlash() {
+  var clip = document.createElement('audio');
+  clip.src = "<%= @feature.sound_url %>?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
+  clip.load();
+  clip.autobuffer = true;
+  clip.preload = 'auto';
+  $('.push-it').append(clip);
+  $('.play').click( function(e) {
+	e.preventDefault();
+	clip.play();
+  });
+  $('.play').mousedown( function(e) {
+	e.preventDefault();
+	$(this).find('img').css("margin-left","-250px");
+  });
+  $('.play').mouseup( function(e) {
+	e.preventDefault();
+	$(this).find('img').css("margin-left","0");
+  });
+}
+
+function prepFlash (id, url) {
+  var swfVersionStr = "10.0.0";
+  var xiSwfUrlStr = "playerProductInstall.swf";
+  var flashvars = {};
+  flashvars.streamURL = "http://api.soundcloud.com/tracks/" + id + "/stream?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
+  console.log( flashvars.streamURL )
+  var params = {};
+  params.quality = "best";
+  params.wmode = "transparent";
+  var attributes = {};
+  current_preview = $("#flashcontent_" + id);
+  swfobject.embedSWF("/swf/preview.swf", "flashcontent_" + id ,"35", "35", swfVersionStr, xiSwfUrlStr, flashvars, params, attributes);
+  // document.getElementById().focus();
+}
+
+
+function togglePlayButton(btn, parent) {
+	
+	var id = parent.parent().attr('id');
+	
 	if($('audio').length > 0 && btn.hasClass('active')){
   	  if(btn.hasClass('playing')){
 		var clip = document.getElementById('audio')
@@ -52,13 +95,27 @@ function togglePlayButton(btn, parent, url) {
 	  $('.play').removeClass('active');
 	  $('.pause-img').addClass('hidden');
 	  $('.play-img').removeClass('hidden');
-	  create_audio(parent, url)
+	
+	 // create_audio(parent, url)
+	 
+	  if( $("body").hasClass( "iphone" ) || $("body").hasClass( "android" ) ) {
+	    prepNonFlash();
+	  } else {
+	    prepFlash(id);
+      }
 	  btn.addClass('active');
 	  btn.addClass('playing');
 	  btn.find('.pause-img').removeClass('hidden');
 	  btn.find('.play-img').addClass('hidden');
 	}
 }
+
+function killpreloader() {
+  console.log("Should Kill Preloader");
+  current_preview.css('visibility', 'hidden');
+}
+
+
 function search_soundcloud() {
   results_count = 0;
   $('.close-results').remove();
@@ -100,7 +157,7 @@ function parseResults(data) {
     
     if(e['streamable'] == true)
     {
-   	  preview_line += '<a href="#" class="play left"><img src="/images/play.png" alt="Preview" title="Preview" class="play-img"/><img src="/images/pause.png" alt="Preview" title="Preview" class="pause-img hidden" /></a>' + "\n";
+   	  preview_line += '<a href="#" class="play left"><div id="flashcontent_' + e['id'] + '"></div><img src="/images/play.png" alt="Preview" title="Preview" class="play-img"/><img src="/images/pause.png" alt="Preview" title="Preview" class="pause-img hidden" /></a>' + "\n";
     } else 
     {
 	  preview_line += '<img src="/images/not-available.png" alt="Not Available" title="Not Available" class="left" />' + "\n";
@@ -125,8 +182,6 @@ function parseResults(data) {
 	html += '</div>' + "\n";
 	
   });
-
-  console.log( html )	
   return html;	
 }
 function initSearchFunctionality(which) {
@@ -301,7 +356,7 @@ function toggleSections() {
   }
 }
 var button_height = 630;
-var search_height = 455;
+var search_height = 630;
 
 $('.choose-button').animate({ height: "0" }, 500);
 

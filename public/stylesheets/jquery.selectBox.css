@@ -91,7 +91,7 @@
 .selectBox-options LI.selectBox-selected A {
 	background-color: rgba( 241, 67, 6, 0.8 );
 	border-radius: 10px;
-	color: #282625;
+	color: #fff;
 }
 
 .selectBox-options .selectBox-optgroup {
