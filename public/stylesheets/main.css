@@ -391,14 +391,14 @@ input#search {
 	padding-left:140px;
 }
 .search-results {
-	height: 485px;
+	height: 543px;
 }
 .search-results .header {
 	line-height: 32px;
 }
 .search {
 	width:620px;
-	height:485px;
+	height:543px;
 	overflow:auto;
 	display:block;
 	text-align:left;
@@ -417,15 +417,15 @@ input#search { float:left; }
 
 .search img, .search object { vertical-align:middle; }
 .track-name {
-	margin-top:10px;
 	background-color: transparent;
-	padding:10px;
-	border: 1px solid transparent;
-	display: block; 
-	height: 25px;
-	font-size: 160%;
+	padding: 0;
+	border-radius: 8px;
+	display: block;
+	font-size: 200%;
+	cursor: pointer;
 	text-transform: uppercase;
 	cursor: none; }
+.track-name .added { color: #fff; }
 .track {
 	width:97%;
 	padding: 10px 0;

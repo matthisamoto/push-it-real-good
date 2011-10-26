@@ -54,7 +54,6 @@ function prepNonFlash(id, parent) {
   clip.play();
 }
 function prepFlash (id) {
-  
   if($(current_preview_string)) killFlash();
   var swfVersionStr = "10.0.0";
   var xiSwfUrlStr = "playerProductInstall.swf";
@@ -66,7 +65,6 @@ function prepFlash (id) {
   var attributes = {};
   current_preview_string = "flashcontent_" + id;
   swfobject.embedSWF("/swf/preview.swf", current_preview_string ,"35", "35", swfVersionStr, xiSwfUrlStr, flashvars, params, attributes);
-  // document.getElementById().focus();
 }
 function killFlash() {
   var elem = $("#" + current_preview_string);
@@ -75,7 +73,6 @@ function killFlash() {
   par.prepend( clonable_div.clone().attr('id', current_preview_string) )
 }
 function togglePlayButton(btn, parent) {
-	console.log(btn)
 	var id = parent.parent().attr('id');
 	// $('audio').length > 0
 	if( btn.hasClass('active') ){
@@ -95,9 +92,7 @@ function togglePlayButton(btn, parent) {
 	  $('.play').removeClass('active');
 	  $('.pause-img').addClass('hidden');
 	  $('.play-img').removeClass('hidden');
-	
 	  start_playing(id, parent);
-	
 	  btn.addClass('active');
 	  btn.addClass('playing');
 	  btn.find('.pause-img').removeClass('hidden');
@@ -127,7 +122,6 @@ function start_playing(id, parent) {
     prepFlash(id);
   }
 }
-
 function search_soundcloud() {
   results_count = 0;
   $('.close-results').remove();
@@ -212,12 +206,12 @@ function initSearchFunctionality(which) {
     html += '<input type="hidden" name="page[track_author]" class="url" value="' + $(this).parent().parent().find('.track_author').text() + '" />';
     html += '<input type="hidden" name="page[track_author_url]" class="url" value="' + $(this).parent().parent().find('.track_author').attr('href') + '" />';
     $('.id-container').empty().append(html);
-    $('.track-name').empty().css("background-color","rgba(0, 255, 0, 0.30)").css("border","1px solid #090").append("Added track: " + $(this).parent().parent().parent().find('span.track-title').text()).click( function(){ $('.track-name').empty().css("background-color","transparent").css("border","1px solid transparent"); $('.id-container').empty(); });
+    $('.track-name').empty().css("background-color","rgba(0, 132, 0, 0.60)").css("padding","5px 0").css("cursor","pointer").append("<span class=\"added\">Added track:</span> " + $(this).parent().parent().parent().find('span.track-title').text()).click( function(){ $('.track-name').empty().css("background-color","transparent").css("padding","0"); $('.id-container').empty(); });
     toggleSections();
   });
 
   if(which == "initial") {
-	$('.search-button').after('<a href="#" class="close-results button">Clear Results</a>');
+	if( $('.close-results').length == 0 ) $('.search-button').after( '<a href="#" class="close-results button">Clear Results</a>' );
 	$('.close-results').click( function(e) {
 	  e.preventDefault();
 	  $('.search-results').empty();
@@ -371,7 +365,7 @@ function toggleSections() {
 var button_height = 630;
 var search_height = 630;
 
-$('.choose-button').animate({ height: "0" }, 500);
+$('.choose-button').css({ height: "0" });
 
 
 $('.button-header').click( function(e) {

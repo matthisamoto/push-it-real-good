@@ -9,52 +9,58 @@
 <%= form_for(:page, :url => {:action => 'create'}) do |f| %>
 
   <div class="create-new-mask">
+	
     <h1 class="header sound-header">Select your sound.</h1>
-    <div class="form-division search-tracks">
-	<div class="division-inner">
-	  <div class="search-terms clearfix">
-	    <div class="centered">
-          <input id="search" name="search_term" size="30" type="text" value="Search SoundCloud for Tracks"/> <%= link_to image_tag("/images/search-icon.png"), "#", :class => 'search-button' %>
-		</div>
-      </div>
 
-	  <div class="search-results">
-	  	<div class="upload-coming-soon">
-	      <p>&mdash; OR &mdash;</p>
-		  <p>Upload your own sound <span class="plus">+</span></p>
-		  <p class="coming-soon-notice">COMING SOON!</p>
+    <div class="form-division search-tracks">
+	  <div class="division-inner">
+	    <div class="search-terms clearfix">
+	      <div class="centered">
+            <input id="search" name="search_term" size="30" type="text" value="Search SoundCloud for Tracks"/> <%= link_to image_tag("/images/search-icon.png"), "#", :class => 'search-button' %>
+		  </div>
+        </div>
+
+	    <div class="search-results">
+	  	  <div class="upload-coming-soon">
+	        <p>&mdash; OR &mdash;</p>
+		    <p>Upload your own sound <span class="plus">+</span></p>
+		    <p class="coming-soon-notice">COMING SOON!</p>
+	      </div>
 	    </div>
-	  </div>
-		
-	  <div class="track-name clearfix"></div><div class="id-container"></div>
+	
 	  </div>
     </div>
+
+    <h1 class="track-name clearfix"></h1><div class="id-container"></div>
+
     <h1 class="header button-header">Build your button.</h1>
+     
     <div class="form-division choose-button">
 	  <div class="division-inner">
-      <div class="choose-buttons clearfix">
-        <div class="image-preview">
-	      <h1 class="title-preview">My Title</h1>
-		  <span class="button-preview">Image Preview will appear here.</span>
-		</div>
+        
+        <div class="choose-buttons clearfix">
+          <div class="image-preview">
+	        <h1 class="title-preview">My Title</h1>
+		    <span class="button-preview">Image Preview will appear here.</span>
+		  </div>
 		
-		<div class="button-style">
-		  <p class="button-style-label"><%= f.label "Choose Button Style:" %></p>
-	      <p><%= select_tag "button_style_name", options_for_select(@options, @options[0]), :size => @options.count %></p>
-		</div>
-      </div>
+		  <div class="button-style">
+		    <p class="button-style-label"><%= f.label "Choose Button Style:" %></p>
+	        <p><%= select_tag "button_style_name", options_for_select(@options, @options[0]), :size => @options.count %></p>
+		  </div>
+        </div>
 		
-	  <div class="choose-color clearfix"></div>
+	    <div class="choose-color clearfix"></div>
 		
-	  <div class="naming">
-        <p class="inputs clearfix"><%= f.label :title_url, "http://pushitrealgood.com/page/" %> <%= f.text_field :title_url, :maxlength => 16 %> <span class="title-counter"></span></p>
-        <p class="inputs clearfix"><%= f.label :tagline, "Title for your page: " %> <%= f.text_field :tagline, :maxlength => 150 %> <span class="tagline-counter"></span></p>
-	    <p class="inputs clearfix"><%= f.label :signature, "Creator: " %> <%= f.text_field :signature, :maxlength => 24 %> <span class="tagline-counter"></span></p>
-      </div>
+	    <div class="naming">
+          <p class="inputs clearfix"><%= f.label :title_url, "http://pushitrealgood.com/page/" %> <%= f.text_field :title_url, :maxlength => 16 %> <span class="title-counter"></span></p>
+          <p class="inputs clearfix"><%= f.label :tagline, "Title for your page: " %> <%= f.text_field :tagline, :maxlength => 150 %> <span class="tagline-counter"></span></p>
+	      <p class="inputs clearfix"><%= f.label :signature, "Creator: " %> <%= f.text_field :signature, :maxlength => 24 %> <span class="tagline-counter"></span></p>
+        </div>
 	
-	  <div class="button-url"></div>
+	    <div class="button-url"></div>
 	
-      <p><%= f.submit "Create My Page", :class => "create-new-button" %></p>
+        <p><%= f.submit "Create My Page", :class => "create-new-button" %></p>
       </div>
     </div>
   </div>
