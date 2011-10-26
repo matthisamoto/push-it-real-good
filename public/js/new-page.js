@@ -215,11 +215,7 @@ function initSearchFunctionality(which) {
 	$('.close-results').click( function(e) {
 	  e.preventDefault();
 	  $('.search-results').empty();
-	  $('.search-results').append('	<div class="upload-coming-soon">'+
-	      '<p>&mdash; OR &mdash;</p>' + 
-		  '<p>Upload your own sound <span class="plus">+</span></p>' + 
-		'<p class="coming-soon-notice">COMING SOON!</p>' + 
-		'</div>')
+	  $('.search-results').append('	<div class="upload-coming-soon"></div>');
 	  $(this).remove();
 	});
     search_scroll = $('.scroll-pane').jScrollPane({ verticalDragMaxHeight: 25, verticalDragMinHeight: 25 }).data('jsp');

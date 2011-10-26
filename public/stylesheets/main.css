@@ -81,15 +81,18 @@ td { padding: 5px 10px; }
 	overflow: hidden;
 	margin: 0 auto; }
 .three-steps {
-	margin-top: 30px;
+	margin-top: 10px;
 	display: block;
 	text-align: center;
 	float: right; }
 .step-container {
 	margin:0 auto;
-	margin-top: 100px;
-	width: 400px;
-	font-size: 300%;
+	margin-top: 30px;
+	width: 644px;
+	height: 266px;
+	background: url(/images/awesome.png) 0 0 no-repeat transparent;
+	visibility: hidden;
+	overflow: hidden;
 	display: block; }
 .step {
 	display: block;
@@ -349,10 +352,12 @@ form.button_to, form.button_to div{ display:inline; }
 	font-size: 200%;
 	cursor: pointer; }
 .upload-coming-soon {
-	text-transform: uppercase;
-	font-size: 160%;
-	line-height: 30px;
-	padding-top: 30px; }
+	width: 324px;
+	height: 190px;
+	display: block;
+	margin: 0 auto;
+	padding-top: 60px;
+	background: url(/images/upload.png) no-repeat center transparent; }
 .plus, .coming-soon-notice { color:#f14306; }
 .create-new-button {
 	border-radius: 8px;
