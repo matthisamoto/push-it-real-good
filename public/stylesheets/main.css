@@ -121,15 +121,12 @@ td { padding: 5px 10px; }
 	margin-left:46px;
 	float:left; }
 .count-pages span.count { font-size:200%; }
-a.create-link { 
-	text-decoration: none;
-	font-size: 450%;
-	margin:0 auto;
-	border-radius: 5px;
-	text-align: center;
-	display: block; 
-	background-color:#282625;
-	padding: 5px 30px; }
+a.create-link .inner { 
+	display: block;
+	width: 400px;
+	height: 100px;
+	background: url(/images/create_button.png) transparent no-repeat;
+	 }
 a.create-link:hover	{
 	color:#282625;
 	background-color:#f14306; }
