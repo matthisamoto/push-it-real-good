@@ -414,7 +414,7 @@ input#search {
 .search-terms .search-button img { vertical-align: middle; }
 input#search { float:left; }
 
-.search img { vertical-align:middle; }
+.search img, .search object { vertical-align:middle; }
 .track-name {
 	margin-top:10px;
 	background-color: transparent;
