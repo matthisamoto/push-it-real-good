@@ -410,6 +410,7 @@ input#search {
 	width: 37px;
 	margin-right:10px;
 	float: left;
+	border-radius: 8px;
 	background-color: #282625; }
 .search-terms .search-button img { vertical-align: middle; }
 input#search { float:left; }
@@ -431,6 +432,9 @@ input#search { float:left; }
 	border-bottom: dashed thin #111; }
 .track a {
 	margin-left:10px; }
+	
+.track a.play { position:relative; }
+.track a.play object { position:absolute; }
 .track-header { margin-bottom:10px; }
 .track-title {
 	font-size:200%;
@@ -453,8 +457,13 @@ input#search { float:left; }
 .track .genre { line-height: 35px; margin: 0 10px; display:block; font-size: 120%; text-transform: uppercase;}
 .track .no-stream { line-height: 35px; margin: 0 10px; }
 .continue-from-search { margin-top: 20px;}
-.close-results{ float:left;}
-.select-track:link, .select-track:visited,.select-track:hover { background-color: #f14306; color:#fff;}
+.close-results{ 
+	float:left; 
+	border-radius: 8px; }
+.select-track:link, .select-track:visited,.select-track:hover {
+	background-color: #f14306;
+	color:#fff; 	
+	border-radius: 8px; }
 
 /* Button */
 

@@ -3,10 +3,10 @@ var count = 0;
 var current_page = 1;
 var search_scroll;
 var results_count = 0;
+var clonable_div = $('<div/>');
 
 function killpreloader() {
-  console.log("Should Kill Preloader");
-  $(current_preview_string).css('width', '0');
+  $( "#" + current_preview_string ).css( 'width', '0' );
 }
 
 $(document).ready(function() {
@@ -40,59 +40,52 @@ function create_audio(parent, url) {
   parent.append(clip);
   clip.play();
 }
-function prepNonFlash() {
+function prepNonFlash(id, parent) {
+  $('audio').each( function(e) {
+	$(this).empty()
+  });
   var clip = document.createElement('audio');
-  clip.src = "<%= @feature.sound_url %>?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
+  clip.src = "http://api.soundcloud.com/tracks/" + id + "/stream?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
   clip.load();
+  clip.id = 'audio';
   clip.autobuffer = true;
   clip.preload = 'auto';
-  $('.push-it').append(clip);
-  $('.play').click( function(e) {
-	e.preventDefault();
-	clip.play();
-  });
-  $('.play').mousedown( function(e) {
-	e.preventDefault();
-	$(this).find('img').css("margin-left","-250px");
-  });
-  $('.play').mouseup( function(e) {
-	e.preventDefault();
-	$(this).find('img').css("margin-left","0");
-  });
+  parent.append(clip);
+  clip.play();
 }
-function prepFlash (id, url) {
+function prepFlash (id) {
+  
   if($(current_preview_string)) killFlash();
   var swfVersionStr = "10.0.0";
   var xiSwfUrlStr = "playerProductInstall.swf";
   var flashvars = {};
   flashvars.streamURL = "http://api.soundcloud.com/tracks/" + id + "/stream?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
-  console.log( flashvars.streamURL )
   var params = {};
   params.quality = "best";
   params.wmode = "transparent";
   var attributes = {};
-  current_preview_string = "object#flashcontent_" + id;
-  swfobject.embedSWF("/swf/preview.swf", "flashcontent_" + id ,"35", "35", swfVersionStr, xiSwfUrlStr, flashvars, params, attributes);
+  current_preview_string = "flashcontent_" + id;
+  swfobject.embedSWF("/swf/preview.swf", current_preview_string ,"35", "35", swfVersionStr, xiSwfUrlStr, flashvars, params, attributes);
   // document.getElementById().focus();
 }
-
 function killFlash() {
-  $(current_preview_string).remove();
+  var elem = $("#" + current_preview_string);
+  var par = elem.parent();
+  elem.remove();
+  par.prepend( clonable_div.clone().attr('id', current_preview_string) )
 }
 function togglePlayButton(btn, parent) {
-	
+	console.log(btn)
 	var id = parent.parent().attr('id');
-	
-	if($('audio').length > 0 && btn.hasClass('active')){
-  	  if(btn.hasClass('playing')){
-		var clip = document.getElementById('audio')
-		clip.pause();
+	// $('audio').length > 0
+	if( btn.hasClass('active') ){
+  	  if( btn.hasClass('playing') ){
+		stop_playing();
 		btn.find('.pause-img').addClass('hidden');
 		btn.find('.play-img').removeClass('hidden');
 		btn.removeClass('playing');
 	  } else {
-	    var clip = document.getElementById('audio')
-		clip.play();
+		start_playing(id, parent);
 		btn.find('.pause-img').removeClass('hidden');
 		btn.find('.play-img').addClass('hidden');
 		btn.addClass('playing');
@@ -103,19 +96,38 @@ function togglePlayButton(btn, parent) {
 	  $('.pause-img').addClass('hidden');
 	  $('.play-img').removeClass('hidden');
 	
-	 // create_audio(parent, url)
-	 
-	  if( $("body").hasClass( "iphone" ) || $("body").hasClass( "android" ) ) {
-	    prepNonFlash();
-	  } else {
-	    prepFlash(id);
-      }
+	  start_playing(id, parent);
+	
 	  btn.addClass('active');
 	  btn.addClass('playing');
 	  btn.find('.pause-img').removeClass('hidden');
 	  btn.find('.play-img').addClass('hidden');
 	}
 }
+function stop_playing() {
+  if( $("body").hasClass( "iphone" ) || $("body").hasClass( "android" ) ) {
+	var clip = document.getElementById('audio')
+	clip.pause();
+  } else {
+	killFlash();
+  }
+}
+function resume_playing() {
+  if( $("body").hasClass( "iphone" ) || $("body").hasClass( "android" ) ) {	
+	var clip = document.getElementById('audio')
+	clip.play();
+  } else {
+	
+  }
+}
+function start_playing(id, parent) {
+  if( $("body").hasClass( "iphone" ) || $("body").hasClass( "android" ) ) {
+    prepNonFlash(id, parent);
+  } else {
+    prepFlash(id);
+  }
+}
+
 function search_soundcloud() {
   results_count = 0;
   $('.close-results').remove();
@@ -157,7 +169,7 @@ function parseResults(data) {
     
     if(e['streamable'] == true)
     {
-   	  preview_line += '<a href="#" class="play left"><div id="flashcontent_' + e['id'] + '"></div><img src="/images/play.png" alt="Preview" title="Preview" class="play-img"/><img src="/images/pause.png" alt="Preview" title="Preview" class="pause-img hidden" /></a>' + "\n";
+   	  preview_line += '<a href="#" class="play left"><div id="flashcontent_' + e['id'] + '"></div><img src="/images/play.png" alt="Preview" title="Preview" class="play-img"/><img src="/images/stop.png" alt="Preview" title="Preview" class="pause-img hidden" /></a>' + "\n";
     } else 
     {
 	  preview_line += '<img src="/images/not-available.png" alt="Not Available" title="Not Available" class="left" />' + "\n";
@@ -193,6 +205,7 @@ function initSearchFunctionality(which) {
 
   $('.select-track').click( function(e) {
     e.preventDefault();
+	killFlash()
     var html = '<input type="hidden" name="page[sound_url]" class="url" value="http://api.soundcloud.com/tracks/' + $(this).parent().parent().parent().attr('id') + '/stream" />';
     html += '<input type="hidden" name="page[track_name]" class="url" value="' + $(this).parent().parent().parent().find('.track-header .track-title a').text() + '" />';
     html += '<input type="hidden" name="page[track_url]" class="url" value="' + $(this).parent().parent().parent().find('.track-header .track-title a').attr('href') + '" />';
@@ -217,12 +230,12 @@ function initSearchFunctionality(which) {
 	});
     search_scroll = $('.scroll-pane').jScrollPane({ verticalDragMaxHeight: 25, verticalDragMinHeight: 25 }).data('jsp');
 	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
-      if(isAtBottom){ console.log("bottom"); moreResults(); $(this).unbind("jsp-scroll-y") }
+      if(isAtBottom){ moreResults(); $(this).unbind("jsp-scroll-y") }
 	});
   } else {
 	search_scroll.reinitialise();
 	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
-      if(isAtBottom){ console.log("bottom"); moreResults(); $(this).unbind("jsp-scroll-y") }
+      if(isAtBottom){ moreResults(); $(this).unbind("jsp-scroll-y") }
 	});
   }
 }
