@@ -258,43 +258,8 @@ function preview_image() {
 	$('.button-url').empty().append('<input type="hidden" name="page[button_url]" class="url" value="' + $('#button_style_name option:selected').val().toLowerCase() + "_" +  $("input[name=button_color]:checked").attr("value").toLowerCase() + '" />');
 	
 }
-function moveScreen(direction) {
-	var distance = 0;
-	if(direction == "forward") {
-	  current_page++;
-	  // track_progress();
-	  distance = -642;	
-	} else {
-	  current_page--
-	  // track_progress();
-	  distance = 642;
-	}
-	var position = $('.create-new').position().left;
-	$('.create-new').animate({ left: position + distance + "px" }, 500, function() { } );
-}
-function track_progress() {
-	switch(current_page) {
-		case 1:
-		  $('.step-one').addClass('step-active');
-		  if($('.step-two').hasClass('step-active')) $('.step-two').removeClass('step-active');
-		  if($('.spacer-1').hasClass('spacer-active')) $('.spacer-1').removeClass('spacer-active');
-		  break;
-		case 2:
-		  $('.step-two').addClass('step-active');
-		  if($('.step-three').hasClass('step-active')) $('.step-three').removeClass('step-active');
-		  if($('.spacer-2').hasClass('spacer-active')) $('.spacer-2').removeClass('spacer-active');
-		  $('.spacer-1').addClass('spacer-active');
-		  break;
-		case 3:
-		  $('.step-three').addClass('step-active');
-		  $('.spacer-2').addClass('spacer-active');
-		  break;
-	}
-}
 
 // Naming Functions
-
-
 
 $("#page_tagline").keyup( function() {
 	$('.title-preview').empty().text($(this).val())
@@ -302,11 +267,11 @@ $("#page_tagline").keyup( function() {
 })
 
 // OnLoad Actions
+
 $('select#button_style_name').selectBox();
 retrieve_colors();
+
 $("select#button_style_name").change( retrieve_colors );
-
-
 
 $('.search-button').click( function (e) {
 	e.preventDefault();
@@ -343,7 +308,7 @@ $('.prev').each( function() {
 function toggleSections() {
   if( $('.search-tracks').height() > 0 ) {
 	$('.search-tracks').animate({ height: "0" }, 500);
-	$('.choose-button').animate({ height: button_height }, 500);
+	$('.choose-button').animate({ height: button_height }, 500, function() { document.getElementById("page_title_url").focus(); } );
 	$('.button-header').css('background-image',"url(/images/orange_tile.png)");
 	$('.sound-header').css('background-image',"url(/images/gray_tile.png)");
   } else { 
@@ -358,7 +323,6 @@ var search_height = 630;
 
 $('.choose-button').css({ height: "0" });
 
-
 $('.button-header').click( function(e) {
   toggleSections();
 });
@@ -366,14 +330,11 @@ $('.sound-header').css('background-image',"url(/images/orange_tile.png)").click(
   toggleSections();
 });
 
-// track_progress();
-
-
 // Validation
 
 var titleValid = new LiveValidation("page_title_url");
-titleValid.add( Validate.Format, { pattern: /^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9]*$/ , validMessage: "" , failureMessage: "Letters and Numbers Only. No Spaces." });
-titleValid.add( Validate.Presence )
+titleValid.add( Validate.Format, { pattern: /^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9]*$/ , validMessage: "" , failureMessage: "Letters and Numbers Only", onlyOnSubmit: true });
+titleValid.add( Validate.Presence, { failureMessage: "Letters and Numbers Only.", onlyOnSubmit: true });
 
 $("input[type=submit]").click( function (e) {
 	if( $(".id-container input.url").val()){

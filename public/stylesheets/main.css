@@ -12,7 +12,8 @@ html, body, .wrapper { height: 100%; }
 body > .wrapper {
 	height: auto;
 	min-height: 100%;
-	width: 100%; }
+	width: 100%;
+	min-width: 960px; }
 body {
 	text-align: center;
 	font-family: "League Gothic", Helvetica, Arial, sans-serif;
