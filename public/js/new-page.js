@@ -337,6 +337,7 @@ titleValid.add( Validate.Format, { pattern: /^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9]
 titleValid.add( Validate.Presence, { failureMessage: "Letters and Numbers Only." });
 
 function check_url() {
+  document.getElementById('create-new-button').disabled = true;
   if( $('#page_title_url').val() ) {
 	$.post('/test_url', { title_url: $('#page_title_url').val() }, 
       function(data) {
@@ -347,6 +348,7 @@ function check_url() {
         } else {
 	      if( $('#page_title_url').parent().find('.LV_validation_message') )  $('#page_title_url').parent().find('.LV_validation_message').remove();
 	      if( $('#page_title_url').hasClass('LV_invalid_field') ) $('#page_title_url').removeClass('LV_invalid_field')
+	      document.getElementById('create-new-button').disabled = false;
         }
       }, "json");
   } else {

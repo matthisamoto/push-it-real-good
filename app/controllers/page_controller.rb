@@ -42,28 +42,23 @@ class PageController < ApplicationController
   end
   
   def new
-    #if user_signed_in?
-      @page = Page.new
-      @options = Style.all.collect {|p| [ p.name.upcase, p.name.upcase ] }
-      render :layout => 'application'
-    #else
-     # redirect_to('/users/sign_in')
-    #end
+    @page = Page.new
+    @options = Style.all.collect {|p| [ p.name.upcase, p.name.upcase ] }
+    render :layout => 'application'
   end
   
   def create
-    # if user_signed_in?
+    if Page.exists?( :title_url => params[:page][:title_url] )
+      render :text => "This url is unavailable and somehow slipped past our validation"
+    else
       @page = Page.new(params[:page])
-      # @page.user_id = current_user.id
       if @page.save
         flash[:notice] = "Successfully Created Page \"#{@page.title_url}\""
         redirect_to "/page/#{@page.title_url}"
       else
         render('new')
       end
-   # else
-   #  redirect_to('/users/sign_in')
-   # end
+    end
   end
   
   def edit
