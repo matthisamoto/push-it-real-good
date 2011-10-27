@@ -3,6 +3,7 @@ class PageController < ApplicationController
   before_filter :get_count
   
   def list 
+    @count = Page.count
     @pages = @top_ten = Page.find(:all, :limit => 25, :order => "pages.created_at DESC" )
     render :layout => 'application'
   end
