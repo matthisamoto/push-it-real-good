@@ -590,7 +590,7 @@ input.LV_invalid_field:active,
 textarea.LV_invalid_field:hover, 
 textarea.LV_invalid_field:active { border: 1px solid #CC0000; }
 .inputs .LV_validation_message {
-	text-align: left;
+	text-align: right;
 	margin-right: 15px;
 	margin-bottom: 0; }
 	
@@ -705,17 +705,61 @@ footer .last { margin-right: 0; }
 	bottom: 0;
 	position: relative; }
 .info-bar a:link, .info-bar a:visited, .info-bar a:hover {
-	color: #f14306;
+	color: #fff;
 	text-decoration: underline;
 	font-size: 100%; }
 .home-btn {
 	width: 100px;
 	float: left; }
+.creation-status-mask {
+	display:block;
+	height: 0;
+}
 .creation-status {
 	margin: 0 auto;
 	text-transform: uppercase;
 	color: #282625; }
-p.creator { margin-right:20px; }
+p.creator {
+	width: 960px;
+	padding: 8px 0;
+	margin: 0 auto;
+	background-color: #f14306;
+	border-radius: 8px; }
+p.creator .line {
+	margin: 0 10px; }
+.info-buttons { 
+	color: #fff; }
+.info-button-span { margin: 0 30px; }
+.info-bar .mini-logo:link,
+.info-bar .mini-logo:visited {
+	line-height: 50px;
+	padding: 0;
+	margin: 0; }
+.mini-logo img { vertical-align: middle;}
+.info-bar .create-new-circle:link,
+.info-bar .create-new-circle:visited {
+	font-size: 300%;
+	text-decoration: none;
+	display: inline-block;
+	height:46px;
+	width: 46px;
+	margin:2px;
+	line-height: 46px;
+	background-color: #f14306;
+	border-radius: 23px;
+	vertical-align: middle; }
+.more-info-button {
+	display: inline-block;
+	background-color: #f14306;
+	border-radius: 8px;
+	padding: 0 10px;
+	line-height: 46px;
+	cursor: pointer;
+}
+.more-button-active {
+	padding-bottom: 10px;
+	border-radius: 8px 8px 0 0;
+}
 .button-page .small-logo {
 	margin: 0 auto;
 	width: 100px;

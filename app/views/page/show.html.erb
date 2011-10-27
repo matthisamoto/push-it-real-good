@@ -76,8 +76,25 @@ function check_count_for_one(count) {
 	} else {
 	  $('.count-pushes').css( 'background-position', '0 0' );
 	}
-	
 }
+
+function toggleInfo() {
+	if( $('.more-info-button').hasClass("more-button-active") ) {
+	  $('.creation-status-mask').animate( { height: "0px" }, 250, "linear", function() {
+		$('.more-info-button').removeClass("more-button-active");
+		$('.more-info-button').animate( { paddingBottom: "0" }, 100, "linear" );
+ 	  });
+	  
+	} else {
+	  $('.more-info-button').animate( { paddingBottom: "10px" }, 100, "linear", function() {
+		$('.more-info-button').addClass('more-button-active');
+		$('.creation-status-mask').animate( { height: "41px" }, 250, "linear" );
+	  });
+	}
+}
+
+$('.more-info-button').click ( toggleInfo )
+
 if( $("body").hasClass( "iphone" ) || $("body").hasClass("android"))
 {
 	prepNonFlash();

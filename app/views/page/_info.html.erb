@@ -1,7 +1,20 @@
 	<div class="info-bar">
-      <div class="creation-status">
-	    <p class="creator">created by <%= @page.signature %> |
-		track: <%= link_to @page.track_name, @page.track_url, :target => "_blank" %> |
-		track author: <%= link_to @page.track_author, @page.track_author_url, :target => "_blank" %></p>
+		
+	  <div class="info-buttons">
+		<span class="info-button-span"><%= link_to  image_tag( "/images/push-it-logo-smallest.png" ), root_path, :class => "mini-logo" %></span>
+		<span class="info-button-span more-info-button">MORE INFO</span>
+		<span class="info-button-span "><%= link_to "+", "/page/new", :class => "create-new-circle" %></span>
       </div>
+      <div class="creation-status-mask">
+        <div class="creation-status">
+		  <% if @page.signature.nil?
+			  sig = "anonymous" 
+		     else
+		       sig = @page.signature
+		     end %>
+	      <p class="creator">created by <%= sig %> <span class="line">|</span>
+		  track: <%= link_to @page.track_name, @page.track_url, :target => "_blank" %> <span class="line">|</span>
+		  track author: <%= link_to @page.track_author, @page.track_author_url, :target => "_blank" %></p>
+        </div>
+	  </div>
     </div>
