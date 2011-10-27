@@ -332,13 +332,48 @@ $('.sound-header').css('background-image',"url(/images/orange_tile.png)").click(
 
 // Validation
 
-var titleValid = new LiveValidation("page_title_url");
-titleValid.add( Validate.Format, { pattern: /^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9]*$/ , validMessage: "" , failureMessage: "Letters and Numbers Only", onlyOnSubmit: true });
-titleValid.add( Validate.Presence, { failureMessage: "Letters and Numbers Only.", onlyOnSubmit: true });
+var titleValid = new LiveValidation("page_title_url", { validMessage: "✔" , onlyOnSubmit: true } );
+titleValid.add( Validate.Format, { pattern: /^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9]*$/ , failureMessage: "Letters and Numbers Only" });
+titleValid.add( Validate.Presence, { failureMessage: "Letters and Numbers Only." });
+
+function check_url() {
+  if( $('#page_title_url').val() ) {
+	$.post('/test_url', { title_url: $('#page_title_url').val() }, 
+      function(data) {
+        if(data.result == "fail") {
+	      if( $('#page_title_url').parent().find('.LV_validation_message') )  $('#page_title_url').parent().find('.LV_validation_message').remove();
+          var errorMessage = clonable_div.clone().addClass('LV_validation_message').addClass('LV_invalid').text('This URL Is Unavailable');
+          $('#page_title_url').addClass('LV_invalid_field').after( errorMessage )
+        } else {
+	      if( $('#page_title_url').parent().find('.LV_validation_message') )  $('#page_title_url').parent().find('.LV_validation_message').remove();
+	      if( $('#page_title_url').hasClass('LV_invalid_field') ) $('#page_title_url').removeClass('LV_invalid_field')
+        }
+      }, "json");
+  } else {
+    if( $('#page_title_url').parent().find('.LV_validation_message') )  $('#page_title_url').parent().find('.LV_validation_message').remove();
+    var errorMessage = clonable_div.clone().addClass('LV_validation_message').addClass('LV_invalid').text('Cannot Be Empty');
+    $('#page_title_url').addClass('LV_invalid_field').after( errorMessage )
+  }
+}
+
+$("#page_title_url").keyup( function(e) {
+	check_url();
+});
+$('#page_title_url').change( function(e) {
+	check_url();
+});
+$('#page_title_url').focus( function(e) {
+	check_url();
+});
+$('#page_title_url').blur( function(e) {
+	check_url();
+});
 
 $("input[type=submit]").click( function (e) {
-	if( $(".id-container input.url").val()){
-	  
+	if( $(".id-container input.url").val() ) {
+		
+	  if( $('#page_title_url').hasClass('LV_invalid_field') ) return false;
+	
 	} else {
 		e.preventDefault();
 		var errorMessage = clonable_div.clone().addClass('LV_validation_message').addClass('LV_invalid').text('You Must Select A Track To Continue');

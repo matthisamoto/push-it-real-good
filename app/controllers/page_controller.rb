@@ -7,6 +7,16 @@ class PageController < ApplicationController
     render :layout => 'application'
   end
   
+  def check_for_url
+    result = "pass"
+    if Page.exists?( :title_url => params[:title_url] )
+      result = "fail"
+    elsif params[:title_url] == "new"
+      result = "fail"
+    end
+    render :json => { "result" => result }
+  end
+  
   def show
     @page = Page.find(:first, :conditions => { "title_url" => params[:id] } )
     @user = User.find(:first, :conditions => { :id => @page.user_id })

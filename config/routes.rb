@@ -1,17 +1,16 @@
 PushItRealGood::Application.routes.draw do
 
   root :to => 'index#index'
-  # root :to => 'comingsoon#comingsoon'
   
-  # match 'temp' => 'index#index'
   match 'user/:user' => 'page#user'
     
   resources :page
   
-  match 'page/tally' => 'page#tally'
+  match 'tally' => 'page#tally'
   
   devise_for :users #, :controllers => {:sessions => 'sessions'}
   
+  match 'test_url' => 'page#check_for_url'
   match 'gallery' => 'page#list'
   match 'about' => 'page#about'
   match 'legal' => 'page#legal'

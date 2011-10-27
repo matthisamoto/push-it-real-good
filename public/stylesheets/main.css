@@ -590,7 +590,7 @@ input.LV_invalid_field:active,
 textarea.LV_invalid_field:hover, 
 textarea.LV_invalid_field:active { border: 1px solid #CC0000; }
 .inputs .LV_validation_message {
-	text-align: right;
+	text-align: left;
 	margin-right: 15px;
 	margin-bottom: 0; }
 	
