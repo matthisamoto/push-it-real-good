@@ -124,7 +124,11 @@ function start_playing(id, parent) {
 }
 function search_soundcloud() {
   results_count = 0;
+
+  // Remove stuff
   $('.close-results').remove();
+  if( $('.search-tracks .division-inner .LV_validation_message') ) $('.search-tracks .division-inner .LV_validation_message').remove();
+
   var search_term = $('input#search').val();
   $.get('http://m.soundcloud.com/_api/tracks/', { q: search_term, limit: 10, client_id: "72325d0b84c6a7f4bbef4dd86c0a5309", filter: "streamable", format: 'json' }, 
     function(data) {
@@ -199,13 +203,19 @@ function initSearchFunctionality(which) {
 
   $('.select-track').click( function(e) {
     e.preventDefault();
-	killFlash()
-    var html = '<input type="hidden" name="page[sound_url]" class="url" value="http://api.soundcloud.com/tracks/' + $(this).parent().parent().parent().attr('id') + '/stream" />';
+	killFlash();
+	
+    $("#page_sound_url").val( 'http://api.soundcloud.com/tracks/' + $(this).parent().parent().parent().attr('id') + '/stream');
+	$("#page_track_name").val( $(this).parent().parent().parent().find('.track-header .track-title a').text() );
+	$("#page_track_url").val( $(this).parent().parent().parent().find('.track-header .track-title a').attr('href') );
+	$("#page_track_author").val( $(this).parent().parent().find('.track_author').text() );
+	$("#page_track_author_url").val( $(this).parent().parent().find('.track_author').attr('href') );
+		/*
     html += '<input type="hidden" name="page[track_name]" class="url" value="' + $(this).parent().parent().parent().find('.track-header .track-title a').text() + '" />';
     html += '<input type="hidden" name="page[track_url]" class="url" value="' + $(this).parent().parent().parent().find('.track-header .track-title a').attr('href') + '" />';
     html += '<input type="hidden" name="page[track_author]" class="url" value="' + $(this).parent().parent().find('.track_author').text() + '" />';
     html += '<input type="hidden" name="page[track_author_url]" class="url" value="' + $(this).parent().parent().find('.track_author').attr('href') + '" />';
-    $('.id-container').empty().append(html);
+*/
     $('.track-name').empty().css("background-color","rgba(0, 132, 0, 0.60)").css("padding","5px 0").css("cursor","pointer").append("<span class=\"added\">Added track:</span> " + $(this).parent().parent().parent().find('span.track-title').text()).click( function(){ $('.track-name').empty().css("background-color","transparent").css("padding","0"); $('.id-container').empty(); });
     toggleSections();
   });
@@ -284,8 +294,7 @@ function track_progress() {
 
 // Naming Functions
 
-var titleValid = new LiveValidation("page_title_url");
-titleValid.add( Validate.Format, { pattern: /^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9]*$/ });
+
 
 $("#page_tagline").keyup( function() {
 	$('.title-preview').empty().text($(this).val())
@@ -297,21 +306,7 @@ $('select#button_style_name').selectBox();
 retrieve_colors();
 $("select#button_style_name").change( retrieve_colors );
 
-$("input[type=submit]").click( function (e) {
-	if( $(".id-container input.url").val()){
-	  if( $("#page_title_url").val()){
-		
-	  } else {
-	    e.preventDefault();
-		alert("Please provide a name for your page");
-	  }
-	} else {
-		e.preventDefault();
-		alert("Please choose a track for your page.");
-		$('.create-new').animate({ left: "0px" }, 500, function() { } );
-	}
-	
-});
+
 
 $('.search-button').click( function (e) {
 	e.preventDefault();
@@ -372,5 +367,26 @@ $('.sound-header').css('background-image',"url(/images/orange_tile.png)").click(
 });
 
 // track_progress();
+
+
+// Validation
+
+var titleValid = new LiveValidation("page_title_url");
+titleValid.add( Validate.Format, { pattern: /^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9]*$/ , validMessage: "" , failureMessage: "Letters and Numbers Only. No Spaces." });
+titleValid.add( Validate.Presence )
+
+$("input[type=submit]").click( function (e) {
+	if( $(".id-container input.url").val()){
+	  
+	} else {
+		e.preventDefault();
+		var errorMessage = clonable_div.clone().addClass('LV_validation_message').addClass('LV_invalid').text('You Must Select A Track To Continue');
+		$('.search-tracks .division-inner').prepend( errorMessage )
+		// alert("Please choose a track for your page.");
+		toggleSections()
+	}
+	
+});
+
 
 });
