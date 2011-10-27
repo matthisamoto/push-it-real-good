@@ -349,13 +349,13 @@ function toggleSections() {
   if( $('.search-tracks').height() > 0 ) {
 	$('.search-tracks').animate({ height: "0" }, 500);
 	$('.choose-button').animate({ height: button_height }, 500);
-	$('.button-header').css('background-color',"rgba( 241, 67, 6, 0.8 )");
-	$('.sound-header').css('background-color',"rgba( 40, 38, 37, 0.8 )");
+	$('.button-header').css('background-image',"url(/images/orange_tile.png)");
+	$('.sound-header').css('background-image',"url(/images/gray_tile.png)");
   } else { 
     $('.search-tracks').animate({ height: search_height }, 500);
 	$('.choose-button').animate({ height: "0" }, 500);
-	$('.button-header').css('background-color',"rgba( 40, 38, 37, 0.8 )");
-	$('.sound-header').css('background-color',"rgba( 241, 67, 6, 0.8 )");
+	$('.button-header').css('background-image',"url(/images/gray_tile.png)");
+	$('.sound-header').css('background-image',"url(/images/orange_tile.png)");
   }
 }
 var button_height = 630;
@@ -367,7 +367,7 @@ $('.choose-button').css({ height: "0" });
 $('.button-header').click( function(e) {
   toggleSections();
 });
-$('.sound-header').css('background-color',"rgba( 241, 67, 6, 0.8 )").click( function(e) {
+$('.sound-header').css('background-image',"url(/images/orange_tile.png)").click( function(e) {
   toggleSections();
 });
 

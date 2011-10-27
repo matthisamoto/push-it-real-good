@@ -12,6 +12,14 @@
 	    var rand = Math.floor(Math.random() * (2));
 	    if( rand > 0 ) $(".step-container").css("background-position","0 -248px")
 	    $('.step-container').css("visibility","visible")
+	    $('.step-container').click( toggle_hero )
+	    function toggle_hero() {
+		  if( $(".step-container").css("background-position") == "0px 0px" ) {
+			$(".step-container").css("background-position","0 -248px")
+		  } else if( $(".step-container").css("background-position") == "0px -248px" ) {
+			$(".step-container").css("background-position","0 0")
+		  }
+	    }
 	  </script>
     </div>
 

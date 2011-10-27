@@ -89,10 +89,12 @@
 }
 
 .selectBox-options LI.selectBox-selected A {
-	background-color: rgba( 241, 67, 6, 0.8 );
+	background: url(/images/orange_tile.png) repeat-x transparent;
 	border-radius: 10px;
 	color: #fff;
-}
+	zoom: 1;
+	filter: alpha(opacity=80);
+	opacity: 0.8; }
 
 .selectBox-options .selectBox-optgroup {
 	color: #666;

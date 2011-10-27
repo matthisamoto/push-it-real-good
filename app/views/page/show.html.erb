@@ -3,7 +3,9 @@
 <div class="push-it" id="push-it">
   <a href="#" class="play no-underline" ><img src="/images/<%= @page.button_url %>.png" alt="Button" class ="push-button" /></a>
 </div>
-<h1 class="count-pushes"><%= @page.pushes %> Pushes</h1>
+
+<h1 class="count-pushes"><%= @page.pushes %></h1>
+
 <div class="page-social clearfix">
 	<div class="facebook-social">
 	  <div id="fb-root"></div>	  
@@ -65,15 +67,25 @@ function prepFlash () {
 
 function tally() {
 	count++;
-	$('.count-pushes').empty().append(count + " Pushes");
+	$('.count-pushes').empty().append(count);
+	check_count_for_one(count);
 }
-
+function check_count_for_one(count) {
+	if( count == 1 ) {
+	  $('.count-pushes').css( 'background-position', '-162px 0' );
+	} else {
+	  $('.count-pushes').css( 'background-position', '0 0' );
+	}
+	
+}
 if( $("body").hasClass( "iphone" ) || $("body").hasClass("android"))
 {
 	prepNonFlash();
 } else {
 	prepFlash();
 }
+
+check_count_for_one( $('.count-pushes').text() );
 
 </script>
 

@@ -213,7 +213,7 @@ form.button_to, form.button_to div{ display:inline; }
 .lower-content h1 {
 	color: #fff;
 	text-align: center;
-	margin-bottom: 5px; }
+	margin-bottom: 20px; }
 .top-ten {  width: 450px; text-align:center; margin-bottom: 30px; float: left; }
 .top-ten .gallery-link { margin-top: 15px; }
 .top-item {
@@ -283,7 +283,7 @@ form.button_to, form.button_to div{ display:inline; }
 .random-button:hover { background-color:rgba( 255, 255, 255, .8); }
 .featured-button #push-it { margin-top: 10px; margin-bottom: 10px; }
 .lower-content .featured-title,  .lower-content .featured-headline { display:block; margin: 0 auto; text-align:center; }
-.lower-content .featured-headline { margin-bottom: 5px; }
+.lower-content .featured-headline { margin-bottom: 20px; }
 .featured-title a:link,
 .featured-title a:visited { font-size: 100%; text-align: center; margin: 0 auto; }
 .featured-author { 
@@ -341,15 +341,18 @@ form.button_to, form.button_to div{ display:inline; }
 	bottom: 20px;
 	left: 20px; }
 .header {
-	background-color: rgba(40, 38, 37, 0.8); 
+	background: url(/images/gray_tile.png) repeat-x transparent; 
 	border-radius: 8px;
 	color: #fff;
 	padding: 5px 0;
 	font-size: 200%;
-	cursor: pointer; }
+	cursor: pointer;
+	zoom: 1;
+	filter: alpha(opacity=80);
+	opacity: 0.8; }
 .upload-coming-soon {
 	width: 324px;
-	height: 190px;
+	height: 250px;
 	display: block;
 	margin: 0 auto;
 	padding-top: 60px;
@@ -362,15 +365,16 @@ form.button_to, form.button_to div{ display:inline; }
 	margin: 0 auto;
 	padding: 5px 0;
 	border: none;
-	background-color: rgba(40, 38, 37, 0.8); 
+	background: url(/images/gray_tile.png) repeat-x transparent;
 	color: #fff;
 	text-decoration:none;
 	text-transform: uppercase;
 	font-family: "League Gothic", Arial, sans-serif;
-	font-size: 200%; }
-.create-new-button:hover {
-	background-color: rgba( 241, 67, 6, 0.8 );
-}
+	font-size: 200%;
+	zoom: 1;
+	filter: alpha(opacity=80);
+	opacity: 0.8; }
+.create-new-button:hover { background-image: url(/images/orange_tile.png) }
 /* Search */
 
 input#search {
@@ -653,6 +657,7 @@ footer .inner {
 footer .copyright { color:#fff;  text-align:left;}
 footer .first { margin-left: 0; }
 footer .last { margin-right: 0; }
+
 /* Button Page Template */ 
 
 .button-page h1{
@@ -696,7 +701,7 @@ p.creator { margin-right:20px; }
 	width: 100px;
 	height: 100px;
 	background: url(/images/push-it-logo-smaller.png) }
-.page-social { margin: 0 auto; margin-bottom: 30px; width:290px; margin-top: 120px;}
+.page-social { margin: 0 auto; margin-bottom: 30px; width:290px; margin-top: 40px; }
 .facebook-social, .twitter-social, .google-social { float:left; }
 .page-session-status {
 	margin: 20px 0;
@@ -705,9 +710,17 @@ p.creator { margin-right:20px; }
  	line-height: 1.4em; }
 .page-session-status a:link, 
 .page-session-status a:visited, 
-.page-session-status a:hover {
-	font-size: 100%;
-}
+.page-session-status a:hover { font-size: 100%; }
+.button-page .count-pushes {
+	margin: 0 auto;
+	margin-top: 80px;
+	display: block;
+	width: 162px;
+	height: 38px;
+	padding: 53px 0 59px 0;
+	background: url(/images/push_stamp.png) 0 0 transparent no-repeat;
+	font-size: 270%;
+	color: #f14306; }
 
 /* Legal Page */
 
