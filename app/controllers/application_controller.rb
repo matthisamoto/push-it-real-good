@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
      
      def auth_soundcloud
-       @client = Soundcloud.new(:client_id => "72325d0b84c6a7f4bbef4dd86c0a5309", :client_secret => "9e8d9f3e3559588aaf724007c69172ab" )
+       @client = Soundcloud.new(:client_id => "8415d419022eb58d9e2b49997ad6b1ba", :client_secret => "3f46e6df2aaea3c8da43e995dd1aaf70" )
      end
      
       def after_sign_in_path_for(resource)
