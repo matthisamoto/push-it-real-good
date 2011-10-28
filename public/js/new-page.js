@@ -11,7 +11,9 @@ function killpreloader() {
 
 // $(function() {
 
-var container = $('<div>', { class: 'search-container' });
+var container = $('<div>');
+
+
 // Set up CSRF token to work with AJAX
 var csrf_token = $('meta[name=csrf-token]').attr('content');
 
@@ -24,7 +26,7 @@ $("body").bind("ajaxSend", function(elm, xhr, s){
 // Search Functions
 
 function add_container() {
-	var clone = container.clone();
+	var clone = container.clone().addClass('search-container');
 	$('.search-results').prepend(clone);
 }
 function create_audio(parent, url) {
