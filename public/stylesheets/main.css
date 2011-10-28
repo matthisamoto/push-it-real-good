@@ -705,7 +705,7 @@ footer .last { margin-right: 0; }
 	bottom: 0;
 	position: relative; }
 .info-bar a:link, .info-bar a:visited, .info-bar a:hover {
-	color: #fff;
+	color: #f14306;
 	text-decoration: underline;
 	font-size: 100%; }
 .home-btn {
@@ -723,7 +723,8 @@ p.creator {
 	width: 960px;
 	padding: 8px 0;
 	margin: 0 auto;
-	background-color: #f14306;
+	border: 1px dashed #282625;
+	background-color: transparent;
 	border-radius: 8px; }
 p.creator .line {
 	margin: 0 10px; }
@@ -744,22 +745,25 @@ p.creator .line {
 	height:46px;
 	width: 46px;
 	margin:2px;
+	margin-left:-5px;
 	line-height: 46px;
+	color: #fff;
 	background-color: #f14306;
 	border-radius: 23px;
 	vertical-align: middle; }
 .more-info-button {
+	color: #282625;
 	display: inline-block;
-	background-color: #f14306;
+	background-color: transparent;
 	border-radius: 8px;
+	border: 1px dashed #282625;
 	padding: 0 10px;
 	line-height: 46px;
-	cursor: pointer;
-}
+	cursor: pointer; }
 .more-button-active {
 	padding-bottom: 10px;
 	border-radius: 8px 8px 0 0;
-}
+	border-bottom: none; }
 .button-page .small-logo {
 	margin: 0 auto;
 	width: 100px;
