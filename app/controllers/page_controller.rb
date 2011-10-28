@@ -80,7 +80,7 @@ class PageController < ApplicationController
   def destroy
     @page = Page.find(params[:id]).destroy
     flash[:notice] = "Successfully Deleted Page."
-    redirect_to root_path
+    redirect_to "/gallery"
   end
   
   def about
