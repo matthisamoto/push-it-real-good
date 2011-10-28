@@ -9,7 +9,7 @@ function killpreloader() {
   $( "#" + current_preview_string ).css( 'width', '0' );
 }
 
-jQuery(window).load(function() {
+// $(function() {
 
 var container = $('<div>', { class: 'search-container' });
 // Set up CSRF token to work with AJAX
@@ -387,4 +387,4 @@ $("input[type=submit]").click( function (e) {
 });
 
 
-});
+// });
