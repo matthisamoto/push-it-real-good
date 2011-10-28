@@ -1,9 +1,9 @@
 	<div class="info-bar">
 		
 	  <div class="info-buttons">
-		<span class="info-button-span"><%= link_to  image_tag( "/images/push-it-logo-smallest.png" ), root_path, :class => "mini-logo", :title => "Home" %></span>
+		<span class="info-button-span mini-logo-container"><%= link_to  image_tag( "/images/push-it-logo-smallest.png" ), root_path, :class => "mini-logo", :title => "Home" %></span>
 		<span class="info-button-span more-info-button" title="Author + Track Info">MORE INFO</span>
-		<span class="info-button-span "><%= link_to "+", "/page/new", :class => "create-new-circle", :title => "Create Your Own Button" %></span>
+		<span class="info-button-span "><a href="/page/new" class="create-new-circle" title="Create Your Own Button"><span class="create-new-span">Create<br/>Yours</span> <span class="create-plus">+</span></a></span>
       </div>
       <div class="creation-status-mask">
         <div class="creation-status">
