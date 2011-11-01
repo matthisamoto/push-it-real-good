@@ -731,7 +731,7 @@ footer .last { margin-right: 0; }
 	border: none;
 	height: 100%; }
 .other-info {
-	margin-top: 80px; }
+	margin-top: 30px; }
 .info-bar {
 	display: block;
 	overflow: hidden;
@@ -826,9 +826,10 @@ p.creator .line {
 	background: url(/images/push-it-logo-smaller.png) }
 .page-social { margin: 0 auto; text-align: center; }
 .facebook-social, .twitter-social, .google-social {
-	display: inline-block;
+	display: block;
 	margin:0 20px; }
-.facebook-social a span:first { vertical-align: middle; }
+.facebook-social { margin-bottom: 10px; }
+.twitter-social { margin-bottom: 5px; }
 .page-session-status {
 	margin: 20px 0;
 	text-transform: uppercase;
@@ -839,6 +840,7 @@ p.creator .line {
 .page-session-status a:hover { font-size: 100%; }
 .button-page .count-pushes {
 	margin: 0 auto;
+	margin-top: 50px;
 	display: block;
 	font-size: 200%;
 	color: #282625; }
