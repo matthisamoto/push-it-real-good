@@ -60,8 +60,8 @@ td { padding: 5px 10px; }
 	color: #282625;
 	background-color: #f14306; }
 .nav_bar .username { color: #f15306; }
-.nav_bar .social-buttons { width: 300px; display:block; float:left; }
-.facebook-button, .google-button, .twitter-button { float:left; }
+.nav_bar .social-buttons { width: 300px;}
+.facebook-button, .google-button, .twitter-button { display:inline-block; line-height: 30px; }
 .google-button, .twitter-button { padding-top: 3px; }
 .session_status { float: right; }
 
@@ -730,6 +730,8 @@ footer .last { margin-right: 0; }
 	position: relative;
 	border: none;
 	height: 100%; }
+.other-info {
+	margin-top: 80px; }
 .info-bar {
 	display: block;
 	overflow: hidden;
@@ -768,13 +770,15 @@ p.creator {
 	border-radius: 8px; }
 p.creator .line {
 	margin: 0 10px; }
+.info-bar { margin-top: 20px; }
 .info-buttons { 
 	color: #fff; }
+.info-buttons a:link,
+.info-buttons a:visited { color: #282625; text-decoration: none; }
+.info-buttons a:hover { color: #f14306; }
 .info-button-span { margin: 0 30px; }
 .info-bar .mini-logo-container {
-	display: inline-block;
-	height: 65px;
-	margin-left: -12px; }
+	display: inline-block; }
 .info-bar .mini-logo:link,
 .info-bar .mini-logo:visited {
 	line-height: 50px;
@@ -820,8 +824,11 @@ p.creator .line {
 	width: 100px;
 	height: 100px;
 	background: url(/images/push-it-logo-smaller.png) }
-.page-social { margin: 0 auto; margin-bottom: 30px; width:290px; margin-top: 40px; }
-.facebook-social, .twitter-social, .google-social { float:left; }
+.page-social { margin: 0 auto; text-align: center; }
+.facebook-social, .twitter-social, .google-social {
+	display: inline-block;
+	margin:0 20px; }
+.facebook-social a span:first { vertical-align: middle; }
 .page-session-status {
 	margin: 20px 0;
 	text-transform: uppercase;
@@ -832,14 +839,33 @@ p.creator .line {
 .page-session-status a:hover { font-size: 100%; }
 .button-page .count-pushes {
 	margin: 0 auto;
-	margin-top: 80px;
 	display: block;
-	width: 162px;
-	height: 38px;
-	padding: 53px 0 59px 0;
-	background: url(/images/push_stamp.png) 0 0 transparent no-repeat;
-	font-size: 270%;
-	color: #f14306; }
+	font-size: 200%;
+	color: #282625; }
+.button-page .count-pushes .count-numbers {
+	display: inline;
+	color: #f14306;
+	margin: 0 30px;
+	position: relative; }
+.button-page .count-pushes .count-numbers .pushed {
+	color: #282625;
+	position: absolute;
+	line-height: 60px;
+	width: 200px;
+	text-align: right;
+	padding-right: 15px;
+	left: -215px; }
+.button-page .count-pushes .count-numbers .times {
+	color: #282625;
+	position: absolute;
+	line-height: 60px;
+	width: 200px;
+	text-align: left;
+	padding-left: 15px;
+	right: -215px; }
+.button-page .count-pushes .count-numbers .numbers {
+	font-size: 192%;
+	line-height: 60px; }
 
 /* Legal Page */
 

@@ -13,8 +13,13 @@
   <![endif]-->
   <meta property="og:url" content="http://pushitrealgood.com/page/<%= @page.title_url %>" />
   <meta property="og:title" content="'<%= @page.title_url.upcase %>' on Push It Real Good" />
-  <meta property="og:image" content="http://pushitrealgood.com/images/push-it-logo-small.png" />
-  <meta property="og:description" content="I just saw this site; make your own on pushitrealgood.com!" />
+  <meta property="og:image" content="http://pushitrealgood.com/images/<% @page.button_url %>_half.png" />
+  <meta property="og:description" content="Sound + Button = Awesome. Create your own Awesome at pushitrealgood.com." />
+
+  <meta itemprop="name" content="'<%= @page.title_url.upcase %>' on Push It Real Good">
+  <meta itemprop="description" content="Sound + Button = Awesome. Create your own Awesome at pushitrealgood.com.">
+  <meta itemprop="image" content="http://pushitrealgood.com/images/<% @page.button_url %>_half.png">
+
 </head>
 <body class="button-page <%= (iphone?) ? 'iphone' : '' %> <%= (android?) ? 'android' : '' %> <%= (ie?) ? 'ie' : '' %>">
   <div class="wrapper">
