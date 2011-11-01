@@ -210,13 +210,22 @@ form.button_to, form.button_to div{ display:inline; }
 	padding:10px 0;
 }
 .new-page a:hover {	background-position:-90px 10px; }
+.gallery { 
+	width: 800px;
+	margin: 0 auto; }
 .pages { margin-bottom: 30px; }
 .pages .top-item {
+	width: 390px;
 	background-color: #eee;
 	background-color: rgba(255,255,255,0.6); }
 .pages .top-item:hover {
 	background-color: #fff;
 	background-color: rgba(255,255,255,0.8); }
+.latest { float:left; }
+.greatest { float: right; }
+.pages h1 { 
+	border-bottom: 1px solid #282625;
+	margin-bottom: 15px; }
 	
 /* Featured Items */
 

@@ -4,7 +4,8 @@ class PageController < ApplicationController
   
   def list 
     @count = Page.count
-    @pages = @top_ten = Page.find(:all, :limit => 25, :order => "pages.created_at DESC" )
+    @latest = Page.find(:all, :limit => 25, :order => "pages.created_at DESC" )
+    @greatest = Page.find(:all, :limit => 25, :order => "pages.pushes DESC" )
     render :layout => 'application'
   end
   

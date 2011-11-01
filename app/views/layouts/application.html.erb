@@ -22,16 +22,23 @@
 <body class="<%= (iphone?) ? 'iphone' : '' %> <%= (android?) ? 'android' : '' %> <%= (ie?) ? 'ie' : '' %>">
 
 <div class="wrapper">
-	<% if user_signed_in? && admin? %>
-	  <%= render "layouts/menubar" %>
-	<% end %>
+	
+  <% if user_signed_in? && admin? %>
+    <%= render "layouts/menubar" %>
+  <% end %>
+	
   <div class="content">
+	
     <%= yield %>
+
   </div> <!-- content -->
-<%= if @feature 
+
+  <%= if @feature 
 	render "index/features"
 	end %>
-<%= render "layouts/footer" %>
+	
+  <%= render "layouts/footer" %>
+
 </div> <!-- wrapper -->
 
 </body>
