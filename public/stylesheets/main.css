@@ -294,11 +294,11 @@ form.button_to, form.button_to div{ display:inline; }
 .random-button {
 	width: 360px;
 	border-radius: 8px;
-	background-color: #fff;
+	background-color: #999;
 	background-color: rgba(255,255,255,0.6); 
 	padding-bottom:20px; }
 .random-button:hover { 
-	background-color: #fff;
+	background-color: #ccc;
 	background-color: rgba(255,255,255,0.8); }
 .featured-button #push-it { margin-top: 10px; margin-bottom: 10px; }
 .lower-content .featured-title,  .lower-content .featured-headline { display:block; margin: 0 auto; text-align:center; }
