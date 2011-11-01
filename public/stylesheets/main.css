@@ -230,11 +230,14 @@ form.button_to, form.button_to div{ display:inline; }
 	width:450px;
 	height:50px;
 	border-radius: 8px;
+	background-color:rgba(255,255,255);
 	background-color:rgba( 255, 255, 255, .6);
 	margin-bottom:5px;
 	line-height:2em;
 	text-align:left; }
-.top-item:hover { background-color:rgba( 255, 255, 255, .8); }
+.top-item:hover { 
+	background-color:rgba( 255, 255, 255);
+	background-color:rgba( 255, 255, 255, .8); }
 .top-item img, .page p { display:inline; }
 .top-item .button-image {
 	margin-top:5px;
@@ -286,9 +289,12 @@ form.button_to, form.button_to div{ display:inline; }
 .random-button {
 	width: 360px;
 	border-radius: 8px;
+	background-color:rgba( 255, 255, 255 );
 	background-color:rgba( 255, 255, 255, .6); 
 	padding-bottom:20px; }
-.random-button:hover { background-color:rgba( 255, 255, 255, .8); }
+.random-button:hover { 
+	background-color:rgba( 255, 255, 255 );
+	background-color:rgba( 255, 255, 255, .8); }
 .featured-button #push-it { margin-top: 10px; margin-bottom: 10px; }
 .lower-content .featured-title,  .lower-content .featured-headline { display:block; margin: 0 auto; text-align:center; }
 .lower-content .featured-headline { margin-bottom: 20px; }
@@ -532,6 +538,7 @@ select {
 	padding: 10px;
 	width: 40px;
 	height: 40px;
+	background-color:rgba( 0, 0, 0 );
 	background-color:  rgba( 0,0,0, 0.5);
 	border-radius: 7px;
 	margin-bottom: 5px; }
@@ -817,6 +824,7 @@ p.creator .line {
 	margin: 1em auto;
 	margin-bottom: 2em;
 	padding: 20px;
+	background-color: rgba( 255, 255, 255);
 	background-color: rgba( 255, 255, 255, .5 );
 	text-align: left;
 	font-size:100%; }
@@ -834,6 +842,7 @@ p.creator .line {
 	margin: 1em auto;
 	margin-bottom:2em;
 	padding: 20px;
+	background-color: rgba( 255, 255, 255);
 	background-color: rgba( 255, 255, 255, .5 );
 	text-align: left; }
 .about-us a:link, .about-us a:visited, .about-us a.hover { font-size:100%; font-family: Helvetica, Arial, sans-serif; text-transform: none; }
@@ -848,6 +857,7 @@ a:link, a:visited, a:hover { color:#f14306; }
 .notice {
 	padding:10px 0;
 	display:block;
+	background-color: rgba( 241,67,6 );
 	background-color:rgba(241,67,6,0.30);
 	border: 1px solid #f14306;
 	color:#282625;
@@ -859,6 +869,7 @@ a:link, a:visited, a:hover { color:#f14306; }
 .warning {
 	padding:10px 0;
 	display:block;
+	background-color:rgba(255,0,0);
 	background-color:rgba(255,0,0,0.30);
 	border: 1px solid #990000;
 	color:#990000;
