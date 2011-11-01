@@ -91,6 +91,7 @@ function prepFlash () {
 function tally() {
 	count++;
 	$('.count-numbers .numbers').empty().append(count);
+	$('.count-numbers .numbers').css('width',$('.count-numbers .numbers').height());
 	check_count_for_one(count);
 }
 function check_count_for_one(count) {

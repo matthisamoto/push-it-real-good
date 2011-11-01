@@ -845,7 +845,7 @@ p.creator .line {
 	font-size: 200%;
 	color: #282625; }
 .button-page .count-pushes .count-numbers {
-	display: inline;
+	display: inline-block;
 	color: #f14306;
 	margin: 0 30px;
 	position: relative; }
