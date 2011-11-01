@@ -1,7 +1,7 @@
 <div class="lower-content clearfix">
 	
   <div class="top-ten clearfix">
-	<h1>Top Pushes</h1>
+	<h1>Popular Pushes</h1>
     <% @top_ten.each do |top_item| %>
 	<div class="top-item">
 	  <div class="button-image"><%= image_tag "/images/#{top_item.button_url}.png", :height => 40, :width => 80 %></div>
@@ -30,16 +30,13 @@
 
   <div class="featured-button clearfix">
 	
-	<h1 class="featured-headline clearfix">One Random Button</h1>
+	<h1 class="featured-headline clearfix">Button of the Day</h1>
 	<div class="random-button">
       <div class="push-it" id="push-it">
 	    <a href="#" class="play no-underline" ><img src="/images/<%= @feature.button_url %>.png" alt="Button" class ="push-button" /></a>
 	  </div>
 	
 	  <h1 class="featured-title clearfix"><%= link_to @feature.title_url, "/page/#{@feature.title_url}" %></h1>
-	  <% sig = @feature.signature
-		 sig = "anonymous" unless @feature.signature %>
-	  <p class="featured-author">from <%= sig %></p>
 	</div>
   </div>
 

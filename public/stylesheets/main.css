@@ -20,6 +20,7 @@ body {
 	color: #111;
 	background: url(/images/texture.jpg) repeat transparent;
 	letter-spacing: 0.15em; }
+* html body { letter-spacing: 0.15em; }
 a:link, a:visited, a:hover {
 	text-transform: uppercase;
 	font-size: 160%;
@@ -30,6 +31,7 @@ h1 {
 	font-weight: normal;
 	letter-spacing: .07em;
 	font-size: 300%; }
+* html h1 { letter-spacing: .07em; }
 td { padding: 5px 10px; }
 .content {
 	position: relative;
@@ -192,6 +194,7 @@ form.button_to, form.button_to div{ display:inline; }
 	font-size:385%;
 	letter-spacing:0.02em;
 	color:#282625; }
+* html .whose-pages { letter-spacing: .02em; }
 .new-page {
 	float:left;
 	margin-left:70px;
@@ -214,6 +217,7 @@ form.button_to, form.button_to div{ display:inline; }
 .pages .top-item:hover {
 	background-color: #fff;
 	background-color: rgba(255,255,255,0.8); }
+	
 /* Featured Items */
 
 .lower-content {
@@ -269,6 +273,7 @@ form.button_to, form.button_to div{ display:inline; }
 	font-family:"League Gothic", sans-serif;
 	letter-spacing:0.07em;
 	height:50px; }
+* html .user-page-url { letter-spacing: .07em; }
 .user-page-url a:link, 
 .user-page-url a:visited { color:#282625; text-decoration:none; }
 .user-page-url a:hover { color:#f15306; }
@@ -296,15 +301,21 @@ form.button_to, form.button_to div{ display:inline; }
 	border-radius: 8px;
 	background-color: #999;
 	background-color: rgba(255,255,255,0.6); 
-	padding-bottom:20px; }
+	padding-bottom:10px; }
 .random-button:hover { 
 	background-color: #ccc;
 	background-color: rgba(255,255,255,0.8); }
-.featured-button #push-it { margin-top: 10px; margin-bottom: 10px; }
-.lower-content .featured-title,  .lower-content .featured-headline { display:block; margin: 0 auto; text-align:center; }
+.featured-button #push-it { margin: 7px 0; }
+.lower-content .featured-title,  .lower-content .featured-headline { 
+	display:block; 
+	margin: 0 auto; 
+	text-align:center; }
 .lower-content .featured-headline { margin-bottom: 20px; }
 .featured-title a:link,
-.featured-title a:visited { font-size: 100%; text-align: center; margin: 0 auto; }
+.featured-title a:visited { 
+	font-size: 100%; 
+	text-align: center; 
+	margin: 0 auto; }
 .featured-author { 
 	color:#282625;
 	font-size:140%;
