@@ -208,7 +208,12 @@ form.button_to, form.button_to div{ display:inline; }
 }
 .new-page a:hover {	background-position:-90px 10px; }
 .pages { margin-bottom: 30px; }
-
+.pages .top-item {
+	background-color: #eee;
+	background-color: rgba(255,255,255,0.6); }
+.pages .top-item:hover {
+	background-color: #fff;
+	background-color: rgba(255,255,255,0.8); }
 /* Featured Items */
 
 .lower-content {
@@ -230,13 +235,13 @@ form.button_to, form.button_to div{ display:inline; }
 	width:450px;
 	height:50px;
 	border-radius: 8px;
-	background-color: #fff;
+	background-color: #999;
 	background-color: rgba(255,255,255,0.6);
 	margin-bottom:5px;
 	line-height:2em;
 	text-align:left; }
 .top-item:hover { 
-	background-color: #fff;
+	background-color: #eee;
 	background-color: rgba(255,255,255,0.8); }
 .top-item img, .page p { display:inline; }
 .top-item .button-image {
