@@ -78,7 +78,7 @@ function prepFlash () {
   params.wmode = "transparent";
   var attributes = {};
   swfobject.embedSWF("/swf/soundPlayer.swf", "push-it","250", "250", swfVersionStr, xiSwfUrlStr, flashvars, params, attributes);
-  document.getElementById("push-it").focus();
+  // document.getElementById("push-it").focus();
 }
 
 if( $("body").hasClass( "iphone" ) || $("body").hasClass( "android" ) ) {
