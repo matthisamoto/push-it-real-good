@@ -5,7 +5,10 @@
 </div>
 
 <div class="other-info">
-	
+
+<div class="offensive">
+</div>
+
 <div class="page-social clearfix">
 	
 	<div class="facebook-social">
@@ -60,17 +63,17 @@ function prepNonFlash() {
   $('.push-it').append(clip);
   $('.play').click( function(e) {
 	e.preventDefault();
+	clip.pause();
+	clip.currentTime = 0;
 	clip.play();
 	tally();
-  });
-  $('.play').mousedown( function(e) {
+  }).mousedown( function(e) {
 	e.preventDefault();
 	$(this).find('img').css("margin-left","-250px");
-  });
-  $('.play').mouseup( function(e) {
+  }).mouseup( function(e) {
 	e.preventDefault();
 	$(this).find('img').css("margin-left","0");
-  });
+  }).css('visibility','visible');
 }
 
 function prepFlash () {
@@ -92,7 +95,6 @@ function tally() {
 	count++;
 	$('.count-numbers .numbers').empty().append(count);
 	$('.count-numbers .numbers').css('width',$('.count-numbers .numbers').height());
-	check_count_for_one(count);
 }
 function check_count_for_one(count) {
 	if( count == 1 ) {
@@ -124,6 +126,7 @@ if( $("body").hasClass( "iphone" ) || $("body").hasClass("android"))
 	prepNonFlash();
 } else {
 	prepFlash();
+	//prepNonFlash();
 }
 
 check_count_for_one( $('.count-pushes').text() );
