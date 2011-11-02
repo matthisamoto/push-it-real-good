@@ -48,9 +48,14 @@
 
 </div>
 
-<script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));</script>
 <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
-<script type="text/javascript">(function(){var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;	      po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
 
 <script type="text/javascript">
 var count = <%= @page.pushes %>;
@@ -96,40 +101,15 @@ function tally() {
 	$('.count-numbers .numbers').empty().append(count);
 	$('.count-numbers .numbers').css('width',$('.count-numbers .numbers').height());
 }
-function check_count_for_one(count) {
-	if( count == 1 ) {
-	  $('.count-pushes').css( 'background-position', '-162px 0' );
-	} else {
-	  $('.count-pushes').css( 'background-position', '0 0' );
-	}
-}
-
-function toggleInfo() {
-	if( $('.more-info-button').hasClass("more-button-active") ) {
-	  $('.creation-status-mask').animate( { height: "0px" }, 250, "linear", function() {
-		$('.more-info-button').removeClass("more-button-active");
-		$('.more-info-button').animate( { paddingBottom: "0" }, 100, "linear" );
- 	  });
-	  
-	} else {
-	  $('.more-info-button').animate( { paddingBottom: "15px" }, 100, "linear", function() {
-		$('.more-info-button').addClass('more-button-active');
-		$('.creation-status-mask').animate( { height: "43px" }, 250, "linear" );
-	  });
-	}
-}
-
-$('.more-info-button').click ( toggleInfo )
 
 if( $("body").hasClass( "iphone" ) || $("body").hasClass("android"))
 {
 	prepNonFlash();
 } else {
-	prepFlash();
-	//prepNonFlash();
+	//prepFlash();
+	prepNonFlash();
 }
 
-check_count_for_one( $('.count-pushes').text() );
 
 </script>
 
