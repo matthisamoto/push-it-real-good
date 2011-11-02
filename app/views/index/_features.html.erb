@@ -50,10 +50,12 @@ function prepNonFlash() {
   clip.preload = 'auto';
   $('.push-it').append(clip);
   $('.play').click( function(e) {
-	e.preventDefault();
-	clip.pause();
+  if( (clip.buffered != undefined) && (clip.buffered.length != 0) )
+  {
+    clip.pause();
 	clip.currentTime = 0;
 	clip.play();
+  }
   }).mousedown( function(e) {
 	e.preventDefault();
 	$(this).find('img').css("margin-left","-250px");

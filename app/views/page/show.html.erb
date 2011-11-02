@@ -68,10 +68,13 @@ function prepNonFlash() {
   $('.push-it').append(clip);
   $('.play').click( function(e) {
 	e.preventDefault();
-	clip.pause();
-	clip.currentTime = 0;
-	clip.play();
-	tally();
+	if( (clip.buffered != undefined) && (clip.buffered.length != 0) )
+	{
+		clip.pause();
+		clip.currentTime = 0;
+		clip.play();
+		tally();
+	}
   }).mousedown( function(e) {
 	e.preventDefault();
 	$(this).find('img').css("margin-left","-250px");
