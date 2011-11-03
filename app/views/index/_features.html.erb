@@ -50,19 +50,23 @@ function prepNonFlash() {
   clip.preload = 'auto';
   $('.push-it').append(clip);
   $('.play').click( function(e) {
-  if( (clip.buffered != undefined) && (clip.buffered.length != 0) )
-  {
-    clip.pause();
-	clip.currentTime = 0;
-	clip.play();
-  }
-  }).mousedown( function(e) {
+	e.preventDefault();
+    if( ( clip.buffered != undefined ) && ( clip.buffered.length != 0 ) )
+    {
+      clip.pause();
+	  clip.currentTime = 0;
+	  clip.play();
+    }
+  })
+  $('.play').mousedown( function(e) {
 	e.preventDefault();
 	$(this).find('img').css("margin-left","-250px");
-  }).mouseup( function(e) {
+  })
+  $('.play').mouseup( function(e) {
 	e.preventDefault();
 	$(this).find('img').css("margin-left","0");
-  }).css("visibility","visible")
+  })
+  $('.play').css("visibility","visible")
 }
 
 function prepFlash () {
@@ -80,7 +84,7 @@ function prepFlash () {
   // document.getElementById("push-it").focus();
 }
 
-if( $("body").hasClass( "iphone" ) || $("body").hasClass( "android" ) ) {
+if( $("body").hasClass( "iphone" ) ) {
   prepNonFlash();
 } else {
   prepFlash();
