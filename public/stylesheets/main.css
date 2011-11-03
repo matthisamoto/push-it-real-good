@@ -84,17 +84,18 @@ td { padding: 5px 10px; }
 	text-align:center;
 	padding-top: 20px;
 	padding-right: 50px; }
-.push-it a.play {
-	display: block;
-	width: 250px;
-	height: 250px;
-	overflow: hidden;
-	margin: 0 auto;
+.push-it, .push-it * {
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
 	-o-user-select: none;
 	user-select: none; }
+.push-it a.play {
+	display: block;
+	width: 250px;
+	height: 250px;
+	overflow: hidden;
+	margin: 0 auto; }
 .three-steps {
 	display: block;
 	text-align: center;
@@ -166,7 +167,13 @@ a.create-link:hover	{
 	float:left;
 	background: url(/images/push-it-logo-small.png) transparent no-repeat;
 	z-index:100; }
-
+.random-button * {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none; }
+	
 /* Gallery Page */
 
 form.button_to, form.button_to div{ display:inline; }
