@@ -15,12 +15,10 @@
   <meta property="og:title" content="'<%= @page.title_url.upcase %>' on Push It Real Good" />
   <meta property="og:image" content="http://pushitrealgood.com/images/<%= @page.button_url %>_half.png" />
   <meta property="og:description" content="Sound + Button = Awesome. Create your own Awesome at pushitrealgood.com." />
-
   <meta itemprop="name" content="'<%= @page.title_url.upcase %>' on Push It Real Good">
   <meta itemprop="description" content="Sound + Button = Awesome. Create your own Awesome at pushitrealgood.com.">
   <meta itemprop="image" content="http://pushitrealgood.com/images/<%= @page.button_url %>_half.png">
   <meta name="viewport" content="maximum-scale=1,user-scalable=yes,width=800" />
-
 </head>
 <body class="button-page <%= (iphone?) ? 'iphone' : '' %> <%= (android?) ? 'android' : '' %> <%= (ie?) ? 'ie' : '' %>">
   <div class="wrapper">
