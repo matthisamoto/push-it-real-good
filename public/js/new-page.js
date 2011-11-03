@@ -135,8 +135,18 @@ function search_soundcloud() {
   if( $('.search-tracks .division-inner .LV_validation_message') ) $('.search-tracks .division-inner .LV_validation_message').remove();
   console.log('Removed old elements...')
   var search_term = $('input#search').val();
-  $.get('http://m.soundcloud.com/_api/tracks/', { q: search_term, limit: 10, client_id: "72325d0b84c6a7f4bbef4dd86c0a5309", filter: "streamable", format: 'json' }, 
-    function(data) {
+  
+/*
+  $.ajax({
+	url: "http://m.soundcloud.com/_api/tracks/",
+	// data: { q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable', format: 'json' },
+	data: "q : "+search_term+", limit: 10, offset: "+(10 * results_count)+", client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable', format: 'json'",
+	contentType: "application/json",
+	dataType: "json",
+	beforeSend: function(xhr) {
+	  xhr.setRequestHeader('Accept', 'application/json');
+	},
+	success: function(data) {
 	  console.log('Received Response...')
 	  console.log(html)
 	  var html = "";
@@ -146,22 +156,40 @@ function search_soundcloud() {
       $('.search-results').empty().scrollTop(0).append(html);
       console.log('Displaying Results...')
 	  initSearchFunctionality("initial");
-    }, "json");
+    }
+  });
+*/
+
+  $.getJSON(
+	'http://m.soundcloud.com/_api/tracks/',
+	{ q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable', format: 'json' },
+	function(data) {
+	  console.log('Received Response...')
+	  console.log(html)
+	  var html = "";
+	  html += '<div class="search scroll-pane">' + "\n";
+      html += parseResults(data);
+	  html += '</div>' + "\n";
+      $('.search-results').empty().scrollTop(0).append(html);
+      console.log('Displaying Results...')
+	  initSearchFunctionality("initial");
+    }
+  );
+
   console.log('Sent request...')
 }
 function moreResults() {
   results_count++;
   var search_term = $('input#search').val();
-  $.ajax({
-	url: 'http://m.soundcloud.com/_api/tracks/',
-	data: { q: search_term, limit: 10, offset: 10 * results_count, client_id: "72325d0b84c6a7f4bbef4dd86c0a5309", filter: "streamable", format: 'json' }, 
-	contentType: 'application/json',
-	success: function(data) {
-	    html = parseResults(data);
-	    search_scroll.getContentPane().append(html);
-        initSearchFunctionality("subsequent");
-	  } 
-	});	
+  $.getJSON(
+	'http://m.soundcloud.com/_api/tracks/',
+	{ q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable', format: 'json' },
+	function(data) {
+	  html = parseResults(data);
+	  search_scroll.getContentPane().append(html);
+      initSearchFunctionality("subsequent");
+	}
+  );
 }
 function parseResults(data) {
   console.log('Parsing Results...')
