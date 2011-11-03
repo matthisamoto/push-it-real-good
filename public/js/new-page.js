@@ -165,7 +165,7 @@ function search_soundcloud() {
 	{ q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable', format: 'json' },
 	function(data) {
 	  console.log('Received Response...')
-	  console.log(html)
+	  console.log(data)
 	  var html = "";
 	  html += '<div class="search scroll-pane">' + "\n";
       html += parseResults(data);
@@ -176,7 +176,26 @@ function search_soundcloud() {
     }
   );
 
-  console.log('Sent request...')
+
+/*
+$.get(
+	'http://m.soundcloud.com/_api/tracks/',
+	{ q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable'},
+	function(data) {
+	  console.log('Received Response...')
+	  console.log(data)
+	  var html = "";
+	  html += '<div class="search scroll-pane">' + "\n";
+      html += parseResults(data);
+	  html += '</div>' + "\n";
+      $('.search-results').empty().scrollTop(0).append(html);
+      console.log('Displaying Results...')
+	  initSearchFunctionality("initial");
+    }, 'json'
+  );
+
+*/
+  console.log('Sent request through...')
 }
 function moreResults() {
   results_count++;
