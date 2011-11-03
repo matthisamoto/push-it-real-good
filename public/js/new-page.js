@@ -125,22 +125,29 @@ function start_playing(id, parent) {
   }
 }
 function search_soundcloud() {
+	
+  console.log('Searching SoundCloud...')
   results_count = 0;
 
   // Remove stuff
   $('.close-results').remove();
+  
   if( $('.search-tracks .division-inner .LV_validation_message') ) $('.search-tracks .division-inner .LV_validation_message').remove();
-
+  console.log('Removed old elements...')
   var search_term = $('input#search').val();
   $.get('http://m.soundcloud.com/_api/tracks/', { q: search_term, limit: 10, client_id: "72325d0b84c6a7f4bbef4dd86c0a5309", filter: "streamable", format: 'json' }, 
     function(data) {
+	  console.log('Received Response...')
+	  console.log(html)
 	  var html = "";
 	  html += '<div class="search scroll-pane">' + "\n";
       html += parseResults(data);
 	  html += '</div>' + "\n";
       $('.search-results').empty().scrollTop(0).append(html);
+      console.log('Displaying Results...')
 	  initSearchFunctionality("initial");
     }, "json");
+  console.log('Sent request...')
 }
 function moreResults() {
   results_count++;
@@ -153,6 +160,7 @@ function moreResults() {
 	}, "json");	
 }
 function parseResults(data) {
+  console.log('Parsing Results...')
   var html = "";
   $.each(data, function(i, e) {
 	
