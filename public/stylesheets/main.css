@@ -71,7 +71,13 @@ td { padding: 5px 10px; }
 	width: 960px;
 	text-align: left;
 	margin: 0 auto;
-	padding: 60px 0; }
+	padding: 60px 0;
+	
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none; }
 .push-it-home { 
 	display:block;
 	margin: 0 auto;
@@ -83,7 +89,12 @@ td { padding: 5px 10px; }
 	width: 250px;
 	height: 250px;
 	overflow: hidden;
-	margin: 0 auto; }
+	margin: 0 auto;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none; }
 .three-steps {
 	display: block;
 	text-align: center;
@@ -718,7 +729,8 @@ footer .copyright { color:#fff;  text-align:left;}
 footer .first { margin-left: 0; }
 footer .last { margin-right: 0; }
 
-/* Button Page Template */ 
+/* Button Page Template */
+
 .button-page h1{
 	font-size: 300%;
 	padding-top: 30px; }

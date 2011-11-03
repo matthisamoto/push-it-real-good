@@ -68,13 +68,9 @@ function prepNonFlash() {
   $('.push-it').append(clip);
   $('.play').click( function(e) {
 	e.preventDefault();
-	//if( (clip.buffered != undefined) && (clip.buffered.length != 0) )
-	//{
-		//clip.pause();
-		clip.src = clip.src;
-		clip.play();
-		tally();
-	//}
+	clip.src = clip.src;
+	clip.play();
+	tally();
   });
   $('.play').mousedown( function(e) {
 	e.preventDefault();
@@ -113,7 +109,6 @@ if( $("body").hasClass( "iphone" ) )
 	prepNonFlash();
 } else {
 	prepFlash();
-	//prepNonFlash();
 }
 
 
