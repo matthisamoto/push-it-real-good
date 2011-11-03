@@ -152,12 +152,16 @@ function search_soundcloud() {
 function moreResults() {
   results_count++;
   var search_term = $('input#search').val();
-  $.get('http://m.soundcloud.com/_api/tracks/', { q: search_term, limit: 10, offset: 10 * results_count, client_id: "72325d0b84c6a7f4bbef4dd86c0a5309", filter: "streamable", format: 'json' }, 
-	function(data) {
-	  html = parseResults(data);
-	  search_scroll.getContentPane().append(html);
-      initSearchFunctionality("subsequent");
-	}, "json");	
+  $.ajax({
+	url: 'http://m.soundcloud.com/_api/tracks/',
+	data: { q: search_term, limit: 10, offset: 10 * results_count, client_id: "72325d0b84c6a7f4bbef4dd86c0a5309", filter: "streamable", format: 'json' }, 
+	contentType: 'application/json',
+	success: function(data) {
+	    html = parseResults(data);
+	    search_scroll.getContentPane().append(html);
+        initSearchFunctionality("subsequent");
+	  } 
+	});	
 }
 function parseResults(data) {
   console.log('Parsing Results...')
