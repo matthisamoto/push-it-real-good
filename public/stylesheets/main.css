@@ -20,7 +20,7 @@ body {
 	color: #111;
 	background: url(/images/texture.jpg) repeat transparent;
 	letter-spacing: 0.15em; }
-* html body { letter-spacing: 0.05em; }
+* html body { letter-spacing: 0em; }
 a:link, a:visited, a:hover {
 	text-transform: uppercase;
 	font-size: 160%;
@@ -31,7 +31,7 @@ h1 {
 	font-weight: normal;
 	letter-spacing: .07em;
 	font-size: 300%; }
-* html h1 { letter-spacing: .03em; }
+* html h1 { letter-spacing: 0em; }
 td { padding: 5px 10px; }
 .content {
 	position: relative;
@@ -212,7 +212,7 @@ form.button_to, form.button_to div{ display:inline; }
 	font-size:385%;
 	letter-spacing:0.02em;
 	color:#282625; }
-* html .whose-pages { letter-spacing: .01em; }
+* html .whose-pages { letter-spacing: 0em; }
 .new-page {
 	float:left;
 	margin-left:70px;
@@ -300,7 +300,7 @@ form.button_to, form.button_to div{ display:inline; }
 	font-family:"League Gothic", sans-serif;
 	letter-spacing:0.07em;
 	height:50px; }
-* html .user-page-url { letter-spacing: .03em; }
+* html .user-page-url { letter-spacing: 0em; }
 .user-page-url a:link, 
 .user-page-url a:visited { color:#282625; text-decoration:none; }
 .user-page-url a:hover { color:#f15306; }
