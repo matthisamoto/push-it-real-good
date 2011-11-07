@@ -603,7 +603,6 @@ label.ORANGE 	{ background-color: #ea4d00; }
 
 .naming { 
 	text-align: left;
-	width: 480px;
 	margin: 0 auto;
 	margin-top: 30px; }
 .naming input[type=text] {
@@ -626,9 +625,10 @@ input[type=submit] {
 	margin-bottom:20px;
 	text-transform: uppercase;
 	line-height: 30px;
+	text-align:center;
 }
-.inputs * { float: left; }
-.inputs input { margin-left: 10px; }
+.inputs * { display:inline-block; margin:0 auto; line-height: 27px;}
+.inputs input { margin-left: 10px; vertical-align: text-middle;  }
 
 /*  Validation  */
 
@@ -649,7 +649,10 @@ textarea.LV_invalid_field:hover,
 textarea.LV_invalid_field:active { border: 1px solid #CC0000; }
 .inputs .LV_validation_message {
 	text-align: right;
-	margin-right: 15px;
+	width: 480px;
+	margin: 0 auto;
+	padding-right: 15px;
+	padding-top: 10px;
 	margin-bottom: 0; }
 	
 /* Registration Page */

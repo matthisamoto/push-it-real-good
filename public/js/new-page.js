@@ -295,7 +295,7 @@ function initSearchFunctionality(which) {
     html += '<input type="hidden" name="page[track_author]" class="url" value="' + $(this).parent().parent().find('.track_author').text() + '" />';
     html += '<input type="hidden" name="page[track_author_url]" class="url" value="' + $(this).parent().parent().find('.track_author').attr('href') + '" />';
 */
-    $('.track-name').empty().css("background-color","#eee").css("background-color","rgba(0, 132, 0, 0.60)").css("padding","5px 0").css("cursor","pointer").append("<span class=\"added\">Added track:</span> " + $(this).parent().parent().parent().find('span.track-title').text()).click( function(){ $('.track-name').empty().css("background-color","transparent").css("padding","0"); $('.id-container').empty(); });
+    $('.track-name').empty().css("background-color","#888").css("background-color","rgba(0, 132, 0, 0.60)").css("padding","5px 0").css("cursor","pointer").append("<span class=\"added\">Added track:</span> " + $(this).parent().parent().parent().find('span.track-title').text()).click( function(){ $('.track-name').empty().css("background-color","transparent").css("padding","0"); $('.id-container').empty(); });
     toggleSections();
   });
 
