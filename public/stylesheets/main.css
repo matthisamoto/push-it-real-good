@@ -928,7 +928,7 @@ a:link, a:visited, a:hover { color:#f14306; }
 .notice {
 	padding:10px 0;
 	display:block;
-	background-color: #f14306;
+	background-color: #eee;
 	background-color: rgba(241,67,6,0.30);
 	border: 1px solid #f14306;
 	color:#282625;
