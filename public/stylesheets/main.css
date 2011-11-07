@@ -498,7 +498,7 @@ input#search { float:left; }
 	
 .track a.play { position:relative; }
 .track a.play object { position:absolute; }
-.track-header { margin-bottom:10px; }
+.track-header { text-align: left; margin-bottom:10px; }
 .track-title {
 	font-size:200%;
 	text-transform: uppercase;

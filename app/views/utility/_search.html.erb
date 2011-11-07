@@ -1,20 +1,42 @@
-<div class="search">
-  <h1 class="header">Keyword Search: <%= @keyword %></h1>
-  <div class="tracks">
-    <% @tracks.each do |track| %>
-	<div class="track">
-		<%= track %>
-	  <p><span class="track-title"><%= track.title %></span><span class="track-artist"> from <%= track.user.username %></span></p>
-	  <a href="<%= track.stream_url %>" class="play"><%= image_tag('/images/play.png', :alt => "Preview", :title => "Preview \"#{track.title}\"") %></a>
-	  <a href="<%= track.permalink_url %>" class="link-out" target="_blank">See Track on SoundCloud</a>
-	</div>
+<% @tracks.each do |track| %>
+
+<div class="track clearfix" id="<%= track.id %>">
+   
+<p class="track-header"><span class="track-title"><a href="<%= track.permalink_url %>" target="_blank"><%= track.title %></a></span></p>
+
+  <div class="preview-line clearfix">
+
+    <% if track.streamable == true %>
+      <a href="#" class="play left"><div id="flashcontent_<%= track.id %>"></div><img src="/images/play.png" alt="Preview" title="Preview" class="play-img"/><img src="/images/stop.png" alt="Preview" title="Preview" class="pause-img hidden" /></a>
+    <% else %>
+      <img src="/images/not-available.png" alt="Not Available" title="Not Available" class="left" />
     <% end %>
+
+    <% 
+      duration = (track.duration/1000).floor
+      min = (duration/60).floor
+      sec = duration - (min * 60)
+      if sec < 10 
+	    sec = "0" + sec.to_s
+      end
+    %>
+
+    <p class="duration left"><%= min %>:<%= sec %></p>
+
+    <p class="from left"><span class="from-script">from</span> <a href="<%= track.user.permalink_url %>" target="_blank" class="track_author"> <%= track.user.username %></a></p>
+  
+    <% if track.streamable %>
+      <p class="left"><a href="#" class="button select-track left" alt="Use This Track In Your Page" title="Use This Track In Your Page">Use This</a></p>
+    <% else %>
+      <span class="left no-stream">This track is not streamable. <a href="#" class="tooltip" onClick="javascript:function(e){e.preventDefault();}">Why?<span>Right now, SoundCloud's API does not allow a combination request of search terms and filtering streamable content. If this ever changes, you will not see non-streamable tracks in this list anymore. For now, though, these tracks will appear in our results. We're sorry.</span></a></span>
+    <% end %>
+
   </div>
+
+  <% if track.genre != "" %>	
+    <p class="genre clearfix"> Genre: <%= track.genre %></p>
+  <% end %>
+
 </div>
-<script type="text/javascript">
 
-
-
-
-
-</script>
+<% end %>

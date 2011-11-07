@@ -8,9 +8,10 @@ class UtilityController < ApplicationController
   end
   
   def search
-    @tracks = @client.get('/_api', :limit => "10", :q => params[:term])
-    @keyword = params[:term]
+    @tracks = @client.get('/tracks', :limit => "10", :offset => params[:offset], :q => params[:q], :filter => "streamable");
+    @keyword = params[:q]
     render :partial => 'search'
+    # render :text => params[:q]
   end
   
 end

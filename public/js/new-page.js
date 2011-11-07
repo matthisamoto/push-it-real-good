@@ -160,6 +160,7 @@ function search_soundcloud() {
   });
 */
 
+/*
   $.getJSON(
 	'http://m.soundcloud.com/_api/tracks/',
 	{ q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable', format: 'json' },
@@ -175,7 +176,7 @@ function search_soundcloud() {
 	  initSearchFunctionality("initial");
     }
   );
-
+*/
 
 /*
 $.get(
@@ -195,19 +196,36 @@ $.get(
   );
 
 */
+
+$.post(
+	'/search',
+	{ q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable'},
+	function(data) {
+	  console.log('Received Response...')
+	  var html = "";
+	  html += '<div class="search scroll-pane">' + "\n";
+      html += data;
+	  html += '</div>' + "\n";
+      $('.search-results').empty().scrollTop(0).append(html);
+      console.log('Displaying Results...')
+	  initSearchFunctionality("initial");
+    }, 'html'
+  );
+
   console.log('Sent request through...')
 }
 function moreResults() {
   results_count++;
   var search_term = $('input#search').val();
-  $.getJSON(
-	'http://m.soundcloud.com/_api/tracks/',
-	{ q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable', format: 'json' },
+
+  $.post(
+	'/search',
+	{ q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable'},
 	function(data) {
-	  html = parseResults(data);
-	  search_scroll.getContentPane().append(html);
+	  console.log('Received Response...')
+	  search_scroll.getContentPane().append(data);
       initSearchFunctionality("subsequent");
-	}
+    }, 'html'
   );
 }
 function parseResults(data) {
