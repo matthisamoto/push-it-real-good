@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111107201032) do
+ActiveRecord::Schema.define(:version => 20111107210612) do
 
   create_table "buttons", :force => true do |t|
     t.string   "style_id"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20111107201032) do
     t.string   "track_author_url"
     t.integer  "pushes",           :default => 0
     t.string   "signature"
-    t.datetime "feature_time"
+    t.date     "feature_time"
     t.string   "offensive",        :default => "false"
   end
 

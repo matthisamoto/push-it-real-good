@@ -4,7 +4,7 @@ class IndexController < ApplicationController
   
   def index
     @top_ten = Page.find(:all, :limit => 6, :order => "pages.pushes DESC" )
-    @feature = Page.find(:all).sample
+    @feature = Page.find(:first, :conditions => { :feature_time => Date.today })
   end
     
 end
