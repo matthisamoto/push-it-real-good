@@ -14,6 +14,7 @@ PushItRealGood::Application.routes.draw do
   match 'gallery' => 'page#list'
   match 'about' => 'page#about'
   match 'legal' => 'page#legal'
+  match 'offensive' => 'page#offensive'
   
   match 'search' => 'utility#search'
   match 'retrieve_colors' => 'utility#get_buttons'

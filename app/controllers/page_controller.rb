@@ -63,15 +63,14 @@ class PageController < ApplicationController
     end
   end
   
-  def edit
-    @page = Page.new(params[:page])
-    @page.user_id = current_user.id
-    if @page.update
-      flash[:notice] = "Successfully Created Page \"#{@page.title_url}\""
-      redirect_to "/page/#{@page.title_url}"
+  def offensive
+    @page = Page.find(:first, :conditions => { :title_url => params[:id] } )
+    
+    if @page.update_attributes( :offensive => "true" )
     else
-      render('new')
+      render :text => "fail"
     end
+    render :text => "success"
   end
   
   def save

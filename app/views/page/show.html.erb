@@ -1,3 +1,4 @@
+<div class="button-object" id="<%= @page.title_url %>">
 <h1 class="clearfix"><%= @page.tagline %></h1>
 
 <div class="push-it" id="push-it">
@@ -5,9 +6,6 @@
 </div>
 
 <div class="other-info">
-
-<div class="offensive">
-</div>
 
 <div class="page-social clearfix">
 	
@@ -25,6 +23,9 @@
 	</div>
 </div>
 
+<div class="offensive">
+	<%= link_to "Mark As Offensive", "/offensive", :class => "offensive-button button" %>
+</div>
 
 <% times = "TIMES" %>
 <% if @page.pushes == 1 %>
@@ -44,6 +45,8 @@
 	<span class="info-button-span mini-logo-container"><%= link_to  "Home", root_path %></span>
 	<span class="info-button-span "><%= link_to "Create", "/page/new" %></span>
   </div>
+</div>
+
 </div>
 
 </div>
@@ -111,6 +114,17 @@ if( $("body").hasClass( "iphone" ) )
 	prepFlash();
 }
 
+$('.offensive-button').click( function(e) {
+  e.preventDefault();
+  $.post('/offensive', { id: $('.button-object').attr('id') },
+    function(data){
+	  if(data == "success")
+	  {
+		$('.offensive-button').hide();
+		$('.offensive').append("<p>Thanks for reporting this.</p>")
+	  }	
+	})
+})
 
 </script>
 
