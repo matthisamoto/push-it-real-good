@@ -125,94 +125,27 @@ function start_playing(id, parent) {
   }
 }
 function search_soundcloud() {
-	
-  console.log('Searching SoundCloud...')
   results_count = 0;
 
   // Remove stuff
   $('.close-results').remove();
   
   if( $('.search-tracks .division-inner .LV_validation_message') ) $('.search-tracks .division-inner .LV_validation_message').remove();
-  console.log('Removed old elements...')
   var search_term = $('input#search').val();
-  
-/*
-  $.ajax({
-	url: "http://m.soundcloud.com/_api/tracks/",
-	// data: { q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable', format: 'json' },
-	data: "q : "+search_term+", limit: 10, offset: "+(10 * results_count)+", client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable', format: 'json'",
-	contentType: "application/json",
-	dataType: "json",
-	beforeSend: function(xhr) {
-	  xhr.setRequestHeader('Accept', 'application/json');
-	},
-	success: function(data) {
-	  console.log('Received Response...')
-	  console.log(html)
-	  var html = "";
-	  html += '<div class="search scroll-pane">' + "\n";
-      html += parseResults(data);
-	  html += '</div>' + "\n";
-      $('.search-results').empty().scrollTop(0).append(html);
-      console.log('Displaying Results...')
-	  initSearchFunctionality("initial");
-    }
-  });
-*/
-
-/*
-  $.getJSON(
-	'http://m.soundcloud.com/_api/tracks/',
-	{ q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable', format: 'json' },
-	function(data) {
-	  console.log('Received Response...')
-	  console.log(data)
-	  var html = "";
-	  html += '<div class="search scroll-pane">' + "\n";
-      html += parseResults(data);
-	  html += '</div>' + "\n";
-      $('.search-results').empty().scrollTop(0).append(html);
-      console.log('Displaying Results...')
-	  initSearchFunctionality("initial");
-    }
-  );
-*/
-
-/*
-$.get(
-	'http://m.soundcloud.com/_api/tracks/',
-	{ q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable'},
-	function(data) {
-	  console.log('Received Response...')
-	  console.log(data)
-	  var html = "";
-	  html += '<div class="search scroll-pane">' + "\n";
-      html += parseResults(data);
-	  html += '</div>' + "\n";
-      $('.search-results').empty().scrollTop(0).append(html);
-      console.log('Displaying Results...')
-	  initSearchFunctionality("initial");
-    }, 'json'
-  );
-
-*/
 
 $.post(
 	'/search',
 	{ q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable'},
 	function(data) {
-	  console.log('Received Response...')
 	  var html = "";
 	  html += '<div class="search scroll-pane">' + "\n";
       html += data;
 	  html += '</div>' + "\n";
       $('.search-results').empty().scrollTop(0).append(html);
-      console.log('Displaying Results...')
 	  initSearchFunctionality("initial");
     }, 'html'
   );
 
-  console.log('Sent request through...')
 }
 function moreResults() {
   results_count++;
@@ -222,14 +155,12 @@ function moreResults() {
 	'/search',
 	{ q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable'},
 	function(data) {
-	  console.log('Received Response...')
 	  search_scroll.getContentPane().append(data);
       initSearchFunctionality("subsequent");
     }, 'html'
   );
 }
 function parseResults(data) {
-  console.log('Parsing Results...')
   var html = "";
   $.each(data, function(i, e) {
 	
@@ -353,14 +284,14 @@ retrieve_colors();
 $("select#button_style_name").change( retrieve_colors );
 
 $('.search-button').click( function (e) {
-	e.preventDefault();
-	search_soundcloud();
+  e.preventDefault();
+  search_soundcloud();
 })
 $('#search').keypress(function(e) {
-	if(e.which == 13) {
-		e.preventDefault();
-		search_soundcloud();
-	}
+  if(e.which == 13) {
+  	e.preventDefault();
+	search_soundcloud();
+  }
 });
 $('#search').click( function(e) {
 	if($(this).val() == "Search SoundCloud for Tracks") {
