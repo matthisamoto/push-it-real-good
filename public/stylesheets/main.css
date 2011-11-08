@@ -66,11 +66,7 @@ td { padding: 5px 10px; }
 .session_status { float: right; }
 
 /* Home Page */
-.index-social {
-	position: absolute;
-	right: 0;
-	text-align: right; 
-	z-index: 1000;}
+
 .upper-content {
 	width: 960px;
 	text-align: left;
@@ -939,7 +935,16 @@ p.creator .line {
 .about-us p { margin-bottom: 1em;}
 
 /* Utilities */
-
+.index-social {
+	padding: 10px;
+	position: absolute;
+	left: 0;
+	text-align: left; 
+	z-index: 1000; }
+.index-social * { 
+	margin: 0; 
+	margin-bottom: 3px; 
+}
 input:focus, select:focus, .jspContainer:focus, .scroll-pane:focus { outline-width: 0; }
 .LV_valid { color: #090; }
 .LV_invalid { color: #c00; }
