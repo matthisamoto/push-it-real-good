@@ -102,7 +102,7 @@ function togglePlayButton(btn, parent) {
 	}
 }
 function stop_playing() {
-  if( $("body").hasClass( "iphone" ) || $("body").hasClass( "android" ) ) {
+  if( $("body").hasClass( "iphone" ) ) {
 	var clip = document.getElementById('audio')
 	clip.pause();
   } else {
@@ -110,7 +110,7 @@ function stop_playing() {
   }
 }
 function resume_playing() {
-  if( $("body").hasClass( "iphone" ) || $("body").hasClass( "android" ) ) {	
+  if( $("body").hasClass( "iphone" ) ) {	
 	var clip = document.getElementById('audio')
 	clip.play();
   } else {
@@ -118,7 +118,7 @@ function resume_playing() {
   }
 }
 function start_playing(id, parent) {
-  if( $("body").hasClass( "iphone" ) || $("body").hasClass( "android" ) ) {
+  if( $("body").hasClass( "iphone" ) ) {
     prepNonFlash(id, parent);
   } else {
     prepFlash(id);
@@ -126,14 +126,13 @@ function start_playing(id, parent) {
 }
 function search_soundcloud() {
   results_count = 0;
-
   // Remove stuff
   $('.close-results').remove();
   
   if( $('.search-tracks .division-inner .LV_validation_message') ) $('.search-tracks .division-inner .LV_validation_message').remove();
   var search_term = $('input#search').val();
 
-$.post(
+  $.post(
 	'/search',
 	{ q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable'},
 	function(data) {
@@ -159,50 +158,6 @@ function moreResults() {
       initSearchFunctionality("subsequent");
     }, 'html'
   );
-}
-function parseResults(data) {
-  var html = "";
-  $.each(data, function(i, e) {
-	
-    var duration = Math.floor(parseInt(e['duration'])/1000);
-	var min = Math.floor(duration / 60);
-	var sec = duration - ( min * 60 );
-	if(sec < 10) sec = "0" + sec;
-	
-    html += '<div class="track clearfix" id="' + e['id'] + '">' + "\n";
-    
-    html += '<p class="track-header"><span class="track-title"><a href="' + e['permalink_url'] + '" target="_blank">' + e['title'] + '</a></span></p>' + "\n";
-	
-	var preview_line = "";
-    
-    if(e['streamable'] == true)
-    {
-   	  preview_line += '<a href="#" class="play left"><div id="flashcontent_' + e['id'] + '"></div><img src="/images/play.png" alt="Preview" title="Preview" class="play-img"/><img src="/images/stop.png" alt="Preview" title="Preview" class="pause-img hidden" /></a>' + "\n";
-    } else 
-    {
-	  preview_line += '<img src="/images/not-available.png" alt="Not Available" title="Not Available" class="left" />' + "\n";
-	}
-	
-	preview_line += '<p class="duration left">' + min + ':' + sec + '</p>' + "\n";
-	
-	preview_line += '<p class="from left"><span class="from-script">from</span> <a href="' + e['user']['permalink_url'] + '" target="_blank" class="track_author">' + e['user']['username'] + '</a></p>';
-	
-	if(e['streamable'] == true)
-	{
-      preview_line += '<p class="left"><a href="#" class="button select-track left" alt="Use This Track In Your Page" title="Use This Track In Your Page">Use This</a></p>' + "\n";
-	} else 
-	{
-	  preview_line += '<span class="left no-stream">This track is not streamable. <a href="#" class="tooltip" onClick="javascript:function(e){e.preventDefault();}">Why?<span>Right now, SoundCloud\'s API does not allow a combination request of search terms and filtering streamable content. If this ever changes, you will not see non-streamable tracks in this list anymore. For now, though, these tracks will appear in our results. We\'re sorry.</span></a></span>';
-	}
-	
-	html += "<div class=\"preview-line clearfix\">" + preview_line + "</div>\n";
-	
-	if(e['genre']) html += '<p class="genre clearfix"> Genre: ' + e['genre'] + "</p>" + "\n";
-	
-	html += '</div>' + "\n";
-	
-  });
-  return html;	
 }
 function initSearchFunctionality(which) {
 	
