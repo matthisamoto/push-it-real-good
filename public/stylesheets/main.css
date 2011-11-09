@@ -24,9 +24,9 @@ body {
 a:link, a:visited, a:hover {
 	text-transform: uppercase;
 	font-size: 160%;
-	font-family: "League Gothic", Helvetica, Arial, sans-serif; }
+	font-family: "League Gothic", 'Arial Narrow', Tahoma, sans-serif; }
 h1 {
-	font-family: 'League Gothic', sans-serif;
+	font-family: "League Gothic", 'Arial Narrow', Tahoma, sans-serif;
 	text-transform: uppercase; 
 	font-weight: normal;
 	letter-spacing: .07em;
@@ -296,7 +296,7 @@ form.button_to, form.button_to div{ display:inline; }
 	text-transform:uppercase;
 	font-weight:normal;
 	font-size:120%;
-	font-family:"League Gothic", sans-serif;
+	font-family: "League Gothic", 'Arial Narrow', Tahoma, sans-serif;
 	letter-spacing:0.07em;
 	height:50px; }
 * html .user-page-url { letter-spacing: 0em; }
@@ -352,7 +352,7 @@ form.button_to, form.button_to div{ display:inline; }
 	text-transform: uppercase; 
 	font-style:normal; 
 	font-weight:normal;
-	font-family: "League Gothic", Arial, sans-serif;
+	font-family: "League Gothic", 'Arial Narrow', Tahoma, sans-serif;
 	margin-left: 5px;
 	font-size: 160% }
 
@@ -425,7 +425,7 @@ form.button_to, form.button_to div{ display:inline; }
 	color: #fff;
 	text-decoration:none;
 	text-transform: uppercase;
-	font-family: "League Gothic", Arial, sans-serif;
+	font-family: "League Gothic", 'Arial Narrow', Tahoma, sans-serif;
 	font-size: 200%;
 	zoom: 1;
 	filter: alpha(opacity=90);
@@ -501,7 +501,7 @@ input#search { float:left; }
 .track-title {
 	font-size:200%;
 	text-transform: uppercase;
-	font-family: "League Gothic", Arial, sans-serif;
+	font-family: "League Gothic", 'Arial Narrow', Tahoma, sans-serif;
 	font-weight: normal; }
 .track-title a:link,
 .track-title a:visited {
