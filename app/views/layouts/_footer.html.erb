@@ -12,7 +12,17 @@
 </footer>
 
 <script type="text/javascript">
+
+$.fn.textWidth = function(){
+  var html_org = $(this).html();
+  var html_calc = '<span>' + html_org + '</span>'
+  $(this).html(html_calc);
+  var width = $(this).find('span:first').width();
+  $(this).html(html_org);
+  return width;
+};
+
 $(function() {
- $('.copyright').css( "width", $('.copyright').text().outerWidth() )
+ $('.copyright').css( "width", "auto" )
 });
 </script>
