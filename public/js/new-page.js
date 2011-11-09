@@ -343,9 +343,11 @@ $("input[type=submit]").click( function (e) {
 	
 	} else {
 		e.preventDefault();
-		var errorMessage = clonable_div.clone().addClass('LV_validation_message').addClass('LV_invalid').text('You Must Select A Track To Continue');
-		$('.search-tracks .division-inner').prepend( errorMessage )
-		// alert("Please choose a track for your page.");
+		
+		if( $('.division-inner .LV_validation_message').length == 0 ) {
+			var errorMessage = clonable_div.clone().addClass('LV_validation_message').addClass('LV_invalid').text('You Must Select A Track To Continue');
+			$('.search-tracks .division-inner').prepend( errorMessage );
+		}
 		toggleSections()
 	}
 	

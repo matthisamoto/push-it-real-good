@@ -10,22 +10,3 @@
       </ul>
     </nav>
 </footer>
-
-<script type="text/javascript">
-
-$.fn.textWidth = function(){
-  var html_org = $(this).html();
-  var html_calc = '<span>' + html_org + '</span>'
-  $(this).html(html_calc);
-  var width = $(this).find('span:first').width();
-  $(this).html(html_org);
-  return width;
-};
-function reset() {
-  $('.copyright').css( "width", "auto" )
-  console.log("fired")
-}
-$(function() {
- var reSet = setInterval( reset, 3000 );
-});
-</script>
