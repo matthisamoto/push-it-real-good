@@ -725,15 +725,15 @@ nav ul li a:hover { color:#f14306; }
 .footer-powered-by:hover * {
 	zoom: 1;
 	filter: alpha(opacity=100);
-	opacity: 1;
-}
+	opacity: 1; }
 footer .inner {
 	display:inline-block;
 	text-transform: uppercase;
 	vertical-align: text-middle;
 	text-align:center;
 	line-height: 30px; 
-	margin: 0 20px; }
+	margin: 0px;
+	padding: 10px 20px; }
 footer .copyright { color:#fff;  text-align:left;}
 footer .first { margin-left: 0; }
 footer .last { margin-right: 0; }
