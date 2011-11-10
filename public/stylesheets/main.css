@@ -790,57 +790,31 @@ p.creator .line {
 .info-bar { margin-top: 20px; }
 .info-buttons { 
 	color: #fff; }
-.info-buttons a:link,
-.info-buttons a:visited { color: #282625; text-decoration: none; }
-.info-buttons a:hover { color: #f14306; }
-.info-button-span { margin: 0 30px; }
-.info-bar .mini-logo-container {
-	display: inline-block; }
+.info-button-span { margin: 0 30px; vertical-align: middle; }
+.info-bar .mini-logo-container { display: inline-block; }
+.info-bar .mini-logo-container a {
+	display: block;
+	width: 92px;
+	height: 35px;
+	background: url(/images/logo-link.png) transparent no-repeat; }
 .info-bar .mini-logo:link,
 .info-bar .mini-logo:visited {
 	line-height: 50px;
 	padding: 0;
 	margin: 0; }
 .mini-logo img { vertical-align: middle; }
-.info-bar .create-new-circle:link,
-.info-bar .create-new-circle:visited {
+.info-bar .create-from-button {
 	text-decoration: none;
 	display: inline-block;
-	height:48px;
-	width: 100px;
 	color: #fff;
+	padding: 3px 10px;
+	height: 35px;
+	line-height: 35px;
 	background-color: #f14306;
 	border-radius: 8px;
 	vertical-align: middle; }
-.info-bar .create-new-circle:hover { background-color: #282625; }
-.info-bar .create-new-circle .create-plus {
-	font-size: 300%; 
-	line-height: 48px;
-	display: inline-block; }
-.info-bar .create-new-circle .create-new-span {
-	font-size: 100%; 
-	display: inline-block;
-	vertical-align: 3px;
-	line-height: 1em;
-	text-align: left; }
-.more-info-button {
-	color: #282625;
-	display: inline-block;
-	background-color: transparent;
-	border-radius: 8px;
-	border: 1px dashed #282625;
-	padding: 0 10px;
-	line-height: 46px;
-	cursor: pointer; }
-.more-button-active {
-	padding-bottom: 10px;
-	border-radius: 8px 8px 0 0;
-	border-bottom: none; }
-.button-page .small-logo {
-	margin: 0 auto;
-	width: 100px;
-	height: 100px;
-	background: url(/images/push-it-logo-smaller.png) }
+.info-bar .create-from-button a { color: #fff; }
+.info-bar .create-from-button a:hover { color: #282625; }
 .page-social { margin: 0 auto; text-align: center; }
 .facebook-social, .twitter-social, .google-social {
 	display: block;
@@ -892,12 +866,11 @@ p.creator .line {
 .button-page .offensive-button {
 	display:inline;
 	padding: 5px 8px;
-	color: #fff;
-	background-color: #f14306;
-	border-radius: 8px;
-	font-size: 120%; }
+	color: #797370;
+	font-size: 120%;
+	text-decoration: none; }
 .button-page .offensive-button:hover {
-	color: #282625; }
+	color: #f14306; }
 
 /* Legal Page */
 
