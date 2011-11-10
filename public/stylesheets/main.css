@@ -813,7 +813,8 @@ p.creator .line {
 	background-color: #f14306;
 	border-radius: 8px;
 	vertical-align: middle; }
-.info-bar .create-from-button a { color: #fff; }
+.info-bar .create-from-button a:link,
+.info-bar .create-from-button a:visited { color: #fff; text-decoration: none; }
 .info-bar .create-from-button a:hover { color: #282625; }
 .page-social { margin: 0 auto; text-align: center; }
 .facebook-social, .twitter-social, .google-social {
