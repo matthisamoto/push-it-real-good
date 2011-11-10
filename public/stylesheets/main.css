@@ -304,13 +304,17 @@ form.button_to, form.button_to div{ display:inline; }
 .user-page-url a:visited { color:#282625; text-decoration:none; }
 .user-page-url a:hover { color:#f15306; }
 .user-page-tagline {
-	float:left;
-	font-size:140%;
-	font-style:italic;
-	color:#333;
-	text-transform:uppercase;
-	margin-left:10px;
-}
+	font-size: 140%;
+	color: #fff;
+	background-color: #282625;
+	background-color: rgba(40,38,37,0.8);
+	border-radius: 8px;
+	padding: 2px 5px;
+	height: 24px;
+	line-height: 24px;
+	text-transform: uppercase;
+	vertical-align: middle;
+	margin-top: 10px; }
 .visit-btn { display:block; width:50px; height:50px; background:url(/images/visit-btn.png) no-repeat 0 14px; margin-left:-1px; }
 .visit-btn:hover { background-position: -50px 14px; }
 .edit-btn { display:block; width:36px; height:50px; background:url(/images/edit-btn.png) no-repeat 0 14px; }
