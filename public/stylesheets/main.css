@@ -273,6 +273,7 @@ form.button_to, form.button_to div{ display:inline; }
 .top-item:hover { 
 	background-color: #eee;
 	background-color: rgba(255,255,255,0.8); }
+
 .top-item img, .page p { display:inline; }
 .top-item .button-image {
 	margin-top:5px;
@@ -316,6 +317,7 @@ form.button_to, form.button_to div{ display:inline; }
 	vertical-align: middle;
 	margin-top: 10px; }
 .user-page-tagline:hover { background-color: #f14306; }
+.top-item:hover .user-page-tagline { background-color: #f14306; }
 .visit-btn { display:block; width:50px; height:50px; background:url(/images/visit-btn.png) no-repeat 0 14px; margin-left:-1px; }
 .visit-btn:hover { background-position: -50px 14px; }
 .edit-btn { display:block; width:36px; height:50px; background:url(/images/edit-btn.png) no-repeat 0 14px; }
