@@ -48,6 +48,15 @@
   <div class="button-image"><%= image_tag "/images/#{page.button_url}.png", :height => 40, :width => 80 %></div>
   <div class="page-info">
     <div class="user-page-url"><%= link_to page.title_url, "/page/#{page.title_url}" %></div>
+    <div class="user-page-tagline">
+	<% if page.pushes == 1 
+	  	verbiage = "Push"
+	   else
+		verbiage = "Pushes"
+	   end %>
+    <%= "#{page.pushes} #{verbiage}" %>
+ 	
+    </div>
   </div>
   <div class="user-links">
     <%= link_to "", "/page/#{page.title_url}", :class => "visit-btn" %>
