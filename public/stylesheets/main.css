@@ -451,7 +451,7 @@ input#search {
 	padding:0;
 	margin:0;
 	display:block;
-	margin-bottom:10px; }
+	margin-bottom: 15px; }
 .search-terms .centered {
 	display:block;
 	margin: 0 auto;
@@ -460,14 +460,14 @@ input#search {
 	padding-left:140px;
 }
 .search-results {
-	height: 543px;
+	height: 490px;
 }
 .search-results .header {
 	line-height: 32px;
 }
 .search {
 	width:620px;
-	height:543px;
+	height:490px;
 	overflow:auto;
 	display:block;
 	text-align:left;
@@ -527,12 +527,56 @@ input#search { float:left; }
 .track .no-stream { line-height: 35px; margin: 0 10px; }
 .continue-from-search { margin-top: 20px;}
 .close-results{ 
-	float:left; 
+	float: right; 
 	border-radius: 8px; }
 .select-track:link, .select-track:visited,.select-track:hover {
 	background-color: #f14306;
 	color:#fff; 	
 	border-radius: 8px; }
+
+.toggle-bar {
+	display: block;
+	text-align: left;
+	text-transform: uppercase;
+	font-size: 150%;
+	color: #282625;
+    position: relative;
+	border: 1px dashed #282625;
+	border-radius: 8px;
+	padding: 1px;
+}
+.toggle-bar div { 
+	width: 50%;
+	display: inline-block;
+	text-align: center;
+	line-height: 40px;
+	cursor: pointer;
+	position: relative;
+	z-index: 2; }
+.toggle-bar div.active { 
+	color: #fff;
+}
+.toggle-bar div.slider {
+	width: 299px;
+	height: 40px;
+	background-color: #f14306;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	cursor: default;
+	z-index: 1;
+	
+	border-radius: 8px;
+}
+.toggle-bar .search-section-button {
+
+}
+.toggle-bar .upload-section-button {
+}
+
+.search-section {
+	padding-top: 15px;
+}
 
 /* Button */
 

@@ -175,12 +175,7 @@ function initSearchFunctionality(which) {
 	$("#page_track_url").val( $(this).parent().parent().parent().find('.track-header .track-title a').attr('href') );
 	$("#page_track_author").val( $(this).parent().parent().find('.track_author').text() );
 	$("#page_track_author_url").val( $(this).parent().parent().find('.track_author').attr('href') );
-		/*
-    html += '<input type="hidden" name="page[track_name]" class="url" value="' + $(this).parent().parent().parent().find('.track-header .track-title a').text() + '" />';
-    html += '<input type="hidden" name="page[track_url]" class="url" value="' + $(this).parent().parent().parent().find('.track-header .track-title a').attr('href') + '" />';
-    html += '<input type="hidden" name="page[track_author]" class="url" value="' + $(this).parent().parent().find('.track_author').text() + '" />';
-    html += '<input type="hidden" name="page[track_author_url]" class="url" value="' + $(this).parent().parent().find('.track_author').attr('href') + '" />';
-*/
+
     $('.track-name').empty().css("background-color","#888").css("background-color","rgba(0, 132, 0, 0.60)").css("padding","5px 0").css("cursor","pointer").append("<span class=\"added\">Added track:</span> " + $(this).parent().parent().parent().find('span.track-title').text()).click( function(){ $('.track-name').empty().css("background-color","transparent").css("padding","0"); $('.id-container').empty(); });
     toggleSections();
   });
@@ -190,7 +185,6 @@ function initSearchFunctionality(which) {
 	$('.close-results').click( function(e) {
 	  e.preventDefault();
 	  $('.search-results').empty();
-	  $('.search-results').append('	<div class="upload-coming-soon"></div>');
 	  $(this).remove();
 	});
     search_scroll = $('.scroll-pane').jScrollPane({ verticalDragMaxHeight: 25, verticalDragMinHeight: 25 }).data('jsp');
@@ -203,6 +197,7 @@ function initSearchFunctionality(which) {
       if(isAtBottom){ moreResults(); $(this).unbind("jsp-scroll-y") }
 	});
   }
+
 }
 
 // Button Functions
@@ -283,8 +278,61 @@ function toggleSections() {
 	$('.sound-header').css('background-image',"url(/images/orange_tile.png)");
   }
 }
+
+function toggleSearchUpload( button ) {
+	
+  if( !button.hasClass('active') ){
+	
+    if( $('.search-section').hasClass('hidden') ) {
+	
+	  // Activate Search-Tracks Section 
+	
+	  $('.search-section').removeClass('hidden')
+	  $('.upload-section').addClass('hidden')
+	
+	  $('.toggle-bar .slider').animate({ marginLeft: "0" }, 250, function() { 
+		$('.search-section-button').addClass('active')
+	    $('.upload-section-button').removeClass('active')
+	  });
+	
+    } else {
+	
+	  // Activate Upload-Your-Own Section
+	
+	  $('.search-section').addClass('hidden')
+	  $('.upload-section').removeClass('hidden')
+	
+	  $('.toggle-bar .slider').animate({ marginLeft: "299" }, 250, function() {	
+		$('.search-section-button').removeClass('active')
+	    $('.upload-section-button').addClass('active')
+	    initUploadSection()
+	  });
+	
+    }
+  }
+}
+
+function initUploadSection() {
+  
+SC.connect({
+  redirect_uri: "http://pushitrealgood.com/page/new",
+  connect: function(){
+    receivedConnectionFromSoundCloud();
+  }
+});
+ 
+
+}
+
+function receivedConnectionFromSoundCloud() {
+	alert("Connected")
+}
+
 var button_height = 630;
 var search_height = 630;
+
+$('.search-section-button').click( function(e) { toggleSearchUpload( $(this) ) })
+$('.upload-section-button').click( function(e) { toggleSearchUpload( $(this) ) })
 
 $('.choose-button').css({ height: "0" });
 
