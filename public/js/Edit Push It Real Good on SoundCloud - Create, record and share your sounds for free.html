@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<!--[if IE]>
+<![endif]-->
+<html><head><meta charset="utf-8" />
+<title>Edit Push It Real Good on SoundCloud - Create, record and share your sounds for free</title>
+<script>
+(function(H){ if(navigator.userAgent.toLowerCase().match(/iPad.+AppleWebKit/i) && !window.localStorage.getItem('no-ipad-overlay')) {H.className+="ipadOverlay"}})(document.documentElement)
+</script>
+<meta content="record, sounds, share, sound, audio, tracks, music, soundcloud" name="keywords" />
+<meta content="Create, record and share the sounds you create anywhere to friends, family and the world with SoundCloud, the world's largest community of sound creators." name="description" />
+
+<meta content="width=device-width" name="viewport" />
+<meta content="chrome=1" name="X-UA-Compatible" />
+
+<!--[if IE]>
+<script src="http://a1.sndcdn.com/javascripts/plugins/vendor/excanvas-compressed.js?a073db2" type="text/javascript"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script type="text/javascript">
+document.getElementsByTagName("html")[0].className = "ie9";
+</script>
+<![endif]-->
+<!--[if IE 8]>
+<script type="text/javascript">
+document.getElementsByTagName("html")[0].className = "ie8";
+</script>
+<![endif]-->
+<!--[if lte IE 8]>
+<script type="text/javascript">
+document.getElementsByTagName("html")[0].className = "ie7";
+</script>
+<meta content="true" name="MSSmartTagsPreventParsing" />
+<meta content="false" http-equiv="imagetoolbar" />
+<![endif]-->
+<script type="text/javascript">
+window.SC = {"bufferTracks":[],"bufferComments":[],"cookieDomain":"soundcloud.com","assetPath":"a1.sndcdn.com","assetPathSSL":"soundcloud.com","facebook":{"appId":19507961798,"appKey":"61261ce0407b2ccb568641b513098e18","xdReceiver":"/connect/xd_receiver.htm"},"songkickApiKey":"ZWsLr2h7FF5sHG54","gaID":"UA-2519404-1"};
+</script>
+<link href="http://a1.sndcdn.com/stylesheets/general.css?a073db2" media="all" rel="stylesheet" type="text/css" />
+<link href="http://a1.sndcdn.com/stylesheets/special.css?a073db2" media="all" rel="stylesheet" type="text/css" />
+<link href="/sc-opensearch.xml" rel="search" title="SoundCloud Search" type="application/opensearchdescription+xml" />
+
+<link href="http://a1.sndcdn.com/images/apple-touch-icon.png?a073db2" rel="apple-touch-icon" />
+<link href="http://a1.sndcdn.com/favicon.ico?a073db2" rel="shortcut icon" />
+<link href="http://a1.sndcdn.com/images/soundcloud_app.png?a073db2" rel="fluid-icon" />
+</head>
+<body class="full-width edit" id="client_applications"><div id="header"><div id="header-top"><div id="sc-info"><a href="/apps?ref=top">App Gallery</a>
+|
+<a href="/help">Get help</a>
+|
+<a href="/premium?ref=top">Try Premium</a>
+|
+<a href="http://blog.soundcloud.com">What's new?</a></div>
+<div id="user-status"><a href="/" id="logo">Soundcloud</a>
+<div class="logged-in"><abbr title="It's Swedish for 'Hi'">Hej,</abbr>
+<span id="logged-in-user"><a href="/" class="current-user" id="current-user-head">stranger</a>
+<a class="premium" href="/premium?ref=t027" id="current-plan-badge"></a></span>
+|
+<script type="text/javascript">
+  //<![CDATA[
+    window.SC.renderLoginStatus = function() {
+      var $p = document.getElementById('current-plan-badge')
+        , $h = document.getElementById('current-user-head')
+        , $u = document.getElementById('logged-in-user')
+        , $ht = document.getElementsByTagName('html')[0]
+        , $b = document.getElementsByTagName('body')[0]
+        , w = $b.getAttribute('data-sc-owner')
+        , c = document.cookie.split(';')
+        , u = {}
+        , o = {};
+    
+      for(var i = 0; i < c.length; i++) {
+        var pair = c[i].split('=');
+        o[pair[0].replace(/^\s/, '')] = decodeURIComponent(pair[1]).replace(/\+/g, ' ');
+      }
+    
+      if($h) {
+        $h.innerHTML = o['u'] || 'stranger';
+        $h.href = '/' + o['p'];
+      }
+    
+      if($ht) {
+        $ht.className = $ht.className.replace(/ ?(anonymous|logged-in)/g, '');
+        $ht.className += o['p'] ? ' logged-in' : ' anonymous';
+      }
+    
+      u.authenticityToken = o['k']
+      u.avatarTiny = o['a'];
+      u.permalink = o['p'];
+      u.plan = o['l'];
+      u.planName = o['c'];
+      u.tracks_count = o['r'];
+    
+      if(o['t']) {
+        u.types = o['t'].split('&');
+      } else {
+        u.types = [];
+      }
+    
+      u.quota = {};
+      u.quota.playlists = o['qp'];
+      u.quota.sharings_per_track = o['qs'];
+      u.quota.contributions_per_track = o['qc'];
+      u.quota.contact_groupings = o['qn'];
+      u.quota.groups = o['qg'];
+      u.quota.support = o['qt'];
+    
+      if(o['c'] === 'free') {
+        if($u) { $u.className = 'free-user'; }
+        if($p) { $p.className += ' hidden' }
+      } else {
+        if($p) { $p.className += ' plan-' + o['c']; }
+      }
+    
+      if($b && w && (w === u.permalink)) {
+        $b.className += ' current-user';
+      }
+    
+      window.SC.currentUser = u;
+    };
+    
+    window.SC.renderSupportLevel = function() {
+      var support = 'Support';
+    
+      if (SC.currentUser.quota.support === 'premium') {
+        support = 'Premium Support';
+      } else if (SC.currentUser.quota.support === 'pro') {
+        support = 'Pro Support';
+      }
+      document.getElementById('footer-support-link').innerHTML = support;
+    };
+    
+    window.SC.renderLoginStatus();
+  //]]>
+</script>
+
+<a href="/settings">Settings</a>
+|
+<a class="inbox" href="/messages">Inbox
+<cite class="user-counter" id="user-inbox-counter" style="display: none;"></cite></a>
+|
+<a href="/logout" class="header-logout">Log out</a>
+<div class="hidden" id="user-id"></div></div>
+<div class="anonymous"><a href="/login?ref=top" class="sign-in" id="login-link">Log In</a> | <a href="/signup?ref=top" class="sign-in" id="signup-link">Sign Up</a></div></div></div>
+<div id="header-lower"><ul id="main-nav"><li class="nav no-submenu anonymous" id="menu-button-home"><a href="/">Home</a>
+<div class="open-submenu"></div></li>
+<li class="nav no-submenu anonymous" id="menu-button-tour"><a href="/tour/">The Tour</a>
+<div class="open-submenu"></div></li>
+<li class="nav no-submenu anonymous" id="menu-button-signup"><a href="/signup">Sign Up</a>
+<div class="open-submenu"></div></li>
+<li class="no-submenu nav logged-in" id="menu-button-dashboard"><a href="/">Dashboard</a>
+<div class="open-submenu"></div></li>
+<li class="nav submenu logged-in" id="menu-button-you"><a href="/you/tracks">You</a>
+<div class="open-submenu"></div>
+<ul class="tabs"><li class="first" data-sc-cnt="tracks"><a href="/you/tracks">Tracks</a></li><li data-sc-cnt="playlists"><a href="/you/sets">Sets</a></li><li data-sc-cnt="comments"><a href="/you/comments">Comments</a></li><li data-sc-cnt="favorites"><a href="/you/favorites">Favorites</a></li><li data-sc-cnt="moderated_groups"><a href="/you/groups">Groups</a></li><li><a href="/you/profile">Your public Profile</a></li><li class="last"><a href="/you/stats">Your Stats</a></li></ul></li>
+<li class="nav submenu logged-in" id="menu-button-tracks"><a href="/tracks">Tracks</a>
+<div class="open-submenu"></div>
+<ul class="tabs"><li class="first"><a href="/tracks">Explore Tracks</a></li><li><a href="/creativecommons">Creative Commons</a></li><li class="last"><a href="/tracks/search">Search for Tracks</a></li></ul></li>
+<li class="nav submenu logged-in" id="menu-button-people"><a href="/people">People</a>
+<div class="open-submenu"></div>
+<ul class="tabs"><li class="first"><a href="/people">Explore People</a></li><li><a href="/people/finder">Find Friends</a></li><li data-sc-cnt="contact_affiliations"><a href="/people/following">You Follow</a></li><li data-sc-cnt="fan_affiliations"><a href="/people/followers">Following You</a></li><li data-sc-cnt="contact_groups"><a href="/people/contacts">Your Contact Lists</a></li><li class="last"><a href="/people/search">Search for People</a></li></ul></li>
+<li class="nav submenu logged-in" id="menu-button-groups"><a href="/groups/joined">Groups</a>
+<div class="open-submenu"></div>
+<ul class="tabs"><li class="first" data-sc-cnt="groups"><a href="/groups/joined">You've joined</a></li><li><a href="/groups/latest">Explore Groups</a></li><li class="last"><a href="/groups/search">Search for Groups</a></li></ul></li>
+<li id="menu-button-upload"><a href="/upload" class="link-button">Upload &amp; Share</a></li></ul>
+
+<div id="volume"><a class="volume-control-button level0" title="Set the volume">Volume</a>
+<div class="aural" id="volume-control"><a class="volume-control-button level0">Volume</a>
+<div id="volume-control-wrapper"><a class="volume-plus">+</a>
+<div id="volume-control-handle"></div>
+<div id="volume-control-scale"></div>
+<a class="volume-minus"></a></div></div></div>
+<div id="search"><form action="/search" method="get">
+<input accesskey="f" autocomplete="off" class="blurred" id="header-search" name="q[fulltext]" placeholder="Search SoundCloud" type="text" value="Search SoundCloud" />
+<div class="search-selector" title="Select what you want to search for"></div>
+<ul class="pulldown hidden search-select"><li><a href="/tracks/search">Tracks</a></li>
+<li><a href="/people/search">Users</a></li>
+<li><a href="/groups/search">Groups</a></li></ul>
+</form></div></div></div>
+<div id="ipadWrapper"><div id="ipadOverlay"><a class="ipad-img-link" href="http://itunes.apple.com/us/app/soundcloud/id336353151"><img class="ipad-img" height="420" src="/images/ipadpage/ipads.jpg" width="666" /></a>
+<h1>Try the new SoundCloud iPad app!</h1>
+<p>Discover a new way to experience SoundCloud.</p>
+<div class="action"><a href="http://itunes.apple.com/us/app/soundcloud/id336353151" class="big-action-button" id="ipadGetappLink">Get the iPad + iPhone App</a><a href="#ipadVideo" class="big-action-button grey" id="ipadVideoLink">Watch the video</a><a href="#" class="big-action-button light-grey" id="ipadNotnowLink">Not Now</a></div>
+<div class="video" id="ipadVideo"></div>
+<div class="social-sharing">Like it? Share it!
+<div class="network"><div class="fb-like" data-href="http://itunes.apple.com/us/app/soundcloud/id336353151" data-layout="button_count" data-send="false" data-show-faces="false" data-width="84"></div></div>
+<div class="network"><a class="twitter-share-button" data-count="horizontal" data-text="Introducing the SoundCloud iPad app - a new way to experience SoundCloud. Download for free!:" data-url="http://itunes.apple.com/us/app/soundcloud/id336353151" data-via="soundcloud" href="http://twitter.com/share">Tweet</a></div>
+<div class="network"><a href="http://www.tumblr.com/share/link?url=http%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fsoundcloud%2Fid336353151&amp;name=The%20SoundCloud%20iPad%20app&amp;description=Introducing%20the%20SoundCloud%20iPad%20app%20-%20a%20new%20way%20to%20experience%20SoundCloud.%20Download%20for%20free%21" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:64px; height:20px; background:url('/images/tumblr_share.png') top left no-repeat transparent;" title="Share on Tumblr"></a></div>
+<div class="network network_last"><g:plusone href="http://itunes.apple.com/us/app/soundcloud/id336353151" size="medium"></g:plusone></div></div></div></div>
+
+
+<div id="main-wrapper"><div id="main-wrapper-inner"><h1>Your app "Push It Real Good"
+<span>Your app is
+<strong>published</strong> and <strong>featured</strong> in the App Gallery.
+<a class="icon-button gothere" href="/apps/pushitrealgood"><span>View in App Gallery</span></a></span></h1>
+<form accept-charset="utf-8" action="/you/apps/pushitrealgood" class="edit_client_application" enctype="multipart/form-data" id="edit_client_application_43199" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="n3uwFpL9xj1cuBlSXQdaiTfDcxGfLO2o04jT0sS+EnU=" /></div>
+<input id="client_application_id" name="client_application[id]" type="hidden" value="43199" />
+<input id="redirect_to" name="redirect_to" type="hidden" value="http://soundcloud.com/you/apps" />
+<div class="field-label-and-required form-group"><label for="client_application_name"><strong>Title</strong> of your app <span class="required" title="Required field">*</span></label><input class="title" id="client_application_name" name="client_application[name]" size="30" type="text" value="Push It Real Good" /></div>
+<ul class="tabs"><li class="current first"><a href="#oauth2" class="oauth-count">OAuth2</a></li><li class="last"><a href="#oauth1" class="oauth-count">OAuth1</a></li></ul>
+<div class="pane" id="oauth2"><p>For authenticated access, we recommend using OAuth 2.
+<br />For more information, see the <a href="https://github.com/soundcloud/api/wiki/02.1-OAuth-2">OAuth 2 documentation</a>.</p>
+<div class="form-group attention"><label>Redirect URI</label><input class="title callback_url" id="client_application_default_credential_redirect_uri" name="client_application[default_credential][redirect_uri]" size="61" type="text" value="" /></div>
+<div class="form-group"><div class="width_1_3"><strong>
+<label>Client ID</label>
+</strong></div>
+<div class="width_2_3 last"><input class="auto-select" id="client_id" name="client_id" readonly="readonly" type="text" value="8415d419022eb58d9e2b49997ad6b1ba" /></div>
+<div class="width_1_3"><strong>
+<label>Client Secret</label>
+</strong></div>
+<div class="width_2_3 last"><input class="auto-select" id="client_secret" name="client_secret" readonly="readonly" type="text" value="3f46e6df2aaea3c8da43e995dd1aaf70" /></div></div>
+<div class="form-group"><div class="width_1_3"><strong>
+<label>End User Authorization</label>
+</strong></div>
+<div class="width_2_3 last"><input class="auto-select" id="end_user_authorization" name="end_user_authorization" readonly="readonly" type="text" value="https://soundcloud.com/connect" /></div>
+<div class="width_1_3"><strong>
+<label>Token</label>
+</strong></div>
+<div class="width_2_3 last"><input class="auto-select" id="access_token_url" name="access_token_url" readonly="readonly" type="text" value="https://api.soundcloud.com/oauth2/token" /></div></div>
+</div>
+<div class="hidden pane" id="oauth1"><p>If you are setting up a new app, we recommend using OAuth 2 instead of OAuth 1.
+<br />For more information on OAuth 1, see the <a href="https://github.com/soundcloud/api/wiki/02.2-OAuth-1">OAuth 1 documentation</a>.</p>
+<div class="form-group attention"><label>Callback URL</label><input class="title callback_url" id="client_application_default_credential_redirect_uri" name="client_application[default_credential][redirect_uri]" size="61" type="text" value="" /></div>
+<div class="form-group"><div class="width_1_3"><strong>Consumer Key</strong></div>
+<div class="width_2_3 last"><input class="auto-select" id="consumer_key" name="consumer_key" readonly="readonly" type="text" value="8415d419022eb58d9e2b49997ad6b1ba" /></div>
+<div class="width_1_3"><strong>Consumer Secret</strong></div>
+<div class="width_2_3 last"><input class="auto-select" id="secret" name="secret" readonly="readonly" type="text" value="3f46e6df2aaea3c8da43e995dd1aaf70" /></div></div>
+<div class="form-group"><div class="width_1_3"><strong>
+<label>Request Token Address</label>
+</strong></div>
+<div class="width_2_3 last"><input class="auto-select" id="request_token_url" name="request_token_url" readonly="readonly" type="text" value="http://api.soundcloud.com/oauth/request_token" /></div>
+<div class="width_1_3"><strong>
+<label>Access Token Address</label>
+</strong></div>
+<div class="width_2_3 last"><input class="auto-select" id="access_token_url" name="access_token_url" readonly="readonly" type="text" value="http://api.soundcloud.com/oauth/access_token" /></div>
+<div class="width_1_3"><strong>
+<label>Authorize Address</label>
+</strong></div>
+<div class="width_2_3 last"><input class="auto-select" id="authorize_address_url" name="authorize_address_url" readonly="readonly" type="text" value="http://soundcloud.com/oauth/authorize" /></div></div>
+<p>We support hmac-sha1 (recommended) as well as plain text in ssl mode.</p>
+</div>
+<div class="app-directory-info"><h2>App directory info</h2>
+<div class="add-to-app-directory"><div class="edit-url-form"><div><span class="url-label">When published, your app will be reachable via:</span>
+<span id="permalink-path">http://soundcloud.com/apps/</span></div>
+<div id="edit-url">pushitrealgood</div><input id="client_application_permalink" maxlength="25" name="client_application[permalink]" type="hidden" value="pushitrealgood" /></div>
+<div class="hint hidden" id="permalink-change-hint">Please note that if you update your old url
+(<strong>http://soundcloud.com/apps/pushitrealgood</strong>)
+this will <strong>affect all links you've posted outside of SoundCloud</strong>. Make sure you don't forget to update these too.</div></div>
+<div class="form-group"><div class="width_1_3"><label for="client_application_category_list">Category <span class="required" title="Required field">*</span></label><select class="multiple" id="client_application_category_list" multiple="multiple" name="client_application[category_list][]" size="3"><option value="Create &amp; Record">Create &amp; Record</option>
+<option value="Discover &amp; Listen">Discover &amp; Listen</option>
+<option value="Share &amp; Distribute" selected="selected">Share &amp; Distribute</option></select></div>
+<div class="width_1_3"><label for="client_application_platform_id">Platform <span class="required" title="Required field">*</span></label><select id="client_application_platform_id" name="client_application[platform_id]"><option value=""></option>
+<option value="1">Desktop</option>
+<option value="2" selected="selected">Web</option>
+<option value="4">Mobile</option>
+<option value="8">Other</option></select></div>
+<div class="width_1_3 last"><label for="client_application_version">Version</label><input id="client_application_version" name="client_application[version]" size="30" type="text" value="1.0" /></div></div>
+<div class="form-group"><label for="client_application_description">App description <span class="required" title="Required field">*</span> <span class="info">max 200 characters</span></label><textarea cols="40" id="client_application_description" name="client_application[description]" rows="20">With Push It Real Good you can turn any SoundCloud track into a gadget that will entertain for hours.</textarea></div>
+<div class="form-group"><label for="client_application_url">App URL <span class="required" title="Required field">*</span></label><input id="client_application_url" name="client_application[url]" size="30" type="text" value="http://pushitrealgood.com" /></div>
+<div class="form-group"><label for="client_application_playlist_url">Sample Set URL</label><input id="client_application_playlist_url" name="client_application[playlist_url]" size="30" type="text" /></div>
+<div class="form-group"><div class="width_1_2"><div class="icon-upload"><span class="hidden version">t47x47</span>
+<a href="/you/apps/icons" class="upload-url hidden"></a>
+<input id="icon_uid" name="icon[uid]" type="hidden" value="0d6af37b0cbfeb095f82964aa7cc3879" />
+<label for="icon_uid">Icon <span class="required" title="Required field">*</span></label>
+<span class="display icon" style="background-image: url(http://i1.sndcdn.com/icons-000000001148-ivmp6q-t47x47.jpg?a073db2)">Icon</span>
+<input class="default upload-btn app-icon" type="button" value="Upload new icon" />
+<div class="info">47 x 47 is optimal</div></div></div>
+<ul class="screenshots"><li class="width_1_4" id="screenshot-2045"><div class="screenshot-upload"><span class="hidden version">t100x100</span>
+<a href="/you/apps/screenshots" class="upload-url hidden"></a>
+<input id="client_application_screenshots_0_uid" name="client_application[screenshots][0][uid]" type="hidden" value="6ca097d285b47c38f29c0b1172081969" />
+<label for="client_application_screenshots_0_uid">Screenshot 1 <span class="required" title="Required field">*</span></label>
+<span class="screenshot display" style="background: url(http://i1.sndcdn.com/screenshots-000000002045-ospnrx-t100x100.jpg?a073db2)">Screenshot</span>
+<a href="/you/apps/screenshots/2045" class="remove-btn" onclick="return false;" title="Remove image">X</a>
+<input class="default upload-btn" type="button" value="Replace" /></div></li>
+
+<li class="width_1_4" id="screenshot-2046"><div class="screenshot-upload"><span class="hidden version">t100x100</span>
+<a href="/you/apps/screenshots" class="upload-url hidden"></a>
+<input id="client_application_screenshots_1_uid" name="client_application[screenshots][1][uid]" type="hidden" value="ba2c5ff87b6ecda1d6e08d834f248996" />
+<label for="client_application_screenshots_1_uid">Screenshot 2</label>
+<span class="screenshot display" style="background: url(http://i1.sndcdn.com/screenshots-000000002046-ofp8qq-t100x100.jpg?a073db2)">Screenshot</span>
+<a href="/you/apps/screenshots/2046" class="remove-btn" onclick="return false;" title="Remove image">X</a>
+<input class="default upload-btn" type="button" value="Replace" /></div></li>
+
+<li class="width_1_4" id="screenshot-2048"><div class="screenshot-upload"><span class="hidden version">t100x100</span>
+<a href="/you/apps/screenshots" class="upload-url hidden"></a>
+<input id="client_application_screenshots_2_uid" name="client_application[screenshots][2][uid]" type="hidden" value="fae5eb2221d36325c1d90af6c1b338a8" />
+<label for="client_application_screenshots_2_uid">Screenshot 3</label>
+<span class="screenshot display" style="background: url(http://i1.sndcdn.com/screenshots-000000002048-fegqsj-t100x100.jpg?a073db2)">Screenshot</span>
+<a href="/you/apps/screenshots/2048" class="remove-btn" onclick="return false;" title="Remove image">X</a>
+<input class="default upload-btn" type="button" value="Replace" /></div></li>
+
+<li class="width_1_4" id="screenshot-2047"><div class="screenshot-upload"><span class="hidden version">t100x100</span>
+<a href="/you/apps/screenshots" class="upload-url hidden"></a>
+<input id="client_application_screenshots_3_uid" name="client_application[screenshots][3][uid]" type="hidden" value="828d4761e8397b33eeb8217fe2b6670d" />
+<label for="client_application_screenshots_3_uid">Screenshot 4</label>
+<span class="screenshot display" style="background: url(http://i1.sndcdn.com/screenshots-000000002047-ukroy4-t100x100.jpg?a073db2)">Screenshot</span>
+<a href="/you/apps/screenshots/2047" class="remove-btn" onclick="return false;" title="Remove image">X</a>
+<input class="default upload-btn" type="button" value="Replace" /></div></li>
+
+<li class="width_1_4"><div class="screenshot-upload"><span class="hidden version">t100x100</span>
+<a href="/you/apps/screenshots" class="upload-url hidden"></a>
+<input id="client_application_screenshots_4_uid" name="client_application[screenshots][4][uid]" type="hidden" />
+<label for="client_application_screenshots_4_uid">Screenshot 5</label>
+<span class="screenshot display hidden">Screenshot</span>
+<input class="default upload-btn" type="button" value="Upload" /></div></li>
+
+<li class="width_1_4"><div class="screenshot-upload"><span class="hidden version">t100x100</span>
+<a href="/you/apps/screenshots" class="upload-url hidden"></a>
+<input id="client_application_screenshots_5_uid" name="client_application[screenshots][5][uid]" type="hidden" />
+<label for="client_application_screenshots_5_uid">Screenshot 6</label>
+<span class="screenshot display hidden">Screenshot</span>
+<input class="default upload-btn" type="button" value="Upload" /></div></li>
+
+<li class="width_1_4"><div class="screenshot-upload"><span class="hidden version">t100x100</span>
+<a href="/you/apps/screenshots" class="upload-url hidden"></a>
+<input id="client_application_screenshots_6_uid" name="client_application[screenshots][6][uid]" type="hidden" />
+<label for="client_application_screenshots_6_uid">Screenshot 7</label>
+<span class="screenshot display hidden">Screenshot</span>
+<input class="default upload-btn" type="button" value="Upload" /></div></li>
+
+<li class="width_1_4"><div class="screenshot-upload"><span class="hidden version">t100x100</span>
+<a href="/you/apps/screenshots" class="upload-url hidden"></a>
+<input id="client_application_screenshots_7_uid" name="client_application[screenshots][7][uid]" type="hidden" />
+<label for="client_application_screenshots_7_uid">Screenshot 8</label>
+<span class="screenshot display hidden">Screenshot</span>
+<input class="default upload-btn" type="button" value="Upload" /></div></li></ul></div>
+<div class="form-group"><label for="client_application_video_url">Video URL</label><input id="client_application_video_url" name="client_application[video_url]" size="30" type="text" value="" /></div>
+<div class="form-group"><div class="width_1_2"><label for="client_application_creator_name">Creator <span class="required" title="Required field">*</span></label><input id="client_application_creator_name" name="client_application[creator_name]" size="30" type="text" value="McKinney" /></div>
+<div class="width_1_2 last"><label for="client_application_creator_url">Personal URL of the creator</label><input id="client_application_creator_url" name="client_application[creator_url]" size="30" type="text" value="http://mckinney.com" /></div></div>
+<div class="form-group"><div class="checkbox"><input name="client_application[published]" type="hidden" value="0" /><input checked="checked" id="client_application_published" name="client_application[published]" type="checkbox" value="1" /><label for="client_application_published">Yes, I want to <strong>submit my app for approval.</strong> Once approved, it will be <strong>visible in the App Gallery.</strong> <br/>(If you don’t check this, your app data will simply be <strong>saved, but not published</strong>.)</label></div>
+<div class="checkbox"><input checked="checked" id="client_application_accepted" name="client_application[accepted]" type="checkbox" value="1" /><label for="client_application_accepted">Yes, I have read and accepted the <a href="http://developers.soundcloud.com/policies">Developer Policies</a> <span class="required" title="Required field">*</span></label></div></div></div>
+<div class="form-buttons-big"><input class="big" name="commit" type="submit" value="Save app" /><a href="#cancel" class="cancel" onclick="return false;" rel="nofollow">Cancel</a></div>
+</form>
+</div></div>
+<div id="footer"><div class="footer-col"><div class="logged-in"><h4>You</h4>
+<ul><li><a href="/you/tracks">Tracks</a></li>
+<li><a href="/you/sets">Sets</a></li>
+<li><a href="/you/comments">Comments</a></li>
+<li><a href="/you/favorites">Favorites</a></li>
+<li><a href="/you/groups">Groups</a></li>
+<li><a href="/settings">Settings</a></li></ul></div>
+<div class="anonymous"><h4>Sign Up</h4>
+<ul><li>Not on SoundCloud yet?
+<a href="/signup">Sign up for free</a></li></ul></div></div>
+<div class="footer-col"><h4>Explore</h4>
+<ul><li><a href="/tracks">Tracks</a></li>
+<li><a href="/creativecommons">Creative Commons</a></li>
+<li><a href="/people">People</a></li>
+<li><a href="/groups">Groups</a></li>
+<li><a href="/apps">Apps</a></li>
+<li class="logged-in"><a href="/pages/widgets">Widgets &amp; Badges</a></li>
+<li><a href="/pages/meetups">Meetups</a></li></ul></div>
+<div class="footer-col"><h4>Premium</h4>
+<ul><li><a href="/premium?ref=t025">Feature Overview</a></li>
+<li><a href="/premium/gifts">Buy a Gift</a></li>
+<li><a class="icon-button" href="/premium?ref=t026"><span class="go-pro">Premium</span></a></li></ul></div>
+<div class="footer-col"><h4>About Us</h4>
+<ul><li><a href="/pages/contact">About SoundCloud</a></li>
+<li><a href="http://blog.soundcloud.com">Blog</a></li>
+<li><a href="/jobs">Jobs</a></li>
+<li><a href="/press">Press</a></li></ul></div>
+<div class="footer-col"><h4>Help</h4>
+<ul><li><a href="/tour">Take The Tour</a></li>
+<li><a href="/101">SoundCloud 101</a></li>
+<li><a href="/help">Help</a></li>
+<li><a href="/videos">Videos</a></li>
+<li><a href="/help" id="footer-support-link">Support</a></li></ul><script type="text/javascript">
+//<![CDATA[
+window.SC.renderSupportLevel()
+//]]>
+</script></div>
+<div class="footer-col last"><h4>Developers</h4>
+<ul><li><a href="http://developers.soundcloud.com">Get Started</a></li>
+<li><a href="http://developers.soundcloud.com/docs">Documentation</a></li>
+<li><a href="http://developers.soundcloud.com/blog">API Blog</a></li>
+<li class="logged-in"><a href="/you/apps">Your Apps</a></li>
+<li><a href="/apps">App Gallery</a></li>
+<li><a href="http://soundcloudlabs.com">Labs</a></li></ul></div>
+<div id="logo-footer"></div><p id="copyright">© 2007-2011 SoundCloud Ltd. All rights reserved.
+<a href="/community-guidelines">Community Guidelines</a>
+|
+<a href="/terms-of-use">Terms of Use</a>
+|
+<a href="/pages/privacy">Privacy Policy</a>
+|
+<a href="/pages/copyright">Copyright Information</a>
+|
+<a href="/imprint">Imprint</a></p>
+</div>
+<div class="templates aural"><div id="blogger-form"><form accept-charset="utf-8" action="" enctype="multipart/form-data" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="n3uwFpL9xj1cuBlSXQdaiTfDcxGfLO2o04jT0sS+EnU=" /></div>
+<label for="blogs-list">
+Your blog
+</label>
+<select name="blogs-list"></select>
+<label for="entry-title">
+Title
+</label>
+<input class="title" id="entry-title" name="entry-title" type="text" />
+<label for="entry-content">
+Text
+</label>
+<textarea class="content" id="entry-content" name="entry-content"></textarea>
+<label for="entry-tags">
+Tags (separated by comma)
+</label>
+<input class="tags" id="entry-tags" name="entry-tags" type="text" value="SoundCloud" />
+<div class="checkbox"><input id="entry-draft" name="entry-draft" type="checkbox" />
+<label for="entry-draft">
+Save as draft?
+</label></div>
+<div class="form-buttons"><input class="default" name="commit" type="submit" value="Post" /><a href="#" class="cancel" onclick="return false;" rel="nofollow">Cancel</a></div>
+</form></div>
+
+<div id="wordpress-form"><h2>Share to WordPress.com</h2>
+<form><label for="short-code">
+Grab the <strong>shortcode</strong> or
+<a class="customize-link" href="#customize">customize your player</a>
+</label>
+<input class="content auto-select" id="short-code" name="short-code" />
+<div class="expl">If you are using <strong>self-hosted WordPress</strong>, please use our standard embed code or install the
+<a href="http://wordpress.org/extend/plugins/soundcloud-shortcode/">plugin</a>
+to use shortcodes.</div></form></div>
+
+<div id="timestamped-comment-template"><div class="content"><div class="header"><a class="close" href="#"></a>
+<span class="new">Add a comment</span>
+<span class="count">0 comments</span>
+at
+<span class="time">0.00</span></div>
+<div class="replies"><ol></ol>
+<div class="form-buttons"><input class="reply small" type="submit" value="Reply" /></div></div>
+<div class="timed-comment-form"><div class="form-header"><a href="/pushitrealgood" class="user-image-tiny" style="background-image: url(http://i1.sndcdn.com/avatars-000007109886-w5mt9q-tiny.jpg?a073db2)">pushitrealgood</a>
+Your comment at
+<strong></strong></div>
+<form accept-charset="utf-8" action="" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="n3uwFpL9xj1cuBlSXQdaiTfDcxGfLO2o04jT0sS+EnU=" /></div>
+<input name="comment[timestamp]" type="hidden" value="0" />
+<textarea name="comment[body]">Type your reply here</textarea>
+<div class="form-buttons"><div class="private-comments-warning">Your comment will be private</div><input autocomplete="off" class="default" name="commit" type="submit" value="Post Reply" /><a href="#cancel" class="cancel" onclick="return false;" rel="nofollow">Cancel</a></div>
+</form></div>
+<div class="tooltip"><abbr>
+Click to enter a
+<br />
+comment at
+</abbr>
+<span>0.00</span></div>
+<div class="footer"></div></div>
+<div class="arrow"></div></div></div>
+<script src="http://a1.sndcdn.com/javascripts/base.js?a073db2" type="text/javascript"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+$.helpers.loadScriptAsync('//www.google-analytics.com/ga.js');
+$.helpers.loadScriptAsync('//www.google.com/jsapi');
+</script>
+<!-- / %script{:type => "text/javascript"} -->
+<script type="text/javascript">
+_qoptions = {qacct: "p-47_zcqmJsLHXQ"};
+$.helpers.loadScriptAsync('//edge.quantserve.com/quant.js', '//secure.quantserve.com/quant.js', true);
+</script>
+<noscript>
+<img alt="Quantcast" class="hidden" src="//pixel.quantserve.com/pixel/p-47_zcqmJsLHXQ.gif" />
+</noscript>
+<noscript>
+<img alt="" src="//logc252.xiti.com/hit.xiti?s=487751&amp;s2=&amp;p=&amp;di=&amp;an=&amp;ac=" />
+</noscript>
+
+
+</body></html>
