@@ -3,7 +3,7 @@ class PageController < ApplicationController
   before_filter :get_count
   
   def connect
-    render 'connect'  
+    render :partial => 'connect'
   end
   
   def list 
