@@ -315,7 +315,11 @@ function toggleSearchUpload( button ) {
 function initUploadSection() {
   SC.connect({
     redirect_uri: "http://pushitrealgood.com/connect",
-    connect: function() { console.log("Received info from thingy") }
+    connect: function() { 
+	  SC.get("/me/tracks", {limit: 5}, function(tracks){
+		 alert("First Track: " + tracks[0].title);
+	  });
+	 }
   });
 }
 
