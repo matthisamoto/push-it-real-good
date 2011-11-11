@@ -4,7 +4,7 @@
     <title>Connect with SoundCloud</title>
 	<script type="text/javascript">
 	  function on_load() {
-		try { window.opener.SC.connectCallback }
+		try { window.opener.SC.connectCallback() }
 		catch(err) { console.log(err); }
 	  }
 		// window.opener.setTimeout(window.opener.SC.connectCallback, 1);
