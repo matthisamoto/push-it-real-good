@@ -313,14 +313,10 @@ function toggleSearchUpload( button ) {
 }
 
 function initUploadSection() {
- 
-	SC.connect({
-	  redirect_uri: "http://pushitrealgood.com/connect",
-	  connect: function(){
-		receivedConnectionFromSoundCloud();
-	  }
-	});
-
+  SC.connect({
+    redirect_uri: "http://pushitrealgood.com/connect",
+    connect: receivedConnectionFromSoundCloud;
+  });
 }
 
 function receivedConnectionFromSoundCloud() {
