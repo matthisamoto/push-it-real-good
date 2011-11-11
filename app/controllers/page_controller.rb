@@ -2,6 +2,10 @@ class PageController < ApplicationController
   
   before_filter :get_count
   
+  def connect
+    render 'connect'  
+  end
+  
   def list 
     @count = Page.count
     @latest = Page.find(:all, :limit => 25, :order => "pages.created_at DESC" )
