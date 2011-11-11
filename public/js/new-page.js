@@ -1,5 +1,3 @@
- mmmm
-
 var current_preview_string;
 var count = 0;
 var current_page = 1;
