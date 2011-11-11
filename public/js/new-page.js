@@ -1,3 +1,5 @@
+SC.initialize({ client_id: "72325d0b84c6a7f4bbef4dd86c0a5309" });
+
 var current_preview_string;
 var count = 0;
 var current_page = 1;
