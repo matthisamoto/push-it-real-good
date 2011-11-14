@@ -281,13 +281,9 @@ function toggleSections() {
 }
 
 function toggleSearchUpload( button ) {
-	
   if( !button.hasClass('active') ){
-	
     if( $('.search-section').hasClass('hidden') ) {
-	
 	  // Activate Search-Tracks Section 
-	
 	  $('.search-section').removeClass('hidden')
 	  $('.upload-section').addClass('hidden')
 	
@@ -295,11 +291,8 @@ function toggleSearchUpload( button ) {
 		$('.search-section-button').addClass('active')
 	    $('.upload-section-button').removeClass('active')
 	  });
-	
     } else {
-	
 	  // Activate Upload-Your-Own Section
-	
 	  $('.search-section').addClass('hidden')
 	  $('.upload-section').removeClass('hidden')
 	
@@ -308,7 +301,6 @@ function toggleSearchUpload( button ) {
 	    $('.upload-section-button').addClass('active')
 	    checkForConnection()
 	  });
-	
     }
   }
 }
@@ -534,8 +526,8 @@ function checkForConnection() {
 	  var upload;
 	  upload = clonable_a.clone();
 	  record = clonable_a.clone();
-      upload.attr('href','#').text('Upload A File To SoundCloud').addClass('upload-file');
-	  record.attr('href','#').text('Record Your Own Track').addClass('record-track');	
+      upload.attr('href','#').text('Upload A File').addClass('upload-file');
+	  record.attr('href','#').text('Record A Track').addClass('record-track');	
       $('.sc-username').after( upload ).after( record )
       $('.upload-file').click( function(e) {
 	    e.preventDefault();
