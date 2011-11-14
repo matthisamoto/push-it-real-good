@@ -323,14 +323,119 @@ function initUploadSection() {
 }
 
 function receivedConnectionFromSoundCloud() {
+	
+  SC.get("/me/tracks", { limit: 5 }, function(tracks){
+	console.log(tracks)
 	/*
-	SC.get("/me/tracks", {limit: 5}, function(tracks){
-		 alert("First Track: " + tracks[0].title);
-	  });
-*/
+	var html = "";
+	html += '<div class="search scroll-pane">' + "\n";
+	html += parseResults(tracks);
+	html += '</div>' + "\n";
+	$('.search-results').empty().scrollTop(0).append(html);
+	initUserTracksFunctionaity("initial");
+	*/
+  });
   
 }
 
+/* .
+
+function moreResults() {
+  results_count++;
+  SC.get("/me/tracks", { limit: 5, offset: (10 * results_count) }, function(tracks){
+	  html = parseResults(tracks);
+	  search_scroll.getContentPane().append(html);
+      initUserTracksFunctionaity("subsequent");
+	}
+  );
+}
+function parseResults(data) {
+  console.log('Parsing Results...')
+  var html = "";
+  $.each(data, function(i, e) {
+
+    var duration = Math.floor(parseInt(e['duration'])/1000);
+	var min = Math.floor(duration / 60);
+	var sec = duration - ( min * 60 );
+	if(sec < 10) sec = "0" + sec;
+
+    html += '<div class="track clearfix" id="' + e['id'] + '">' + "\n";
+    
+    html += '<p class="track-header"><span class="track-title"><a href="' + e['permalink_url'] + '" target="_blank">' + e['title'] + '</a></span></p>' + "\n";
+
+	var preview_line = "";
+    
+    if(e['streamable'] == true)
+    {
+   	  preview_line += '<a href="#" class="play left"><div id="flashcontent_' + e['id'] + '"></div><img src="/images/play.png" alt="Preview" title="Preview" class="play-img"/><img src="/images/stop.png" alt="Preview" title="Preview" class="pause-img hidden" /></a>' + "\n";
+    } else 
+    {
+	  preview_line += '<img src="/images/not-available.png" alt="Not Available" title="Not Available" class="left" />' + "\n";
+	}
+
+	preview_line += '<p class="duration left">' + min + ':' + sec + '</p>' + "\n";
+
+	preview_line += '<p class="from left"><span class="from-script">from</span> <a href="' + e['user']['permalink_url'] + '" target="_blank" class="track_author">' + e['user']['username'] + '</a></p>';
+
+	if(e['streamable'] == true)
+	{
+      preview_line += '<p class="left"><a href="#" class="button select-track left" alt="Use This Track In Your Page" title="Use This Track In Your Page">Use This</a></p>' + "\n";
+	} else 
+	{
+	  preview_line += '<span class="left no-stream">This track is not streamable. <a href="#" class="tooltip" onClick="javascript:function(e){e.preventDefault();}">Why?<span>Right now, SoundCloud\'s API does not allow a combination request of search terms and filtering streamable content. If this ever changes, you will not see non-streamable tracks in this list anymore. For now, though, these tracks will appear in our results. We\'re sorry.</span></a></span>';
+	}
+
+	html += "<div class=\"preview-line clearfix\">" + preview_line + "</div>\n";
+
+	if(e['genre']) html += '<p class="genre clearfix"> Genre: ' + e['genre'] + "</p>" + "\n";
+
+	html += '</div>' + "\n";
+
+  });
+  return html;	
+}
+
+function initUserTracksFunctionaity(which) {
+
+  $('.play').click( function (e){
+    e.preventDefault();
+    togglePlayButton($(this), $(this).parent(), $(this).parent().attr('id'))
+  })
+
+  $('.select-track').click( function(e) {
+    e.preventDefault();
+	killFlash();
+
+    $("#page_sound_url").val( 'http://api.soundcloud.com/tracks/' + $(this).parent().parent().parent().attr('id') + '/stream');
+	$("#page_track_name").val( $(this).parent().parent().parent().find('.track-header .track-title a').text() );
+	$("#page_track_url").val( $(this).parent().parent().parent().find('.track-header .track-title a').attr('href') );
+	$("#page_track_author").val( $(this).parent().parent().find('.track_author').text() );
+	$("#page_track_author_url").val( $(this).parent().parent().find('.track_author').attr('href') );
+		
+    $('.track-name').empty().css("background-color","rgba(0, 132, 0, 0.60)").css("padding","5px 0").css("cursor","pointer").append("<span class=\"added\">Added track:</span> " + $(this).parent().parent().parent().find('span.track-title').text()).click( function(){ $('.track-name').empty().css("background-color","transparent").css("padding","0"); $('.id-container').empty(); });
+    toggleSections();
+  });
+
+  if(which == "initial") {
+	if( $('.close-results').length == 0 ) $('.search-button').after( '<a href="#" class="close-results button">Clear Results</a>' );
+	$('.close-results').click( function(e) {
+	  e.preventDefault();
+	  $('.search-results').empty();
+	  $('.search-results').append('	<div class="upload-coming-soon"></div>');
+	  $(this).remove();
+	});
+    search_scroll = $('.scroll-pane').jScrollPane({ verticalDragMaxHeight: 25, verticalDragMinHeight: 25 }).data('jsp');
+	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
+      if(isAtBottom){ moreResults(); $(this).unbind("jsp-scroll-y") }
+	});
+  } else {
+	search_scroll.reinitialise();
+	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
+      if(isAtBottom){ moreResults(); $(this).unbind("jsp-scroll-y") }
+	});
+  }
+}
+*/
 function uploadNewFile() {
 	
 }
