@@ -351,7 +351,7 @@ function checkForConnection() {
 	$('.sc-username').text("Not Logged Into SoundCloud");
 	button.attr('href','#').text('Connect to SoundCloud').click( function(e) {
 	  e.preventDefault();
-	  initUploadSection();]
+	  initUploadSection();
 	});
   }
 
