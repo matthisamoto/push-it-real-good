@@ -317,7 +317,8 @@ function checkForConnection() {
 	  record = clonable_a.clone();
       // upload.attr('href','#').text('Upload A File').addClass('upload-file');
 	  record.attr('href','#').text('Record A Track').addClass('record-track');	
-      $('.sc-username').after( upload ).after( record )
+      // $('.sc-username').after( upload )
+      $('.sc-username').after( record )
       /*
 	  $('.upload-file').click( function(e) {
 	    e.preventDefault();
@@ -524,9 +525,11 @@ function recordNewTrack() {
 
     var upload = function(){
       $("#uploadStatus").html("Uploading...");
+	  var d = new Date();
+	  var dateString = d.toDateString() + " " + d.toTimeString();
       SC.recordUpload({
         track: {
-          title: "Untitled Recording",
+          title: "Push It Real Good Recording " + dateString,
           sharing: "public"
         }
       }, function(track){
