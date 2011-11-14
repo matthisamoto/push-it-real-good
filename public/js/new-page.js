@@ -331,7 +331,7 @@ function receivedConnectionFromSoundCloud() {
 	html += '<div class="search scroll-pane">' + "\n";
 	html += parseResults(tracks);
 	html += '</div>' + "\n";
-	$('.search-results').empty().scrollTop(0).append(html);
+	$('.upload-results').empty().scrollTop(0).append(html);
 	initUserTracksFunctionaity("initial");
 	
   });
