@@ -344,23 +344,23 @@ function checkForConnection() {
       $('.sc-username').text("Logged into SoundCloud as " + me.username);
     });
 	if( $('.upload-file').length == 0 ) {
-      button.attr('href','#').text('Upload A File To SoundCloud').addClass('upload-file');
-	  $('.upload-file').click( function(e) {
+      button.attr('href','#').text('Upload A File To SoundCloud').addClass('upload-file');	  
+      $('.sc-username').after( button )
+      $('.upload-file').click( function(e) {
 	    e.preventDefault();
 	    uploadNewFile();
       });
-      $('.sc-username').after( button )
     }
   } else {
 	initUploadSection();
 	$('.sc-username').text("Not Logged Into SoundCloud");
 	if( $('.connect-soundcloud').length == 0 ) {
-	  button.attr('href','#').text('Connect to SoundCloud').addClass('connect-soundcloud');
+	  button.attr('href','#').text('Connect to SoundCloud').addClass('connect-soundcloud');	  
+	  $('.sc-username').after( button );	
 	  $('.connect-soundcloud').click( function(e) {
 	    e.preventDefault();
 	    initUploadSection();
 	  });
-	  $('.sc-username').after( button )
 	}
   }
 }
