@@ -522,12 +522,11 @@ function setRecorderUIState(state){
 }
 
 function checkForConnection() {
-  
   if( SC.isConnected() ) {
 	SC.get('/me', function( me ){
       $('.sc-username').text("Logged into SoundCloud as " + me.username);
     });
-	if( $('.upload-file').length == 0 && !$(body).hasClass('iphone') && !$(body).hasClass('android') ) {
+	if( $('.upload-file').length == 0 && !$('body').hasClass('iphone') && !$('body').hasClass('android') ) {
 	  var record;
 	  var upload;
 	  upload = record = clonable_a.clone();
