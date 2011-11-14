@@ -316,13 +316,15 @@ function initUploadSection() {
   SC.connect({
     redirect_uri: "http://pushitrealgood.com/connect",
     connected: function() { 
-	  receivedConnectionFromSoundCloud()
+	  receivedConnectionFromSoundCloud() 
 	 }
   });
 }
 
 function receivedConnectionFromSoundCloud() {
-	alert("Connected")
+	SC.get("/me/tracks", {limit: 5}, function(tracks){
+		 alert("First Track: " + tracks[0].title);
+	  });
 }
 
 var button_height = 630;
