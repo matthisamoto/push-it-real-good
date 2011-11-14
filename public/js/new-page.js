@@ -439,10 +439,10 @@ function recordNewTrack() {
 
   var recorder = "";
   recorder += '<div id="recorderUI" class="reset">' + "\n";
-  recorder += '<a href="#" id="controlButton" class="record"><span id="timer" class="hidden">0:00</span></a>' + "\n";
+  recorder += '<a href="#" id="controlButton" class="record">Record <span id="timer" class="hidden">0:00</span></a>' + "\n";
   recorder += '<div id="otherControls">' + "\n";
-  recorder += '  <a href="#" id="reset" class="button">Reset</a>' + "\n";
-  recorder += '  <a href="#" id="upload" class="button">Upload</a>' + "\n";
+  recorder += '<a href="#" id="reset" class="button">Reset</a>' + "\n";
+  recorder += '<a href="#" id="upload" class="button">Upload</a>' + "\n";
   recorder += '</div>' + "\n";
   recorder += '<div id="uploadStatus"></div>' + "\n";
   recorder += '</div>' + "\n";
@@ -512,12 +512,8 @@ function recordNewTrack() {
         connected: upload
       });
     }
-
     e.preventDefault();
   });
-
-  
-
 
 }
 
