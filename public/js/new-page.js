@@ -498,7 +498,7 @@ function recordNewTrack() {
       SC.recordUpload({
         track: {
           title: "Untitled Recording",
-          sharing: "private"
+          sharing: "public"
         }
       }, function(track){
         $("#uploadStatus").html("Uploaded: <a href='" + track.permalink_url + "'>" + track.permalink_url + "</a>");
