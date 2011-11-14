@@ -445,26 +445,24 @@ input#search {
 	width: 200px;
 	height: 33px;
 	padding:0 5px;
-	margin-right:10px;
-}
+	margin-right:10px; }
 .search-terms, .upload-options {
 	padding:0;
 	margin:0;
 	display:block;
 	margin-bottom: 15px; }
+.upload-options p {
+	line-height: 32px;
+	font-size: 150%;
+	text-transform: uppercase; }
 .search-terms .centered {
 	display:block;
 	margin: 0 auto;
 	width: 411px;
 	height: 37px;
-	padding-left:140px;
-}
-.search-results {
-	height: 490px;
-}
-.search-results .header {
-	line-height: 32px;
-}
+	padding-left:140px; }
+.search-results { height: 490px; }
+.search-results .header { line-height: 32px; }
 .search {
 	width:620px;
 	height:490px;

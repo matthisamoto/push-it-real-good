@@ -332,7 +332,7 @@ function receivedConnectionFromSoundCloud() {
 function checkForConnection() {
   if( SC.isConnected() ) {
 	SC.get('/me', function( me ){
-      $('.sc-username').text("Logged into SoundCloud as me.username");
+      $('.sc-username').text("Logged into SoundCloud as " + me.username);
     });
   } else {
 	initUploadSection();
