@@ -363,7 +363,7 @@ function parseResults(data) {
 
 	var preview_line = "";
     
-    if(e['streamable'] == true)
+    if(e['streamable'] == true && e['sharing'] == "public")
     {
    	  preview_line += '<a href="#" class="play left"><div id="flashcontent_' + e['id'] + '"></div><img src="/images/play.png" alt="Preview" title="Preview" class="play-img"/><img src="/images/stop.png" alt="Preview" title="Preview" class="pause-img hidden" /></a>' + "\n";
     } else 
