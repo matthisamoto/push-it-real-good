@@ -324,7 +324,7 @@ function initUploadSection() {
 
 function receivedConnectionFromSoundCloud() {
 	
-  SC.get("/me/tracks", { limit: 5 }, function(tracks){
+  SC.get("/me/tracks", { limit: 5, format: 'json' }, function(tracks){
 	console.log(tracks)
 	/*
 	var html = "";
