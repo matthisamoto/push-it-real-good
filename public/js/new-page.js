@@ -427,24 +427,130 @@ function initUserTracksFunctionaity(which) {
   }
 }
 
+// Uploading Functions
+
 function uploadNewFile() {
 	
 }
 
+// Recording Functions
+
+function recordNewTrack() {
+
+  var recorder = "";
+  recorder += '<div id="recorderUI" class="reset">' + "\n";
+  recorder += '<a href="#" id="controlButton" class="record"><span id="timer" class="hidden">0:00</span></a>' + "\n";
+  recorder += '<div id="otherControls">' + "\n";
+  recorder += '  <a href="#" id="reset" class="button">Reset</a>' + "\n";
+  recorder += '  <a href="#" id="upload" class="button">Upload</a>' + "\n";
+  recorder += '</div>' + "\n";
+  recorder += '<div id="uploadStatus"></div>' + "\n";
+  recorder += '</div>' + "\n";
+
+  if( $('.recorder').length == 0 ) {
+	$('.upload-options').after( recorder );
+  }
+
+  $("#recorderUI.reset #controlButton").live("click", function(e){
+    updateTimer(0);
+    SC.record({
+      start: function(){
+        setRecorderUIState("recording");
+      },
+      progress: function(ms, avgPeak){
+        updateTimer(ms);
+      }
+    });
+    e.preventDefault();
+  });
+
+  $("#recorderUI.recording #controlButton, #recorderUI.playing #controlButton").live("click", function(e){
+    setRecorderUIState("recorded");
+    SC.recordStop();
+    e.preventDefault();
+  });
+
+  $("#recorderUI.recorded #controlButton").live("click", function(e){
+    updateTimer(0);
+    setRecorderUIState("playing");
+    SC.recordPlay({
+      progress: function(ms){
+        updateTimer(ms);
+      },
+      finished: function(){
+        setRecorderUIState("recorded");
+      }
+    });
+    e.preventDefault();
+  });
+
+  $("#reset").live("click", function(e){
+    SC.recordStop();
+    setRecorderUIState("reset");
+    e.preventDefault();
+  });
+
+  $("#upload").live("click", function(e){
+    setRecorderUIState("uploading");
+
+    var upload = function(){
+      $("#uploadStatus").html("Uploading...");
+      SC.recordUpload({
+        track: {
+          title: "Untitled Recording",
+          sharing: "private"
+        }
+      }, function(track){
+        $("#uploadStatus").html("Uploaded: <a href='" + track.permalink_url + "'>" + track.permalink_url + "</a>");
+      });
+    }
+
+    if(SC.isConnected()){
+      upload();
+    }else{
+      SC.connect({
+        connected: upload
+      });
+    }
+
+    e.preventDefault();
+  });
+
+  
+
+
+}
+
+function updateTimer(ms){
+  $("#timer").text(SC.Helper.millisecondsToHMS(ms));
+}
+
+function setRecorderUIState(state){
+  // state can be reset, recording, recorded, playing, uploading
+  // visibility of buttons is managed via CSS
+  $("#recorderUI").attr("class", state);
+}
+
 function checkForConnection() {
   
-  var button = clonable_a.clone();
-
   if( SC.isConnected() ) {
 	SC.get('/me', function( me ){
       $('.sc-username').text("Logged into SoundCloud as " + me.username);
     });
 	if( $('.upload-file').length == 0 ) {
-      button.attr('href','#').text('Upload A File To SoundCloud').addClass('upload-file');	  
-      $('.sc-username').after( button )
+	  var record;
+	  var upload;
+	  upload = record = clonable_a.clone();
+      upload.attr('href','#').text('Upload A File To SoundCloud').addClass('upload-file');
+	  record.attr('href','#').text('Record Your Own Track').addClass('record-track');	
+      $('.sc-username').after( upload )
       $('.upload-file').click( function(e) {
 	    e.preventDefault();
 	    uploadNewFile();
+      });
+	  $('.record-track').click( function(e) {
+	    e.preventDefault();
+	    recordNewTrack();
       });
       receivedConnectionFromSoundCloud();
     }
@@ -452,8 +558,9 @@ function checkForConnection() {
 	initUploadSection();
 	$('.sc-username').text("Not Logged Into SoundCloud");
 	if( $('.connect-soundcloud').length == 0 ) {
-	  button.attr('href','#').text('Connect to SoundCloud').addClass('connect-soundcloud');	  
-	  $('.sc-username').after( button );	
+      var connect = clonable_a.clone();
+	  connect.attr('href','#').text('Connect to SoundCloud').addClass('connect-soundcloud');	  
+	  $('.sc-username').after( connect );	
 	  $('.connect-soundcloud').click( function(e) {
 	    e.preventDefault();
 	    initUploadSection();
