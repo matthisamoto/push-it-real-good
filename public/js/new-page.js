@@ -305,6 +305,46 @@ function toggleSearchUpload( button ) {
   }
 }
 
+function checkForConnection() {
+  if( SC.isConnected() ) {
+	SC.get('/me', function( me ){
+      $('.sc-username').text("Logged into SoundCloud as " + me.username);
+    });
+	if( $('.upload-file').length == 0 && !$('body').hasClass('iphone') && !$('body').hasClass('android') ) {
+	  var record;
+	  // var upload;
+	  // upload = clonable_a.clone();
+	  record = clonable_a.clone();
+      // upload.attr('href','#').text('Upload A File').addClass('upload-file');
+	  record.attr('href','#').text('Record A Track').addClass('record-track');	
+      $('.sc-username').after( upload ).after( record )
+      /*
+	  $('.upload-file').click( function(e) {
+	    e.preventDefault();
+	    uploadNewFile();
+      });
+	  */
+	  $('.record-track').click( function(e) {
+	    e.preventDefault();
+	    recordNewTrack();
+      });
+    }
+    receivedConnectionFromSoundCloud();
+  } else {
+	initUploadSection();
+	$('.sc-username').text("Not Logged Into SoundCloud");
+	if( $('.connect-soundcloud').length == 0 ) {
+      var connect = clonable_a.clone();
+	  connect.attr('href','#').text('Connect to SoundCloud').addClass('connect-soundcloud');	  
+	  $('.sc-username').after( connect );	
+	  $('.connect-soundcloud').click( function(e) {
+	    e.preventDefault();
+	    initUploadSection();
+	  });
+	}
+  }
+}
+
 function initUploadSection() {
   SC.connect({
     redirect_uri: "http://pushitrealgood.com/connect",
@@ -350,7 +390,7 @@ function parseResults(data) {
 
 	var preview_line = "";
     
-    if(e['streamable'] == true && e['sharing'] == "public")
+    if(e['streamable'] == true && e['sharing'] == "public" && e['sharing'] == 'finished')
     {
    	  preview_line += '<a href="#" class="play left"><div id="flashcontent_' + e['id'] + '"></div><img src="/images/play.png" alt="Preview" title="Preview" class="play-img"/><img src="/images/stop.png" alt="Preview" title="Preview" class="pause-img hidden" /></a>' + "\n";
     } else 
@@ -362,9 +402,11 @@ function parseResults(data) {
 
 	preview_line += '<p class="from left"><span class="from-script">from</span> <a href="' + e['user']['permalink_url'] + '" target="_blank" class="track_author">' + e['user']['username'] + '</a></p>';
 
-	if(e['streamable'] == true && e['sharing'] == "public")
+	if( e['streamable'] == true && e['sharing'] == "public" && e['status'] == "finished" )
 	{
       preview_line += '<p class="left"><a href="#" class="button select-track left" alt="Use This Track In Your Page" title="Use This Track In Your Page">Use This</a></p>' + "\n";
+	} else if ( e['status'] != "finished" ) {
+	  preview_line += '<span class="left no-stream">Your track is not done transcoding please try again later.</span>';
 	} else 
 	{
 	  preview_line += '<span class="left no-stream">This track is not streamable. <a href="#" class="tooltip" onClick="javascript:function(e){e.preventDefault();}">Why?<span>Either the track is not streamable via SoundCloud, or the track is private. We cannot stream private tracks.</span></a></span>';
@@ -471,13 +513,13 @@ function recordNewTrack() {
     e.preventDefault();
   });
 
-  $("#reset").live("click", function(e){
+  $("#reset").live("click", function(e) {
     SC.recordStop();
     setRecorderUIState("reset");
     e.preventDefault();
   });
 
-  $("#upload").live("click", function(e){
+  $("#upload").live("click", function(e) {
     setRecorderUIState("uploading");
 
     var upload = function(){
@@ -516,43 +558,7 @@ function setRecorderUIState(state){
   $("#recorderUI").attr("class", state);
 }
 
-function checkForConnection() {
-  if( SC.isConnected() ) {
-	SC.get('/me', function( me ){
-      $('.sc-username').text("Logged into SoundCloud as " + me.username);
-    });
-	if( $('.upload-file').length == 0 && !$('body').hasClass('iphone') && !$('body').hasClass('android') ) {
-	  var record;
-	  var upload;
-	  upload = clonable_a.clone();
-	  record = clonable_a.clone();
-      upload.attr('href','#').text('Upload A File').addClass('upload-file');
-	  record.attr('href','#').text('Record A Track').addClass('record-track');	
-      $('.sc-username').after( upload ).after( record )
-      $('.upload-file').click( function(e) {
-	    e.preventDefault();
-	    uploadNewFile();
-      });
-	  $('.record-track').click( function(e) {
-	    e.preventDefault();
-	    recordNewTrack();
-      });
-    }
-    receivedConnectionFromSoundCloud();
-  } else {
-	initUploadSection();
-	$('.sc-username').text("Not Logged Into SoundCloud");
-	if( $('.connect-soundcloud').length == 0 ) {
-      var connect = clonable_a.clone();
-	  connect.attr('href','#').text('Connect to SoundCloud').addClass('connect-soundcloud');	  
-	  $('.sc-username').after( connect );	
-	  $('.connect-soundcloud').click( function(e) {
-	    e.preventDefault();
-	    initUploadSection();
-	  });
-	}
-  }
-}
+
 
 var button_height = 630;
 var search_height = 630;

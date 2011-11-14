@@ -447,7 +447,7 @@ input#search {
 	padding:0 5px;
 	margin-right:10px; }
 .search-terms, .upload-options {
-	padding:0;
+	padding:0 10px;
 	margin:0;
 	display:block;
 	margin-bottom: 15px; }
