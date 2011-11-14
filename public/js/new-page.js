@@ -391,7 +391,7 @@ function parseResults(data) {
 
 	var preview_line = "";
     
-    if(e['streamable'] == true && e['sharing'] == "public" && e['sharing'] == 'finished')
+    if(e['streamable'] == true && e['sharing'] == "public" && e['state'] == 'finished')
     {
    	  preview_line += '<a href="#" class="play left"><div id="flashcontent_' + e['id'] + '"></div><img src="/images/play.png" alt="Preview" title="Preview" class="play-img"/><img src="/images/stop.png" alt="Preview" title="Preview" class="pause-img hidden" /></a>' + "\n";
     } else 
@@ -403,7 +403,7 @@ function parseResults(data) {
 
 	preview_line += '<p class="from left"><span class="from-script">from</span> <a href="' + e['user']['permalink_url'] + '" target="_blank" class="track_author">' + e['user']['username'] + '</a></p>';
 
-	if( e['streamable'] == true && e['sharing'] == "public" && e['status'] == "finished" )
+	if( e['streamable'] == true && e['sharing'] == "public" && e['state'] == "finished" )
 	{
       preview_line += '<p class="left"><a href="#" class="button select-track left" alt="Use This Track In Your Page" title="Use This Track In Your Page">Use This</a></p>' + "\n";
 	} else if ( e['status'] != "finished" ) {
