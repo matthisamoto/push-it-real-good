@@ -529,7 +529,8 @@ function checkForConnection() {
 	if( $('.upload-file').length == 0 && !$('body').hasClass('iphone') && !$('body').hasClass('android') ) {
 	  var record;
 	  var upload;
-	  upload = record = clonable_a.clone();
+	  upload = clonable_a.clone();
+	  record = clonable_a.clone();
       upload.attr('href','#').text('Upload A File To SoundCloud').addClass('upload-file');
 	  record.attr('href','#').text('Record Your Own Track').addClass('record-track');	
       $('.sc-username').after( upload ).after( record )
