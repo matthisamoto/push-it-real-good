@@ -343,22 +343,26 @@ function checkForConnection() {
 	SC.get('/me', function( me ){
       $('.sc-username').text("Logged into SoundCloud as " + me.username);
     });
-    button.attr('href','#').text('Upload A File To SoundCloud').addClass('upload-file');
-	$('.upload-file').click( function(e) {
-	  e.preventDefault();
-	  uploadNewFile();
-    });
+	if( $('.upload-file').length == 0 ) {
+      button.attr('href','#').text('Upload A File To SoundCloud').addClass('upload-file');
+	  $('.upload-file').click( function(e) {
+	    e.preventDefault();
+	    uploadNewFile();
+      });
+      $('.sc-username').after( button )
+    }
   } else {
 	initUploadSection();
 	$('.sc-username').text("Not Logged Into SoundCloud");
-	button.attr('href','#').text('Connect to SoundCloud').addClass('connect-soundcloud');
-	$('.connect-soundcloud').click( function(e) {
-	  e.preventDefault();
-	  initUploadSection();
-	});
+	if( $('.connect-soundcloud').length == 0 ) {
+	  button.attr('href','#').text('Connect to SoundCloud').addClass('connect-soundcloud');
+	  $('.connect-soundcloud').click( function(e) {
+	    e.preventDefault();
+	    initUploadSection();
+	  });
+	  $('.sc-username').after( button )
+	}
   }
-
-  $('.sc-username').after( button )
 }
 
 var button_height = 630;

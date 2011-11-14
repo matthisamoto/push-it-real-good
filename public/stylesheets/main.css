@@ -457,7 +457,8 @@ input#search {
 	float: left;
 	text-transform: uppercase; }
 .upload-options a {
-	float: right; }
+	float: right;	
+	line-height: 32px; }
 .search-terms .centered {
 	display:block;
 	margin: 0 auto;
