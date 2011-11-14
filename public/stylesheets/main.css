@@ -454,7 +454,10 @@ input#search {
 .upload-options p {
 	line-height: 32px;
 	font-size: 150%;
+	float: left;
 	text-transform: uppercase; }
+.upload-options a {
+	float: right; }
 .search-terms .centered {
 	display:block;
 	margin: 0 auto;
@@ -569,7 +572,7 @@ input#search { float:left; }
 .toggle-bar .upload-section-button {
 }
 
-.search-section {
+.search-section, .upload-section {
 	padding-top: 15px;
 }
 
