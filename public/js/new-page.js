@@ -328,6 +328,7 @@ function receivedConnectionFromSoundCloud() {
 		 alert("First Track: " + tracks[0].title);
 	  });
 */
+  
 }
 
 function uploadNewFile() {
@@ -336,28 +337,28 @@ function uploadNewFile() {
 
 function checkForConnection() {
   
-  var $(button) = clonable_a.clone();
+  var button = clonable_a.clone();
 
   if( SC.isConnected() ) {
 	SC.get('/me', function( me ){
       $('.sc-username').text("Logged into SoundCloud as " + me.username);
     });
-    $(button).attr('href','#').text()
-	$(button).click( function(e) {
+    button.attr('href','#').text('Upload A File To SoundCloud').addClass('upload-file');
+	$('.upload-file').click( function(e) {
 	  e.preventDefault();
 	  uploadNewFile();
     });
   } else {
 	initUploadSection();
 	$('.sc-username').text("Not Logged Into SoundCloud");
-	$(button).attr('href','#').text('Connect to SoundCloud')
-	$(button)click( function(e) {
+	button.attr('href','#').text('Connect to SoundCloud').addClass('connect-soundcloud');
+	$('.connect-soundcloud').click( function(e) {
 	  e.preventDefault();
 	  initUploadSection();
 	});
   }
 
-  $('.sc-username').after( $(button) )
+  $('.sc-username').after( button )
 }
 
 var button_height = 630;
