@@ -324,7 +324,7 @@ function initUploadSection() {
 
 function receivedConnectionFromSoundCloud() {
 	
-  SC.get("/me/tracks", { limit: 5, format: 'json' }, function(tracks){
+  SC.get("/me/tracks", { limit: 10, streamable: true, sharing: "public", format: 'json' }, function(tracks){
 	console.log(tracks)
 	
 	var html = "";
@@ -340,7 +340,7 @@ function receivedConnectionFromSoundCloud() {
 
 function moreResults() {
   results_count++;
-  SC.get("/me/tracks", { limit: 5, offset: (10 * results_count) }, function(tracks){
+  SC.get("/me/tracks", { limit: 10, offset: (10 * results_count), streamable: true, sharing: "public" }, function(tracks){
 	  html = parseResults(tracks);
 	  search_scroll.getContentPane().append(html);
       initUserTracksFunctionaity("subsequent");
