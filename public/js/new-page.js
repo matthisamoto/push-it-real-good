@@ -326,19 +326,17 @@ function receivedConnectionFromSoundCloud() {
 	
   SC.get("/me/tracks", { limit: 5, format: 'json' }, function(tracks){
 	console.log(tracks)
-	/*
+	
 	var html = "";
 	html += '<div class="search scroll-pane">' + "\n";
 	html += parseResults(tracks);
 	html += '</div>' + "\n";
 	$('.search-results').empty().scrollTop(0).append(html);
 	initUserTracksFunctionaity("initial");
-	*/
+	
   });
   
 }
-
-/* .
 
 function moreResults() {
   results_count++;
@@ -417,13 +415,6 @@ function initUserTracksFunctionaity(which) {
   });
 
   if(which == "initial") {
-	if( $('.close-results').length == 0 ) $('.search-button').after( '<a href="#" class="close-results button">Clear Results</a>' );
-	$('.close-results').click( function(e) {
-	  e.preventDefault();
-	  $('.search-results').empty();
-	  $('.search-results').append('	<div class="upload-coming-soon"></div>');
-	  $(this).remove();
-	});
     search_scroll = $('.scroll-pane').jScrollPane({ verticalDragMaxHeight: 25, verticalDragMinHeight: 25 }).data('jsp');
 	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
       if(isAtBottom){ moreResults(); $(this).unbind("jsp-scroll-y") }
@@ -435,7 +426,7 @@ function initUserTracksFunctionaity(which) {
 	});
   }
 }
-*/
+
 function uploadNewFile() {
 	
 }
