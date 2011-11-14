@@ -316,7 +316,7 @@ function initUploadSection() {
   SC.connect({
     redirect_uri: "http://pushitrealgood.com/connect",
     connected: function() { 
-	  receivedConnectionFromSoundCloud() 
+	  receivedConnectionFromSoundCloud();
 	 }
   });
 }

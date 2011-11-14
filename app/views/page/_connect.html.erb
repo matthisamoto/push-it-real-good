@@ -3,15 +3,10 @@
   <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Connect with SoundCloud</title>
 	<script type="text/javascript">
-	  function on_load() {
-		try { window.opener.SC.connectCallback() }
-		catch(err) { console.log(err); }
-	  }
-		// window.opener.setTimeout(window.opener.SC.connectCallback, 1);
+	window.opener.setTimeout(window.opener.SC.connectCallback, 1);
 	</script>
   </head>
   <body>
     <b style="width: 100%; text-align: center;">This popup should automatically close in a few seconds</b>
-    <a href="#" onClick="on_load()">Click Me</a>
   </body>
 </html>
