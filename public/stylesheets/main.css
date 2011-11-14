@@ -447,7 +447,7 @@ input#search {
 	padding:0 5px;
 	margin-right:10px;
 }
-.search-terms {
+.search-terms, .upload-options {
 	padding:0;
 	margin:0;
 	display:block;
@@ -533,7 +533,6 @@ input#search { float:left; }
 	background-color: #f14306;
 	color:#fff; 	
 	border-radius: 8px; }
-
 .toggle-bar {
 	display: block;
 	text-align: left;
@@ -543,8 +542,7 @@ input#search { float:left; }
     position: relative;
 	border: 1px dashed #282625;
 	border-radius: 8px;
-	padding: 1px;
-}
+	padding: 1px; }
 .toggle-bar div { 
 	width: 50%;
 	display: inline-block;
@@ -565,7 +563,6 @@ input#search { float:left; }
 	left: 1px;
 	cursor: default;
 	z-index: 1;
-	
 	border-radius: 8px;
 }
 .toggle-bar .search-section-button {

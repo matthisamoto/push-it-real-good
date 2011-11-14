@@ -305,7 +305,7 @@ function toggleSearchUpload( button ) {
 	  $('.toggle-bar .slider').animate({ marginLeft: "299" }, 250, function() {	
 		$('.search-section-button').removeClass('active')
 	    $('.upload-section-button').addClass('active')
-	    initUploadSection()
+	    checkForConnection()
 	  });
 	
     }
@@ -322,9 +322,22 @@ function initUploadSection() {
 }
 
 function receivedConnectionFromSoundCloud() {
+	/*
 	SC.get("/me/tracks", {limit: 5}, function(tracks){
 		 alert("First Track: " + tracks[0].title);
 	  });
+*/
+}
+
+function checkForConnection() {
+  if( SC.isConnected() ) {
+	SC.get('/me', function( me ){
+      $('.sc-username').text("Logged into SoundCloud as me.username");
+    });
+  } else {
+	initUploadSection();
+	$('.sc-username').text("Not Logged Into SoundCloud");
+  }
 }
 
 var button_height = 630;
