@@ -324,6 +324,7 @@ function initUploadSection() {
 
 function receivedConnectionFromSoundCloud() {	
   SC.get("/me/tracks", { limit: 10, streamable: true, sharing: "public", format: 'json' }, function(tracks){	
+	console.log(tracks);
 	var html = "";
 	html += '<div class="search scroll-pane">' + "\n";
 	html += parseResults(tracks);
