@@ -375,12 +375,12 @@ function parseResults(data) {
 
 	preview_line += '<p class="from left"><span class="from-script">from</span> <a href="' + e['user']['permalink_url'] + '" target="_blank" class="track_author">' + e['user']['username'] + '</a></p>';
 
-	if(e['streamable'] == true)
+	if(e['streamable'] == true && e['sharing'] == "public")
 	{
       preview_line += '<p class="left"><a href="#" class="button select-track left" alt="Use This Track In Your Page" title="Use This Track In Your Page">Use This</a></p>' + "\n";
 	} else 
 	{
-	  preview_line += '<span class="left no-stream">This track is not streamable. <a href="#" class="tooltip" onClick="javascript:function(e){e.preventDefault();}">Why?<span>Right now, SoundCloud\'s API does not allow a combination request of search terms and filtering streamable content. If this ever changes, you will not see non-streamable tracks in this list anymore. For now, though, these tracks will appear in our results. We\'re sorry.</span></a></span>';
+	  preview_line += '<span class="left no-stream">This track is not streamable. <a href="#" class="tooltip" onClick="javascript:function(e){e.preventDefault();}">Why?<span>Either the track is not streamable via SoundCloud, or the track is private. We cannot stream private tracks.</span></a></span>';
 	}
 
 	html += "<div class=\"preview-line clearfix\">" + preview_line + "</div>\n";
