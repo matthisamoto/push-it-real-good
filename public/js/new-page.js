@@ -496,6 +496,8 @@ function recordNewTrack() {
         }
       }, function(track){
         $("#uploadStatus").html("Uploaded: <a href='" + track.permalink_url + "'>" + track.permalink_url + "</a>");
+		$('.upload-results').empty();
+		
       });
     }
 
@@ -542,8 +544,8 @@ function checkForConnection() {
 	    e.preventDefault();
 	    recordNewTrack();
       });
-      receivedConnectionFromSoundCloud();
     }
+    receivedConnectionFromSoundCloud();
   } else {
 	initUploadSection();
 	$('.sc-username').text("Not Logged Into SoundCloud");
