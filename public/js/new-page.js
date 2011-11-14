@@ -322,20 +322,15 @@ function initUploadSection() {
   });
 }
 
-function receivedConnectionFromSoundCloud() {
-	
-  SC.get("/me/tracks", { limit: 10, streamable: true, sharing: "public", format: 'json' }, function(tracks){
-	console.log(tracks)
-	
+function receivedConnectionFromSoundCloud() {	
+  SC.get("/me/tracks", { limit: 10, streamable: true, sharing: "public", format: 'json' }, function(tracks){	
 	var html = "";
 	html += '<div class="search scroll-pane">' + "\n";
 	html += parseResults(tracks);
 	html += '</div>' + "\n";
 	$('.upload-results').empty().scrollTop(0).append(html);
-	initUserTracksFunctionaity("initial");
-	
+	initUserTracksFunctionaity("initial");	
   });
-  
 }
 
 function moreResults() {
@@ -348,7 +343,6 @@ function moreResults() {
   );
 }
 function parseResults(data) {
-  console.log('Parsing Results...')
   var html = "";
   $.each(data, function(i, e) {
 
@@ -533,13 +527,13 @@ function checkForConnection() {
 	SC.get('/me', function( me ){
       $('.sc-username').text("Logged into SoundCloud as " + me.username);
     });
-	if( $('.upload-file').length == 0 ) {
+	if( $('.upload-file').length == 0 && !$(body).hasClass('iphone') && !$(body).hasClass('android') ) {
 	  var record;
 	  var upload;
 	  upload = record = clonable_a.clone();
       upload.attr('href','#').text('Upload A File To SoundCloud').addClass('upload-file');
 	  record.attr('href','#').text('Record Your Own Track').addClass('record-track');	
-      $('.sc-username').after( upload )
+      $('.sc-username').after( upload ).after( record )
       $('.upload-file').click( function(e) {
 	    e.preventDefault();
 	    uploadNewFile();
