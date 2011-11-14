@@ -455,6 +455,7 @@ function checkForConnection() {
 	    e.preventDefault();
 	    uploadNewFile();
       });
+      receivedConnectionFromSoundCloud();
     }
   } else {
 	initUploadSection();
