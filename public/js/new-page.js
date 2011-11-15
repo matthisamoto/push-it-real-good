@@ -451,7 +451,10 @@ function uploadNewFile() {
 function recordNewTrack() {
 	
   $('#recorderUI').removeClass('hidden');
-  $('#upload').removeClass('hidden')
+  $('#upload').removeClass('hidden');
+  $('#otherControls').addClass('hidden');
+  $('#uploadStatus').empty();
+
   $("#recorderUI.reset #controlButton").live("click", function(e){
     updateTimer(0);
 
@@ -517,7 +520,7 @@ function recordNewTrack() {
           sharing: "public"
         }
       }, function(track){
-        $("#uploadStatus").html("<a href='" + track.permalink_url + "' target='_blank'>Uploaded</a>");
+        $("#uploadStatus").html("<a href='" + track.permalink_url + "' target='_blank'>Uploaded ></a>");
 		$('.upload-results').empty();
 	    receivedConnectionFromSoundCloud();
 		$('#upload').addClass('hidden');
