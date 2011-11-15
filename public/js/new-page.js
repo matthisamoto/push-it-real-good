@@ -451,6 +451,7 @@ function uploadNewFile() {
 function recordNewTrack() {
 	
   $('#recorderUI').removeClass('hidden');
+  $('.name-your-upload').removeClass('hidden');
 	
   $("#recorderUI.reset #controlButton").live("click", function(e){
     updateTimer(0);
@@ -496,8 +497,8 @@ function recordNewTrack() {
 
     var upload = function(){
       $("#uploadStatus").html("Uploading...");
+	  $('.name-your-upload').addClass('hidden');
 	  var uploadTitle;
-	  
 	  if( $('.upload-title').val() == "" ) {
 		var d = new Date();
 		var dateString = d.getMonth().toString() + "-" + d.getDate().toString() + "-" + d.getFullYear().toString() + " " + d.getHours().toString() + ":" + d.getMinutes().toString();
@@ -511,7 +512,7 @@ function recordNewTrack() {
           sharing: "public"
         }
       }, function(track){
-        $("#uploadStatus").html("Uploaded: <a href='" + track.permalink_url + "'>" + track.permalink_url + "</a>");
+        $("#uploadStatus").html("Uploaded: <a href='Link'>" + track.permalink_url + "</a>");
 		$('.upload-results').empty();
 	    receivedConnectionFromSoundCloud();
       });
