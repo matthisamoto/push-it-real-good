@@ -450,6 +450,7 @@ input#search {
 	padding:0 10px;
 	margin:0;
 	display:block;
+	border: #282625 dashed 1px; 
 	margin-bottom: 15px; }
 .upload-options p {
 	line-height: 32px;
@@ -578,8 +579,7 @@ input#search { float:left; }
 }
 
 #recorderUI {
-  width: 182px;
-}
+	border: #282625 dashed 1px; }
 
 
 #recorderUI #timer {
@@ -597,7 +597,10 @@ input#search { float:left; }
 
 
 #recorderUI #otherControls {
-  display: none;
+	display: none;
+	float: left;
+}
+#recorderUI #otherControls .button{
 }
 
 #recorderUI.playing #otherControls, #recorderUI.recorded #otherControls {
@@ -614,7 +617,7 @@ input#search { float:left; }
 }
 
 
-#controlButton { padding: 0 !important; border: 0 !important; -moz-border-radius: 0; -webkit-border-radius: 0; -o-border-radius: 0; -ms-border-radius: 0; border-radius: 0; -webkit-transition: none; -moz-transition: none; -o-transition: none; transition: none; display: block; width: 84px; height: 84px; background-color: transparent !important; background-image: url(/images/rec_button_large.png) !important; background-position: 0 0; }
+#controlButton { padding: 0 !important; border: 0 !important; -moz-border-radius: 0; -webkit-border-radius: 0; -o-border-radius: 0; -ms-border-radius: 0; border-radius: 0; -webkit-transition: none; -moz-transition: none; -o-transition: none; transition: none; display: block; width: 84px; height: 84px; background-color: transparent !important; background-image: url(/images/rec_button_large.png) !important; background-position: 0 0; float:left; }
 
 #recorderUI.recording #controlButton, #recorderUI.playing #controlButton {
   background-position: 0 -84px;

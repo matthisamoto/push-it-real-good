@@ -351,7 +351,7 @@ function initUploadSection() {
     redirect_uri: "http://pushitrealgood.com/connect",
     connected: function() { 
 	  receivedConnectionFromSoundCloud();
-	 }
+	}
   });
 }
 
@@ -403,7 +403,7 @@ function parseResults(data) {
 
 	preview_line += '<p class="from left"><span class="from-script">from</span> <a href="' + e['user']['permalink_url'] + '" target="_blank" class="track_author">' + e['user']['username'] + '</a></p>';
 
-	if( e['streamable'] == true && e['sharing'] == "public" && e['state'] == "finished" )
+	if( e['streamable'] == true && e['sharing'] == "public" )
 	{
       preview_line += '<p class="left"><a href="#" class="button select-track left" alt="Use This Track In Your Page" title="Use This Track In Your Page">Use This</a></p>' + "\n";
 	} else if ( e['status'] != "finished" ) {
@@ -471,10 +471,10 @@ function recordNewTrack() {
   recorder += '<div id="recorderUI" class="reset">' + "\n";
   recorder += '<a href="#" id="controlButton" class="record"><span id="timer" class="hidden">0:00</span></a>' + "\n";
   recorder += '<div id="otherControls">' + "\n";
-  recorder += '<a href="#" id="reset" class="button">Reset</a>' + "\n";
-  recorder += '<a href="#" id="upload" class="button">Upload</a>' + "\n";
-  recorder += '<input type="text" class="upload-title"></input>' + "\n";
+  recorder += '<a href="#" id="reset" class="control-button">Reset</a>' + "\n";
+  recorder += '<a href="#" id="upload" class="control-button">Upload</a>' + "\n";
   recorder += '</div>' + "\n";
+  recorder += '<input type="text" class="upload-title"></input>' + "\n";
   recorder += '<div id="uploadStatus"></div>' + "\n";
   recorder += '</div>' + "\n";
 
