@@ -587,8 +587,6 @@ input#search { float:left; }
 #recorderUI #timer {
   font-weight: bold;
   color: #333;
-  line-height: 85px;
-  width: 100%;
   text-align: center;
   display: none;
 }
@@ -599,7 +597,6 @@ input#search { float:left; }
 
 
 #recorderUI #otherControls {
-	display: none;
 	float: left;
 }
 #recorderUI #otherControls .button{
@@ -620,15 +617,15 @@ input#search { float:left; }
 .control-button-container { 
 	float: left; }
 
-#controlButton { padding: 0 !important; border: 0 !important; -moz-border-radius: 0; -webkit-border-radius: 0; -o-border-radius: 0; -ms-border-radius: 0; border-radius: 0; -webkit-transition: none; -moz-transition: none; -o-transition: none; transition: none; display: block; width: 84px; height: 84px; background-color: transparent !important; background-image: url(/images/rec_button_large.png) !important; background-position: 0 0; }
+#controlButton { padding: 0 !important; border: 0 !important; -moz-border-radius: 0; -webkit-border-radius: 0; -o-border-radius: 0; -ms-border-radius: 0; border-radius: 0; -webkit-transition: none; -moz-transition: none; -o-transition: none; transition: none; display: block; width: 100px; height: 30px; background-color: transparent !important; background-image: url(/images/rec_button_large.png) !important; background-position: 0 0; }
 
 #recorderUI.recording #controlButton, #recorderUI.playing #controlButton {
-  background-position: 0 -84px;
+  background-position: 0 -30px;
 }
-#recorderUI.recorded #controlButton { background-position: 0 -168px; }
+#recorderUI.recorded #controlButton { background-position: 0 -60px; }
 
 
-#controlButton.pause { background-position: 0 -252px; }
+#controlButton.pause { background-position: 0 -90px; }
 
 #upload-title {
 	float: left;
