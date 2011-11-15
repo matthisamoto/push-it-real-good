@@ -476,6 +476,7 @@ input#search {
 	display:block;
 	text-align:left;
 	margin:0 auto; }
+.upload-options .search, .upload-options .search-results { height: 450px; }
 .search-terms .search-button {
 	display: block;
 	vertical-align: middle;
@@ -580,8 +581,9 @@ input#search { float:left; }
 /* Recording */
 
 #recorderUI {
-	padding-bottom: 10px;
+	padding: 0 10px 10px 10px;
 	border-bottom: #282625 dashed 1px; }
+#recorderUI * { margin-right: 10px; }
 #recorderUI #timer {
   font-weight: bold;
   color: #333;
@@ -597,9 +599,7 @@ input#search { float:left; }
 #recorderUI.playing #otherControls, #recorderUI.recorded #otherControls {
   display: block;
 }
-#reset, #upload {
-  width: 50px;
-  margin: 5px; }
+#reset, #upload {}
 .control-button-container { float: left; }
 #controlButton { padding: 0 !important; border: 0 !important; -moz-border-radius: 0; -webkit-border-radius: 0; -o-border-radius: 0; -ms-border-radius: 0; border-radius: 0; -webkit-transition: none; -moz-transition: none; -o-transition: none; transition: none; display: block; width: 100px; height: 30px; background-color: transparent !important; background-image: url(/images/rec_button_large.png) !important; background-position: 0 0; }
 #recorderUI.recording #controlButton, #recorderUI.playing #controlButton {
