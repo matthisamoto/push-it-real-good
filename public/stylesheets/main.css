@@ -612,7 +612,7 @@ input#search { float:left; }
 #uploadStatus, #recorderUI label {
 	float: left;
 	text-transform: uppercase;
-	font-size: 120%; }
+	font-size: 150%; }
 #uploadStatus a:link,
 #uploadStatus a:visited {
 	font-size: 100%;
