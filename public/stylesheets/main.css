@@ -476,7 +476,7 @@ input#search {
 	display:block;
 	text-align:left;
 	margin:0 auto; }
-.upload-options .search, .upload-options .search-results { height: 450px; }
+.upload-options .search, .upload-options .search-results { height: 420px; }
 .search-terms .search-button {
 	display: block;
 	vertical-align: middle;
