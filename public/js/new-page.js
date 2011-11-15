@@ -490,6 +490,7 @@ function recordNewTrack() {
   });
 
   $("#reset").live("click", function(e) {
+	e.preventDefault();
     reset_recorder()
   });
 
@@ -538,7 +539,6 @@ function reset_recorder() {
   $('.name-your-upload').addClass('hidden');
   $('#otherControls').addClass('hidden');
   $('#uploadStatus').empty();
-  e.preventDefault();
 }
 
 function updateTimer(ms){
