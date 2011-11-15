@@ -470,6 +470,7 @@ function recordNewTrack() {
     setRecorderUIState("recorded");
 	$('.name-your-upload').removeClass('hidden');
 	$('#otherControls').removeClass('hidden');
+	$('#uploadStatus').empty();
     SC.recordStop();
     e.preventDefault();
   });
@@ -541,7 +542,7 @@ function reset_recorder() {
 }
 
 function updateTimer(ms){
-  $("#uploadStatus").text("Recording " + SC.Helper.millisecondsToHMS(ms).toString());
+  $("#uploadStatus").html("Recording " + SC.Helper.millisecondsToHMS(ms).toString());
 }
 
 function setRecorderUIState(state){
