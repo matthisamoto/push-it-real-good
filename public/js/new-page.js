@@ -310,7 +310,7 @@ function checkForConnection() {
 	SC.get('/me', function( me ){
       $('.sc-username').text("Logged into SoundCloud as " + me.username);
     });
-	if( $('.upload-file').length == 0 && !$('body').hasClass('iphone') && !$('body').hasClass('android') ) {
+	if( $('.record-track').length == 0 && !$('body').hasClass('iphone') && !$('body').hasClass('android') ) {
 	  var record;
 	  // var upload;
 	  // upload = clonable_a.clone();
@@ -473,6 +473,7 @@ function recordNewTrack() {
   recorder += '<div id="otherControls">' + "\n";
   recorder += '<a href="#" id="reset" class="button">Reset</a>' + "\n";
   recorder += '<a href="#" id="upload" class="button">Upload</a>' + "\n";
+  recorder += '<input type="text" class="upload-title"></input>' + "\n";
   recorder += '</div>' + "\n";
   recorder += '<div id="uploadStatus"></div>' + "\n";
   recorder += '</div>' + "\n";
@@ -525,11 +526,18 @@ function recordNewTrack() {
 
     var upload = function(){
       $("#uploadStatus").html("Uploading...");
-	  var d = new Date();
-	  var dateString = d.getMonth().toString() + "-" + d.getDate().toString() + "-" + d.getFullYear().toString() + " " + d.getHours().toString() + ":" + d.getMinutes().toString();
+	  var uploadTitle;
+	  
+	  if( $('.upload-title').val() == "" ) {
+		var d = new Date();
+		var dateString = d.getMonth().toString() + "-" + d.getDate().toString() + "-" + d.getFullYear().toString() + " " + d.getHours().toString() + ":" + d.getMinutes().toString();
+		uploadTitle = "Push It Real Good Recording " + dateString;
+	  } else {
+		uploadTitle = $('.upload-title').val();
+	  }
       SC.recordUpload({
         track: {
-          title: "Push It Real Good Recording " + dateString,
+          title: uploadTitle,
           sharing: "public"
         }
       }, function(track){
