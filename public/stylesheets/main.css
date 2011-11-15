@@ -617,9 +617,10 @@ input#search { float:left; }
 #otherControls {
   clear: both;
 }
+.control-button-container { 
+	float: left; }
 
-
-#controlButton { padding: 0 !important; border: 0 !important; -moz-border-radius: 0; -webkit-border-radius: 0; -o-border-radius: 0; -ms-border-radius: 0; border-radius: 0; -webkit-transition: none; -moz-transition: none; -o-transition: none; transition: none; display: block; width: 84px; height: 84px; background-color: transparent !important; background-image: url(/images/rec_button_large.png) !important; background-position: 0 0; float:left; }
+#controlButton { padding: 0 !important; border: 0 !important; -moz-border-radius: 0; -webkit-border-radius: 0; -o-border-radius: 0; -ms-border-radius: 0; border-radius: 0; -webkit-transition: none; -moz-transition: none; -o-transition: none; transition: none; display: block; width: 84px; height: 84px; background-color: transparent !important; background-image: url(/images/rec_button_large.png) !important; background-position: 0 0; }
 
 #recorderUI.recording #controlButton, #recorderUI.playing #controlButton {
   background-position: 0 -84px;
