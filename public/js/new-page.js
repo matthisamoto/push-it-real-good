@@ -453,7 +453,6 @@ function recordNewTrack() {
   $('#recorderUI').removeClass('hidden');
   $('#upload').removeClass('hidden');
   $('#otherControls').addClass('hidden');
-  $('#uploadStatus').empty();
 
   $("#recorderUI.reset #controlButton").live("click", function(e){
     updateTimer(0);
@@ -496,6 +495,7 @@ function recordNewTrack() {
     setRecorderUIState("reset");
 	$('.name-your-upload').addClass('hidden');
 	$('#otherControls').addClass('hidden');
+	$('#uploadStatus').empty();
     e.preventDefault();
   });
 
