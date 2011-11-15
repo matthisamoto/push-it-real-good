@@ -525,8 +525,8 @@ function recordNewTrack() {
 
     var upload = function(){
       $("#uploadStatus").html("Uploading...");
-	  var d = new Date(month, day, year, hours, minutes);
-	  var dateString = d.toDateString() + " " + d.toTimeString();
+	  var d = new Date();
+	  var dateString = d.getMonth().toString() + "-" + d.getDate().toString() + "-" + d.getFullYear().toString() + " " + d.getHours().toString() + ":" + d.getMinutes().toString();
       SC.recordUpload({
         track: {
           title: "Push It Real Good Recording " + dateString,
