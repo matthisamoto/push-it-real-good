@@ -355,9 +355,10 @@ function initUploadSection() {
   });
 }
 
-function receivedConnectionFromSoundCloud() {	
+function receivedConnectionFromSoundCloud() {
+  $('#recorderUI').removeClass('hidden');
   SC.get("/me/tracks", { limit: 10, streamable: true, sharing: "public", format: 'json' }, function(tracks){	
-	console.log(tracks);
+	// console.log(tracks);
 	var html = "";
 	html += '<div class="search scroll-pane">' + "\n";
 	html += parseResults(tracks);
@@ -466,17 +467,6 @@ function uploadNewFile() {
 // Recording Functions
 
 function recordNewTrack() {
-
-  var recorder = "";
-  recorder += '<div id="recorderUI" class="reset clearfix">' + "\n";
-  recorder += '<a href="#" id="controlButton" class="record"><span id="timer" class="hidden">0:00</span></a>' + "\n";
-  recorder += '<div id="otherControls">' + "\n";
-  recorder += '<a href="#" id="reset" class="control-button">Reset</a>' + "\n";
-  recorder += '<a href="#" id="upload" class="control-button">Upload</a>' + "\n";
-  recorder += '</div>' + "\n";
-  recorder += '<input type="text" class="upload-title" id="upload-title"></input>' + "\n";
-  recorder += '<div id="uploadStatus"></div>' + "\n";
-  recorder += '</div>' + "\n";
 
   if( $('.recorder').length == 0 ) {
 	$('.upload-options').after( recorder );
