@@ -512,7 +512,7 @@ function recordNewTrack() {
           sharing: "public"
         }
       }, function(track){
-        $("#uploadStatus").html("Uploaded: <a href='Link'>" + track.permalink_url + "</a>");
+        $("#uploadStatus").html("Uploaded: <a href='" + track.permalink_url + "'>Link</a>");
 		$('.upload-results').empty();
 	    receivedConnectionFromSoundCloud();
       });

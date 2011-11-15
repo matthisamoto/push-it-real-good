@@ -609,14 +609,18 @@ input#search { float:left; }
 #upload-title {
 	float: left;
 }
-#uploadStatus { 
+#uploadStatus, #recorderUI label {
 	float: left;
 	text-transform: uppercase;
 	font-size: 120%; }
-#recorderUI label {
-	text-transform: uppercase;
-	font-size: 120%;
+#uploadStatus a:link,
+#uploadStatus a:visited {
+	font-size: 100%;
 }
+.name-your-upload {
+	margin: 0 10px;
+}
+	
 /* Button */
 
 .choose-buttons {
