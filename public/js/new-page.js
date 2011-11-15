@@ -480,7 +480,7 @@ function recordNewTrack() {
     setRecorderUIState("playing");
     SC.recordPlay({
       progress: function(ms){
-        updateTimer(ms);
+        // updateTimer(ms);
       },
       finished: function(){
         setRecorderUIState("recorded");
