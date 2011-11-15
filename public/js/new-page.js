@@ -536,7 +536,7 @@ function updateTimer(ms){
 function setRecorderUIState(state){
   // state can be reset, recording, recorded, playing, uploading
   // visibility of buttons is managed via CSS
-  $("#recorderUI").attr("class", state);
+  $("#recorderUI").attr("class", state + " clearfix");
 }
 
 
