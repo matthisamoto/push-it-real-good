@@ -470,19 +470,16 @@ function recordNewTrack() {
     setRecorderUIState("recorded");
 	$('.name-your-upload').removeClass('hidden');
 	$('#otherControls').removeClass('hidden');
-	$('#uploadStatus').empty();
+	$('#uploadStatus').empty().addClass('hidden');
     SC.recordStop();
     e.preventDefault();
   });
 
   $("#recorderUI.recorded #controlButton").live("click", function(e){
-    // updateTimer(0);
     setRecorderUIState("playing");
     SC.recordPlay({
-      progress: function(ms){
-        // updateTimer(ms);
-      },
-      finished: function(){
+      progress: function(ms) { },
+      finished: function() {
         setRecorderUIState("recorded");
       }
     });
@@ -498,7 +495,7 @@ function recordNewTrack() {
     setRecorderUIState("uploading");
 
     var upload = function(){
-      $("#uploadStatus").html("Uploading...");
+      $("#uploadStatus").html("Uploading...").removeClass('hidden');
 	  $('.name-your-upload').addClass('hidden');
 	  $('#otherControls').addClass('hidden');
 	  var uploadTitle;
@@ -538,12 +535,11 @@ function reset_recorder() {
   setRecorderUIState("reset");
   $('.name-your-upload').addClass('hidden');
   $('#otherControls').addClass('hidden');
-  $('#uploadStatus').empty();
+  $('#uploadStatus').empty().addClass('hidden');
 }
 
 function updateTimer(ms){
-  $("#uploadStatus").html("Recording " + SC.Helper.millisecondsToHMS(ms));
-  $('#uploadStatus').css('width','auto')
+  $("#uploadStatus").html("Recording " + SC.Helper.millisecondsToHMS(ms)).removeClass('hidden');
 }
 
 function setRecorderUIState(state){
