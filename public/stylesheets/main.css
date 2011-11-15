@@ -611,9 +611,6 @@ input#search { float:left; }
   margin: 5px;
 }
 
-#otherControls {
-  clear: both;
-}
 .control-button-container { 
 	float: left; }
 
