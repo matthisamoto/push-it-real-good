@@ -629,6 +629,12 @@ input#search { float:left; }
 
 #controlButton.pause { background-position: 0 -252px; }
 
+#upload-title {
+	float: left;
+}
+
+#uploadStatus { 
+	float: left;}
 
 /* Button */
 

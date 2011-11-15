@@ -468,13 +468,13 @@ function uploadNewFile() {
 function recordNewTrack() {
 
   var recorder = "";
-  recorder += '<div id="recorderUI" class="reset">' + "\n";
+  recorder += '<div id="recorderUI" class="reset clearfix">' + "\n";
   recorder += '<a href="#" id="controlButton" class="record"><span id="timer" class="hidden">0:00</span></a>' + "\n";
   recorder += '<div id="otherControls">' + "\n";
   recorder += '<a href="#" id="reset" class="control-button">Reset</a>' + "\n";
   recorder += '<a href="#" id="upload" class="control-button">Upload</a>' + "\n";
   recorder += '</div>' + "\n";
-  recorder += '<input type="text" class="upload-title"></input>' + "\n";
+  recorder += '<input type="text" class="upload-title" id="upload-title"></input>' + "\n";
   recorder += '<div id="uploadStatus"></div>' + "\n";
   recorder += '</div>' + "\n";
 
