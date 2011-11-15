@@ -525,7 +525,7 @@ function recordNewTrack() {
 
     var upload = function(){
       $("#uploadStatus").html("Uploading...");
-	  var d = new Date();
+	  var d = new Date(month, day, year, hours, minutes);
 	  var dateString = d.toDateString() + " " + d.toTimeString();
       SC.recordUpload({
         track: {
