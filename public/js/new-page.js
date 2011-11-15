@@ -469,7 +469,7 @@ function recordNewTrack() {
   $("#recorderUI.recording #controlButton, #recorderUI.playing #controlButton").live("click", function(e){
     setRecorderUIState("recorded");
 	$('.name-your-upload').removeClass('hidden');
-	$('.otherControls').removeClass('hidden');
+	$('#otherControls').removeClass('hidden');
     SC.recordStop();
     e.preventDefault();
   });
@@ -492,7 +492,7 @@ function recordNewTrack() {
     SC.recordStop();
     setRecorderUIState("reset");
 	$('.name-your-upload').addClass('hidden');
-	$('.otherControls').addClass('hidden');
+	$('#otherControls').addClass('hidden');
     e.preventDefault();
   });
 
@@ -502,7 +502,7 @@ function recordNewTrack() {
     var upload = function(){
       $("#uploadStatus").html("Uploading...");
 	  $('.name-your-upload').addClass('hidden');
-	  $('.otherControls').addClass('hidden');
+	  $('#otherControls').addClass('hidden');
 	  var uploadTitle;
 	  if( $('.upload-title').val() == "" ) {
 		var d = new Date();
