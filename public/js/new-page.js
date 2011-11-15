@@ -476,7 +476,7 @@ function recordNewTrack() {
   });
 
   $("#recorderUI.recorded #controlButton").live("click", function(e){
-    updateTimer(0);
+    // updateTimer(0);
     setRecorderUIState("playing");
     SC.recordPlay({
       progress: function(ms){
@@ -542,7 +542,8 @@ function reset_recorder() {
 }
 
 function updateTimer(ms){
-  $("#uploadStatus").html("Recording " + SC.Helper.millisecondsToHMS(ms).toString());
+  $("#uploadStatus").html("Recording " + SC.Helper.millisecondsToHMS(ms));
+  $('#uploadStatus').css('width','auto')
 }
 
 function setRecorderUIState(state){
