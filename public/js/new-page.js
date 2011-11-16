@@ -3,6 +3,7 @@ var count = 0;
 var current_page = 1;
 var search_scroll;
 var results_count = 0;
+var user_results_count = 0;
 var clonable_div = $('<div/>');
 var clonable_a = $('<a/>');
 
@@ -346,7 +347,7 @@ function initUploadSection() {
 function receivedConnectionFromSoundCloud() {
   // Prep recorder 
   recordNewTrack();
-
+  user_results_count = 0;
   SC.get("/me/tracks", { limit: 10, streamable: true, sharing: "public", format: 'json' }, function(tracks){	
 	// console.log(tracks);
 	var html = "";
@@ -359,8 +360,8 @@ function receivedConnectionFromSoundCloud() {
 }
 
 function moreUserResults() {
-  results_count++;
-  SC.get("/me/tracks", { limit: 10, offset: (10 * results_count), streamable: true, sharing: "public" }, function(tracks){
+  user_results_count++;
+  SC.get("/me/tracks", { limit: 10, offset: (10 * user_results_count), streamable: true, sharing: "public" }, function(tracks){
 	  html = parseResults(tracks);
 	  search_scroll.getContentPane().append(html);
       initUserTracksFunctionaity("subsequent");
