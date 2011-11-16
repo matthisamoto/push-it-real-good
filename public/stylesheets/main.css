@@ -535,12 +535,15 @@ input#search { float:left; }
 	float: right; 
 	border-radius: 8px; }
 .select-track:link, .select-track:visited,.select-track:hover {
-	background: url(/images/orange_tile.png) repeat-x transparent; 
+	background: url(/images/gray_tile.png) repeat-x transparent; 
 	zoom: 1;
 	filter: alpha(opacity=90);
 	opacity: 0.9;
 	color:#fff; 	
-	border-radius: 8px; }
+	border-radius: 8px; 
+	line-height: 30px;
+	height: 30px;
+	width: 80px; }
 .toggle-bar {
 	display: block;
 	text-align: left;
@@ -585,7 +588,8 @@ input#search { float:left; }
 
 #recorderUI {
 	padding: 0 10px 10px 10px;
-	border-bottom: #282625 dashed 1px; }
+	border-bottom: #282625 dashed 1px;
+	height: 45px; }
 #recorderUI * { margin-right: 10px; }
 #recorderUI #timer {
   font-weight: bold;
@@ -602,7 +606,7 @@ input#search { float:left; }
 #controlButton.pause { background-position: 0 -90px; }
 #upload:link, #upload:visited {
 	border-radius: 8px;
-	background: url(/images/orange_tile.png);
+	background: url(/images/gray_tile.png);
 	zoom: 1;
 	filter: alpha(opacity=90);
 	opacity: 0.9;
