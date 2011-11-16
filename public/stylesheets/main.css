@@ -499,7 +499,7 @@ input#search { float:left; }
 	cursor: pointer;
 	text-transform: uppercase;
 	cursor: none; }
-.track-name .added { color: #fff; }
+.track-name .added { color: #f14306; }
 .track {
 	width:97%;
 	padding: 10px 0;
