@@ -290,49 +290,6 @@ $('.prev').each( function() {
   });
 });
 
-// Hiding and unHiding the stations
-
-function toggleSections() {
-  if( $('.search-tracks').height() > 0 ) {
-	$('.search-tracks').animate({ height: "0" }, 500);
-	$('.choose-button').animate({ height: button_height }, 500, function() { document.getElementById("page_title_url").focus(); } );
-	$('.button-header').css('background-image',"url(/images/orange_tile.png)");
-	$('.sound-header').css('background-image',"url(/images/gray_tile.png)");
-  } else { 
-    $('.search-tracks').animate({ height: search_height }, 500);
-	$('.choose-button').animate({ height: "0" }, 500);
-	$('.button-header').css('background-image',"url(/images/gray_tile.png)");
-	$('.sound-header').css('background-image',"url(/images/orange_tile.png)");
-  }
-}
-
-function toggleSearchUpload( button ) {
-  if( !button.hasClass('active') ){
-    if( $('.search-section').hasClass('hidden') ) {
-	  // Activate Search-Tracks Section 
-	  $('.search-section').removeClass('hidden')
-	  $('.upload-section').addClass('hidden')
-	
-	  $('.toggle-bar .slider').animate({ marginLeft: "0" }, 250, function() { 
-		$('.search-section-button').addClass('active')
-	    $('.upload-section-button').removeClass('active')
-	  });
-    } else {
-	  // Activate Upload-Your-Own Section
-	  $('.search-section').addClass('hidden')
-	  $('.upload-section').removeClass('hidden')
-	
-	  $('.toggle-bar .slider').animate({ marginLeft: "299" }, 250, function() {	
-		$('.search-section-button').removeClass('active')
-	    $('.upload-section-button').addClass('active')
-	    checkForConnection()
-	  });
-    }
-  }
-}
-
-
-
 function checkForConnection() {
 	
   if( SC.isConnected() ) {
@@ -527,6 +484,11 @@ function recordNewTrack() {
   $("#recorderUI.recording #controlButton, #recorderUI.playing #controlButton").live("click", function(e){
     setRecorderUIState("recorded");
 	$('.name-your-upload').removeClass('hidden');
+	$('.name-your-upload input').click( function(e) {
+		if($(this).val() == "Name Your Track") {
+			$(this).val("");
+		}
+	})
 	$('#otherControls').removeClass('hidden');
 	$('#uploadStatus').empty().addClass('hidden');
     SC.recordStop();
@@ -604,6 +566,47 @@ function setRecorderUIState(state){
   // state can be reset, recording, recorded, playing, uploading
   // visibility of buttons is managed via CSS
   $("#recorderUI").attr("class", state + " clearfix");
+}
+
+function toggleSections() {
+  if( $('.search-tracks').height() > 0 ) {
+	$('.search-tracks').animate({ height: "0" }, 500);
+	$('.choose-button').animate({ height: button_height }, 500, function() { document.getElementById("page_title_url").focus(); } );
+	$('.button-header').css('background-image',"url(/images/orange_tile.png)");
+	$('.sound-header').css('background-image',"url(/images/gray_tile.png)");
+  } else { 
+    $('.search-tracks').animate({ height: search_height }, 500);
+	$('.choose-button').animate({ height: "0" }, 500);
+	$('.button-header').css('background-image',"url(/images/gray_tile.png)");
+	$('.sound-header').css('background-image',"url(/images/orange_tile.png)");
+  }
+}
+
+function toggleSearchUpload( button ) {
+  if( !button.hasClass('active') ){
+    if( $('.search-section').hasClass('hidden') ) {
+	  // Activate Search-Tracks Section 
+	  $('.search-section').removeClass('hidden')
+	  $('.upload-section').addClass('hidden')
+	
+	  $('.toggle-bar .slider').animate({ marginLeft: "0" }, 250, function() { 
+		$('.search-section-button').addClass('active')
+	    $('.upload-section-button').removeClass('active')
+	  });
+    } else {
+	  // Activate Upload-Your-Own Section
+	  $('.search-section').addClass('hidden')
+	  $('.upload-section').removeClass('hidden')
+	
+	  $('.toggle-bar .slider').animate({ marginLeft: "299" }, 250, function() {	
+		$('.search-section-button').removeClass('active')
+	    $('.upload-section-button').addClass('active')
+	
+	    checkForConnection();
+	
+	  });
+    }
+  }
 }
 
 var button_height = 630;
