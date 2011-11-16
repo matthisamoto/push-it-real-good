@@ -2,6 +2,7 @@ var current_preview_string;
 var count = 0;
 var current_page = 1;
 var search_scroll;
+var user_scroll;
 var results_count = 0;
 var user_results_count = 0;
 var clonable_div = $('<div/>');
@@ -363,7 +364,7 @@ function moreUserResults() {
   user_results_count++;
   SC.get("/me/tracks", { limit: 10, offset: (10 * user_results_count), streamable: true, sharing: "public" }, function(tracks){
 	  html = parseResults(tracks);
-	  search_scroll.getContentPane().append(html);
+	  user_scroll.getContentPane().append(html);
       initUserTracksFunctionaity("subsequent");
 	}
   );
@@ -437,12 +438,12 @@ function initUserTracksFunctionaity(which) {
   });
 
   if(which == "initial") {
-    search_scroll = $('.scroll-pane').jScrollPane({ verticalDragMaxHeight: 25, verticalDragMinHeight: 25 }).data('jsp');
+    user_scroll = $('.scroll-pane').jScrollPane({ verticalDragMaxHeight: 25, verticalDragMinHeight: 25 }).data('jsp');
 	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
       if(isAtBottom){ moreUserResults(); $(this).unbind("jsp-scroll-y") }
 	});
   } else {
-	search_scroll.reinitialise();
+	user_scroll.reinitialise();
 	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
       if(isAtBottom){ moreUserResults(); $(this).unbind("jsp-scroll-y") }
 	});
