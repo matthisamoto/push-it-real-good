@@ -22,7 +22,7 @@ $.fn.exists = function() {
   if( this.length > 0 ) {
 	return true;
   } else {
-    return false;	
+    return false;
   }
 };
 
@@ -592,7 +592,7 @@ function reset_recorder() {
   setRecorderUIState("reset");
   $('.name-your-upload').addClass('hidden');
   $('#otherControls').addClass('hidden');
-  $('#uploadStatus').empty().addClass('hidden');
+  $('#uploadStatus').addClass('hidden').empty();
 }
 
 function updateTimer(ms){
