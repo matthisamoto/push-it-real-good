@@ -601,7 +601,6 @@ input#search { float:left; }
 #recorderUI.recorded #controlButton { background-position: 0 -60px; }
 #controlButton.pause { background-position: 0 -90px; }
 #upload:link, #upload:visited {
-	height: 30px;
 	border-radius: 8px;
 	background: url(/images/orange_tile.png);
 	zoom: 1;
@@ -609,9 +608,10 @@ input#search { float:left; }
 	opacity: 0.9;
 	color:#fff;
 	text-decoration: none;
-	display:block;
-	width: 100px;
-}
+	display:inline-block;
+	height: 30px;
+	width: 80px;
+	line-height: 30px; }
 #upload-title { 
 	float: left;
 	width: 200px;
