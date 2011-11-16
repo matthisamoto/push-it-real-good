@@ -535,7 +535,7 @@ input#search { float:left; }
 	float: right; 
 	border-radius: 8px; }
 .select-track:link, .select-track:visited,.select-track:hover {
-	background: url(/images/gray_tile.png) repeat-x transparent; 
+	background: url(/images/orange_tile.png) repeat-x transparent; 
 	zoom: 1;
 	filter: alpha(opacity=90);
 	opacity: 0.9;
@@ -559,13 +559,11 @@ input#search { float:left; }
 	cursor: pointer;
 	position: relative;
 	z-index: 2; }
-.toggle-bar div.active { 
-	color: #fff;
-}
+.toggle-bar div.active { color: #fff; }
 .toggle-bar div.slider {
 	width: 299px;
 	height: 40px;
-	background: url(/images/gray_tile.png) repeat-x transparent; 
+	background: url(/images/orange_tile.png) repeat-x transparent; 
 	zoom: 1;
 	filter: alpha(opacity=90);
 	opacity: 0.9;
@@ -574,8 +572,7 @@ input#search { float:left; }
 	left: 1px;
 	cursor: default;
 	z-index: 1;
-	border-radius: 8px;
-}
+	border-radius: 8px; }
 .toggle-bar .search-section-button {
 
 }
