@@ -352,7 +352,7 @@ function receivedConnectionFromSoundCloud() {
   SC.get("/me/tracks", { limit: 10, streamable: true, sharing: "public", format: 'json' }, function(tracks){	
 	// console.log(tracks);
 	var html = "";
-	html += '<div class="search scroll-pane">' + "\n";
+	html += '<div class="search user-scroll-pane">' + "\n";
 	html += parseResults(tracks);
 	html += '</div>' + "\n";
 	$('.upload-results').empty().scrollTop(0).append(html);
@@ -438,13 +438,13 @@ function initUserTracksFunctionaity(which) {
   });
 
   if(which == "initial") {
-    user_scroll = $('.scroll-pane').jScrollPane({ verticalDragMaxHeight: 25, verticalDragMinHeight: 25 }).data('jsp');
-	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
+    user_scroll = $('.user-scroll-pane').jScrollPane({ verticalDragMaxHeight: 25, verticalDragMinHeight: 25 }).data('jsp');
+	$('.user-scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
       if(isAtBottom){ moreUserResults(); $(this).unbind("jsp-scroll-y") }
 	});
   } else {
 	user_scroll.reinitialise();
-	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
+	$('.user-scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
       if(isAtBottom){ moreUserResults(); $(this).unbind("jsp-scroll-y") }
 	});
   }

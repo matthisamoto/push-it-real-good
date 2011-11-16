@@ -999,7 +999,7 @@ p.creator .line {
 	margin: 0; 
 	margin-bottom: 3px; 
 }
-input:focus, select:focus, .jspContainer:focus, .scroll-pane:focus { outline-width: 0; }
+input:focus, select:focus, .jspContainer:focus, .scroll-pane:focus, .user-scroll-pane:focus { outline-width: 0; }
 .LV_valid { color: #090; }
 .LV_invalid { color: #c00; }
 a:link, a:visited, a:hover { color:#f14306; }
