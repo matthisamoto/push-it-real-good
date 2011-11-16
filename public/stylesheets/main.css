@@ -603,7 +603,7 @@ input#search { float:left; }
 #upload-title { 
 	float: left;
 	width: 200px;
-	height: 33px;
+	height: 28px;
 	padding: 0 5px; }
 #uploadStatus, #recorderUI label {
 	float: left;
