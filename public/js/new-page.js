@@ -1,3 +1,5 @@
+
+	
 var current_preview_string;
 var count = 0;
 var current_page = 1;
@@ -13,6 +15,17 @@ function killpreloader() {
 }
 
 // $(function() {
+	
+
+
+$.fn.exists = function() {
+  if( this.length > 0 ) {
+	return true;
+  } else {
+    return false;	
+  }
+};
+
 
 var container = $('<div>');
 
@@ -308,33 +321,41 @@ function toggleSearchUpload( button ) {
 }
 
 function fetchUserInfo() {
-	var user_info;
-	SC.get('/me', function( me ){
+  var user_info;
+  if( SC.isConnected() ) {
+    SC.get('/me', function( me ){
       user_info = "Logged into SoundCloud as " + me.username;
     });
-	return user_info;
+  } else {
+	  user_info = "Not Logged Into SoundCloud"
+  }
+  return user_info;
 }
 
 function checkForConnection() {
 	
   if( SC.isConnected() ) {
+	
 	$('.sc-username').text( fetchUserInfo() );
-    if( $('.disconnect-soundcloud').length == 0 ) {
+	
+    if( !$('.disconnect-soundcloud').exists() ) {
       var disconnect = clonable_a.clone();
 	  disconnect.attr('href','#').html('<img src="/images/disconnect-soundcloud.png" alt="Disconnect From SoundCloud" />').addClass('disconnect-soundcloud');	  
-      $('.sc-username').after( disconnect );	
+      $('.sc-username').after( disconnect );
       $('.disconnect-soundcloud').click( function(e) {
         e.preventDefault();
       });
     }
+
     receivedConnectionFromSoundCloud();
 
   } else {
 	
 	initUploadSection();
 	
-	$('.sc-username').text("Not Logged Into SoundCloud");
-	if( $('.connect-soundcloud').length == 0 ) {
+	$('.sc-username').text( fetchUserInfo() );
+	
+	if( !$('.connect-soundcloud').exists() ) {
       var connect = clonable_a.clone();
 	  connect.attr('href','#').html('<img src="/images/connect-soundcloud.png" alt="Connect With SoundCloud" />').addClass('connect-soundcloud');	  
 	  $('.sc-username').after( connect );	
@@ -359,7 +380,7 @@ function receivedConnectionFromSoundCloud() {
 	
   $('.sc-username').text( fetchUserInfo() );
 
-  if( $('.disconnect-soundcloud').length == 0 ) {
+  if( !$('.disconnect-soundcloud').exists() ) {
     var disconnect = clonable_a.clone();
     disconnect.attr('href','#').html('<img src="/images/disconnect-soundcloud.png" alt="Disconnect From SoundCloud" />').addClass('disconnect-soundcloud');	  
     $('.sc-username').after( disconnect );	
@@ -368,7 +389,7 @@ function receivedConnectionFromSoundCloud() {
     });
   }
 
-  if( $('.connect-soundcloud').length > 0 ) $('.connect-soundcloud').remove();
+  if( $('.connect-soundcloud').exists() ) $('.connect-soundcloud').remove();
 
   // Prep recorder 
   recordNewTrack();
@@ -656,6 +677,3 @@ $("input[type=submit]").click( function (e) {
 	}
 	
 });
-
-
-// });
