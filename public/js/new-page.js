@@ -307,11 +307,18 @@ function toggleSearchUpload( button ) {
   }
 }
 
-function checkForConnection() {
-  if( SC.isConnected() ) {
+function fetchUserInfo() {
+	var user_info;
 	SC.get('/me', function( me ){
-      $('.sc-username').text("Logged into SoundCloud as " + me.username);
+      user_info = "Logged into SoundCloud as " + me.username;
     });
+	return user_info;
+}
+
+function checkForConnection() {
+	
+  if( SC.isConnected() ) {
+	$('.sc-username').text( fetchUserInfo() );
     if( $('.disconnect-soundcloud').length == 0 ) {
       var disconnect = clonable_a.clone();
 	  disconnect.attr('href','#').html('<img src="/images/disconnect-soundcloud.png" alt="Disconnect From SoundCloud" />').addClass('disconnect-soundcloud');	  
@@ -321,8 +328,11 @@ function checkForConnection() {
       });
     }
     receivedConnectionFromSoundCloud();
+
   } else {
+	
 	initUploadSection();
+	
 	$('.sc-username').text("Not Logged Into SoundCloud");
 	if( $('.connect-soundcloud').length == 0 ) {
       var connect = clonable_a.clone();
@@ -346,9 +356,25 @@ function initUploadSection() {
 }
 
 function receivedConnectionFromSoundCloud() {
+	
+  $('.sc-username').text( fetchUserInfo() );
+
+  if( $('.disconnect-soundcloud').length == 0 ) {
+    var disconnect = clonable_a.clone();
+    disconnect.attr('href','#').html('<img src="/images/disconnect-soundcloud.png" alt="Disconnect From SoundCloud" />').addClass('disconnect-soundcloud');	  
+    $('.sc-username').after( disconnect );	
+    $('.disconnect-soundcloud').click( function(e) {
+      e.preventDefault();
+    });
+  }
+
+  if( $('.connect-soundcloud').length > 0 ) $('.connect-soundcloud').remove();
+
   // Prep recorder 
   recordNewTrack();
+
   user_results_count = 0;
+
   SC.get("/me/tracks", { limit: 10, streamable: true, sharing: "public", format: 'json' }, function(tracks){	
 	// console.log(tracks);
 	var html = "";
@@ -356,10 +382,10 @@ function receivedConnectionFromSoundCloud() {
 	html += parseResults(tracks);
 	html += '</div>' + "\n";
 	$('.upload-results').empty().scrollTop(0).append(html);
-	initUserTracksFunctionaity("initial");	
+	initUserTracksFunctionaity("initial");
   });
-}
 
+}
 function moreUserResults() {
   user_results_count++;
   SC.get("/me/tracks", { limit: 10, offset: (10 * user_results_count), streamable: true, sharing: "public" }, function(tracks){
@@ -557,8 +583,6 @@ function setRecorderUIState(state){
   // visibility of buttons is managed via CSS
   $("#recorderUI").attr("class", state + " clearfix");
 }
-
-
 
 var button_height = 630;
 var search_height = 630;
