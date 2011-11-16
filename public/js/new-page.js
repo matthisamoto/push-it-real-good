@@ -26,6 +26,21 @@ $.fn.exists = function() {
   }
 };
 
+$.fn.fetchUserInfo = function() {
+  var user_info;
+
+  if( SC.isConnected() ) {
+    SC.get('/me', function( me ){
+      user_info = "Logged into SoundCloud as " + me.username;
+    });
+  } else {
+	  user_info = "Not Logged Into SoundCloud"
+  }
+
+  this.text( user_info );
+
+  return this;
+}
 
 var container = $('<div>');
 
@@ -320,23 +335,13 @@ function toggleSearchUpload( button ) {
   }
 }
 
-function fetchUserInfo() {
-  var user_info;
-  if( SC.isConnected() ) {
-    SC.get('/me', function( me ){
-      user_info = "Logged into SoundCloud as " + me.username;
-    });
-  } else {
-	  user_info = "Not Logged Into SoundCloud"
-  }
-  return user_info;
-}
+
 
 function checkForConnection() {
 	
   if( SC.isConnected() ) {
 	
-	$('.sc-username').text( fetchUserInfo() );
+	$('.sc-username').fetchUserInfo();
 	
     if( !$('.disconnect-soundcloud').exists() ) {
       var disconnect = clonable_a.clone();
@@ -353,7 +358,7 @@ function checkForConnection() {
 	
 	initUploadSection();
 	
-	$('.sc-username').text( fetchUserInfo() );
+	$('.sc-username').fetchUserInfo();
 	
 	if( !$('.connect-soundcloud').exists() ) {
       var connect = clonable_a.clone();
@@ -378,7 +383,7 @@ function initUploadSection() {
 
 function receivedConnectionFromSoundCloud() {
 	
-  $('.sc-username').text( fetchUserInfo() );
+  $('.sc-username').fetchUserInfo();
 
   if( !$('.disconnect-soundcloud').exists() ) {
     var disconnect = clonable_a.clone();
