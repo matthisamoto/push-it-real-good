@@ -358,7 +358,7 @@ function receivedConnectionFromSoundCloud() {
   });
 }
 
-function moreResults() {
+function moreUserResults() {
   results_count++;
   SC.get("/me/tracks", { limit: 10, offset: (10 * results_count), streamable: true, sharing: "public" }, function(tracks){
 	  html = parseResults(tracks);
@@ -438,12 +438,12 @@ function initUserTracksFunctionaity(which) {
   if(which == "initial") {
     search_scroll = $('.scroll-pane').jScrollPane({ verticalDragMaxHeight: 25, verticalDragMinHeight: 25 }).data('jsp');
 	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
-      if(isAtBottom){ moreResults(); $(this).unbind("jsp-scroll-y") }
+      if(isAtBottom){ moreUserResults(); $(this).unbind("jsp-scroll-y") }
 	});
   } else {
 	search_scroll.reinitialise();
 	$('.scroll-pane').bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
-      if(isAtBottom){ moreResults(); $(this).unbind("jsp-scroll-y") }
+      if(isAtBottom){ moreUserResults(); $(this).unbind("jsp-scroll-y") }
 	});
   }
 }
