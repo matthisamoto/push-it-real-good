@@ -310,12 +310,14 @@ function checkForConnection() {
 	SC.get('/me', function( me ){
       $('.sc-username').text("Logged into SoundCloud as " + me.username);
     });
-    var disconnect = clonable_a.clone();
-	disconnect.attr('href','#').html('<img src="/images/disconnect-soundcloud.png" alt="Disconnect From SoundCloud" />').addClass('disconnect-soundcloud');	  
-    $('.sc-username').after( disconnect );	
-    $('.disconnect-soundcloud').click( function(e) {
-      e.preventDefault();
-    });
+    if( $('.disconnect-soundcloud').length == 0 ) {
+      var disconnect = clonable_a.clone();
+	  disconnect.attr('href','#').html('<img src="/images/disconnect-soundcloud.png" alt="Disconnect From SoundCloud" />').addClass('disconnect-soundcloud');	  
+      $('.sc-username').after( disconnect );	
+      $('.disconnect-soundcloud').click( function(e) {
+        e.preventDefault();
+      });
+    }
     receivedConnectionFromSoundCloud();
   } else {
 	initUploadSection();
