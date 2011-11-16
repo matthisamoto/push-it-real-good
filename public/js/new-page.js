@@ -27,18 +27,14 @@ $.fn.exists = function() {
 };
 
 $.fn.fetchUserInfo = function() {
-  var user_info;
-
+  var elem = this;
   if( SC.isConnected() ) {
     SC.get('/me', function( me ){
-      user_info = "Logged into SoundCloud as " + me.username;
+      elem.text( "Logged into SoundCloud as " + me.username );
     });
   } else {
-	  user_info = "Not Logged Into SoundCloud"
+	  elem.text( "Not Logged Into SoundCloud" );
   }
-
-  this.text( user_info );
-
   return this;
 }
 
