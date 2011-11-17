@@ -485,7 +485,7 @@ input#search {
 	margin-right:10px;
 	float: left;
 	border-radius: 8px;
-	background-color: #282625; }
+	background: url(/images/gray_tile.png) repeat-x transparent; }
 .search-terms .search-button img { vertical-align: middle; }
 input#search { float:left; }
 
@@ -497,8 +497,8 @@ input#search { float:left; }
 	display: block;
 	font-size: 200%;
 	cursor: pointer;
-	text-transform: uppercase;
-	cursor: none; }
+	text-transform: uppercase; }
+.track-name .x-out { margin-right:10px; }
 .track-name .added { color: #f14306; }
 .track {
 	width:97%;
@@ -533,7 +533,8 @@ input#search { float:left; }
 .continue-from-search { margin-top: 20px;}
 .close-results{ 
 	float: right; 
-	border-radius: 8px; }
+	border-radius: 8px;
+	background: url(/images/gray_tile.png) transparent repeat-x; }
 .select-track:link, .select-track:visited,.select-track:hover {
 	background: url(/images/gray_tile.png) repeat-x transparent; 
 	zoom: 1;
@@ -623,7 +624,7 @@ input#search { float:left; }
 #uploadStatus, #recorderUI label {
 	float: left;
 	text-transform: uppercase;
-	font-size: 150%; }
+	font-size: 160%; }
 #uploadStatus a:link,
 #uploadStatus a:visited { font-size: 100%; }
 .name-your-upload { margin: 0 10px; }
@@ -722,7 +723,7 @@ input[type=submit] {
 #page_tagline { width: 303px; }
 #page_signature { width: 383px;}
 .inputs {
-	margin-bottom:20px;
+	margin-bottom:10px;
 	text-transform: uppercase;
 	line-height: 30px;
 	text-align:center;

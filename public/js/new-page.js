@@ -207,8 +207,8 @@ function initSearchFunctionality(which) {
 	$("#page_track_author").val( $(this).parent().parent().find('.track_author').text() );
 	$("#page_track_author_url").val( $(this).parent().parent().find('.track_author').attr('href') );
 
-    $('.track-name').empty().css("background-color","#fff").css("background-color","rgba(255,255,255,0.60)").css('border','dashed 1px #282625').css("padding","5px 0").css("cursor","pointer").append("<span class=\"added\">Added track:</span> " + $(this).parent().parent().parent().find('span.track-title').text()).click( function(){ $('.track-name').empty().css("background-color","transparent").css("padding","0"); $('.id-container').empty(); });
-    toggleSections();
+    $('.track-name').empty().css("background-color","#fff").css("background-color","rgba(255,255,255,0.60)").css('border','dashed 1px #282625').css("padding","5px 0").append("<span class=\"added\"><img src=\"/images/x.png\" class=\"x-out\"/>Added track:</span> " + $(this).parent().parent().parent().find('span.track-title').text()).find('.x-out').css("cursor","pointer").click( function(){ $('.track-name').empty().css("background-color","transparent").css('border','none').css("padding","0"); $('.id-container').empty(); });
+    toggleSections( $('.button-header') );
   });
 
   if(which == "initial") {
@@ -446,8 +446,8 @@ function initUserTracksFunctionaity(which) {
 	$("#page_track_author").val( $(this).parent().parent().find('.track_author').text() );
 	$("#page_track_author_url").val( $(this).parent().parent().find('.track_author').attr('href') );
 		
-    $('.track-name').empty().css('background-color','#fff').css("background-color","rgba(255,255,255,0.60)").css('border','dashed 1px #282625').css("padding","5px 0").css("cursor","pointer").append("<span class=\"added\">Added track:</span> " + $(this).parent().parent().parent().find('span.track-title').text()).click( function(){ $('.track-name').empty().css("background-color","transparent").css("padding","0"); $('.id-container').empty(); });
-    toggleSections();
+    $('.track-name').empty().css("background-color","#fff").css("background-color","rgba(255,255,255,0.60)").css('border','dashed 1px #282625').css("padding","5px 0").append("<span class=\"added\"><img src=\"/images/x.png\" class=\"x-out\"/>Added track:</span> " + $(this).parent().parent().parent().find('span.track-title').text()).find('.x-out').css("cursor","pointer").click( function(){ $('.track-name').empty().css("background-color","transparent").css('border','none').css("padding","0"); $('.id-container').empty(); });
+    toggleSections( $('.button-header') );
   });
 
   if(which == "initial") {
@@ -579,16 +579,16 @@ function setRecorderUIState(state){
 function toggleSections( button ) {
   if ( !button.hasClass('active') ) {
     if( $('.search-tracks').height() > 0 ) {
-    $('.search-tracks').animate({ height: "0" }, 500);
-    $('.choose-button').animate({ height: button_height }, 500, function() { document.getElementById("page_title_url").focus(); } );
-    $('.button-header').css('background-image',"url(/images/orange_tile.png)").addClass('active');
-    $('.sound-header').css('background-image',"url(/images/gray_tile.png)").removeClass('active');
-  } else {
-    $('.search-tracks').animate({ height: search_height }, 500);
-    $('.choose-button').animate({ height: "0" }, 500);
-    $('.button-header').css('background-image',"url(/images/gray_tile.png)").removeClass('active');
-    $('.sound-header').css('background-image',"url(/images/orange_tile.png)").addClass('active');
-  }
+      $('.search-tracks').animate({ height: "0" }, 500);
+      $('.choose-button').animate({ height: button_height }, 500, function() { document.getElementById("page_title_url").focus(); } );
+      $('.button-header').css('background-image',"url(/images/orange_tile.png)").addClass('active');
+      $('.sound-header').css('background-image',"url(/images/gray_tile.png)").removeClass('active');
+    } else {
+      $('.search-tracks').animate({ height: search_height }, 500);
+      $('.choose-button').animate({ height: "0" }, 500);
+      $('.button-header').css('background-image',"url(/images/gray_tile.png)").removeClass('active');
+      $('.sound-header').css('background-image',"url(/images/orange_tile.png)").addClass('active');
+    }
   }
 }
 
