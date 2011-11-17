@@ -584,7 +584,7 @@ input#search { float:left; }
 /* Recording */
 #log-in {
 	position: absolute;
-	top: 50px;
+	top: 100px;
 	margin: 0 auto;
 	z-index: 1200;
 }

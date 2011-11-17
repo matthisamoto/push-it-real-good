@@ -337,6 +337,7 @@ function initUploadSection() {
   ifrm.style.width = 456+"px";
   ifrm.style.height = 510+"px"; 
   document.body.appendChild(ifrm);
+  ifrm.style.margin = "0 auto";
 
   /*
   SC.connect({
@@ -346,7 +347,6 @@ function initUploadSection() {
 	}
   });
   */
-
   
 }
 
