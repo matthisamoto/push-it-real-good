@@ -50,6 +50,7 @@ class PageController < ApplicationController
   def new
     @page = Page.new
     @options = Style.all.collect {|p| [ p.name.upcase, p.name.upcase ] }
+    @action = params['action'] 
     render :layout => 'application'
   end
   
