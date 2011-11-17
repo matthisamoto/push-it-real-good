@@ -305,9 +305,9 @@ function checkForConnection() {
 	  disconnect.attr('href','#').html('<img src="/images/disconnect-soundcloud.png" alt="Disconnect From SoundCloud" />').addClass('disconnect-soundcloud');	  
       $('.sc-username').after( disconnect );
       $('.disconnect-soundcloud').click( function(e) {
-        e.preventDefault();
 		SC.disconnect();
-		window.location = "http://pushitrealgood.com/page/new"
+		window.location = "http://pushitrealgood.com/page/new";
+		e.preventDefault();
       });
     }
 
