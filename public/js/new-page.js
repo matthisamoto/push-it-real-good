@@ -603,7 +603,13 @@ function toggleSections( button ) {
     }
   }
 }
-
+function getUrlVars() {
+	var vars = {};
+	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+		vars[key] = value;
+	});
+	return vars;
+}
 function toggleSearchUpload( button ) {
   if( !button.hasClass('active') ){
     if( $('.search-section').hasClass('hidden') ) {
@@ -634,7 +640,7 @@ if( $("body").hasClass('connect') ) {
 	//SC.initialize( { client_id: "8415d419022eb58d9e2b49997ad6b1ba" } );
     uri = new SC.URI( window.location.toString(), { decodeQuery: true, decodeFragment: true } );
     SC.accessToken( uri.fragment.access_token );
-	alert(uri.fragment.access_token);
+	alert( getUrlVars()["access_token"] );
 	// toggleSearchUpload( $('.upload-section-button') );
 }
 
