@@ -4,10 +4,10 @@
     <title>Connect with SoundCloud</title>
     <script src="http://connect.soundcloud.com/sdk.js" type="text/javascript"></script>
 	<script type="text/javascript">
-      SC.initialize({ client_id: "8415d419022eb58d9e2b49997ad6b1ba" });
-	  uri = new SC.URI( window.location.toString(), { decodeQuery: true, decodeFragment: true } )
+      SC.initialize( { client_id: "8415d419022eb58d9e2b49997ad6b1ba" }  );
+	  uri = new SC.URI( window.location.toString(), { decodeQuery: true, decodeFragment: true } );
 	  SC.accessToken( uri.fragment.access_token );
-	  window.location = "<%= root_path %>";
+	  window.location = "<%= root_path %>/page/new";
 	</script>
   </head>
   <body>
