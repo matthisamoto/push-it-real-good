@@ -639,9 +639,9 @@ function toggleSearchUpload( button ) {
 if( $("body").hasClass('connect') ) {
 	//SC.initialize( { client_id: "8415d419022eb58d9e2b49997ad6b1ba" } );
     uri = new SC.URI( window.location.toString(), { decodeQuery: true, decodeFragment: true } );
-    SC.accessToken( uri.fragment.access_token );
-	alert( getUrlVars()["access_token"] );
-	// toggleSearchUpload( $('.upload-section-button') );
+    SC.accessToken( getUrlVars()["access_token"] );
+	// alert( getUrlVars()["access_token"] );
+	toggleSearchUpload( $('.upload-section-button') );
 }
 
 var button_height = 630;
