@@ -4,15 +4,26 @@
     <title>Connect with SoundCloud</title>
     <script src="http://connect.soundcloud.com/sdk.js" type="text/javascript"></script>
 	<script type="text/javascript">
-      SC.initialize( { client_id: "8415d419022eb58d9e2b49997ad6b1ba" }  );
-	  uri = new SC.URI( window.location.toString(), { decodeQuery: true, decodeFragment: true } );
-	  SC.accessToken( uri.fragment.access_token );
-	  document.getElementById('connect').submit();
+	  function goToConnect() {
+        SC.initialize( { client_id: "8415d419022eb58d9e2b49997ad6b1ba" } );
+	    uri = new SC.URI( window.location.toString(), { decodeQuery: true, decodeFragment: true } );
+	    SC.accessToken( uri.fragment.access_token );
+		
+		frm = document.createElement("form"); 
+		frm.setAttribute("action", "http://pushitrealgood.com/page/new");
+		frm.setAttribute("id", "connect");
+		frm.setAttribute("method", "POST");
+		inpt = document.createElement("input");
+		inpt.setAttribute('name', 'action');
+		inpt.setAttribute('type', 'hidden');
+		document.body.appendChild(frm);
+		document.getElementById('connect').appendChild(inpt);
+		inpt.value = "connect";
+	    document.getElementById('connect').submit();
+	  }
+	  window.setTimeout( goToConnect , 1 );
 	</script>
   </head>
   <body>
-	<form method="post" action="http://pushitrealgood.com/page/new" id="connect" >
-	  <input type="hidden" value="connect" name="action" id="action"/>
-	</form>
   </body>
 </html>
