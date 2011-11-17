@@ -336,7 +336,7 @@ function initUploadSection() {
   ifrm.setAttribute("id", "log-in")
   ifrm.style.width = 456+"px";
   ifrm.style.height = 510+"px"; 
-  document.getElementById('content').prependChild(ifrm);
+  document.getElementById('content').appendChild(ifrm);
   ifrm.style.margin = "0 auto";
 
   /*
