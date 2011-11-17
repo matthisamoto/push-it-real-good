@@ -330,12 +330,24 @@ function checkForConnection() {
 }
 
 function initUploadSection() {
+	
+ifrm = document.createElement("IFRAME"); 
+ifrm.setAttribute("src", "http://developerfusion.com/"); 
+ifrm.setAttribute("id", "log-in")
+ifrm.style.width = 456+"px"; 
+ifrm.style.height = 510+"px"; 
+document.body.appendChild(ifrm);
+
+
+
+  /*
   SC.connect({
     redirect_uri: "http://pushitrealgood.com/connect",
     connected: function() { 
 	  receivedConnectionFromSoundCloud();
 	}
   });
+  */
 }
 
 function receivedConnectionFromSoundCloud() {
