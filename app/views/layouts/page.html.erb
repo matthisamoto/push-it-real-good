@@ -25,7 +25,7 @@
   <meta itemprop="image" content="http://pushitrealgood.com/images/<%= @page.button_url %>_half.png">
   <meta name="viewport" content="maximum-scale=1,user-scalable=yes,width=960" />
 </head>
-<body class="button-page <%= (iphone?) ? 'iphone' : '' %> <%= (android?) ? 'android' : '' %> <%= (ie?) ? 'ie' : '' %> <%= (@action) ? 'connect' %>">
+<body class="button-page <%= (iphone?) ? 'iphone' : '' %> <%= (android?) ? 'android' : '' %> <%= (ie?) ? 'ie' : '' %> <%= (@action) ? 'connect' : '' %>">
   <div class="wrapper">
     <div class="content" id="content">
       <%= yield %>
