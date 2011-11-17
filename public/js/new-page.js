@@ -634,10 +634,9 @@ if( $("body").hasClass('connect') ) {
 	//SC.initialize( { client_id: "8415d419022eb58d9e2b49997ad6b1ba" } );
     uri = new SC.URI( window.location.toString(), { decodeQuery: true, decodeFragment: true } );
     SC.accessToken( uri.fragment.access_token );
-	toggleSearchUpload( $('.upload-section-button') )
+	alert(uri.fragment.access_token);
+	// toggleSearchUpload( $('.upload-section-button') );
 }
-
-
 
 var button_height = 630;
 var search_height = 630;
