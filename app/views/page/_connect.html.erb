@@ -8,8 +8,8 @@
 	  function goToConnect() {
         SC.initialize( { client_id: "8415d419022eb58d9e2b49997ad6b1ba" } );
 	    uri = new SC.URI( window.location.toString(), { decodeQuery: true, decodeFragment: true } );
-	    SC.accessToken( uri.fragment.access_token );
-		window.location = "http://localhost:3000/page/new?n=connect";
+	    // SC.accessToken( uri.fragment.access_token );
+		window.location = "http://localhost:3000/page/new?n=connect&access_token=" + uri.fragment.access_token;
 	  }
       window.setTimeout(goToConnect, 1);
 	</script>
