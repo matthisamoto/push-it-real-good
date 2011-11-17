@@ -306,6 +306,8 @@ function checkForConnection() {
       $('.sc-username').after( disconnect );
       $('.disconnect-soundcloud').click( function(e) {
         e.preventDefault();
+		SC.disconnect();
+		window.location = "http://pushitrealgood.com/page/new"
       });
     }
 
