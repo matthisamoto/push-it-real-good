@@ -334,10 +334,7 @@ function initUploadSection() {
   ifrm = document.createElement("IFRAME"); 
   ifrm.setAttribute("src", "https://soundcloud.com/connect/?client_id=8415d419022eb58d9e2b49997ad6b1ba&redirect_uri=http://pushitrealgood.com/connect&response_type=token&scope=non-expiring&display=popup"); 
   ifrm.setAttribute("id", "log-in")
-  ifrm.style.width = 456+"px";
-  ifrm.style.height = 510+"px"; 
   document.getElementById('content').appendChild(ifrm);
-  ifrm.style.margin = "0 auto";
 
   /*
   SC.connect({
