@@ -105,6 +105,11 @@ function tally() {
 	count++;
 	$('.count-numbers .numbers').empty().append(count);
 	$('.count-numbers .numbers').css('width',$('.count-numbers .numbers').height());
+	if( count == 1 ) {
+	  $('.count-numbers .time').empty().append('Time');
+	} else {
+	  $('.count-numbers .time').empty().append('Times');
+	}
 }
 
 if( $("body").hasClass( "iphone" ) )

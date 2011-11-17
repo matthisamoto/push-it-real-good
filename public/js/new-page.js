@@ -163,12 +163,16 @@ function search_soundcloud() {
 	'/search',
 	{ q : search_term, limit: 10, offset: (10 * results_count), client_id : '72325d0b84c6a7f4bbef4dd86c0a5309', filter: 'streamable'},
 	function(data) {
-	  var html = "";
-	  html += '<div class="search scroll-pane">' + "\n";
-      html += data;
-	  html += '</div>' + "\n";
-      $('.search-results').empty().scrollTop(0).append(html);
-	  initSearchFunctionality("initial");
+	  if( !jQuery.isEmptyObject( data ) ) {
+	    var html = "";
+	    html += '<div class="search scroll-pane">' + "\n";
+        html += data;
+	    html += '</div>' + "\n";
+        $('.search-results').empty().scrollTop(0).append(html);
+	    initSearchFunctionality("initial");
+      } else {
+	    $('.search-results').empty().scrollTop(0).append( '<div class="nothing">No Tracks Found.</div>' )
+      }
     }, 'html'
   );
 
@@ -356,12 +360,16 @@ function receivedConnectionFromSoundCloud() {
 
   SC.get("/me/tracks", { limit: 10, streamable: true, sharing: "public", format: 'json' }, function(tracks){	
 	// console.log(tracks);
-	var html = "";
-	html += '<div class="search user-scroll-pane">' + "\n";
-	html += parseResults(tracks);
-	html += '</div>' + "\n";
-	$('.upload-results').empty().scrollTop(0).append(html);
-	initUserTracksFunctionaity("initial");
+	if( !jQuery.isEmptyObject( tracks ) ) {
+	  var html = "";
+	  html += '<div class="search user-scroll-pane">' + "\n";
+	  html += parseResults(tracks);
+	  html += '</div>' + "\n";
+	  $('.upload-results').empty().scrollTop(0).append( html );
+	  initUserTracksFunctionaity("initial");
+    } else {
+	  $('.upload-results').empty().scrollTop(0).append( '<div class="nothing">You do not have any tracks uploaded.</div>' );
+    }
   });
 
 }
@@ -568,17 +576,19 @@ function setRecorderUIState(state){
   $("#recorderUI").attr("class", state + " clearfix");
 }
 
-function toggleSections() {
-  if( $('.search-tracks').height() > 0 ) {
-	$('.search-tracks').animate({ height: "0" }, 500);
-	$('.choose-button').animate({ height: button_height }, 500, function() { document.getElementById("page_title_url").focus(); } );
-	$('.button-header').css('background-image',"url(/images/orange_tile.png)");
-	$('.sound-header').css('background-image',"url(/images/gray_tile.png)");
-  } else { 
+function toggleSections( button ) {
+  if ( !button.hasClass('active') ) {
+    if( $('.search-tracks').height() > 0 ) {
+    $('.search-tracks').animate({ height: "0" }, 500);
+    $('.choose-button').animate({ height: button_height }, 500, function() { document.getElementById("page_title_url").focus(); } );
+    $('.button-header').css('background-image',"url(/images/orange_tile.png)").addClass('active');
+    $('.sound-header').css('background-image',"url(/images/gray_tile.png)").removeClass('active');
+  } else {
     $('.search-tracks').animate({ height: search_height }, 500);
-	$('.choose-button').animate({ height: "0" }, 500);
-	$('.button-header').css('background-image',"url(/images/gray_tile.png)");
-	$('.sound-header').css('background-image',"url(/images/orange_tile.png)");
+    $('.choose-button').animate({ height: "0" }, 500);
+    $('.button-header').css('background-image',"url(/images/gray_tile.png)").removeClass('active');
+    $('.sound-header').css('background-image',"url(/images/orange_tile.png)").addClass('active');
+  }
   }
 }
 
@@ -618,10 +628,10 @@ $('.upload-section-button').click( function(e) { toggleSearchUpload( $(this) ) }
 $('.choose-button').css({ height: "0" });
 
 $('.button-header').click( function(e) {
-  toggleSections();
+  toggleSections( $(this) );
 });
 $('.sound-header').css('background-image',"url(/images/orange_tile.png)").click( function(e) {
-  toggleSections();
+  toggleSections( $(this) );
 });
 
 // Validation
