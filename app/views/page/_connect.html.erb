@@ -2,9 +2,12 @@
 <html lang="en">
   <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Connect with SoundCloud</title>
+    <script src="http://connect.soundcloud.com/sdk.js" type="text/javascript"></script>
 	<script type="text/javascript">
-	  // window.opener.setTimeout(window.opener.SC.connectCallback, 1);
-	  parent.getAccessToken( window.location.toString() )
+      SC.initialize({ client_id: "8415d419022eb58d9e2b49997ad6b1ba" });
+	  uri = new SC.URI( window.location.toString(), { decodeQuery: true, decodeFragment: true } )
+	  SC.accessToken( uri.fragment.access_token );
+	  window.location = "<%= root_path %>";
 	</script>
   </head>
   <body>
