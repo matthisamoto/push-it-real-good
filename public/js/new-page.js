@@ -630,6 +630,11 @@ function toggleSearchUpload( button ) {
     }
   }
 }
+if( $("body").hasClass('connect') ) {
+	toggleSearchUpload( $('.upload-section-button') )
+}
+
+
 
 var button_height = 630;
 var search_height = 630;
