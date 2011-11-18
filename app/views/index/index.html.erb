@@ -37,10 +37,80 @@
     </div>
 
   </div>
+  <div class="example">
+    
+    <div class="example-button">
+	  <div class="push-it" id="push-it">
+	    <a href="#" class="play no-underline" style="visibility: hidden;"><img src="/images/<%= @most_recent.button_url %>.png" alt="Button" class ="push-button" /></a>
+	  </div>
+	  <p class="featured-title clearfix">Most Recent: <%= link_to @most_recent.title_url, "/page/#{@most_recent.title_url}" %></p>
+    </div>
 
-  <div class="create-bar clearfix">
-    <a href="/page/new" class="create-link"><span class="inner"></span></a>
-    <a href="/gallery" class="gallery-link"><span class="inner">or Peep the Gallery</span></a>
+    <div class="create-bar clearfix">
+      <a href="/page/new" class="create-link"><span class="inner"></span></a>
+      <a href="/gallery" class="gallery-link"><span class="inner">or Peep the Gallery</span></a>
+    </div>
   </div>
-
 </div>
+
+<script type="text/javascript">
+
+var count = <%= @most_recent.pushes %>;
+function prepNonFlash() {
+  var clip = document.createElement('audio');
+  clip.src = "<%= @most_recent.sound_url %>?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
+  clip.load();
+  clip.autobuffer = true;
+  clip.preload = 'auto';
+  $('.push-it').append(clip);
+  $('.play').click( function(e) {
+	e.preventDefault();
+	clip.src = clip.src;
+	clip.play();
+	tally();
+  });
+  $('.play').mousedown( function(e) {
+	e.preventDefault();
+	$(this).find('img').css("margin-left","-250px");
+  });
+  $('.play').mouseup( function(e) {
+	e.preventDefault();
+	$(this).find('img').css("margin-left","0");
+  });
+  $('.play').css('visibility','visible');
+}
+
+function prepFlash () {
+  var swfVersionStr = "10.0.0";
+  var xiSwfUrlStr = "playerProductInstall.swf";
+  var flashvars = {};
+  flashvars.streamURL = "<%= @most_recent.sound_url %>?client_id=72325d0b84c6a7f4bbef4dd86c0a5309";
+  flashvars.imageURL = "/images/<%= @most_recent.button_url %>.png";
+  flashvars.pageID = "<%= @most_recent.title_url %>"
+  var params = {};
+  params.quality = "best";
+  params.wmode = "transparent";
+  var attributes = {};
+  swfobject.embedSWF("/swf/soundPlayer.swf", "push-it","250", "250", swfVersionStr, xiSwfUrlStr, flashvars, params, attributes);
+  if( !$('body').hasClass('ie') ) document.getElementById("push-it").focus();
+}
+
+function tally() {
+	count++;
+	$('.count-numbers .numbers').empty().append(count);
+	$('.count-numbers .numbers').css('width',$('.count-numbers .numbers').height());
+	if( count == 1 ) {
+	  $('.count-numbers .time').empty().append('Time');
+	} else {
+	  $('.count-numbers .time').empty().append('Times');
+	}
+}
+
+if( $("body").hasClass( "iphone" ) )
+{
+	prepNonFlash();
+} else {
+	prepFlash();
+}
+
+</script>

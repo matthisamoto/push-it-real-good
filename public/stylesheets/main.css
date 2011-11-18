@@ -71,7 +71,7 @@ td { padding: 5px 10px; }
 	width: 960px;
 	text-align: left;
 	margin: 0 auto;
-	padding: 60px 0;
+	padding: 30px 0;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
@@ -126,11 +126,20 @@ td { padding: 5px 10px; }
 	width: 80px;
 	height: 145px;
 	background: url(/images/arrow.png) no-repeat center transparent; }
+.example {
+	display:block;
+	text-align: center;
+}
+.example p {
+	font-size: 160%;
+	text-transform: uppercase;
+}
 .create-bar {
 	display:block;
+	float: right;
 	width:400px;
-	margin: 80px auto 60px auto;
-	margin-top:80px; }
+	margin: 110px 100px 60px 0; }
+.example-button { float: left; margin-left: 100px; }
 .create-bar div {
 	color:#f14306;
 	text-align:center;
