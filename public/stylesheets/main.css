@@ -149,6 +149,16 @@ a.create-link .inner {
 a.create-link:hover	{
 	color:#282625;
 	background-color:#f14306; }
+a.gallery-link .inner { 
+	display: block;
+	width: 400px;
+	padding-top: 10px;
+	text-align: center; }
+a.gallery-link:link,
+a.gallery-link:visited {
+	color: #282625; }
+a.gallery-link:hover {
+	color:#f14306; }
 .powered-by {
 	float:right;
 	margin-right: 40px;
